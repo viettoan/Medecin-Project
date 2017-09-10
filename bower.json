@@ -1,0 +1,24 @@
+{
+  "name": "bower",
+  "description": "tranvanmy",
+  "main": "tranvanmy",
+  "authors": [
+    "tranvanmy"
+  ],
+  "license": "ok",
+  "keywords": [
+    "tranvanmy"
+  ],
+  "homepage": "ok",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "boostrap#^3.3.7"
+  }
+}
