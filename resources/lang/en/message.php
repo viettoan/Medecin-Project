@@ -13,4 +13,11 @@ return [
     'manage_user' => 'Manage User',
     'medicine' => 'Medicine',
     'logout' => 'Logout',
+    'edit' => 'Edit',
+    'close' => 'Close',
+    'info_user' => 'Info User',
+    'gender' => 'Gender',
+    'permission' => 'Permission',
+    'customer' => 'Customer',
+    'age' => 'Age',
 ];
