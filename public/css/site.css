@@ -1,0 +1,160 @@
+/*nav bar*/
+#logo {
+  height:50px;
+  float:left;
+
+}
+.fixed-navbar {
+  margin:0 auto;
+}
+@media only screen and (min-width: 1024px) {
+    .nav-bar {
+      padding-left: 300px;
+    }
+}
+.nav-bar  {
+   text-align: center;
+}
+.nav-bar ul li a{
+  border-radius: 25px;
+
+}
+.nav-bar ul li a:hover{
+  background: #007455;
+  border-radius: 25px;
+  transition: 0.2s;
+  color: white!important;
+}
+
+/*slider header*/
+
+.slide-header{
+  height:700px;
+  width:100%;
+}
+
+
+/*main slide*/
+.main-slide {
+  margin-top: 50px;
+  padding: 100px;
+  background-image: url('../images/background-1.png');
+  background-attachment: fixed;
+}
+.main-slide > div {
+  /*background: green;*/
+}
+
+.main-slide h2.text-center {
+  color:white;
+  border-bottom: 2px solid white;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.main-slide  > div {
+
+  border-bottom: 2px solid white;
+  padding-bottom: 20px;
+}
+
+.main-slide h4{
+ background: black;
+}
+/*tat button next prev*/
+.owl-prev{
+  display: none;
+}
+.owl-next{
+  display: none;
+}
+
+.main-slide h4:hover{
+
+}
+.main-slide img {
+  height:250px;
+}
+.main-slide div.info {
+  color:white;
+  background-color: rgba(32,131,104,.9);
+}
+
+/*tien ich*/
+
+.utility {
+  margin-top: 50px;
+}
+.line {
+  margin-bottom: 25px;
+  border-top: 1px solid #b2b2b2;
+  margin-top: -15px;
+  height:1px;
+  width:100%;
+}
+.topic-name{
+  overflow: hidden;
+ border-bottom:  2px solid #007455;
+padding-bottom: 10px;
+display: inline-block;
+}
+.wow .box i {
+  background-color: #4ACCD1;
+  padding: 20px;
+  border-radius: 50px;
+}
+
+.wow > .box > h4 {
+  margin-top: 10px;
+  margin-bottom: 30px
+
+}
+
+/*video and contact*/
+.contact form input::placeholder {
+  font-size: 0.8em;
+  color:#9E9E9E;
+}
+.contact form textarea::placeholder {
+  font-size: 0.8em;
+  color:#9E9E9E;
+}
+
+/*news*/
+
+section.news {
+  margin-top: 20px;
+}
+.row-item {
+padding: 10px;
+}
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+.row-item h5 {
+  color: #337ab7;
+}
+/*//footer*/
+
+footer {
+  margin-top: 20px;
+  background: #1E824C;
+  color:white;
+  font-family: Arial,tahoma,arial,Helvetica;
+}
+footer ul {
+  list-style-type: none;
+  font-size: 15px;
+}
+#facebook {
+  width:100%;
+}
+#google-map {
+  width:100%;
+}
