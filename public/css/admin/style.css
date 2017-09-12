@@ -5,7 +5,7 @@ a:hover {
     text-decoration: none;
 }
 i {
-    padding: 0px 5px;
+    padding: 0px 3px;
 }
 /*********************************************/
 /*               NAVIGATION                  */
@@ -152,7 +152,13 @@ nav .user-setting .menu{
 .content-admin table tbody th img{
     max-height: 200px;
 }
-.content-admin table tbody th a{
-    margin: 5px;
-    display: block;
+.content-admin .image-user {
+    border-right: 1px solid #cccccc; 
+    padding-left: 30px;
+    padding-top: 20px;
 }
+.content-admin .info-user {
+    margin-top: 30px;
+    padding-right: 50px;
+}
+
