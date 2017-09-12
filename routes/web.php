@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
+    return view('admin.users.list_user');
+});
+Route::get('/index', function () {
     return view('index');
 });
