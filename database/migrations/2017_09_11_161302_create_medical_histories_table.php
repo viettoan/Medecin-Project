@@ -18,6 +18,7 @@ class CreateMedicalHistoriesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('medical_examination')->unsigned();
             $table->string('content');
+            $table->integer('status')->unsigned()->nullable()->default(0);
             $table->timestamps();
         });
     }

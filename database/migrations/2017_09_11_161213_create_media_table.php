@@ -19,6 +19,7 @@ class CreateMediaTable extends Migration
             $table->integer('medical_history_id')->unsigned();
             $table->string('type', 255);
             $table->longText('description')->nullable();
+            $table->integer('status')->unsigned()->nullable()->default(0);
             $table->timestamps();
         });
     }

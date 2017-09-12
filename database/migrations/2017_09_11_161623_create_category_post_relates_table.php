@@ -17,6 +17,7 @@ class CreateCategoryPostRelatesTable extends Migration
             $table->increments('id');
             $table->integer('category_id')->unsigned();
             $table->integer('post_id')->unsigned();
+            $table->integer('status')->unsigned()->nullable()->default(0);
             $table->timestamps();
         });
     }
