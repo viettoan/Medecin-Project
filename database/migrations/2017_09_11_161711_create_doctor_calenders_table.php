@@ -20,6 +20,7 @@ class CreateDoctorCalendersTable extends Migration
             $table->integer('morning')->unsigned()->default(0);
             $table->integer('afternoon')->unsigned()->default(0);
             $table->integer('night')->unsigned()->default(0);
+            $table->integer('status')->unsigned()->nullable()->default(0);
             $table->timestamps();
         });
     }
