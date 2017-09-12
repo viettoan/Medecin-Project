@@ -1,0 +1,38 @@
+@extends('sites.master')
+@section('content')
+  @include('sites._include.navbar')
+  @include('sites._include.slide')
+  @include('sites._include.main-slide')
+  @include('sites._include.utility')
+  @include('sites._include.video-contact')
+  @include('sites._include.news')
+  @include('sites._include.footer')
+@endsection
+
+@section('script')
+<script>
+$('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    responsiveClass:true,
+    autoplay:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:3,
+            nav:false
+        },
+        1000:{
+            items:5,
+            nav:true,
+            loop:false
+        }
+    }
+})
+$('.owl-prev').css('display','none');
+$('.owl-next').css('display','none');
+</script>
+@endsection
