@@ -1,0 +1,19 @@
+
+/*//footer*/
+
+footer {
+  margin-top: 50px;
+  background: #1E824C;
+  color:white;
+  font-family: Arial,tahoma,arial,Helvetica;
+}
+footer ul {
+  list-style-type: none;
+  font-size: 15px;
+}
+#facebook {
+  width:100%;
+}
+#google-map {
+  width:100%;
+}
