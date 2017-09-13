@@ -11,6 +11,8 @@ return [
     'dashboard' => 'DASHBOARD',
     'component' => 'COMPONENT',
     'manage_user' => 'Manage User',
+    'new_user' => 'New User',
+    'edit_user' => 'Edit User',
     'medicine' => 'Medicine',
     'logout' => 'Logout',
     'edit' => 'Edit',
@@ -20,4 +22,7 @@ return [
     'permission' => 'Permission',
     'customer' => 'Customer',
     'age' => 'Age',
+    'add' => 'Add',
+    'male' => 'Male',
+    'female' => 'Female',
 ];

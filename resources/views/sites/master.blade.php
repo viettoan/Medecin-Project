@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Jon Snow</title>
-    {{-- <title>@yield('siteTitle')</title> --}}
+    <title>@yield('siteTitle')</title>
     <base href='{{ asset('') }}'>
     <link rel="shortcut icon" href="favicon.ico">
     {{ Html::style('bower/components-font-awesome/css/font-awesome.min.css') }}
