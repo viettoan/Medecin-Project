@@ -17,7 +17,7 @@
         </li>
         <p class="text-center">{{ trans('message.component') }}</p>
         <li>
-            <a routerLink="users">
+            <a href="{{ route('user.index') }}">
                 <i class="fa fa-dashboard fa-fw"></i>
                 {{ trans('message.manage_user') }}
             </a>
