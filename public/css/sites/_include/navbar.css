@@ -1,0 +1,27 @@
+/*nav bar*/
+#logo {
+  height:50px;
+  float:left;
+
+}
+.fixed-navbar {
+  margin:0 auto;
+}
+@media only screen and (min-width: 1024px) {
+    .nav-bar {
+      padding-left: 300px;
+    }
+}
+.nav-bar  {
+   text-align: center;
+}
+.nav-bar ul li a{
+  border-radius: 25px;
+
+}
+.nav-bar ul li a:hover{
+  background: #007455;
+  border-radius: 25px;
+  transition: 0.2s;
+  color: white!important;
+}

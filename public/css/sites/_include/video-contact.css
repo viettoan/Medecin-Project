@@ -1,0 +1,9 @@
+/*video and contact*/
+.contact form input::placeholder {
+  font-size: 0.8em;
+  color:#9E9E9E;
+}
+.contact form textarea::placeholder {
+  font-size: 0.8em;
+  color:#9E9E9E;
+}

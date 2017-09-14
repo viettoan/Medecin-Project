@@ -11,8 +11,6 @@
     {{ Html::style('bower/bootstrap/dist/css/bootstrap.min.css') }}
     {{ Html::style('bower/owl.carousel/dist/assets/owl.carousel.min.css') }}
     {{ Html::style('bower/owl.carousel/dist/assets/owl.theme.default.min.css') }}
-    {{ Html::style('css/style.css') }}
-    {{ Html::style('css/site.css') }}
     @yield('style')
 </head>
 <body>

@@ -12,7 +12,7 @@
             <div class="row-item row">
                 <div class="col-md-4 col-lg-3">
                     <a href="detail.html">
-                        <img width="200px" height="200px" class="img-responsive" src="images/news-ip8.jpg" alt="">
+                        <img  class="img-responsive img-post img-thumbnail" src="images/news-ip8.jpg" alt="">
                     </a>
                 </div>
                 <div class="col-md-8 col-lg-9">
@@ -28,7 +28,7 @@
             <div class="row-item row">
                 <div class="col-md-4 col-lg-3">
                     <a href="detail.html">
-                        <img width="200px" height="200px" class="img-responsive" src="images/news-ip8.jpg" alt="">
+                        <img  class="img-responsive img-post img-thumbnail" src="images/news-ip8.jpg" alt="">
                     </a>
                 </div>
                 <div class="col-md-8 col-lg-9">
@@ -43,7 +43,7 @@
             <div class="row-item row">
                 <div class="col-md-4 col-lg-3">
                     <a href="detail.html">
-                        <img width="200px" height="200px" class="img-responsive" src="images/news-ip8.jpg" alt="">
+                        <img  class="img-responsive img-post img-thumbnail" src="images/news-ip8.jpg" alt="">
                     </a>
                 </div>
                 <div class="col-md-8 col-lg-9">
