@@ -8,7 +8,7 @@
         </div>
         <div class="panel-body">
             <div class="col-md-12 admin-actions">
-                <button type="button" class="btn btn-success col-md-2">{{ trans('message.new_user') }}</button>
+                <a href="{{ route('user.create') }}" class="btn btn-success col-md-2">{{ trans('message.new_user') }}</a>
                 <form role="form" class="col-md-5">
                     <div class="form-group">
                         <input type="email" class="form-control" placeholder="Enter user">
@@ -33,7 +33,7 @@
                         <th class="col-md-3">viettoan290696@gmail.com</th>
                         <th class="col-md-1">
                             <a data-toggle="modal" data-target="#infoUser"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                            <a><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            <a href="{{ route('user.edit', ['id' => 1]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                             <a><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a>
                         </th>
                     </tr>
@@ -58,7 +58,7 @@
                                 <i class="fa fa-leaf" aria-hidden="true"></i>
                                 Viet Toan
                                 </h3>
-                                <a class="btn btn-primary btn-block"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>{{ trans('message.edit') }}</a>
+                                <a class="btn btn-primary btn-block" href="{{ route('user.edit', ['id' => 1]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>{{ trans('message.edit') }}</a>
                             </div>
                         </div>
                     </div>

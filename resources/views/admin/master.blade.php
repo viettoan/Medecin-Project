@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Admin</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    {{ Html::style('bower/bootstrap/dist/css/bootstrap.css') }}
+    {{ Html::style('bower/components-font-awesome/css/font-awesome.min.css') }}
+    {!! Html::style('css/app.css') !!}
     {{ Html::style('css/admin/style.css') }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="wrapper">
@@ -17,6 +17,7 @@
     </div>
    
     {{ Html::script('bower/jquery/dist/jquery.min.js') }}
-    {{ Html::script('bower/bootstrap/dist/js/bootstrap.min.js') }}
+    {!! Html::script('js/app.js') !!}
+    {{ Html::script('bower/owl.carousel/docs/assets/owlcarousel/owl.carousel.min.js') }}
 </body>
 </html>

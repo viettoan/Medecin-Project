@@ -11,8 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('admin.users.list_user');
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
+    Route::get('/', function () {
+        return view('admin.master');
+    });
+
+    Route::resource('user', 'UserController');
+    Route::resource('patient', 'PatientController');
 });
 Route::get('/index', function () {
     return view('index');

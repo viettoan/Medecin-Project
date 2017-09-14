@@ -17,9 +17,15 @@
         </li>
         <p class="text-center">{{ trans('message.component') }}</p>
         <li>
-            <a routerLink="users">
+            <a href="{{ route('user.index') }}">
                 <i class="fa fa-dashboard fa-fw"></i>
-                {{ trans('message.manage_user') }}
+                {{ trans('message.manage_users') }}
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('patient.index') }}">
+                <i class="fa fa-dashboard fa-fw"></i>
+                {{ trans('message.manage_patients') }}
             </a>
         </li>
     </ul>
