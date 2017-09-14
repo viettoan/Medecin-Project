@@ -18,4 +18,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     });
 
     Route::resource('user', 'UserController');
+    Route::resource('patient', 'PatientController');
 });
