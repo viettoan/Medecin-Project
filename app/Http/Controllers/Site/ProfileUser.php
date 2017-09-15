@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class ProfileUser extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.users.index');
+       return view('sites._components.profileUser');
     }
 
     /**
@@ -24,7 +24,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.add_user');
+        //
     }
 
     /**
@@ -57,7 +57,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.users.edit_user');
+        //
     }
 
     /**

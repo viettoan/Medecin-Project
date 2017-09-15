@@ -11,11 +11,21 @@
 |
 */
 
-
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
-    Route::get('/', function () {
-        return view('admin.master');
-    });
-
-    Route::resource('user', 'UserController');
+Route::get('/', function () {
+	return view('index');
 });
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
+	Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
+	    Route::get('/', function () {
+	        return view('admin.master');
+	    });
+    Route::resource('user', 'UserController');
+    Route::resource('patient', 'PatientController');
+});
+
+Route::group(['prefix' => 'site', 'as' => 'site', 'namespace' => 'Site'], function () {
+    Route::resource('profileUser', 'ProfileUser');
+});
+

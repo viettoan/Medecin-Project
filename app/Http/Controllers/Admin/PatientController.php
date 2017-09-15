@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class PatientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.users.index');
+        return view('admin.patients.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.add_user');
+        return view('admin.patients.add_patient');
     }
 
     /**
@@ -46,7 +46,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.patients.detail');
     }
 
     /**
@@ -57,7 +57,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.users.edit_user');
+        return view('admin.patients.edit_patient');
     }
 
     /**

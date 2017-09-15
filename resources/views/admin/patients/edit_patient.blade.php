@@ -4,7 +4,7 @@
 <div class="content-admin">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h2>{{ trans('message.edit_user') }}</h2>
+            <h2>{{ trans('message.edit_patient') }}</h2>
         </div>
         <div class="panel-body">
             <form method = "post" enctype="multipart/form-data">

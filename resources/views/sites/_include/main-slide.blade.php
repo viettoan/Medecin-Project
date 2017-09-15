@@ -1,7 +1,5 @@
 
 <div class='container-fluid' >
-
-
          <div class="main-slide">
             <h2 class="text-center">CHUYÊN KHOA UY TÍN</h2>
              <div class="owl-carousel owl-theme">

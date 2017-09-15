@@ -7,19 +7,11 @@
             <h2>{{ trans('message.new_user') }}</h2>
         </div>
         <div class="panel-body">
-            {!! Form::open([
-                'method' => 'post',
-                'route' => 'user.store',
-                'enctype' => 'multipart/form-data',
-            ]) !!}
+            <form method = "post" enctype="multipart/form-data">
                 <div class="form-group">
-                    {!! Form::label('name', trans('message.name')) !!}
+                    <label>{{ trans('message.name') }}</label>
                     <div>
-                        {!! Form::text('name', null, [
-                            'placeholder' => 'User Name',
-                            'class' => 'form-control',
-                            'required' => 'required',
-                        ]) !!}
+                        <input type="text" name="name" placeholder="User Name" class="form-control" required=""> 
                         @if ($errors->has('name'))
                             <span class="help-block">
                                  <strong>{{ $errors->first('name') }}</strong>
@@ -28,12 +20,8 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('email', trans('message.email')) !!}
-                    {!! Form::email('email', null, [
-                        'placeholder' => 'Enter Email',
-                        'class' => 'form-control',
-                        'required' => 'required',
-                    ]) !!}
+                    <label>{{ trans('message.email') }}</label>
+                    <input type="email" name="email" placeholder="Enter your email" class="form-control" required>
                     @if ($errors->has('email'))
                         <span class="help-block">
                             <strong>{{ $errors->first('email') }}</strong>
@@ -41,13 +29,8 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    {!! Form::label('password', trans('message.password')) !!}
-                    {!! Form::password('password',[
-                        'placeholder' => 'Password',
-                        'class' => 'form-control',
-                        'id' => 'password',
-                        'required' => 'required',
-                    ]) !!}
+                    <label>{{ trans('message.password') }}</label>
+                    <input type="password" name="password" class="form-control" required>
                     @if ($errors->has('password'))
                         <span class="help-block">
                             <strong>{{ $errors->first('password') }}</strong>
@@ -55,13 +38,9 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    {!! Form::label('address', trans('message.address')) !!}
+                    <label>{{ trans('message.address') }}</label>
                     <div>
-                        {!! Form::text('address', null, [
-                            'placeholder' => 'Address',
-                            'class' => 'form-control',
-                            'required' => 'required',
-                        ]) !!}
+                        <input type="text" name="address" placeholder="Address" class="form-control" required>
                         @if ($errors->has('address'))
                             <span class="help-block">
                                  <strong>{{ $errors->first('address') }}</strong>
@@ -70,13 +49,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('phone', trans('message.phone')) !!}
+                    <label>{{ trans('message.phone') }}</label>
                     <div>
-                        {!! Form::text('phone', null, [
-                            'placeholder' => 'Phone',
-                            'class' => 'form-control',
-                            'required' => 'required',
-                        ]) !!}
+                        <input type="text" name="phone" placeholder="Phone" class="form-control" required>
                         @if ($errors->has('phone'))
                             <span class="help-block">
                                  <strong>{{ $errors->first('phone') }}</strong>
@@ -85,13 +60,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('Age', trans('message.age')) !!}
+                    <label>{{ trans('message.age') }}</label>
                     <div>
-                        {!! Form::number('age', null, [
-                            'placeholder' => 'Age',
-                            'class' => 'form-control',
-                            'required' => 'required',
-                        ]) !!}
+                        <input type="number" name="age" placeholder="Age" class="form-control" required>
                         @if ($errors->has('age'))
                             <span class="help-block">
                                  <strong>{{ $errors->first('age') }}</strong>
@@ -100,20 +71,20 @@
                     </div>
                 </div>
                 <div>
-                    {!! Form::label('gender', trans('message.gender')) !!}
+                    <label>{{ trans('message.gender') }}</label>
                     <div class="radio">
                         <label>
-                            {!! Form::radio('gender', config('custom.male'), true) !!}{{ trans('message.male') }}
+                            <input type="radio" name="gender" value="1" checked="checked">{{ trans('message.male') }}
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                        {!! Form::radio('gender', config('custom.female')) !!}{{ trans('message.female') }}
+                        <input type="radio" name="gender" value="0">{{ trans('message.female') }}
                         </label>
                     </div>
                 </div>
-                {!! Form::submit(trans('message.add'), ['class' => 'btn btn-default']); !!}
-            {!! Form::close() !!}
+                <button type="submit" class="btn btn-default">{{ trans('message.add') }}</button>
+            </form>
         </div>  
     </div>
 </div>
