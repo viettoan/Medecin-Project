@@ -1,0 +1,9 @@
+.inforprofile {
+      background: #eee;
+      box-shadow: 100px 5px 5px #666;
+      -moz-box-shadow: 10px 10px 10px #666;
+      -webkit-box-shadow: 10px 10px 10px #666;
+      margin-right: -10px;
+      padding: 5px;
+      border-radius: 10px;
+}
