@@ -24,6 +24,15 @@ Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('user', 'UserController');
     Route::resource('patient', 'PatientController');
 });
+Route::get('/index', function () {
+    return view('index');
+});
+Route::get('/gioithieu', function () {
+    return view('sites.gioithieu.index');
+});
+Route::get('/chuyenkhoa', function () {
+    return view('sites.chuyenkhoa.index');
+});
 
 Route::group(['prefix' => 'site', 'as' => 'site', 'namespace' => 'Site'], function () {
     Route::resource('profileUser', 'ProfileUser');

@@ -8,6 +8,15 @@
   @include('sites._include.news')
   @include('sites._include.footer')
 @endsection
+@section('style')
+ {{ Html::style('css/sites/_include/navbar.css') }}
+ {{ Html::style('css/sites/_include/slider.css') }}
+ {{ Html::style('css/sites/_include/mainslide.css') }}
+ {{ Html::style('css/sites/_include/tienich.css') }}
+ {{ Html::style('css/sites/_include/video-contact.css') }}
+ {{ Html::style('css/sites/_include/news.css') }}
+ {{ Html::style('css/sites/_include/footer.css') }}
+@endsection
 
 @section('script')
 <script>
