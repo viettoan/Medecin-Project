@@ -11,12 +11,16 @@
 |
 */
 
+Route::get('/', function () {
+	return view('index');
+});
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
-    Route::get('/', function () {
-        return view('admin.master');
-    });
-
+	Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
+	    Route::get('/', function () {
+	        return view('admin.master');
+	    });
     Route::resource('user', 'UserController');
     Route::resource('patient', 'PatientController');
 });
@@ -29,3 +33,8 @@ Route::get('/gioithieu', function () {
 Route::get('/chuyenkhoa', function () {
     return view('sites.chuyenkhoa.index');
 });
+
+Route::group(['prefix' => 'site', 'as' => 'site', 'namespace' => 'Site'], function () {
+    Route::resource('profileUser', 'ProfileUser');
+});
+

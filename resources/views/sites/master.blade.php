@@ -7,6 +7,8 @@
     <title>@yield('siteTitle')</title>
     <base href='{{ asset('') }}'>
     <link rel="shortcut icon" href="favicon.ico">
+    {{ Html::style('bower/font-awesome/css/font-awesome.min.css') }}
+    {{ Html::style('bower/hover/css/hover-min.css') }}
     {{ Html::style('bower/components-font-awesome/css/font-awesome.min.css') }}
     {{ Html::style('bower/bootstrap/dist/css/bootstrap.min.css') }}
     {{ Html::style('bower/owl.carousel/dist/assets/owl.carousel.min.css') }}
