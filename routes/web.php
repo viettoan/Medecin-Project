@@ -23,6 +23,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 	    });
     Route::resource('user', 'UserController');
     Route::resource('patient', 'PatientController');
+    Route::resource('contact', 'ContactController');
+    Route::resource('category', 'CategoryController');
+    Route::resource('post', 'PostController');
 });
 Route::get('/index', function () {
     return view('index');

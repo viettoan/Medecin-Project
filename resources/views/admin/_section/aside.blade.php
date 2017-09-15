@@ -28,5 +28,11 @@
                 {{ trans('message.manage_patients') }}
             </a>
         </li>
+        <li>
+            <a href="{{ route('contact.index') }}">
+                <i class="fa fa-dashboard fa-fw"></i>
+                {{ trans('message.manage_contact') }}
+            </a>
+        </li>
     </ul>
 </div>
