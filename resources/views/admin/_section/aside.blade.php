@@ -34,5 +34,17 @@
                 {{ trans('message.manage_contact') }}
             </a>
         </li>
+        <li>
+            <a href="{{ route('category.index') }}">
+                <i class="fa fa-dashboard fa-fw"></i>
+                {{ trans('message.manage_category') }}
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('post.index') }}">
+                <i class="fa fa-dashboard fa-fw"></i>
+                {{ trans('message.manage_post') }}
+            </a>
+        </li>
     </ul>
 </div>
