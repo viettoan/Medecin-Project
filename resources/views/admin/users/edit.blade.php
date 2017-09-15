@@ -83,7 +83,7 @@
                         </label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-default">{{ trans('message.edit') }}</button>
+                <button type="submit" class="btn btn-default">{{ trans('message.add') }}</button>
             </form>
         </div>  
     </div>

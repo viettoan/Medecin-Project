@@ -33,4 +33,11 @@ return [
     'female' => 'Female',
     'address' => 'Address',
     'password' => 'Password',
+    'content' => 'Content',
+    'status' => 'Status',
+    'pending' => 'Pending',
+    'replied' => 'Replied',
+    'manage_contact' => 'Manage Contact',
+    'detail_contact' => 'Detail Contact',
+    'contacts' => 'Contacts',
 ];
