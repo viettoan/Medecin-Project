@@ -11,7 +11,7 @@
   <div class="collapse navbar-collapse nav-right nav-bar " id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item text-center">
-        <a class="nav-link" href="#">TRANG CHỦ</a>
+        <a class="nav-link" href="/index">TRANG CHỦ</a>
       </li>
       <li class="nav-item text-center">
         <a class="nav-link" href="{{ url('/gioithieu') }}">GIỚI THIỆU</a>
@@ -23,7 +23,7 @@
         <a class="nav-link" href="{{ url('/chuyenkhoa') }}">TIN TỨC</a>
       </li>
        <li class="nav-item text-center">
-        <a class="nav-link" href="#">LIÊN HỆ</a>
+        <a class="nav-link" href="lienhe">LIÊN HỆ</a>
       </li>
        <li class="nav-item text-center">
         <a class="nav-link" href="login">ĐĂNG NHẬP</a>
@@ -35,4 +35,3 @@
   </div>
 </nav>
 </div>
-
