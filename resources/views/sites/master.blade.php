@@ -7,10 +7,12 @@
     <title>@yield('siteTitle')</title>
     <base href='{{ asset('') }}'>
     <link rel="shortcut icon" href="favicon.ico">
+    <link href="//fonts.googleapis.com/css?family=Montserrat:300,400,500,700&amp;subset=vietnamese" rel="stylesheet">
     {{ Html::style('bower/components-font-awesome/css/font-awesome.min.css') }}
     {{ Html::style('bower/bootstrap/dist/css/bootstrap.min.css') }}
     {{ Html::style('bower/owl.carousel/dist/assets/owl.carousel.min.css') }}
     {{ Html::style('bower/owl.carousel/dist/assets/owl.theme.default.min.css') }}
+    {{ Html::style('css/site.css') }}
     @yield('style')
 </head>
 <body>

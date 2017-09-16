@@ -11,25 +11,24 @@
   <div class="collapse navbar-collapse nav-right nav-bar " id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item text-center">
-        <a class="nav-link" href="#">TRANG CHỦ</a>
+        <a class="nav-link" href="/index">TRANG CHỦ</a>
       </li>
       <li class="nav-item text-center">
-        <a class="nav-link" href="#">GIỚI THIỆU</a>
+        <a class="nav-link" href="/gioithieu">GIỚI THIỆU</a>
       </li>
       <li class="nav-item text-center">
-        <a class="nav-link" href="#">CHUYÊN KHOA</a>
+        <a class="nav-link" href="/chuyenkhoa">CHUYÊN KHOA</a>
       </li>
       <li class="nav-item text-center">
-        <a class="nav-link" href="#">TIN TỨC</a>
+        <a class="nav-link" href="/tintuc">TIN TỨC</a>
       </li>
        <li class="nav-item text-center">
-        <a class="nav-link" href="#">LIÊN HỆ</a>
+        <a class="nav-link" href="lienhe">LIÊN HỆ</a>
       </li>
        <li class="nav-item text-center">
-        <a class="nav-link" href="#">ĐĂNG NHẬP</a>
+        <a class="nav-link" href="dangnhap">ĐĂNG NHẬP</a>
       </li>
     </ul>
   </div>
 </nav>
 </div>
-

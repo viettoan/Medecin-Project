@@ -29,3 +29,13 @@ Route::get('/gioithieu', function () {
 Route::get('/chuyenkhoa', function () {
     return view('sites.chuyenkhoa.index');
 });
+Route::get('/tintuc', function () {
+    return view('sites.tintuc.index');
+});
+Route::get('/post', function () {
+    return view('sites.post.index');
+});
+
+Route::get('/lienhe', function () {
+    return view('sites.lienhe.index');
+});

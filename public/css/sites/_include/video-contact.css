@@ -7,3 +7,13 @@
   font-size: 0.8em;
   color:#9E9E9E;
 }
+.contact form input:focus {
+  border: 0.5px solid #27ae60!important;
+}
+.contact form textarea:focus {
+  border: 0.5px solid #27ae60!important;
+}
+
+.contact form button {
+  padding:5px 20px;
+}

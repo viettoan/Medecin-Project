@@ -1,6 +1,6 @@
 <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="topic-name">Mục lục</h3>
+            <h4 class="topic-name">Mục lục</h4>
             <div class="line"></div>
         </div>
         <ul class="list-group">
@@ -14,4 +14,3 @@
             </li>
         </ul>
 </div>
-
