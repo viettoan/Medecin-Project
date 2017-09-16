@@ -1,0 +1,25 @@
+.break{
+	clear: both;
+	height: 10px;
+	width: 90%;
+	margin:auto;
+	border-bottom: 1px solid #27ae60;
+
+}
+.related-post {
+  background-color: #27ae60;
+  color:white;
+}
+.day-posted small{
+  padding: 2px;
+  display: inline-block;
+  color: #7f8c8d;
+}
+
+.title-related-post:hover {
+  color:#27ae60;
+  text-decoration: none;
+}
+.title-related-post {
+  font-size:14px;
+}

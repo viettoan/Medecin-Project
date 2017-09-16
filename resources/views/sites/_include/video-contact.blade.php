@@ -33,7 +33,7 @@
             <label for="formGroupExampleInput2">Nội dung</label>
             <textarea type="text" class="form-control" id="formGroupExampleInput2" placeholder="Vui lòng nhập nội dung liên hệ của bạn" rows='10'></textarea>
           </div>
-          <button type='sumbit' class='btn btn-primary'><i class='fa fa-send'></i>Gửi</button>
+          <button type='sumbit' class='btn btn-primary '><i class='fa fa-send'></i>Gửi</button>
       </form>
       </div>
     </div>
