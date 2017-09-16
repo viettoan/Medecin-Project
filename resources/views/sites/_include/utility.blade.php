@@ -13,20 +13,18 @@
                       <div class="col-sm-4 col-md-4">
                           <div class="wow fadeInUp" data-wow-delay="0.2s">
                               <div class="box text-center">
-
-                                  <i class="fa fa-user-md fa-3x circled bg-skin"></i>
-                                  <h4 class="h-bold">Video siêu âm</h4>
-                                  <p>
-                                     Thuận lợi trong việc xe kết quả siêu âm, giảm thời gian ... bla....bla
-                                  </p>
+                                    <i class="fa fa-user-md fa-3x circled bg-skin"></i>
+                                    <h4 class="h-bold">Video siêu âm</h4>
+                                    <p>
+                                        Thuận lợi trong việc xe kết quả siêu âm, giảm thời gian ... bla....bla
+                                    </p>
                               </div>
                           </div>
                       </div>
                       <div class="col-sm-4 col-md-4">
                           <div class="wow fadeInUp" data-wow-delay="0.2s">
                               <div class="box text-center">
-
-                                  <i class="fa fa-list-alt fa-3x circled bg-skin"></i>
+                                   <a href="{{ route('site.lich-bac-sy.index') }}"><i class="fa fa-list-alt fa-3x circled bg-skin"></i></a>
                                   <h4 class="h-bold">Lịch làm việc bác sĩ</h4>
                                   <p>
                                       Dễ dàng tra cứu lịch làm việc bác sĩ .bla...bla...bla...bla

@@ -1,16 +1,15 @@
-@extends('layouts.app')
+@extends('../sites/master')
 
 @section('content')
+    @include('sites._include.navbar')
+    @include('sites._include.banner')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
-
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
@@ -66,4 +65,11 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('style')
+  {{ Html::style('css/sites/gioithieu.css') }}
+  {{ Html::style('css/sites/_include/navbar.css') }}
+  {{ Html::style('css/sites/_include/footer.css') }}
+  {{ Html::style('css/sites/_include/banner.css') }}
 @endsection
