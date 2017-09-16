@@ -37,7 +37,9 @@ Route::get('/chuyenkhoa', function () {
     return view('sites.chuyenkhoa.index');
 });
 
-Route::group(['as' => 'site', 'namespace' => 'Site'], function () {
+Route::group(['as' => 'site.', 'namespace' => 'Site'], function () {
     Route::resource('/thong-tin-ca-nhan', 'ProfileUser');
+    Route::resource('/lich-su-kham', 'History');
+    Route::resource('/lich-bac-sy', 'DoctorCalender');
 });
 

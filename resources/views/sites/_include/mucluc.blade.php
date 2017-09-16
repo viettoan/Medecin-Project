@@ -6,7 +6,7 @@
         <ul class="list-group">
             <li>
 
-                <a href="#" class="panel-heading active"> <i class="fa fa-long-arrow-right"></i>Giới thiệu phòng khám</a>
+                <a href="{{ url('/chuyenkhoa') }}" class="panel-heading active"> <i class="fa fa-long-arrow-right"></i>Giới thiệu phòng khám</a>
             </li>
             <li>
 

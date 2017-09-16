@@ -43,6 +43,13 @@
                                             <i class="fa fa-align-center text-danger" aria-hidden="true"></i> Age: 19
                                         </p>
                                     </li>
+                                    <li class="list-group-item">
+                                        <p>
+                                            <a href="{{ route('site.lich-su-kham.index') }}" class="btn btn-warning">
+                                                <i class="fa fa-eye" aria-hidden="true"></i> Xem Lich Su Kham
+                                            </a>
+                                        </p>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
