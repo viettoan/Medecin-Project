@@ -1,7 +1,6 @@
 <?php
 namespace App\Eloquent\Relations;
 
-use App\Eloquent\DoctorCalender;
 use App\Eloquent\Specialist;
 use App\Eloquent\MedicalHistory;
 use App\Eloquent\User;

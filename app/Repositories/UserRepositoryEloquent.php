@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Contracts\Repositories\UserRepository;
-use App\Eloquents\User;
+use App\Eloquent\User;
 
 class UserRepositoryEloquent extends AbstractRepositoryEloquent implements UserRepository
 {
@@ -28,6 +28,11 @@ class UserRepositoryEloquent extends AbstractRepositoryEloquent implements UserR
     public function findByPhone($phone)
     {
         return $this->model()->where('phone', $phone)->first();
+    }
+
+    public function getAllUser($paginate)
+    {
+        return $this->model()->paginate($paginate);
     }
 
 }
