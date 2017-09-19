@@ -4,17 +4,11 @@ namespace App\Eloquent;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Eloquent\DoctorCalender;
-use App\Eloquent\MedicalHistoryRelation;
-use App\Eloquent\SpeciallistRelation;
-use App\Eloquent\UserRelation;
+use App\Eloquent\Relations\UserRelation;
 
 class User extends Authenticatable
 {
     use Notifiable;
-    use DoctorCalender;
-    use MedicalHistoryRelation;
-    use SpeciallistRelation;
     use UserRelation;
 
     /**
@@ -43,4 +37,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Pham Viet Toan
+     * 09/19/2017
+     * Check Permission
+     * @param
+     * @return boolean
+     */
+    public function checkPermission()
+    {
+        return $this -> permistion == config('custom.admin');
+    }
 }
