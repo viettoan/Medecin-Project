@@ -11,4 +11,5 @@ interface UserRepository extends AbstractRepository
 
     public function findByPhone($phone);
 
+    public function getAllUser($paginate);
 }
