@@ -8,6 +8,7 @@
     {{ Html::style('bower/components-font-awesome/css/font-awesome.min.css') }}
     {!! Html::style('css/app.css') !!}
     {{ Html::style('css/admin/style.css') }}
+    @yield('style');
 </head>
 <body>
     <div class="wrapper">
@@ -19,5 +20,6 @@
     {{ Html::script('bower/jquery/dist/jquery.min.js') }}
     {!! Html::script('js/app.js') !!}
     {{ Html::script('bower/owl.carousel/docs/assets/owlcarousel/owl.carousel.min.js') }}
+    @yield('script');
 </body>
 </html>

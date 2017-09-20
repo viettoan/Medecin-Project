@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use App\Contracts\Repositories\UserRepository;
 
@@ -10,23 +11,33 @@ class PatientController extends Controller
 {
     protected $user;
 
+    /**
+     * Pham Viet Toan
+     * 09/20/2017
+     * Construct function.
+     *
+     */
     public function __construct(
         UserRepository $user
     ) {
         $this->user = $user;
     }
     /**
+     * Pham Viet Toan
+     * 09/20/2017
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $users = $this->user->getAllUser(10);
-        return view('admin.patients.index', compact('users'));
+        $patients = $this->user->getAllUser(10);
+        return view('admin.patients.index', compact('patients'));
     }
 
     /**
+     * Pham Viet Toan
+     * 09/20/2017
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -37,14 +48,23 @@ class PatientController extends Controller
     }
 
     /**
+     * Pham Viet Toan
+     * 09/20/2017
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Request\UserRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['permission'] = 0;
+        $data['password'] = $data['phone'];
+        if ($this->user->create($data)) {
+            return redirect()->route('patient.index');
+        } else {
+            return redirect()->route('patient.create')->with('message', __('message.create_failed'));
+        }
     }
 
     /**
@@ -66,7 +86,8 @@ class PatientController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.patients.edit');
+        $patient = $this->user->find($id, []);
+        return view('admin.patients.edit', compact('patient'));
     }
 
     /**
@@ -76,9 +97,17 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        unset($data['id']);
+        $data['password'] =$data['phone'];
+        $patient = $this->user->find($id, []);
+        if ($patient->update($data)) {
+            return redirect()->route('patient.edit', $id)->with('success', trans('message.update_success'));
+        } else {
+            return redirect()->route('patient.edit', $id)->with('failed', trans('message.update_failed'));
+        }
     }
 
     /**
