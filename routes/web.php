@@ -54,6 +54,3 @@ Route::group(['as' => 'site.', 'namespace' => 'Site'], function () {
 });
 
 
-Route::get('/store', function() {
-    Storage::disk('local')->put('file.txt', 'Hay lam ddmm');
-});
