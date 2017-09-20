@@ -4,9 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Contracts\Repositories\UserRepository;
 
 class PatientController extends Controller
 {
+    protected $user;
+
+    public function __construct(
+        UserRepository $user
+    ) {
+        $this->user = $user;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,8 @@ class PatientController extends Controller
      */
     public function index()
     {
-        return view('admin.patients.index');
+        $users = $this->user->getAllUser(10);
+        return view('admin.patients.index', compact('users'));
     }
 
     /**
