@@ -4,30 +4,34 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Contracts\Repositories\UserRepository;
-use App\Http\Requests\User1Request;
-use App\Eloquent\User;
+use App\Contracts\Repositories\SpesicalRepository;
+use App\Eloquent\Specialist;
 
-
-class UserController extends Controller
+class SpecialistController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    
-    protected $user;
+    protected $specialist;
 
-    public function __construct(UserRepository $user) {
-        $this->user = $user;
+    public function __construct(SpesicalRepository $specialist) {
+        $this->specialist = $specialist;
     }
 
-    public function index(Request $request)
+    public function index()
     {
-        $userLists = $this->user->getAllUser('10');
-        return view('admin.users.index', compact('userLists'));
+        $response = $this->specialist->getAll();
+
+        return response()->json($response);
+    }
+
+    public function list() 
+    {
+        $response = $this->specialist->getAll();
+
+        return response()->json($response);
     }
 
     /**
@@ -37,8 +41,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        
-        return view('admin.users.add');
+        //
     }
 
     /**
@@ -47,21 +50,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(User1Request $request)
+    public function store(Request $request)
     {
-        $data = $request->except('password');
-        $data['password'] = bcrypt($request->password);
-        if ($this->user->create($data)) {
-            $response['status'] = 'Thanh Cong ';
-            $response['message'] = trans('Them Nguoi Dung Thanh Cong');
-            $response['action'] = trans('Thanh Cong');
-        } else {
-            $response['status'] = 'error';
-            $response['message'] = trans('admin.error_happen');
-            $response['action'] = trans('admin.error');
-        }
-
-        return response()->json($response);
+        //
     }
 
     /**
@@ -83,7 +74,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.users.edit');
+        //
     }
 
     /**

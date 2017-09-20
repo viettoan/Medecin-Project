@@ -12,7 +12,7 @@ class UserRepositoryEloquent extends AbstractRepositoryEloquent implements UserR
         return new User;
     }
 
-    public function create($data)
+    public function create($data = [])
     {
         $user = $this->model()->fill($data);
         $user->save();
