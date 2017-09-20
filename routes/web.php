@@ -52,3 +52,8 @@ Route::group(['as' => 'site.', 'namespace' => 'Site'], function () {
     Route::resource('/lich-su-kham', 'History');
     Route::resource('/lich-bac-sy', 'DoctorCalender');
 });
+
+
+Route::get('/store', function() {
+    Storage::disk('local')->put('file.txt', 'Hay lam ddmm');
+});
