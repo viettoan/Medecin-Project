@@ -49,4 +49,15 @@ class User extends Authenticatable
     {
         return $this -> permistion == config('custom.admin');
     }
+
+    /**
+     * Pham Viet Toan
+     * 09/20/2017
+     *
+     * set value password when store in database
+     */
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
 }
