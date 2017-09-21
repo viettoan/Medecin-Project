@@ -1,25 +1,39 @@
 /*nav bar*/
+
 #logo {
-  height:50px;
-  float:left;
-
+  height: 50px;
+  float: left;
 }
+
 .fixed-navbar {
-  margin:0 auto;
+  margin: 0 auto;
 }
-@media only screen and (min-width: 1024px) {
-    .nav-bar {
-      padding-left: 300px;
-    }
-}
-.nav-bar  {
-   text-align: center;
-}
-.nav-bar ul li a{
-  border-radius: 25px;
 
+@media only screen and (min-width: 1024px) {
+  .nav-bar {
+    padding-left: 300px;
+  }
 }
-.nav-bar ul li a:hover{
+
+.nav-bar {
+  text-align: center;
+}
+
+.nav-bar ul li a {
+  border-radius: 25px;
+}
+
+.nav-bar ul li {
+  font-size: 14px;
+  font-family: arial;
+}
+
+.nav-bar ul li div {
+  font-size: 14px;
+  font-family: arial;
+}
+
+.nav-bar ul li a:hover {
   background: #007455;
   border-radius: 25px;
   transition: 0.2s;

@@ -2,30 +2,32 @@ iframe {
   padding: 20px 0px;
 }
 
- form input::placeholder {
+form input::placeholder {
   font-size: 0.8em;
-  color:#9E9E9E;
+  color: #9E9E9E;
 }
- form textarea::placeholder {
+
+form textarea::placeholder {
   font-size: 0.8em;
-  color:#9E9E9E;
+  color: #9E9E9E;
 }
+
 input {
   border: 0.5px solid #bdc3c7!important;
 }
+
 input:focus {
   border: 0.5px solid #27ae60!important;
 }
+
 textarea:focus {
   border: 0.5px solid #27ae60!important;
 }
+
 textarea {
   border: 0.5px solid #bdc3c7!important;
 }
-ul li strong{
+
+ul li strong {
   font-size: 14px;
-}
-ul li {
-  font-size: 14px;
-  font-family: arial;
 }
