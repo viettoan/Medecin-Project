@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use App\Contracts\Repositories\UserRepository;
+use Response;
 
 class PatientController extends Controller
 {
@@ -68,6 +69,8 @@ class PatientController extends Controller
     }
 
     /**
+     * Pham Viet Toan
+     * 09/21/2017
      * Display the specified resource.
      *
      * @param  int  $id
@@ -75,7 +78,9 @@ class PatientController extends Controller
      */
     public function show($id)
     {
-        return view('admin.patients.detail');
+        $patient = $this->user->find($id, []);
+
+        return view('admin.patients.detail', compact('patient'));
     }
 
     /**
@@ -91,9 +96,11 @@ class PatientController extends Controller
     }
 
     /**
+     * Pham Viet Toan
+     * 09/20/2017
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Request\UserRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -111,6 +118,8 @@ class PatientController extends Controller
     }
 
     /**
+     * Pham Viet Toan
+     * 09/20/2017
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -118,6 +127,16 @@ class PatientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $patient = $this->user->find($id, []);
+
+            $patient->delete();
+            $message = trans('delete_success');
+            return Response::json($message, 200);
+        } catch (Exception $e ) {
+            $message = trans('delete_failed');
+            return Response::json($message, 403);
+        }
+        
     }
 }

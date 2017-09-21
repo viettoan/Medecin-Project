@@ -18,9 +18,9 @@
                                 <img class="img-responsive img-circle" src="{{ asset('huonggiang.jpg')}}" alt="User profile picture">    
                                 <h3 class="profile-username text-center">
                                 <i class="fa fa-leaf" aria-hidden="true"></i>
-                                Viet Toan
+                                {{ $patient->name }}
                                 </h3>
-                                <a class="btn btn-primary btn-block" href="{{ route('patient.edit', ['id' => 1]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>{{ trans('message.edit') }}</a>
+                                <a class="btn btn-primary btn-block" href="{{ route('patient.edit', ['id' => $patient->id]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>{{ trans('message.edit') }}</a>
                             </div>
                         </div>
                     </div>
@@ -28,28 +28,23 @@
                         <ul class="list-group list-group-unbordered">
                             <li class="list-group-item">
                                 <b><i class="fa fa-phone" aria-hidden="true"></i>{{ trans('message.phone') }} :</b>
-                                <a>0123456789</a>
+                                <a>{{ $patient->phone }}</a>
                             </li>
                             <li class="list-group-item">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 <b>{{ trans('message.mail') }}:</b>
-                                <a>
-                                    viettoan290696@gmail
-                                </a>
+                                <a>{{ $patient->email }}</a>
                             </li>
                             <li class="list-group-item">
-                                <b><i class="fa fa-transgender" aria-hidden="true"></i>{{ trans('message.gender') }} :</b><a>Nam</a>
+                                <b><i class="fa fa-transgender" aria-hidden="true"></i>{{ trans('message.gender') }} :</b>
+                                @if ($patient->sex == config('custom.male'))
+                                    <a>{{ trans('message.male') }}</a>
+                                @else
+                                    <a>{{ trans('message.female') }}</a>
+                                @endif        
                             </li>
                             <li class="list-group-item">
-                                <b><i class="fa fa-id-card" aria-hidden="true"></i>{{ trans('message.permission') }} :</b>
-                                <a>
-                                    <span  v-if="fillItem.permission == 0" class="label label-success">
-                                        {{ trans('message.customer') }}
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="list-group-item">
-                                <b><i class="fa fa-birthday-cake" aria-hidden="true"></i>{{ trans('message.age') }} :</b><a>22</a>
+                                <b><i class="fa fa-birthday-cake" aria-hidden="true"></i>{{ trans('message.age') }} :</b><a>{{ $patient->age }}</a>
                             </li>
                         </ul>
                     </div>

@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('content-admin')
-<div class="content-admin">
+<div class="content-admin" id="index-patients">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h2>{{ trans('message.patients') }}</h2>
@@ -27,7 +27,7 @@
                 </thead>
                 <tbody>
                 @foreach ( $patients as $patient)
-                    <tr>
+                    <tr id="patient-{{ $patient->id }}">
                         <th class="col-md-1">{{ $patient->id }}</th>
                         <th class="col-md-3">{{ $patient->name }}</th>
                         <th class="col-md-3">{{ $patient->phone }}</th>
@@ -36,7 +36,7 @@
                             <a data-toggle="modal" data-target="#addVideo"><i class="fa fa-file-video-o" aria-hidden="true"></i></a>
                             <a href="{{ route('patient.show', ['id' => $patient->id]) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
                             <a href="{{ route('patient.edit', ['id' => $patient->id]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            <a><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a>
+                            <a v-on:click="deletePatient('{{ $patient->id }}')"><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a>
                         </th>
                     </tr>
                 @endforeach    
@@ -75,4 +75,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+    {{ Html::script('js/admin/patient.js') }}
 @endsection
