@@ -14,7 +14,7 @@ trait UserRelation
 
     public function specialists()
     {
-        return $this->belongsTo(Specialist::class, 'user_id');
+        return $this->belongsTo(Specialist::class, 'specialist_id');
     }
 
     public function doctorCalender()
