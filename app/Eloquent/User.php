@@ -26,6 +26,7 @@ class User extends Authenticatable
         'phone',
         'address',
         'permistion',
+        'specialist_id',
         'status'
     ];
 

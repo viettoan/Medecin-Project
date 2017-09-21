@@ -3,7 +3,7 @@
 namespace App\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Eloquent\Relations\SpeciallistRelation
+use App\Eloquent\Relations\SpeciallistRelation;
 
 class Specialist extends Model
 {
@@ -12,7 +12,6 @@ class Specialist extends Model
 	protected $fillable = [
 		'id',
 		'name',
-		'user_id',
-		'status'
-	]
+		'status',
+	];
 }

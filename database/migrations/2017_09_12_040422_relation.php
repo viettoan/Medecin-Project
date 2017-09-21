@@ -13,6 +13,9 @@ class Relation extends Migration
      */
     public function up()
     {
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreign('specialist_id')->references('id')->on('specialists');
+        });
         Schema::table('doctor_calenders', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
         });
@@ -20,9 +23,6 @@ class Relation extends Migration
             $table->foreign('medical_history_id')->references('id')->on('medical_histories');
         });
         Schema::table('medical_histories', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
-        });
-        Schema::table('specialists', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
         });
         Schema::table('category_post_relates', function (Blueprint $table) {

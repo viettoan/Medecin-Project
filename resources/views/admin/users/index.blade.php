@@ -26,11 +26,12 @@
                     </tr>   
                 </thead>
                 <tbody>
+                @foreach ( $userLists as $user)
                     <tr>
-                        <th class="col-md-1">1</th>
-                        <th class="col-md-3">Viet Toan</th>
-                        <th class="col-md-3">0123456789</th>
-                        <th class="col-md-3">viettoan290696@gmail.com</th>
+                        <th class="col-md-1">{{ $user->id }}</th>
+                        <th class="col-md-3">{{ $user->name }}</</th>
+                        <th class="col-md-3">{{ $user->phone }}</th>
+                        <th class="col-md-3">{{ $user->email }}</th>
                         <th class="col-md-1">
                             <a data-toggle="modal" data-target="#infoUser"><i class="fa fa-eye" aria-hidden="true"></i></a>
                             <a href="{{ route('user.edit', ['id' => 1]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
@@ -38,7 +39,11 @@
                         </th>
                     </tr>
                 </tbody>
+                @endforeach 
             </table>
+            @if (isset($users)) 
+                {{ $users->links() }}
+            @endif
         </div>
     </div>
     <!-- Info User -->
@@ -101,3 +106,4 @@
 
 </div>
 @endsection
+

@@ -7,6 +7,6 @@ trait SpeciallistRelation
 {
     public function user()
     {
-        return $this->hasMany(User::class, 'user_id');
+        return $this->hasMany(User::class, 'specialist_id');
     }
 }

@@ -26,6 +26,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     Route::resource('contact', 'ContactController');
     Route::resource('category', 'CategoryController');
     Route::resource('post', 'PostController');
+    Route::resource('specialist', 'SpecialistController');
+    Route::get('list-specialist', 'SpecialistController@list')->name('list-specialist');
 });
 Route::get('/index', function () {
     return view('index');

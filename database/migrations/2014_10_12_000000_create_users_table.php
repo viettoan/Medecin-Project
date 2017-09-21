@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('age');
             $table->integer('sex');
+            $table->integer('specialist_id')->unsigned();
             $table->string('phone', 191);
             $table->string('address')->nullable();
             $table->integer('permistion')->default(0);
