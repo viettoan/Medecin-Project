@@ -12,6 +12,10 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Contracts\Repositories\UserRepository::class,
             \App\Repositories\UserRepositoryEloquent::class,
         ],
+        'specialist' => [
+            \App\Contracts\Repositories\SpesicalRepository::class,
+            \App\Repositories\SpecialistRepositoryEloquent::class,
+        ],
     ];
 
     /**

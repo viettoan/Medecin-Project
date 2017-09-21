@@ -6,12 +6,18 @@
         <div class="panel-heading">
             <h2>{{ trans('message.new_patient') }}</h2>
         </div>
+        @if (session('message'))
+            <div class="alert alert-warning">
+                {{ session('message') }}
+            </div>
+        @endif
         <div class="panel-body">
-            <form method = "post" enctype="multipart/form-data">
+            <form method = "POST" enctype="multipart/form-data" action="{{ route('patient.store') }}">
+            {{ csrf_field() }}
                 <div class="form-group">
                     <label>{{ trans('message.name') }}</label>
                     <div>
-                        <input type="text" name="name" placeholder="User Name" class="form-control" required=""> 
+                        <input type="text" name="name" placeholder="User Name" class="form-control" value="{{ old('name') }}" required=""> 
                         @if ($errors->has('name'))
                             <span class="help-block">
                                  <strong>{{ $errors->first('name') }}</strong>
@@ -21,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label>{{ trans('message.email') }}</label>
-                    <input type="email" name="email" placeholder="Enter your email" class="form-control" required>
+                    <input type="email" name="email" placeholder="Enter your email" class="form-control" value="{{ old('email') }}" required>
                     @if ($errors->has('email'))
                         <span class="help-block">
                             <strong>{{ $errors->first('email') }}</strong>
@@ -29,18 +35,9 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label>{{ trans('message.password') }}</label>
-                    <input type="password" name="password" class="form-control" required>
-                    @if ($errors->has('password'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
-                </div>
-                <div class="form-group">
                     <label>{{ trans('message.address') }}</label>
                     <div>
-                        <input type="text" name="address" placeholder="Address" class="form-control" required>
+                        <input type="text" name="address" placeholder="Address" class="form-control" value="{{ old('address') }}" required>
                         @if ($errors->has('address'))
                             <span class="help-block">
                                  <strong>{{ $errors->first('address') }}</strong>
@@ -51,7 +48,7 @@
                 <div class="form-group">
                     <label>{{ trans('message.phone') }}</label>
                     <div>
-                        <input type="text" name="phone" placeholder="Phone" class="form-control" required>
+                        <input type="text" name="phone" placeholder="Phone" class="form-control" value="{{ old('phone') }}" required>
                         @if ($errors->has('phone'))
                             <span class="help-block">
                                  <strong>{{ $errors->first('phone') }}</strong>
@@ -74,12 +71,12 @@
                     <label>{{ trans('message.gender') }}</label>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="gender" value="1" checked="checked">{{ trans('message.male') }}
+                            <input type="radio" name="sex" value="1" checked="checked">{{ trans('message.male') }}
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                        <input type="radio" name="gender" value="0">{{ trans('message.female') }}
+                        <input type="radio" name="sex" value="0">{{ trans('message.female') }}
                         </label>
                     </div>
                 </div>

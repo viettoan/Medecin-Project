@@ -26,6 +26,7 @@ class User extends Authenticatable
         'phone',
         'address',
         'permistion',
+        'specialist_id',
         'status'
     ];
 
@@ -48,5 +49,16 @@ class User extends Authenticatable
     public function checkPermission()
     {
         return $this -> permistion == config('custom.admin');
+    }
+
+    /**
+     * Pham Viet Toan
+     * 09/20/2017
+     *
+     * set value password when store in database
+     */
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
     }
 }

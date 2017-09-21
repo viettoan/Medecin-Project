@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             'sex' => 1,
             'phone' => '0123456789',
 	        'address' => 'Ha Noi',
+            'specialist_id' => 1,
 	        'permistion' => 1,
         ];
 

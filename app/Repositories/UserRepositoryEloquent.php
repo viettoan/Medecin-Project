@@ -12,7 +12,7 @@ class UserRepositoryEloquent extends AbstractRepositoryEloquent implements UserR
         return new User;
     }
 
-    public function create($data)
+    public function create($data = [])
     {
         $user = $this->model()->fill($data);
         $user->save();
@@ -20,7 +20,7 @@ class UserRepositoryEloquent extends AbstractRepositoryEloquent implements UserR
         return $user;
     }
 
-    public function find($id, $select = ['*'], $with = [])
+    public function find($id, $with = [], $select = ['*'])
     {
         return $this->model()->select($select)->with($with)->find($id);
     }

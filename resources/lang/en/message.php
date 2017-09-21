@@ -54,4 +54,7 @@ return [
     'detail_post' => 'Detail Post',
     'title' => 'Title',
     'description' => 'Description',
+    'create_failed' => 'Create Failed !',
+    'update_success' => 'Update Successfully !',
+    'update_failed' => 'Update Failed !',
 ];

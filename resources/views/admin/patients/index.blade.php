@@ -26,16 +26,16 @@
                     </tr>   
                 </thead>
                 <tbody>
-                @foreach ( $users as $user)
+                @foreach ( $patients as $patient)
                     <tr>
-                        <th class="col-md-1">{{ $user->id }}</th>
-                        <th class="col-md-3">{{ $user->name }}</th>
-                        <th class="col-md-3">{{ $user->phone }}</th>
-                        <th class="col-md-3">{{ $user->email }}</th>
+                        <th class="col-md-1">{{ $patient->id }}</th>
+                        <th class="col-md-3">{{ $patient->name }}</th>
+                        <th class="col-md-3">{{ $patient->phone }}</th>
+                        <th class="col-md-3">{{ $patient->email }}</th>
                         <th class="col-md-2">
                             <a data-toggle="modal" data-target="#addVideo"><i class="fa fa-file-video-o" aria-hidden="true"></i></a>
-                            <a href="{{ route('patient.show', ['id' => $user->id]) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                            <a href="{{ route('patient.edit', ['id' => $user->id]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            <a href="{{ route('patient.show', ['id' => $patient->id]) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            <a href="{{ route('patient.edit', ['id' => $patient->id]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                             <a><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a>
                         </th>
                     </tr>
