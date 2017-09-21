@@ -28,8 +28,16 @@
        <li class="nav-item text-center">
         <a class="nav-link" href="login">ĐĂNG NHẬP</a>
       </li>
-      <li class="nav-item text-center">
-        <a class="nav-link" href="{{ route('site.thong-tin-ca-nhan.index') }}">THONG TIN</a>
+      <li class="nav-item dropdown text-center">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          TÀI KHOẢN
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{{ route('site.thong-tin-ca-nhan.index') }}">Thông tin tài khoản</a>
+          <a class="dropdown-item" href="{{ route('site.lich-su-kham.index') }}">Lịch sử khám</a>
+          <a class="dropdown-item" href="#">Video siêu âm</a>
+          <a class="dropdown-item" href="#">Đăng xuất</a>
+        </div>
       </li>
     </ul>
   </div>

@@ -9,7 +9,7 @@
                 <div class="col-md-12 ">
                     <div class="col-md-12">
                         <div class="card card-body text-center inforprofile">
-                            <h3><i class="fa fa-history text-success" aria-hidden="true"></i> Lich su kham - tran van my</h3></h4>
+                            <h3><i class="fa fa-history text-success" aria-hidden="true"></i>Lịch sử khám bệnh - tran van my</h3></h4>
                             <div class="card text-center">
                                 <table class="table text-left">
                                     <thead>

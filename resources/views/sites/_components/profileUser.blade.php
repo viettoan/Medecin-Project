@@ -8,53 +8,53 @@
             <div class="col-md-9 post">
                 <div class="col-md-12 ">
                     <div class="col-md-12">
-                        <div class="card card-body text-center inforprofile">
-                            <h3><i class="fa fa-address-book" aria-hi   dden="true"></i> Thong Tin</h3></h4>
-
-                            <div class="card text-center">
+                      <div class="panel-heading">
+                        <h4 class="topic-name">Thông tin khách hàng</h4>
+                        <div class="line"></div>
+                      </div>
+                            <div class=" text-center">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">
                                         <p>
-                                            <i class="fa fa-id-card-o text-success" aria-hidden="true"></i> Code: <span class="badge badge-success">IMBBM090343434</span>
+                                            <i class="fa fa-id-card-o text-success" aria-hidden="true"></i> Mã bệnh nhân: <span class="badge badge-success">IMBBM090343434</span>
                                         </p>
                                     </li>
                                     <li class="list-group-item">
                                         <p>
-                                            <i class="fa fa-bandcamp text-info" aria-hidden="true"></i> Name: Tran Van My 
+                                            <i class="fa fa-bandcamp text-info" aria-hidden="true"></i> Họ tên: Tran Van My
                                         </p>
                                     </li>
                                     <li class="list-group-item">
                                         <p>
-                                            <i class="fa fa-phone text-info" aria-hidden="true"></i> Phone: 0993343434 
+                                            <i class="fa fa-phone text-info" aria-hidden="true"></i> Số điện thoại: 0993343434
                                         </p>
                                     </li>
                                     <li class="list-group-item">
                                         <p>
-                                            <i class="fa fa-user-circle text-success" aria-hidden="true"></i> Sex: Name
+                                            <i class="fa fa-user-circle text-success" aria-hidden="true"></i> Giới tính: Nữ
                                         </p>
                                     </li>
                                     <li class="list-group-item">
                                         <p>
-                                            <i class="fa fa-birthday-cake text-primary" aria-hidden="true"></i> Birthday: 19/10/1998
+                                            <i class="fa fa-birthday-cake text-primary" aria-hidden="true"></i> Ngày sinh: 19/10/1998
                                         </p>
                                     </li>
                                     <li class="list-group-item">
                                         <p>
-                                            <i class="fa fa-align-center text-danger" aria-hidden="true"></i> Age: 19
+                                            <i class="fa fa-align-center text-danger" aria-hidden="true"></i> Tuổi: 19
                                         </p>
                                     </li>
                                     <li class="list-group-item">
                                         <p>
-                                            <a href="{{ route('site.lich-su-kham.index') }}" class="btn btn-warning">
-                                                <i class="fa fa-eye" aria-hidden="true"></i> Xem Lich Su Kham
+                                            <a href="{{ route('site.lich-su-kham.index') }}" >
+                                                <i class="fa fa-eye" aria-hidden="true"></i> <strong>XEM LỊCH SỬ KHÁM</strong>
                                             </a>
                                         </p>
                                     </li>
                                 </ul>
                             </div>
-                        </div>
                     </div>
-                </div>      
+                </div>
             </div>
             @include('sites._include.mucluc')
         </div>

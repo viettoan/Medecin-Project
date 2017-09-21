@@ -1,7 +1,16 @@
 @font-face {
-  font-family: Arial,tahoma,,Helvetica, Neue, Montserrat;
+  font-family: Arial, tahoma, , Helvetica, Neue, Montserrat;
   font-style: normal;
   font-weight: bold;
   src: local('Montserrat Bold'), local('Montserrat-Bold'), url(http://fonts.gstatic.com/s/montserrat/v10/IQHow_FEYlDC4Gzy_m8fcnv4bDVR720piddN5sbmjzs.woff2) format('woff2');
   unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+
+.login {
+  font-size: 14px;
+}
+
+.login input::placeholder {
+  font-size: 12px;
+  color: #9E9E9E;
 }
