@@ -57,4 +57,6 @@ return [
     'create_failed' => 'Create Failed !',
     'update_success' => 'Update Successfully !',
     'update_failed' => 'Update Failed !',
+    'delete_success' => 'Delete Successfully !',
+    'delete_failed' => 'Delete Failed !',
 ];

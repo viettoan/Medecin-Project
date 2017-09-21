@@ -10,6 +10,7 @@
     {!! Html::style('css/app.css') !!}
     {{ Html::style('css/admin/style.css') }}
     {{ Html::style('bower/toastr/toastr.min.css') }}
+    {{ Html::style('bower/sweetalert2/dist/sweetalert2.css') }}
     @yield('style')
 </head>
 <body>
@@ -24,6 +25,7 @@
     {{ Html::script('bower/owl.carousel/docs/assets/owlcarousel/owl.carousel.min.js') }}
     {{ Html::script('bower/vue/dist/vue.min.js') }}
     {{ Html::script('bower/toastr/toastr.min.js') }}
+    {{ Html::script('bower/sweetalert2/dist/sweetalert2.js') }}
     @yield('script')
 </body>
 </html>
