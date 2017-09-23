@@ -26,8 +26,23 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        $userLists = $this->user->getAllUser('10');
-        return view('admin.users.index', compact('userLists'));
+        if ($request->ajax()) {
+            $userList = $this->user->getAllUser('1', '2', '10');
+            $response = [
+                'pagination' => [
+                    'total'        => $userList->total(),
+                    'per_page'     => $userList->perPage(),
+                    'current_page' => $userList->currentPage(),
+                    'last_page'    => $userList->lastPage(),
+                    'from'         => $userList->firstItem(),
+                    'to'           => $userList->lastItem()
+                ],
+                'data' => $userList
+            ];
+
+            return response()->json($response);
+        }
+        return view('admin.users.index');
     }
 
     /**
@@ -88,24 +103,48 @@ class UserController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
+     *tran van my 
+     *24/09/2016
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        // $data = $request->except('password');
+        // $data['password'] = bcrypt($request->password);
+        $user = $this->user->update($id, $request->all());
+        if ($user) {
+            $response['status'] = 'success';
+            $response['message'] = trans('message.edit_success');
+            $response['action'] = trans('message.success');
+        } else {
+            $response['status'] = 'error';
+            $response['message'] = trans('admin.error_happen');
+            $response['action'] = trans('admin.error');
+        }
+
+        return response()->json($response);
     }
 
     /**
      * Remove the specified resource from storage.
-     *
+     *tran van my 
+     *24-09-2017
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        try {
+            $user = $this->user->find($id, []);
+
+            $user->delete();
+            $message = trans('delete_success');
+            return Response::json($message, 200);
+        } catch (Exception $e ) {
+            $message = trans('delete_failed');
+            return Response::json($message, 403);
+        }
     }
 }
