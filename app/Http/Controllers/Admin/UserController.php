@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Contracts\Repositories\UserRepository;
-use App\Http\Requests\User1Request;
+use App\Http\Requests\UserRequest;
 use App\Eloquent\User;
 
 
@@ -47,7 +47,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(User1Request $request)
+    public function store(UserRequest $request)
     {
         $data = $request->except('password');
         $data['password'] = bcrypt($request->password);

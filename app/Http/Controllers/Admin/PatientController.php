@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\PatientRequest;
 use App\Http\Controllers\Controller;
-use App\Contracts\Repositories\UserRepository;
+use App\Contracts\Repositories\PatientRepository;
 use Response;
 
 class PatientController extends Controller
 {
-    protected $user;
+    protected $patient;
 
     /**
      * Pham Viet Toan
@@ -19,9 +19,9 @@ class PatientController extends Controller
      *
      */
     public function __construct(
-        UserRepository $user
+        PatientRepository $patient
     ) {
-        $this->user = $user;
+        $this->patient = $patient;
     }
     /**
      * Pham Viet Toan
@@ -32,7 +32,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patients = $this->user->getAllUser(10);
+        $patients = $this->patient->getAllPatient(10);
         return view('admin.patients.index', compact('patients'));
     }
 
@@ -53,18 +53,18 @@ class PatientController extends Controller
      * 09/20/2017
      * Store a newly created resource in storage.
      *
-     * @param  App\Http\Request\UserRequest  $request
+     * @param  App\Http\Request\PatientRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(PatientRequest $request)
     {
         $data = $request->all();
-        $data['permission'] = 0;
+        $data['permission'] = config('custom.patient');
         $data['password'] = $data['phone'];
-        if ($this->user->create($data)) {
-            return redirect()->route('patient.index');
+        if ($this->patient->create($data)) {
+            return redirect()->route('patient.create')->with('success', trans('message.create_success'));
         } else {
-            return redirect()->route('patient.create')->with('message', __('message.create_failed'));
+            return redirect()->route('patient.create')->with('failed', trans('message.create_failed'));
         }
     }
 
@@ -78,7 +78,7 @@ class PatientController extends Controller
      */
     public function show($id)
     {
-        $patient = $this->user->find($id, []);
+        $patient = $this->patient->find($id, []);
 
         return view('admin.patients.detail', compact('patient'));
     }
@@ -91,7 +91,7 @@ class PatientController extends Controller
      */
     public function edit($id)
     {
-        $patient = $this->user->find($id, []);
+        $patient = $this->patient->find($id, []);
         return view('admin.patients.edit', compact('patient'));
     }
 
@@ -100,16 +100,16 @@ class PatientController extends Controller
      * 09/20/2017
      * Update the specified resource in storage.
      *
-     * @param  App\Http\Request\UserRequest  $request
+     * @param  App\Http\Request\PatientRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, $id)
+    public function update(PatientRequest $request, $id)
     {
         $data = $request->all();
         unset($data['id']);
         $data['password'] =$data['phone'];
-        $patient = $this->user->find($id, []);
+        $patient = $this->patient->find($id, []);
         if ($patient->update($data)) {
             return redirect()->route('patient.edit', $id)->with('success', trans('message.update_success'));
         } else {
@@ -128,7 +128,7 @@ class PatientController extends Controller
     public function destroy($id)
     {
         try {
-            $patient = $this->user->find($id, []);
+            $patient = $this->patient->find($id, []);
 
             $patient->delete();
             $message = trans('delete_success');

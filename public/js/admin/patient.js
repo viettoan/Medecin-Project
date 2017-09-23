@@ -8,7 +8,6 @@ new Vue({
 	},
 
 	methods: {
-
         /**
          * Pham Viet Toan
          * 09/21/2017

@@ -16,37 +16,37 @@
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">
                                         <p>
-                                            <i class="fa fa-id-card-o text-success" aria-hidden="true"></i> Mã bệnh nhân: <span class="badge badge-success">IMBBM090343434</span>
+                                            <i class="fa fa-id-card-o text-success" aria-hidden="true"></i> Mã bệnh nhân: <span class="badge badge-success">{{ $patient->id }}</span>
                                         </p>
                                     </li>
                                     <li class="list-group-item">
                                         <p>
-                                            <i class="fa fa-bandcamp text-info" aria-hidden="true"></i> Họ tên: Tran Van My
+                                            <i class="fa fa-bandcamp text-info" aria-hidden="true"></i> Họ tên: {{ $patient->name }}
                                         </p>
                                     </li>
                                     <li class="list-group-item">
                                         <p>
-                                            <i class="fa fa-phone text-info" aria-hidden="true"></i> Số điện thoại: 0993343434
+                                            <i class="fa fa-phone text-info" aria-hidden="true"></i> Số điện thoại: {{ $patient->phone }}
                                         </p>
                                     </li>
                                     <li class="list-group-item">
                                         <p>
-                                            <i class="fa fa-user-circle text-success" aria-hidden="true"></i> Giới tính: Nữ
+                                            <i class="fa fa-user-circle text-success" aria-hidden="true"></i> Giới tính: 
+                                            @if ($patient->sex == 1)
+                                                {{ trans('message.male') }}
+                                            @else
+                                                {{ trans('message.female') }}
+                                            @endif            
                                         </p>
                                     </li>
                                     <li class="list-group-item">
                                         <p>
-                                            <i class="fa fa-birthday-cake text-primary" aria-hidden="true"></i> Ngày sinh: 19/10/1998
+                                            <i class="fa fa-align-center text-danger" aria-hidden="true"></i> Tuổi: {{ $patient->age }}
                                         </p>
                                     </li>
                                     <li class="list-group-item">
                                         <p>
-                                            <i class="fa fa-align-center text-danger" aria-hidden="true"></i> Tuổi: 19
-                                        </p>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <p>
-                                            <a href="{{ route('site.lich-su-kham.index') }}" >
+                                            <a href="{{ route('patient.history.show', $patient->id) }}" >
                                                 <i class="fa fa-eye" aria-hidden="true"></i> <strong>XEM LỊCH SỬ KHÁM</strong>
                                             </a>
                                         </p>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Site;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class History extends Controller
+class DoctorCalenderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class History extends Controller
      */
     public function index()
     {
-        return view('sites.lichsu.index');
+        //
     }
 
     /**

@@ -25,20 +25,31 @@
        <li class="nav-item text-center">
         <a class="nav-link" href="lienhe">LIÊN HỆ</a>
       </li>
-       <li class="nav-item text-center">
+      @if (Auth::guest())
+      <li class="nav-item text-center">
         <a class="nav-link" href="login">ĐĂNG NHẬP</a>
       </li>
+      @else
       <li class="nav-item dropdown text-center">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          TÀI KHOẢN
+          {{ strtoupper(Auth::user()->name) }}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="{{ route('site.thong-tin-ca-nhan.index') }}">Thông tin tài khoản</a>
-          <a class="dropdown-item" href="{{ route('site.lich-su-kham.index') }}">Lịch sử khám</a>
+          <a class="dropdown-item" href="{{ route('patient.profile.show', Auth::user()->id) }}">Thông tin tài khoản</a>
+          <a class="dropdown-item" href="{{ route('patient.history.show', Auth::user()->id) }}">Lịch sử khám</a>
           <a class="dropdown-item" href="#">Video siêu âm</a>
-          <a class="dropdown-item" href="#">Đăng xuất</a>
+          <a class="dropdown-item" href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">
+              {{ trans('message.logout') }}
+          </a>
+
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              {{ csrf_field() }}
+          </form>
         </div>
       </li>
+      @endif
     </ul>
   </div>
 </nav>

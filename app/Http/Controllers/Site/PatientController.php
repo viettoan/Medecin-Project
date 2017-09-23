@@ -4,9 +4,24 @@ namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Contracts\Repositories\PatientRepository;
+use Response;
 
-class DoctorCalender extends Controller
+class PatientController extends Controller
 {
+    protected $patient;
+
+    /**
+     * Pham Viet Toan
+     * 09/23/2017
+     *
+     * Construct class
+     * @param App\Contracts\Repositories\PatientRepository $patient
+     */
+    public function __construct(PatientRepository $patient)
+    {
+        $this->patient = $patient;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +29,7 @@ class DoctorCalender extends Controller
      */
     public function index()
     {
-        return view('sites.lichbacsy.index');
+        //
     }
 
     /**
@@ -39,6 +54,8 @@ class DoctorCalender extends Controller
     }
 
     /**
+     * Pham Viet Toan
+     * 09/23/2017
      * Display the specified resource.
      *
      * @param  int  $id
@@ -46,7 +63,13 @@ class DoctorCalender extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $patient = $this->patient->find($id, []);
+
+            return view('sites._components.profileUser', compact('patient'));
+        } catch (Exception $e) {
+
+        }
     }
 
     /**
