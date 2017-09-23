@@ -14,11 +14,11 @@
                             <div class="col-md-12"><label for="email" class="control-label"><strong>Tên đăng nhập (Mã bệnh nhân)</strong></label></div>
 
                             <div class="col-md-6">
-                                <input  id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder='Ví dụ: 32145353432'>
+                                <input  id="email" type="text" class="form-control" name="phone" value="{{ old('phone') }}" required autofocus placeholder='Ví dụ: 32145353432'>
 
-                                @if ($errors->has('email'))
+                                @if ($errors->has('phone'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('phone') }}</strong>
                                     </span>
                                 @endif
                             </div>

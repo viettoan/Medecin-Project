@@ -15,7 +15,6 @@ Route::get('/', function () {
 	return view('index');
 });
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     Route::get('/', function () {
@@ -49,10 +48,10 @@ Route::get('/lienhe', function () {
     return view('sites.lienhe.index');
 });
 
-Route::group(['as' => 'site.', 'namespace' => 'Site'], function () {
-    Route::resource('/thong-tin-ca-nhan', 'ProfileUser');
-    Route::resource('/lich-su-kham', 'History');
-    Route::resource('/lich-bac-sy', 'DoctorCalender');
+Route::group(['namespace' => 'Site', 'middleware' => 'auth'], function () {
+    Route::get('/thong-tin-ca-nhan/{id}', 'PatientController@show')->name('patient.profile.show');
+    Route::get('/lich-su-kham/{id}', 'HistoryController@show')->name('patient.history.show');
+    Route::get('/lich-bac-sy', 'DoctorCalenderController@index')->name('doctor.calender.show');
 });
 
 

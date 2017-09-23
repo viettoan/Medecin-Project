@@ -25,8 +25,19 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
+    /**
+     * Pham Viet Toan
+     * 09/23/2017
+     * Override function get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return 'phone';
+    }
     /**
      * Create a new controller instance.
      *

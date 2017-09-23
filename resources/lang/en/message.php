@@ -59,4 +59,7 @@ return [
     'update_failed' => 'Update Failed !',
     'delete_success' => 'Delete Successfully !',
     'delete_failed' => 'Delete Failed !',
+    'create_success' => 'Create Successfully !',
+    'create_failed' => 'Create Failed !',
+    'logout' => 'Logout',
 ];

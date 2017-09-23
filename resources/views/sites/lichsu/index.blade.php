@@ -22,17 +22,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach ($patientHistories as $history)
                                         <tr>
                                             <th scope="row">1</th>
-                                            <td>1</td>
-                                            <td>Sieu am</td>
-                                            <td>19/10/2017</td>
+                                            <td>{{ $history->medical_examination }}</td>
+                                            <td>{{ $history->content }}</td>
+                                            <td>{{ $history->created_at }}</td>
                                             <td>
                                                 <button class="btn btn-success" v-on:click="viewdetail">
                                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                                 </button>
                                             </td>
                                         </tr>
+                                    @endforeach    
                                     </tbody>
                                 </table>
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
