@@ -110,7 +110,7 @@ new Vue({
                 }
             }).catch((error) => {
                 if (error.response.status == 422) {
-                    this.formErrorsUpdate = error.response.data
+                    this.formErrorsUpdate = error.response.data;
                 }
             });
         },
