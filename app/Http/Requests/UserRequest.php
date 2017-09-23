@@ -31,7 +31,7 @@ class UserRequest extends FormRequest
             'confirm_pass' => 'required|same:password',
             'address' => 'required',
             'age' => 'required',
-            'permistion' => 'required',
+            'permission' => 'required',
             'sex' => 'required'
             ];
     }

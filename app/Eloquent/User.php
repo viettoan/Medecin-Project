@@ -25,7 +25,7 @@ class User extends Authenticatable
         'sex',
         'phone',
         'address',
-        'permistion',
+        'permission',
         'specialist_id',
         'status'
     ];
