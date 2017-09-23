@@ -72,7 +72,7 @@
                     <select class="form-control" name="permission" v-model="newItem.permission" v-on:change="specialist">
                         <option value=""></option>
                         <option value="1">Amin</option>
-                        <option value="2">Bac Sy</option>
+                        <option value="2">Doctor</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6" id="sepilisc">

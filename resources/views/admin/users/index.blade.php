@@ -86,7 +86,7 @@
                     <div class=" image-user col-md-4">
                         <div class="box-body box-profile">
                             <div class="col-md-10">
-                                <img class="img-responsive img-circle" src="{{ asset('huonggiang.jpg')}}" alt="User profile picture">    
+                                <img class="img-responsive img-circle" src="{{ asset('huonggiang.jpg')}}" alt="User profile picture"> 
                                 <h3 class="profile-username text-center">
                                 <i class="fa fa-leaf" aria-hidden="true"></i>
                                 @{{ fillItem.name }}
@@ -110,8 +110,7 @@
                             </li>
                             <li class="list-group-item">
                                 <b v-if="fillItem.sex == 0"><i class="fa fa-transgender" aria-hidden="true"></i>{{ trans('message.gender') }} : {{ trans('message.male')}}</b>
-                                 <b v-if="fillItem.sex == 1"><i class="fa fa-transgender" aria-hidden="true"></i>{{ trans('message.gender') }} : {{ trans('message.Famele')}}</b>
-
+                                <b v-if="fillItem.sex == 1"><i class="fa fa-transgender" aria-hidden="true"></i>{{ trans('message.gender') }} : {{ trans('message.Female')}}</b>
                             </li>
                             <li class="list-group-item">
                                 <b><i class="fa fa-id-card" aria-hidden="true"></i>{{ trans('message.permission') }} :</b>
@@ -151,34 +150,40 @@
                     <form method = "post" enctype="multipart/form-data" v-on:submit.prevent="updateItem(fillItem.id)">
                 <div class="form-group col-md-4">
                     <label>{{ trans('message.name') }}</label>
+                    <span v-if="formErrorsUpdate['name']" class="error text-danger">@{{ formErrorsUpdate['name'][0] }}</span><br>
                     <div>
-                        <input type="text" name="name" placeholder="User Name" class="form-control" v-model="fillItem.name"> 
+                        <input type="text" name="name" placeholder="User Name" class="form-control" v-model="fillItem.name">
                     </div>
                 </div>
                 <div class="form-group col-md-4">
                     <label>{{ trans('message.phone') }}</label>
+                    <span v-if="formErrorsUpdate['phone']" class="error text-danger">@{{ formErrorsUpdate['phone'][0] }}</span><br>
                     <div>
                         <input type="text" name="phone" placeholder="Phone" class="form-control" v-model="fillItem.phone">
                     </div>
                 </div>
                 <div class="form-group col-md-4">
                     <label>{{ trans('message.email') }}</label>
+                    <span v-if="formErrorsUpdate['email']" class="error text-danger">@{{ formErrorsUpdate['email'][0] }}</span><br>
                     <input type="email" name="email" placeholder="Enter your email" class="form-control" v-model="fillItem.email">
                 </div>
                 <div class="form-group col-md-12">
                     <label>{{ trans('message.address') }}</label>
+                    <span v-if="formErrorsUpdate['address']" class="error text-danger">@{{ formErrorsUpdate['address'][0] }}</span><br>
                     <div>
                         <input type="text" name="address" placeholder="Address" class="form-control" v-model="fillItem.address">
                     </div>
                 </div>
                 <div class="form-group col-md-6">
                     <label>{{ trans('message.age') }}</label>
+                    <span v-if="formErrorsUpdate['age']" class="error text-danger">@{{ formErrorsUpdate['age'][0] }}</span><br>
                     <div>
                         <input type="number" name="age" placeholder="Age" class="form-control" v-model="fillItem.age">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <label>{{ trans('message.gender') }}</label>
+                    <span v-if="formErrorsUpdate['sex']" class="error text-danger">@{{ formErrorsUpdate['sex'][0] }}</span><br>
                      <select  class="form-control create_customer" name="sex" v-model="fillItem.sex">
                         <option value="1">{{ __('Male') }}</option>
                         <option value="0">{{ __('Famele') }}</option>
@@ -187,9 +192,10 @@
                 <div class="clearfix"></div>
                 <div class="form-group col-md-6">
                     <label>{{ trans('message.permisstion') }}</label>
+                    <span v-if="formErrorsUpdate['permission']" class="error text-danger">@{{ formErrorsUpdate['permission'][0] }}</span><br>
                      <select class="form-control" name="permission" v-model="fillItem.permission" v-on:change="specialist">
                         <option value="1">Amin</option>
-                        <option value="2">Bac Sy</option>
+                        <option value="2">Doctor</option>
                     </select>
                 </div>
                  <div class="form-group col-md-6" id="sepilisc">

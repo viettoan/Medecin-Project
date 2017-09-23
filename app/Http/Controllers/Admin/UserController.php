@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Contracts\Repositories\UserRepository;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UpdateRequest;
 use App\Eloquent\User;
 
 
@@ -109,7 +110,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         // $data = $request->except('password');
         // $data['password'] = bcrypt($request->password);
