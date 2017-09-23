@@ -8,19 +8,22 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-body">
+                    <div class="col-md-12 row">
+                        @if ($errors->has('id'))
+                            <span class="alert alert-warning " role="alert">
+                                <strong>{{ $errors->first('id') }}</strong>
+                            </span>
+                        @endif
+                    </div>
                     <form class='login' class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <div class="col-md-12"><label for="email" class="control-label"><strong>Tên đăng nhập (Mã bệnh nhân)</strong></label></div>
 
                             <div class="col-md-6">
-                                <input  id="email" type="text" class="form-control" name="phone" value="{{ old('phone') }}" required autofocus placeholder='Ví dụ: 32145353432'>
+                                <input  id="email" type="text" class="form-control" name="id" value="{{ old('id') }}" required autofocus placeholder='Ví dụ: 32145353432'>
 
-                                @if ($errors->has('phone'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('phone') }}</strong>
-                                    </span>
-                                @endif
+                                
                             </div>
                         </div>
 

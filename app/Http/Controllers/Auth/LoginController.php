@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -29,6 +30,22 @@ class LoginController extends Controller
 
     /**
      * Pham Viet Toan
+     * 23/09/2017
+     * Validate the user login request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request, [
+            $this->username() => 'required',
+            'password' => 'required|string',
+        ]);
+    }
+
+    /**
+     * Pham Viet Toan
      * 09/23/2017
      * Override function get the login username to be used by the controller.
      *
@@ -36,7 +53,7 @@ class LoginController extends Controller
      */
     public function username()
     {
-        return 'phone';
+        return 'id';
     }
     /**
      * Create a new controller instance.
