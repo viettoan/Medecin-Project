@@ -2,10 +2,10 @@
 
 namespace App\Repositories;
 
-use App\Contracts\Repositories\UserRepository;
+use App\Contracts\Repositories\PatientRepository;
 use App\Eloquent\User;
 
-class UserRepositoryEloquent extends AbstractRepositoryEloquent implements UserRepository
+class PatientRepositoryEloquent extends AbstractRepositoryEloquent implements PatientRepository
 {
     public function model()
     {
@@ -24,15 +24,15 @@ class UserRepositoryEloquent extends AbstractRepositoryEloquent implements UserR
     {
         return $this->model()->select($select)->with($with)->find($id);
     }
-
+    
     public function findByPhone($phone)
     {
         return $this->model()->where('phone', $phone)->first();
     }
 
-    public function getAllUser($permissionadmin, $permissiondoctor, $paginate)
+    public function getAllPatient($paginate)
     {
-        return $this->model()->where('permission', $permissionadmin)->orwhere('permission', $permissiondoctor)->paginate($paginate);
+        return $this->model()->where('permission', config('custom.patient'))->paginate($paginate);
     }
 
 }

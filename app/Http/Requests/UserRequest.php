@@ -3,8 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Request;
-use App\Eloquent\User;
 
 class UserRequest extends FormRequest
 {
@@ -23,27 +21,18 @@ class UserRequest extends FormRequest
      *
      * @return array
      */
-    public function rules(Request $request)
+    public function rules()
     {
-        if ($this->isMethod('PUT')) {
-            $arr = [
-                'name' => 'required|max:255' ,
-                'email' => 'required|max:255|email|unique:users,email,'.$request->id ,
-                'address' => 'required|string|max:255',
-                'age' => 'required|numeric',
-                'phone' => 'required|string|max:20|min:9',
-                'sex' => 'required|numeric',
-            ];
-            
-            return $arr;
-        }
         return [
-            'name' => 'required|max:255' ,
-            'email' => 'required|max:255|email|unique:users' ,
-            'address' => 'required|string|max:255',
-            'age' => 'required|numeric',
-            'phone' => 'required|string|max:20|min:9',
-            'sex' => 'required|numeric',
-        ];
+            'name' => 'required|string',
+            'email' => 'required|email|unique:users',
+            'phone' => 'required',
+            'password' => 'required|min:6',
+            'confirm_pass' => 'required|same:password',
+            'address' => 'required',
+            'age' => 'required',
+            'permission' => 'required',
+            'sex' => 'required'
+            ];
     }
 }

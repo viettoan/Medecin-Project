@@ -24,7 +24,7 @@
                       <div class="col-sm-4 col-md-4">
                           <div class="wow fadeInUp" data-wow-delay="0.2s">
                               <div class="box text-center">
-                                   <a href="{{ route('site.lich-bac-sy.index') }}"><i class="fa fa-list-alt fa-3x circled bg-skin"></i></a>
+                                   <a href="{{ route('doctor.calender.show') }}"><i class="fa fa-list-alt fa-3x circled bg-skin"></i></a>
                                   <h4 class="h-bold">Lịch làm việc bác sĩ</h4>
                                   <p>
                                       Dễ dàng tra cứu lịch làm việc bác sĩ .bla...bla...bla...bla

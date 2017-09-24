@@ -6,9 +6,14 @@
         <div class="panel-heading">
             <h2>{{ trans('message.new_patient') }}</h2>
         </div>
-        @if (session('message'))
-            <div class="alert alert-warning">
-                {{ session('message') }}
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if (session('failed'))
+            <div class="alert alert-error">
+                {{ session('failed') }}
             </div>
         @endif
         <div class="panel-body">
@@ -59,7 +64,7 @@
                 <div class="form-group">
                     <label>{{ trans('message.age') }}</label>
                     <div>
-                        <input type="number" name="age" placeholder="Age" class="form-control" required>
+                        <input type="number" name="age" placeholder="Age" value="{{ old('age') }}" class="form-control" required>
                         @if ($errors->has('age'))
                             <span class="help-block">
                                  <strong>{{ $errors->first('age') }}</strong>

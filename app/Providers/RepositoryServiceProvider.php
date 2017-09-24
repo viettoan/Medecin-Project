@@ -12,9 +12,21 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Contracts\Repositories\UserRepository::class,
             \App\Repositories\UserRepositoryEloquent::class,
         ],
+        'patient' => [
+            \App\Contracts\Repositories\PatientRepository::class,
+            \App\Repositories\PatientRepositoryEloquent::class,
+        ],
+        'patientHistory' => [
+            \App\Contracts\Repositories\PatientHistoryRepository::class,
+            \App\Repositories\PatientHistoryRepositoryEloquent::class,
+        ],
         'specialist' => [
             \App\Contracts\Repositories\SpesicalRepository::class,
             \App\Repositories\SpecialistRepositoryEloquent::class,
+        ],
+        'contact' => [
+            \App\Contracts\Repositories\ContactRepository::class,
+            \App\Repositories\ContactRepositoryEloquent::class,
         ],
     ];
 

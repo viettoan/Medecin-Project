@@ -3,7 +3,7 @@
 namespace App\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Eloquent\Relations\MedicalHistoryRelation
+use App\Eloquent\Relations\MedicalHistoryRelation;
 
 class MedicalHistory extends Model
 {

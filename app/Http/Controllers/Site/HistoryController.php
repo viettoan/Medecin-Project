@@ -4,9 +4,26 @@ namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Contracts\Repositories\PatientHistoryRepository;
+use Response;
 
-class ProfileUser extends Controller
+class HistoryController extends Controller
 {
+
+    protected $patientHistory;
+
+    /**
+     * Pham Viet Toan
+     * 09/23/2017
+     *
+     * Construct class
+     * @param App\Contracts\Repositories\PatientHistoryRepository $patientHistory
+     */
+    public function __construct(PatientHistoryRepository $patientHistory)
+    {
+        $this->patientHistory = $patientHistory;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +31,7 @@ class ProfileUser extends Controller
      */
     public function index()
     {
-       return view('sites._components.profileUser');
+        //
     }
 
     /**
@@ -39,6 +56,9 @@ class ProfileUser extends Controller
     }
 
     /**
+     * Pham Viet Toan
+     * 09/23/2017
+     *
      * Display the specified resource.
      *
      * @param  int  $id
@@ -46,7 +66,14 @@ class ProfileUser extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $patientHistories = $this->patientHistory->findByUserId($id, []);
+
+            return view('sites.lichsu.index', compact('patientHistories'));
+        } catch (Exception $e) {
+
+        }
+        
     }
 
     /**
