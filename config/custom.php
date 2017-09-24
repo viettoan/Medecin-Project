@@ -8,4 +8,8 @@ return [
 	'patient' => 0,
 	'male' => 1,
 	'female' => 0,
+	'contact' => [
+		'pending' => 0,
+		'accept' => 1,
+	],
 ];

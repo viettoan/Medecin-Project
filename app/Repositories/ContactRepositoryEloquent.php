@@ -12,14 +12,23 @@ class ContactRepositoryEloquent extends AbstractRepositoryEloquent implements Co
         return new Contact;
     }
 
+
+    public function create($data = [])
+    {
+        $contact = $this->model()->fill($data);
+        $contact->save();
+
+        return $contact;
+    }
+
     public function find($id, $with = [], $select = ['*'])
     {
         return $this->model()->select($select)->with($with)->find($id);
     }
 
-    public function getAllContact($paginate)
+    public function getAll($with = [], $paginate, $select = ['*'])
     {
-        return $this->model()->paginate($paginate);
+        return $this->model()->select($select)->with($with)->paginate($paginate);
     }
 
 }
