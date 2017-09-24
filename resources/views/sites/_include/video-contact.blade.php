@@ -12,26 +12,57 @@
         </video>
       </div>
       <div class="col-sm-4">
-         <div class="col-sm-12">
+        <div class="col-sm-12">
           <h2 class='topic-name'>Liên hệ</h2>
            <div class="line"></div>
         </div>
-        <form>
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if (session('failed'))
+            <div class="alert alert-error">
+                {{ session('failed') }}
+            </div>
+        @endif
+        <form method = "POST" enctype="multipart/form-data" action="{{ route('contact.store') }}">
+        {{ csrf_field() }}
           <div class="form-group">
             <label for="formGroupExampleInput">Họ và Tên</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Vui lòng nhập họ và tên">
+            <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="Vui lòng nhập họ và tên" required value="{{ old('name') }}">
+            @if ($errors->has('name'))
+                <span class="help-block">
+                     <strong>{{ $errors->first('name') }}</strong>
+                </span>
+            @endif
           </div>
           <div class="form-group">
             <label for="formGroupExampleInput2">Số điện thoại</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Vui lòng nhập số điện thoại">
+            <input type="text" name="phone" class="form-control" id="formGroupExampleInput2" placeholder="Vui lòng nhập số điện thoại" required value="{{ old('phone') }}">
+            @if ($errors->has('phone'))
+              <span class="help-block">
+                <strong>{{ $errors->first('phone') }}</strong>
+              </span>
+            @endif
           </div>
           <div class="form-group">
             <label for="formGroupExampleInput2">Email</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Vui lòng nhập nhập Email">
+            <input type="email" class="form-control" name="email" id="formGroupExampleInput2" placeholder="Vui lòng nhập nhập Email" required value="{{ old('email') }}">
+            @if ($errors->has('email'))
+              <span class="help-block">
+                <strong>{{ $errors->first('email') }}</strong>
+              </span>
+            @endif
           </div>
           <div class="form-group">
             <label for="formGroupExampleInput2">Nội dung</label>
-            <textarea type="text" class="form-control" id="formGroupExampleInput2" placeholder="Vui lòng nhập nội dung liên hệ của bạn" rows='10'></textarea>
+            <textarea type="text" name="content" class="form-control" id="formGroupExampleInput2" placeholder="Vui lòng nhập nội dung liên hệ của bạn" rows='10' required>{{ old('content') }}</textarea>
+            @if ($errors->has('content'))
+              <span class="help-block">
+                <strong>{{ $errors->first('content') }}</strong>
+              </span>
+            @endif
           </div>
           <button type='sumbit' class='btn btn-primary '><i class='fa fa-send'></i>Gửi</button>
       </form>

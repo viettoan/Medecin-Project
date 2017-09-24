@@ -6,7 +6,11 @@ use App\Contracts\Repositories\AbstractRepository;
 
 interface ContactRepository extends AbstractRepository
 {
+
+    public function create($data = []);
+
     public function find($id, $select = ['*'], $with = []);
 
-    public function getAllContact($paginate);
+    public function getAll($with = [], $paginate, $select = ['*']);
+
 }

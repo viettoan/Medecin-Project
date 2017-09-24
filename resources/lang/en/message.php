@@ -36,7 +36,7 @@ return [
     'content' => 'Content',
     'status' => 'Status',
     'pending' => 'Pending',
-    'replied' => 'Replied',
+    'accept' => 'Accept',
     'manage_contact' => 'Manage Contact',
     'detail_contact' => 'Detail Contact',
     'contacts' => 'Contacts',
@@ -78,5 +78,7 @@ return [
     'create_user' => 'Create User',
     'confirmpassword' => 'Confirm Password',
     'exit' => 'Exit',
-    'special' => 'Special'
+    'special' => 'Special',
+    'contact_success' => 'Contact Success !',
+    'contact_failed' => 'Contact Failed !',
 ];

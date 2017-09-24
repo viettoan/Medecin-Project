@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('content-admin')
-<div class="content-admin">
+<div class="content-admin" id="index-contacts">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h2>{{ trans('message.contacts') }}</h2>
@@ -19,6 +19,7 @@
                     <tr>
                         <th class="text-center col-md-1">{{ trans('message.id') }}</th>
                         <th class="text-center col-md-1">{{ trans('message.name') }}</th>
+                        <th class="text-center col-md-1">{{ trans('message.phone') }}</th>
                         <th class="text-center col-md-1">{{ trans('message.email') }}</th>
                         <th class="text-center">{{ trans('message.content') }}</th>
                         <th class="text-center">{{ trans('message.status') }}</th>
@@ -26,20 +27,29 @@
                     </tr>   
                 </thead>
                 <tbody>
-                    <tr>
-                        <th class="col-md-1">1</th>
-                        <th class="col-md-2">Viet Toan</th>
-                        <th class="col-md-2">0123456789</th>
-                        <th class="col-md-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</th>
-                        <th class="text-center col-md-1"><span class="label label-default">{{ trans('message.pending') }}</span></th>
-
+                @foreach ($contacts as $contact)
+                    <tr >
+                        <th class="col-md-1">{{ $contact->id }}</th>
+                        <th class="col-md-2">{{ $contact->name }}</th>
+                        <th class="col-md-1">{{ $contact->phone }}</th>
+                        <th class="col-md-1">{{ $contact->email }}</th>
+                        <th class="col-md-5">{{ $contact->content }}</th>
+                        <th class="text-center col-md-1" id="contact-status-{{ $contact->id }}" >
+                        @if ($contact->status == config('custom.contact.pending'))
+                            <span class="label label-default">{{ trans('message.pending') }}</span></th>
+                        @else 
+                            <span class="label label-success">{{ trans('message.accept') }}</span></th>
+                        @endif    
                         <th class="col-md-1">
-                            <a data-toggle="modal" data-target="#detailContact"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                            <a><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a>
+                            <a data-toggle="modal" v-on:click="getDetailContact({{ $contact->id }})"><i class="fa fa-eye" aria-hidden="true"></i></a>
                         </th>
                     </tr>
+                @endforeach    
                 </tbody>
             </table>
+            @if (isset($users)) 
+                {{ $users->links() }}
+            @endif
         </div>
     </div>
     <!-- Detail contact -->
@@ -55,25 +65,26 @@
                         <ul class="list-group list-group-unbordered">
                             <li class="list-group-item">
                                 <b><i class="fa fa-user" aria-hidden="true"></i>{{ trans('message.name') }} :</b>
-                                <a>Viet Toan</a>
+                                <a>@{{ contact.name }}</a>
                             </li>
                             <li class="list-group-item">
                                 <b><i class="fa fa-phone" aria-hidden="true"></i>{{ trans('message.phone') }} :</b>
-                                <a>0123456789</a>
+                                <a>@{{ contact.phone }}</a>
                             </li>
                             <li class="list-group-item">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 <b>{{ trans('message.email') }}:</b>
                                 <a>
-                                    viettoan290696@gmail
+                                    @{{ contact.email }}
                                 </a>
                             </li>
                             <li class="list-group-item">
                                 <b><i class="fa fa-pencil" aria-hidden="true"></i>{{ trans('message.content') }} :</b>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+                                <p>@{{ contact.content }}</p>
                             </li>
                         </ul>
-                        <button class="btn btn-default">{{ trans('message.pending') }}</button>
+                        <button class="btn btn-success" v-if="contact.status == 0" v-on:click="changeStatus(contact.id)">{{ trans('message.accept') }}</button>
+                        
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -84,4 +95,7 @@
     </div>
 
 </div>
+@endsection
+@section('script')
+    {{ Html::script('js/admin/contact.js') }}
 @endsection

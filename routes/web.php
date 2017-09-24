@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-	return view('index');
-});
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
@@ -23,29 +20,33 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     Route::resource('user', 'UserController');
     Route::resource('patient', 'PatientController');
     Route::resource('contact', 'ContactController');
+    Route::get('change-status-contact/{id}', 'ContactController@changeStatus');
     Route::resource('category', 'CategoryController');
     Route::resource('post', 'PostController');
     Route::resource('specialist', 'SpecialistController');
     Route::get('list-specialist', 'SpecialistController@list')->name('list-specialist');
 });
-Route::get('/index', function () {
-    return view('index');
-});
-Route::get('/gioithieu', function () {
-    return view('sites.gioithieu.index');
-});
-Route::get('/chuyenkhoa', function () {
-    return view('sites.chuyenkhoa.index');
-});
-Route::get('/tintuc', function () {
-    return view('sites.tintuc.index');
-});
-Route::get('/post', function () {
-    return view('sites.post.index');
-});
 
-Route::get('/lienhe', function () {
-    return view('sites.lienhe.index');
+Route::group(['namespace' => 'Site'], function() {
+    Route::get('/', function () {
+        return view('index');
+    })->name('index');
+    Route::get('/gioithieu', function () {
+        return view('sites.gioithieu.index');
+    });
+    Route::get('/chuyenkhoa', function () {
+        return view('sites.chuyenkhoa.index');
+    });
+    Route::get('/tintuc', function () {
+        return view('sites.tintuc.index');
+    });
+    Route::get('/post', function () {
+        return view('sites.post.index');
+    });
+    Route::get('/lienhe', function () {
+        return view('sites.lienhe.index');
+    });
+    Route::post('/lienhe', 'ContactController@store')->name('contact.store');
 });
 
 Route::group(['namespace' => 'Site', 'middleware' => 'auth'], function () {

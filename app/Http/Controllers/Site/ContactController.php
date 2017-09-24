@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
-use App\Contracts\Repositories\ContactRepository;
+use App\Http\Requests\ContactRequest;
 use App\Http\Controllers\Controller;
-use Response;
+use App\Contracts\Repositories\ContactRepository;
 
 class ContactController extends Controller
 {
@@ -15,25 +15,20 @@ class ContactController extends Controller
      * Pham Viet Toan
      * 09/24/2017
      *
-     * Construct function
+     * Construct class
      */
     public function __construct(ContactRepository $contact)
     {
         $this->contact = $contact;
     }
-
     /**
-     * Pham Viet Toan
-     * 09/24/2017
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $contacts = $this->contact->getAll([], 10);
-
-        return view('admin.contacts.index', compact('contacts'));
+        //
     }
 
     /**
@@ -43,23 +38,30 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return view('admin.contacts.add');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
         //
     }
 
     /**
      * Pham Viet Toan
      * 09/24/2017
+     * Store a newly created resource in storage.
+     *
+     * @param  App\Http\Requests\ContactRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(ContactRequest $request)
+    {
+        $newContact = $request->all();
+        $newContact['status'] = config('custom.contact.pending');
+
+        if ($this->contact->create($newContact)) {
+            return back()->with('success', trans('message.contact_success'));
+        } else {
+            return back()->with('failed', trans('message.contact_failed'));
+        }
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -67,9 +69,7 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        $contact = $this->contact->find($id, []);
-
-        return Response::json($contact, 200);
+        //
     }
 
     /**
@@ -80,12 +80,10 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.contacts.edit');
+        //
     }
 
     /**
-     * Pham Viet Toan
-     * 09/24/2017 
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -94,17 +92,7 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $contact = $this->contact->find($id, []);
-        $data = [
-            'status' => config('custom.contact.accept')
-        ];
-
-        try {
-            $contact->update($data);
-            return Response('Contact Accepted!', 200);
-        } catch (Exception $e) {
-            return Response("Contact can't not accept!", 403);
-        }
+        //
     }
 
     /**
