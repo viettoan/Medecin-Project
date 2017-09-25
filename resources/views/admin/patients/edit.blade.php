@@ -19,7 +19,6 @@
         <div class="panel-body">
             <form method = "POST" enctype="multipart/form-data" action="{{ route('patient.update', ['id' => $patient->id]) }}">
                 <input type="hidden" name="_method" value="PUT">
-                <input type="hidden" name="id" value="{{ $patient->id }}">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label>{{ trans('message.name') }}</label>
