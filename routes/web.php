@@ -48,7 +48,8 @@ Route::group(['namespace' => 'Site'], function() {
     });
     Route::post('/lienhe', 'ContactController@store')->name('contact.store');
 });
-
+Route::resource('/dangnhap-admin', 'LoginAdminController');
+Route::post('/dangnhap', 'Auth\LoginController@postLogin')->name('loginadmin');
 Route::group(['namespace' => 'Site', 'middleware' => 'auth'], function () {
     Route::get('/thong-tin-ca-nhan/{id}', 'PatientController@show')->name('patient.profile.show');
     Route::get('/lich-su-kham/{id}', 'HistoryController@show')->name('patient.history.show');

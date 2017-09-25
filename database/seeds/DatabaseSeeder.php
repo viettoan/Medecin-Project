@@ -15,13 +15,13 @@ class DatabaseSeeder extends Seeder
         $user = [
             'name' => 'admin',
             'email' => 'admin@gmail.com',
-            'password' => bcrypt('123456'),
+            'password' => bcrypt('1234567'),
             'age' => 22,
             'sex' => 1,
             'phone' => '0123456789',
 	        'address' => 'Ha Noi',
             'specialist_id' => 1,
-	        'permistion' => 1,
+	        'permission' => 1,
         ];
 
         User::create($user);
