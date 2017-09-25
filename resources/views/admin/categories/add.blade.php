@@ -6,12 +6,23 @@
         <div class="panel-heading">
             <h2>{{ trans('message.new_category') }}</h2>
         </div>
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        @if (session('failed'))
+            <div class="alert alert-error">
+                {{ session('failed') }}
+            </div>
+        @endif
         <div class="panel-body">
-            <form method = "post" enctype="multipart/form-data">
+            <form method = "post" enctype="multipart/form-data" action="{{ route('category.store') }}">
+            {{ csrf_field() }}
                 <div class="form-group">
                     <label>{{ trans('message.name') }}</label>
                     <div>
-                        <input type="text" name="name" placeholder="User Name" class="form-control" required=""> 
+                        <input type="text" name="name" placeholder="Category Name" class="form-control" required=""> 
                         @if ($errors->has('name'))
                             <span class="help-block">
                                  <strong>{{ $errors->first('name') }}</strong>
@@ -21,16 +32,15 @@
                 </div>
                 <div class="form-group">
                     <label>{{ trans('message.parent') }}</label>
-                    <select class="form-control" name="parent">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select class="form-control" name="parent_id">
+                    <option value="0"></option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach    
                     </select>
-                    @if ($errors->has('email'))
+                    @if ($errors->has('parent_id'))
                         <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
+                            <strong>{{ $errors->first('parent_id') }}</strong>
                         </span>
                     @endif
                 </div>
@@ -38,12 +48,12 @@
                     <label>{{ trans('message.status') }}</label>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="status" value="1" checked="checked">{{ trans('message.hide') }}
+                            <input type="radio" name="status" value="{{ config('custom.category.hide') }}" checked="checked">{{ trans('message.hide') }}
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                        <input type="radio" name="status" value="0">{{ trans('message.show') }}
+                        <input type="radio" name="status" value="{{ config('custom.category.show') }}">{{ trans('message.show') }}
                         </label>
                     </div>
                 </div>

@@ -28,6 +28,10 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Contracts\Repositories\ContactRepository::class,
             \App\Repositories\ContactRepositoryEloquent::class,
         ],
+        'category' => [
+            \App\Contracts\Repositories\CategoryRepository::class,
+            \App\Repositories\CategoryRepositoryEloquent::class,
+        ],
     ];
 
     /**
