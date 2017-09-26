@@ -2,14 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Contracts\Repositories\ContactRepository;
-use App\Eloquent\Contact;
+use App\Contracts\Repositories\CategoryRepository;
+use App\Eloquent\Category;
 
-class ContactRepositoryEloquent extends AbstractRepositoryEloquent implements ContactRepository
+class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements CategoryRepository
 {
     public function model()
     {
-        return new Contact;
+        return new Category;
     }
 
 
@@ -26,9 +26,13 @@ class ContactRepositoryEloquent extends AbstractRepositoryEloquent implements Co
         return $this->model()->select($select)->with($with)->find($id);
     }
 
-    public function getAll($with = [], $paginate, $select = ['*'])
+    public function getAllPaginate($with = [], $paginate, $select = ['*'])
     {
         return $this->model()->select($select)->with($with)->paginate($paginate);
     }
 
+    public function getAll($with = [], $select = ['*'])
+    {
+        return $this->model()->select($select)->with($with)->get();
+    }
 }

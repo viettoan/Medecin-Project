@@ -106,47 +106,5 @@
         })
       })
     </script>
-    {{-- <script>
-      $(document).ready(function() {
-        $.ajaxSetup({
-               headers: {
-                   'X-CSRF-TOKEN': $("input[name='_token']").val()
-               }
-        });
-
-        $('#modal-form').submit(function(e) {
-          e.preventDefault();
-          // console.log('hay lam')
-          $('#status').css({"display": "block"})
-          var dataform = new FormData();
-          // var _token = $("input[name='_token']").val();
-          if($("#file")[0].files.length>0)
-           {
-             dataform.append("video",$("#file")[0].files[0]);
-             dataform.append('content',$('#content').val());
-           }
-          //  console.log($('#content').val())
-          // console.log(dataform)
-           $.ajax({
-             type: 'POST',
-             url: '/admin/media-medical',
-             data: dataform,
-             enctype: 'multipart/form-data',
-             contentType: false,
-             processData: false,
-             success: function(response)
-             {
-                 console.log(response)
-                //  $('#status').text("Upload thành công")
-             },
-             error: function(error) {
-              //  console.log(error)
-             }
-         })
-
-
-      })
-    })
-    </script> --}}
     {{ Html::script('js/admin/patient.js') }}
 @endsection

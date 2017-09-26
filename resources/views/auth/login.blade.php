@@ -21,9 +21,7 @@
                             <div class="col-md-12"><label for="email" class="control-label"><strong>Tên đăng nhập (Mã bệnh nhân)</strong></label></div>
 
                             <div class="col-md-6">
-                                <input  id="email" type="text" class="form-control" name="id" value="{{ old('id') }}" required autofocus placeholder='Ví dụ: 32145353432'>
-
-                                
+                                <input  id="email" type="text" class="form-control" name="id" value="{{ old('id') }}" required autofocus placeholder='Ví dụ: 32145353432'>                                
                             </div>
                         </div>
 
