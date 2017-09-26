@@ -13,3 +13,4 @@ yarn-error.log
 .env
 /public/bower
 public/bower
+dump.rdb

@@ -1,0 +1,31 @@
+.video {
+   margin-bottom: 50px;
+}
+.video p {
+  padding: 10px;
+  background-color: #27ae60;
+  color:white;
+  text-align: left;
+}
+.video video {
+ max-width: 800px;
+ width:100%;
+}
+.intro h2 {
+  text-align: center;
+  color: #b01a1f;
+  padding: 20px;
+}
+.intro h5 {
+  text-align: center;
+  color: #b01a1f;
+  font-size: 16px;
+}
+.intro h5::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: 13px;
+  left: 0px;
+  border:1px solid #b01a1f
+}

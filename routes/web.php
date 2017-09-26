@@ -24,6 +24,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     Route::resource('category', 'CategoryController');
     Route::resource('post', 'PostController');
     Route::resource('specialist', 'SpecialistController');
+    Route::resource('media-medical', 'MediaMedicalHistory');
     Route::get('list-specialist', 'SpecialistController@list')->name('list-specialist');
 });
 
@@ -54,6 +55,7 @@ Route::group(['namespace' => 'Site', 'middleware' => 'auth'], function () {
     Route::get('/thong-tin-ca-nhan/{id}', 'PatientController@show')->name('patient.profile.show');
     Route::get('/lich-su-kham/{id}', 'HistoryController@show')->name('patient.history.show');
     Route::get('/lich-bac-sy', 'DoctorCalenderController@index')->name('doctor.calender.show');
+    Route::get('/video-sieu-am/{id}', function () {
+	    return view('sites._components.userVideo');
+		});
 });
-
-

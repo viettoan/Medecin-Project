@@ -8,11 +8,10 @@ use App\Eloquent\Relations\MedicalHistoryRelation;
 class MedicalHistory extends Model
 {
 	use MedicalHistoryRelation;
-	
+
     protected $fillable = [
-    	'id',
     	'user_id',
-    	'medical_examination',
+    	'date_examination',
     	'content',
     	'status'
     ];

@@ -15,6 +15,6 @@ trait MedicalHistoryRelation
 
     public function media()
     {
-        return $this->belongsTo(Media::class, 'medical_history_id');
+        return $this->hasOne(Media::class, 'medical_history_id');
     }
 }

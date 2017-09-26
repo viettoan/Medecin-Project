@@ -5,6 +5,11 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h2>{{ trans('message.patients') }}</h2>
+          @if(session('message'))
+            <div class="alert alert-success">
+              <p>{{session('message')}}</p>
+            </div>
+          @endif
         </div>
         <div class="panel-body">
             <div class="col-md-12 admin-actions">
@@ -23,7 +28,7 @@
                         <th class="text-center">{{ trans('message.phone') }}</th>
                         <th class="text-center">{{ trans('message.email') }}</th>
                         <th class="text-center">{{ trans('message.action') }}</th>
-                    </tr>   
+                    </tr>
                 </thead>
                 <tbody>
                 @foreach ( $patients as $patient)
@@ -33,21 +38,21 @@
                         <th class="col-md-3">{{ $patient->phone }}</th>
                         <th class="col-md-3">{{ $patient->email }}</th>
                         <th class="col-md-2">
-                            <a data-toggle="modal" data-target="#addVideo"><i class="fa fa-file-video-o" aria-hidden="true"></i></a>
+                            <a data-toggle="modal" data-target="#addVideo" data-user-id="{{ $patient->id }}"><i class="fa fa-file-video-o" aria-hidden="true"></i></a>
                             <a href="{{ route('patient.show', ['id' => $patient->id]) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
                             <a href="{{ route('patient.edit', ['id' => $patient->id]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                             <a v-on:click="deletePatient('{{ $patient->id }}')"><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a>
                         </th>
                     </tr>
-                @endforeach    
+                @endforeach
                 </tbody>
             </table>
-            @if (isset($users)) 
+            @if (isset($users))
                 {{ $users->links() }}
             @endif
         </div>
     </div>
-    <!-- Add Video -->
+    <!-- Add Video modal -->
     <div class="modal fade" id="addVideo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -55,18 +60,32 @@
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">{{ trans('message.close') }}</span></button>
                     <h4 class="modal-title" id="myModalLabel">{{ trans('message.add_video') }}</h4>
                 </div>
+
                 <div class="modal-body ">
-                    <form method = "post" enctype="multipart/form-data">
+                    <form action="{{route('media-medical.store')}}" id="modal-form" method = "post" enctype="multipart/form-data">
+                      <input name='userId' type="hidden" id="usr-id">
+                      {{ csrf_field() }}
+                      {{-- video  --}}
                         <div class="form-group">
                             <label>{{ trans('message.video') }}</label>
                             <div>
-                                <input type="file" name="video" class="form-control" required=""> 
-                                @if ($errors->has('video'))
-                                    <span class="help-block">
+                                <input id="file" type="file" name="video" class="form-control">
+                                {{-- @if ($errors->has('video')) --}}
+                                    {{-- <span class="help-block">
                                          <strong>{{ $errors->first('video') }}</strong>
-                                    </span>
-                                @endif
+                                    </span> --}}
+                                {{-- @endif --}}
                             </div>
+                        </div>
+                      {{-- content --}}
+                        <div class="form-group">
+                          <label for=""> {{__('message.content')}} </label>
+                          <textarea name="content" class="form-control" rows="5" type="text" required=""></textarea>
+                        </div>
+                      {{-- date --}}
+                        <div class="form-group">
+                          <label for=""> {{__('message.date')}} </label>
+                          <input name="date_examination" class="form-control" rows="5" type="date">
                         </div>
                         <button type="submit" class="btn btn-primary">{{ trans('message.add') }}</button>
                     </form>
@@ -74,9 +93,18 @@
             </div>
         </div>
     </div>
+    {{-- End Add Video modal --}}
 </div>
 @endsection
 
 @section('script')
+    <script>
+      $(document).ready(function() {
+        $("a[data-toggle='modal']").click(function() {
+          let userId = $(this).data('user-id');
+          $('#usr-id').val(userId);
+        })
+      })
+    </script>
     {{ Html::script('js/admin/patient.js') }}
 @endsection

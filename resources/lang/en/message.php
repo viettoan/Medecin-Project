@@ -86,10 +86,9 @@ return [
     'confirmpassword' => 'Confirm Password',
     'exit' => 'Exit',
     'special' => 'Special',
+    'date' => "Date",
     'contact_success' => 'Contact Success !',
     'contact_failed' => 'Contact Failed !',
     'category_success' => 'Category Success !',
     'category_failed' => 'Category Failed !',
-    'hide' => 'Hide',
-    'show' => 'Show',
 ];
