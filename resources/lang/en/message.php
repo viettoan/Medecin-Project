@@ -78,5 +78,6 @@ return [
     'create_user' => 'Create User',
     'confirmpassword' => 'Confirm Password',
     'exit' => 'Exit',
-    'special' => 'Special'
+    'special' => 'Special',
+    'date' => "Date"
 ];

@@ -62,6 +62,19 @@ return [
             'region' => env('AWS_REGION'),
             'bucket' => env('AWS_BUCKET'),
         ],
+        'ftp' => [
+            'driver'   => 'ftp',
+            'host'     => 'sanchoi.net',
+            'username' => 'sanchoi.net',
+            'password' => 'sanchoi@123',
+
+            // Optional FTP Settings...
+            // 'port'     => 21,
+            // 'root'     => '',
+            // 'passive'  => true,
+            // 'ssl'      => true,
+            // 'timeout'  => 30,
+        ],
 
     ],
 
