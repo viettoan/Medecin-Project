@@ -3,7 +3,7 @@
 namespace App\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Eloquent\Relations\PostRelation
+use App\Eloquent\Relations\PostRelation;
 
 class Post extends Model
 {
@@ -12,7 +12,7 @@ class Post extends Model
     protected $fillable = [
     	'id',
     	'title',
-    	'Description',
+    	'description',
     	'content',
     	'status',
     ];

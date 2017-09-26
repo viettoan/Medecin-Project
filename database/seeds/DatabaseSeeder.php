@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Eloquent\User;
+use App\Eloquent\Post;
+use App\Eloquent\CategoryPostRelate;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,18 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $user = [
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('1234567'),
-            'age' => 22,
-            'sex' => 1,
-            'phone' => '0123456789',
-	        'address' => 'Ha Noi',
-            'specialist_id' => 1,
-	        'permission' => 1,
-        ];
-
-        User::create($user);
+        factory(CategoryPostRelate::class, 50)->create();
     }
 }
