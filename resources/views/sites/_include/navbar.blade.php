@@ -11,19 +11,20 @@
   <div class="collapse navbar-collapse nav-right nav-bar " id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item text-center">
-        <a class="nav-link" href="/index">TRANG CHỦ</a>
+        <a class="nav-link" href="{{ route('index') }}">TRANG CHỦ</a>
+      </li>
+
+      <li class="nav-item text-center">
+        <a class="nav-link" href="{{ route('introduce') }}">GIỚI THIỆU</a>
       </li>
       <li class="nav-item text-center">
-        <a class="nav-link" href="{{ url('/gioithieu') }}">GIỚI THIỆU</a>
+        <a class="nav-link" href="{{ route('specialist') }}">CHUYÊN KHOA</a>
       </li>
       <li class="nav-item text-center">
-        <a class="nav-link" href="{{ url('/chuyenkhoa') }}">CHUYÊN KHOA</a>
-      </li>
-      <li class="nav-item text-center">
-        <a class="nav-link" href="{{ url('/chuyenkhoa') }}">TIN TỨC</a>
+        <a class="nav-link" href="{{ route('new') }}">TIN TUC</a>
       </li>
        <li class="nav-item text-center">
-        <a class="nav-link" href="lienhe">LIÊN HỆ</a>
+        <a class="nav-link" href="{{ route('contact') }}">LIÊN HỆ</a>
       </li>
       @if (Auth::guest())
       <li class="nav-item text-center">

@@ -3,13 +3,13 @@
 namespace App\Repositories;
 
 use App\Contracts\Repositories\PostRepository;
-use App\Eloquent\User;
+use App\Eloquent\Post;
 
 class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostRepository
 {
     public function model()
     {
-        return new User;
+        return new Post;
     }
 
     public function create($data = [])
@@ -25,4 +25,8 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
         return $this->model()->select($select)->with($with)->find($id);
     }
 
+    public function getNewestPost($number = 3, $with = [], $select = ['*'])
+    {
+        return $this->model()->select($select)->where('status', config('custom.post.show'))->orderBy('created_at', 'desc')->with($with)->limit($number)->get();
+    }
 }

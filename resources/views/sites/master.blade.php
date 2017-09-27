@@ -15,7 +15,26 @@
     {{ Html::style('bower/owl.carousel/dist/assets/owl.carousel.min.css') }}
     {{ Html::style('bower/owl.carousel/dist/assets/owl.theme.default.min.css') }}
     {{ Html::style('css/site.css') }}
+    
     @yield('style')
+    <style type="text/css">
+        .pagination .page-item a{
+          padding:10px;
+        }
+        .pagination .active {
+          border: 1px solid #ddd;
+          padding:10px;
+          padding-bottom: 5px;
+          background: #0275d8;
+        }
+        .pagination .disabled {
+          border: 1px solid #ddd;
+          padding:10px;
+          padding-bottom: 5px;
+          border-bottom-left-radius: .25rem !important;
+          border-top-left-radius: .25rem;
+        }
+    </style>
 </head>
 <body>
     @yield('content')
@@ -24,5 +43,11 @@
     {{ Html::script('bower/owl.carousel/docs/assets/owlcarousel/owl.carousel.min.js') }}
     {{ Html::script('bower/vue/dist/vue.min.js') }}
     @yield('script')
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('.pagination li').addClass('page-item');
+          $('.pagination li a').addClass('page-link');
+        });
+    </script>
 </body>
 </html>

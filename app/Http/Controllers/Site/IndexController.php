@@ -3,22 +3,32 @@
 namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\ContactRequest;
+use App\Http\Controllers\Controller;
+use App\Contracts\Repositories\CategoryRepository;
+use App\Contracts\Repositories\PostRepository;
 
-class ContactController extends Controller
+class IndexController extends Controller
 {
-    protected $contact;
+    protected $category;
+    protected $post;
 
     /**
      * Pham Viet Toan
-     * 09/24/2017
+     * 09/27/2017
      *
-     * Construct class
+     * Construct function
+     * @param App\Contracts\Repositories\PostRepository $post
+     * @param App\Contracts\Repositories\CategoryRepository $category
      */
-    public function __construct(ContactRepository $contact)
+    public function __construct(
+        PostRepository $post,
+        CategoryRepository $category
+    )
     {
-        $this->contact = $contact;
+        $this->category = $category;
+        $this->post = $post;
     }
+
     /**
      * Pham Viet Toan
      * 09/27/2017
@@ -28,7 +38,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('sites.lienhe.index');
+        $posts = $this->post->getNewestPost(3, []);
+
+        return view('index', compact('posts'));
     }
 
     /**
@@ -42,23 +54,14 @@ class ContactController extends Controller
     }
 
     /**
-     * Pham Viet Toan
-     * 09/24/2017
      * Store a newly created resource in storage.
      *
-     * @param  App\Http\Requests\ContactRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ContactRequest $request)
+    public function store(Request $request)
     {
-        $newContact = $request->all();
-        $newContact['status'] = config('custom.contact.pending');
-
-        if ($this->contact->create($newContact)) {
-            return back()->with('success', trans('message.contact_success'));
-        } else {
-            return back()->with('failed', trans('message.contact_failed'));
-        }
+        //
     }
 
     /**
