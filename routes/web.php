@@ -29,24 +29,16 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 });
 
 Route::group(['namespace' => 'Site'], function() {
-    Route::get('/', function () {
-        return view('index');
-    })->name('index');
+    Route::get('/', 'IndexController@index')->name('index');
     Route::get('/gioithieu', function () {
         return view('sites.gioithieu.index');
-    });
-    Route::get('/chuyenkhoa', function () {
-        return view('sites.chuyenkhoa.index');
-    });
-    Route::get('/tintuc', function () {
-        return view('sites.tintuc.index');
-    });
+    })->name('introduce');
+    Route::get('/chuyenkhoa', 'SpecialistController@index')->name('specialist');
+    Route::get('/tintuc', 'NewController@index')->name('new');
     Route::get('/post', function () {
         return view('sites.post.index');
     });
-    Route::get('/lienhe', function () {
-        return view('sites.lienhe.index');
-    });
+    Route::get('/lienhe', 'ContactController@index')->name('contact');
     Route::post('/lienhe', 'ContactController@store')->name('contact.store');
 });
 Route::resource('/dangnhap-admin', 'LoginAdminController');

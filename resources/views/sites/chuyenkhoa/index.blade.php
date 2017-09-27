@@ -26,3 +26,4 @@
   {{ Html::style('css/sites/_include/banner.css') }}
   {{ Html::style('css/sites/_include/news.css') }}
 @endsection
+

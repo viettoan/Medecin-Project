@@ -3,11 +3,11 @@
 namespace App\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Eloquent\Relations\CategoryRelation;
+use App\Eloquent\Relations\CategoryPostRelation;
 
 class CategoryPostRelate extends Model
 {
-	use CategoryRelation;
+	use CategoryPostRelation;
 	
     protected $fillable = [
         'id',

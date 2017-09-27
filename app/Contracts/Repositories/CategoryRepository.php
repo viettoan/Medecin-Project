@@ -15,4 +15,6 @@ interface CategoryRepository extends AbstractRepository
 
     public function getAll($with = [], $select = ['*']);
 
+    public function getAllRootCategories($with = [], $select = ['*']);
+
 }

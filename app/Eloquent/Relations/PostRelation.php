@@ -6,8 +6,8 @@ use App\Eloquent\CategoryPostRelate;
 
 trait PostRelation
 {
-      public function categories()
+    public function categories()
     {
-        return $this->belongstoMany(CategoryPostRelate::class, 'post_id');
+        return $this->hasMany(CategoryPostRelate::class, 'post_id');
     }
 }
