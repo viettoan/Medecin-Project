@@ -25,6 +25,11 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
         return $this->model()->select($select)->with($with)->find($id);
     }
 
+    public function getAllPost($paginate)
+    {
+        return $this->model()->orderBy('id', 'DESC')->paginate($paginate);
+    }
+
     public function getNewestPost($number = 3, $with = [], $select = ['*'])
     {
         return $this->model()->select($select)->where('status', config('custom.post.show'))->orderBy('created_at', 'desc')->with($with)->limit($number)->get();
