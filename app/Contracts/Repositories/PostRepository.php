@@ -10,5 +10,7 @@ interface PostRepository extends AbstractRepository
 
     public function find($id, $select = ['*'], $with = []);
 
+    public function getAllPost($paginate);
+
     public function getNewestPost($with = [], $select = ['*']);
 }
