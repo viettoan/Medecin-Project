@@ -13,17 +13,15 @@
       <li class="nav-item text-center">
         <a class="nav-link" href="{{ route('index') }}">TRANG CHỦ</a>
       </li>
-
       <li class="nav-item text-center">
-        <a class="nav-link" href="{{ route('introduce') }}">GIỚI THIỆU</a>
+        <a class="nav-link" href="{{ route('introduce') }}">GIOI THIEU</a>
       </li>
+      @foreach ($categories as $category)
+        <li class="nav-item text-center">
+          <a class="nav-link" href="{{ route('post.index', ['category' => str_replace(' ','-',$category->name), 'category_id' => $category->id]) }}">{{ strtoupper($category->name) }}</a>
+        </li>
+      @endforeach
       <li class="nav-item text-center">
-        <a class="nav-link" href="{{ route('specialist') }}">CHUYÊN KHOA</a>
-      </li>
-      <li class="nav-item text-center">
-        <a class="nav-link" href="{{ route('new') }}">TIN TUC</a>
-      </li>
-       <li class="nav-item text-center">
         <a class="nav-link" href="{{ route('contact') }}">LIÊN HỆ</a>
       </li>
       @if (Auth::guest())

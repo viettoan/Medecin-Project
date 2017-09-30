@@ -31,11 +31,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 
 Route::group(['namespace' => 'Site'], function() {
     Route::get('/', 'IndexController@index')->name('index');
+
     Route::get('/gioithieu', function () {
         return view('sites.gioithieu.index');
     })->name('introduce');
-    Route::get('/chuyenkhoa', 'SpecialistController@index')->name('specialist');
-    Route::get('/tintuc', 'NewController@index')->name('new');
+
+    Route::get('/{category}/{category_id}', 'PostController@index')->name('post.index');
     Route::get('/post', function () {
         return view('sites.post.index');
     });

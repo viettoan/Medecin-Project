@@ -12,16 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-    	 DB::table('users')->insert([
-    	 	'name' => 'tranvanmy',
-    	 	'email' => 'admin@gmail.com',
-    	 	'password' => bcrypt(1234567),
-    	 	'age' => '12',
-    	 	'sex' => '1',
-    	 	'phone' => '0912344353',
-    	 	'address' => 'Nam Dinh',
-    	 	'permission' => '1',
-    	 	'specialist_id' => '2'
-        ]);
+    	 factory(App\Eloquent\Post::class, 50)->create();
     }
 }
