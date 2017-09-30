@@ -8,6 +8,11 @@
        <div class="row">
           <div class="col-md-9">
             @include('sites._include.news')
+            <nav aria-label="Page navigation">
+                @if (isset($posts))
+                    {{ $posts->links() }}
+                @endif
+            </nav>
           </div>
           <div class="col-md-3">
             @include('sites._include.mucluc')

@@ -36,12 +36,15 @@ Route::group(['namespace' => 'Site'], function() {
     })->name('introduce');
 
     Route::get('/{category}/{category_id}', 'PostController@index')->name('post.index');
+
     Route::get('/post', function () {
         return view('sites.post.index');
     });
+
     Route::get('/lienhe', 'ContactController@index')->name('contact');
     Route::post('/lienhe', 'ContactController@store')->name('contact.store');
 });
+
 Route::resource('/dangnhap-admin', 'LoginAdminController');
 Route::post('/dangnhap', 'Auth\LoginController@postLogin')->name('loginadmin');
 Route::group(['namespace' => 'Site', 'middleware' => 'auth'], function () {
