@@ -34,4 +34,14 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
     {
         return $this->model()->select($select)->where('status', config('custom.post.show'))->orderBy('created_at', 'desc')->with($with)->limit($number)->get();
     }
+
+    public function getPostByCategory($category_id, $paginate, $with = [], $select = ['*'])
+    {
+        return $this->model()->select($select)
+            ->where('category_id', $category_id)
+            ->where('status', config('custom.post.show'))
+            ->orderBy('created_at', 'desc')
+            ->with($with)
+            ->paginate($paginate);
+    }
 }

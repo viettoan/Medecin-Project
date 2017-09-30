@@ -29,8 +29,8 @@
             @endforeach
             
             <nav aria-label="Page navigation">
-                @if (isset($categoryPostRelates))
-                    {{ $categoryPostRelates->links() }}
+                @if (isset($posts))
+                    {{ $posts->links() }}
                 @endif
             </nav>
             <!-- /.row -->

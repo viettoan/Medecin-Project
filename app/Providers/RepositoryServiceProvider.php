@@ -36,10 +36,6 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Contracts\Repositories\PostRepository::class,
             \App\Repositories\PostRepositoryEloquent::class,
         ],
-        'categoryPostRelate' => [
-            \App\Contracts\Repositories\CategoryPostRelateRepository::class,
-            \App\Repositories\CategoryPostRelateRepositoryEloquent::class,
-        ],
     ];
 
     /**

@@ -6,9 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Contracts\Repositories\PostRepository;
 use App\Contracts\Repositories\CategoryRepository;
-use App\Contracts\Repositories\CategoryPostRelateRepository;
 
-class NewController extends Controller
+class PostController extends Controller
 {
     protected $category;
     protected $post;
@@ -25,30 +24,27 @@ class NewController extends Controller
      */
     public function __construct(
         PostRepository $post,
-        CategoryRepository $category,
-        CategoryPostRelateRepository $categoryPostRelate
+        CategoryRepository $category
     )
     {
         $this->category = $category;
         $this->post = $post;
-        $this->categoryPostRelate = $categoryPostRelate;
     }
 
     /**
      * Pham Viet Toan
-     * 09/27/2017
+     * 09/30/2017
      * Display a listing of the resource.
      *
+     * @param  int  $category_id
+     * @param string $category
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($category, $category_id)
     {
-        $categoryPostRelates = $this->categoryPostRelate->getPostByCategory(10, 6, 'post');
-        foreach ($categoryPostRelates as $post) {
-            $posts[] = $post->post;
-        }
+        $posts = $this->post->getPostByCategory($category_id, 8, []);
 
-        return view('sites.tintuc.index', compact('posts', 'categoryPostRelates'));
+        return view('sites.posts.index', compact('posts'));
     }
 
     /**

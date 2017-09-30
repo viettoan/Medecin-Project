@@ -179,6 +179,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
         App\Providers\Video::class,
+        App\Providers\ComposerServiceProvider::class,
 
     ],
 
