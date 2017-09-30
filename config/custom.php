@@ -20,7 +20,6 @@ return [
     'post' => [
         'show' => 1,
         'hide' => 0,
-        'defaultPath' => 'images/post/',
     ],
 ];
 
