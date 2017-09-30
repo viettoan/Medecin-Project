@@ -52,6 +52,9 @@ nav .navbar-right  span i {
     border: none;
     border-radius: 0px;
 }
+.preview {
+    height: 400px;
+}
 #search-form #search-button:hover {
     background: #e0e4eb;
 }

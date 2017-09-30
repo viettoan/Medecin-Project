@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     Route::resource('specialist', 'SpecialistController');
     Route::resource('media-medical', 'MediaMedicalHistory');
     Route::get('list-specialist', 'SpecialistController@list')->name('list-specialist');
+    Route::get('list-category', 'PostController@getListCategory')->name('list-category');
 });
 
 Route::group(['namespace' => 'Site'], function() {

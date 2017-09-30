@@ -22,6 +22,7 @@
                         <th class="text-center">{{ trans('message.title') }}</th>
                         <th class="text-center">{{ trans('message.description') }}</th>
                         <th class="text-center">{{ trans('message.content') }}</th>
+                        <th class="text-center">{{ trans('message.status') }}</th>
                         <th class="text-center">{{ trans('message.action') }}</th>
                     </tr>   
                 </thead>
@@ -34,8 +35,10 @@
                             @{{ post.description }}    
                             </h5>
                             </th>
-                        <th class="col-md-6 ellipis">@{{ post.content }}</th>
-                        <th class="col-md-1">   
+                        <th class="col-md-5 ellipis">@{{ post.content }}</th>
+                        <th class="col-md-1 ellipis" v-if="post.status == 0"> <span class="label label-danger">{{ trans('message.pending') }}</span></th>
+                        <th class="col-md-1 ellipis" v-if="post.status == 1"> <span class="label label-success">{{ trans('message.success') }}</span></th>
+                        <th class="col-md-2">   
                             <a data-toggle="modal" data-target="#detailPost"><i class="fa fa-eye" aria-hidden="true"></i></a>
                             <a href="{{ route('post.edit', ['id' => 1]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                             <a v-on:click="deletePost(post.id)"><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a>
