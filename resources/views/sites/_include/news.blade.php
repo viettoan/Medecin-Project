@@ -19,7 +19,7 @@
                     <div class="col-md-8 col-lg-9">
                         <h5>{{ $post->title }}</h5>
                         <small><i class='fa fa-calendar-o'></i><i>{{ $post->created_at }}</i></small>
-                        <p>{{ $post->content }}</p>
+                        <p>{{ substr($post->content, 0, 400) }}...</p>
                         <a class="btn btn-outline-success btn-sm" href="detail.html">Xem thêm <span class="glyphicon glyphicon-chevron-right"></span></a>
                     </div>
                     <div class="break"></div>
@@ -27,12 +27,6 @@
                 </div>
                 <hr>
             @endforeach
-            
-            <nav aria-label="Page navigation">
-                @if (isset($posts))
-                    {{ $posts->links() }}
-                @endif
-            </nav>
             <!-- /.row -->
         </div>
     </div>
