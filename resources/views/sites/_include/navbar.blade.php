@@ -18,7 +18,7 @@
       </li>
       @foreach ($categories as $category)
         <li class="nav-item text-center">
-          <a class="nav-link" href="{{ route('post.index', ['category' => str_replace(' ','-',$category->name), 'category_id' => $category->id]) }}">{{ strtoupper($category->name) }}</a>
+          <a class="nav-link" href="{{ route('posts.index', ['category' => str_replace(' ','-',$category->name), 'category_id' => $category->id]) }}">{{ strtoupper($category->name) }}</a>
         </li>
       @endforeach
       <li class="nav-item text-center">

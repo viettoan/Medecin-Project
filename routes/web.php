@@ -36,7 +36,7 @@ Route::group(['namespace' => 'Site'], function() {
         return view('sites.gioithieu.index');
     })->name('introduce');
 
-    Route::get('/{category}/{category_id}', 'PostController@index')->name('post.index');
+    Route::get('/{category}/{category_id}', 'PostController@index')->name('posts.index');
 
     Route::get('/post', function () {
         return view('sites.post.index');
