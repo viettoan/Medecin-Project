@@ -44,4 +44,9 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
             ->with($with)
             ->paginate($paginate);
     }
+
+    public function search($keyword, $with = [], $select = ['*'])
+    {
+        return $this->model()->select($select)->where('title', 'like', "%$keyword%")->with($with)->get();
+    }
 }

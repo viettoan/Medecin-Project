@@ -31,8 +31,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = $this->category->getAllPaginate(['parentCategories'], 10);
-        return view('admin.categories.index', compact('categories'));
+        $manageCategories = $this->category->getAllPaginate(['parentCategories'], 10);
+        return view('admin.categories.index', compact('manageCategories'));
     }
 
     /**
@@ -42,8 +42,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $categories = $this->category->getAll([]);
-        return view('admin.categories.add', compact('categories'));
+        $parents = $this->category->getAll([]);
+        return view('admin.categories.add', compact('parents'));
     }
 
     /**

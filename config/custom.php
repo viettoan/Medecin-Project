@@ -20,6 +20,20 @@ return [
     'post' => [
         'show' => 1,
         'hide' => 0,
+        'defaultPath' => '/images/post/',
+    ],
+    'media' => [
+        'video' => 0,
+        'sliders' => [
+            'hide' => 1,
+            'show' => 2,
+            'defaultPath' => '/images/sliders/',
+        ],
+        'video_intro' => [
+            'show' => 3,
+            'hide' => 4,
+            'defaultPath' => '/video/',
+        ],
     ],
 ];
 

@@ -21,7 +21,8 @@ class NavbarComposer
      */
     public function compose(View $view)
     {
-        $categories = $this->category->getAllRootCategories([]);
+        $categories = $this->category->getAllRootCategories(['subCategories']);
+
         $view->with('categories', $categories);
     }
 }

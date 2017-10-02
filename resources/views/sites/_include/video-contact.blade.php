@@ -8,7 +8,7 @@
           <div class="line"></div>
        </div>
         <video controls="controls" width="100%" >
-            <source src="/video/demo.mp4" type="video/mp4" />
+            <source src="{{ asset(config('custom.media.video_intro.defaultPath') . $videoIntro) }}" type="video/mp4" />
         </video>
       </div>
       <div class="col-sm-4">
