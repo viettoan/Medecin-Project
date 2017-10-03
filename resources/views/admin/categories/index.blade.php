@@ -26,7 +26,7 @@
                     </tr>   
                 </thead>
                 <tbody>
-                @foreach ($categories as $category)
+                @foreach ($manageCategories as $category)
                     <tr id="category-{{ $category->id }}">
                         <th class="col-md-1">{{ $category->id }}</th>
                         <th class="col-md-3">{{ $category->name }}</th>

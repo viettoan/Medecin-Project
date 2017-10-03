@@ -2,34 +2,16 @@
     <div class="containter-fluid">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          @for ($i = 0; $i < count($sliders); $i++)
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" @if ($i == 0) class="active" @endif ></li>
+          @endfor
         </ol>
         <div class="carousel-inner" role="listbox">
-          <div class="carousel-item active">
-            <img class="d-block img-fluid slide-header" src="images/slide1.png" alt="First slide"  >
-             <div class="carousel-caption d-none d-md-block">
-              <h3>Nói gì xem.</h3>
-              <p>Dont know what to do</p>
+          @for ($i = 0; $i < count($sliders); $i++)
+            <div class="carousel-item @if ($i == 0) active @endif ">
+              <img class="d-block img-fluid slide-header" src="{{ asset(config('custom.media.sliders.defaultPath') . $sliders[$i]->path) }}" alt="First slide"  >
             </div>
-          </div>
-          <div class="carousel-item">
-            <img class="d-block img-fluid slide-header" src="images/slide2.jpg" alt="Second slide" >
-             <img class="d-block img-fluid slide-header" src="images/slide1.png" alt="First slide"  >
-             <div class="carousel-caption d-none d-md-block">
-              <h3>Nói gì xem.</h3>
-              <p>Dont know what to do</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img class="d-block img-fluid slide-header" src="images/slide3.jpg" alt="Third slide" >
-             <img class="d-block img-fluid slide-header" src="images/slide1.png" alt="First slide"  >
-             <div class="carousel-caption d-none d-md-block">
-              <h3>Nói gì xem.</h3>
-              <p>Dont know what to do</p>
-            </div>
-          </div>
+          @endfor
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>

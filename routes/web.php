@@ -36,19 +36,19 @@ Route::group(['namespace' => 'Site'], function() {
         return view('sites.gioithieu.index');
     })->name('introduce');
 
-    Route::get('/{category}/{category_id}', 'PostController@index')->name('posts.index');
-
-    Route::get('/post', function () {
-        return view('sites.post.index');
-    });
-
     Route::get('/lienhe', 'ContactController@index')->name('contact');
     Route::post('/lienhe', 'ContactController@store')->name('contact.store');
+    
+    Route::get('/{category}', 'PostController@index')->name('posts.index');
+
+    Route::get('/{category}/{post_name}', 'PostController@show')->name('page.post.show');
+
+    
 });
 
 Route::resource('/dangnhap-admin', 'LoginAdminController');
 Route::post('/dangnhap', 'Auth\LoginController@postLogin')->name('loginadmin');
-Route::group(['namespace' => 'Site', 'middleware' => 'auth'], function () {
+Route::group(['namespace' => 'Site', 'prefix' => 'profile', 'middleware' => 'auth'], function () {
     Route::get('/thong-tin-ca-nhan/{id}', 'PatientController@show')->name('patient.profile.show');
     Route::get('/lich-su-kham/{id}', 'HistoryController@show')->name('patient.history.show');
     Route::get('/lich-bac-sy', 'DoctorCalenderController@index')->name('doctor.calender.show');

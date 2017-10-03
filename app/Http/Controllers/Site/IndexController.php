@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Contracts\Repositories\CategoryRepository;
 use App\Contracts\Repositories\PostRepository;
+use App\Contracts\Repositories\MediaRepository;
 
 class IndexController extends Controller
 {
     protected $category;
     protected $post;
+    protected $media;
 
     /**
      * Pham Viet Toan
@@ -22,11 +24,13 @@ class IndexController extends Controller
      */
     public function __construct(
         PostRepository $post,
-        CategoryRepository $category
+        CategoryRepository $category,
+        MediaRepository $media
     )
     {
         $this->category = $category;
         $this->post = $post;
+        $this->media = $media;
     }
 
     /**
@@ -39,8 +43,9 @@ class IndexController extends Controller
     public function index()
     {
         $posts = $this->post->getNewestPost(3, []);
-
-        return view('index', compact('posts'));
+        $sliders = $this->media->getSLidersIndex(3, []);
+        $videoIntro = $this->media->getVideoIntro([])->path;
+        return view('index', compact('posts', 'sliders', 'videoIntro'));
     }
 
     /**

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Contracts\Repositories\PostRepository;
 use App\Contracts\Repositories\CategoryRepository;
+use App\Helpers\Helper;
 
 class PostController extends Controller
 {
@@ -36,13 +37,15 @@ class PostController extends Controller
      * 09/30/2017
      * Display a listing of the resource.
      *
-     * @param  int  $category_id
      * @param string $category
      * @return \Illuminate\Http\Response
      */
-    public function index($category, $category_id)
+    public function index($category)
     {
-        $posts = $this->post->getPostByCategory($category_id, 8, []);
+        $name = str_replace('-', ' ', $category);
+        $name = Helper::search($name);
+        $category_id = $this->category->search($name, [])->first()->id;
+        $posts = $this->post->getPostByCategory($category_id, 8, ['categories']);
 
         return view('sites.posts.index', compact('posts'));
     }
@@ -69,14 +72,22 @@ class PostController extends Controller
     }
 
     /**
+     * Pham Viet Toan
+     * 10/02/2017
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($category, $post_name)
     {
-        //
+        $name = str_replace('-', ' ', $post_name);
+        $name = Helper::search($name);
+        $id = $this->post->search($name, [])->first()->id;
+
+        $post = $this->post->find($id, []);
+        $newestPost = $this->post->getNewestPost(4, []);
+        return view('sites.post.index', compact('post', 'newestPost'));
     }
 
     /**

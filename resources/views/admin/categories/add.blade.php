@@ -34,7 +34,7 @@
                     <label>{{ trans('message.parent') }}</label>
                     <select class="form-control" name="parent_id">
                     <option value="0"></option>
-                    @foreach ($categories as $category)
+                    @foreach ($parents as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach    
                     </select>

@@ -36,6 +36,10 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Contracts\Repositories\PostRepository::class,
             \App\Repositories\PostRepositoryEloquent::class,
         ],
+        'media' => [
+            \App\Contracts\Repositories\MediaRepository::class,
+            \App\Repositories\MediaRepositoryEloquent::class,
+        ],
     ];
 
     /**

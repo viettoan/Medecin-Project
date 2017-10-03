@@ -38,6 +38,13 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
 
     public function getAllRootCategories($with = [], $select = ['*'])
     {
-        return $this->model()->select($select)->where('parent_id', config('custom.category.rootCategory'))->with($with)->get();
+        return $this->model()->select($select)->where('parent_id', config('custom.category.rootCategory'))
+            ->where('status', config('custom.category.show'))
+            ->with($with)->get();
+    }
+
+    public function search($keyword, $with = [], $select = ['*'])
+    {
+        return $this->model()->select($select)->where('name', 'like', "%$keyword%")->with($with)->get();
     }
 }

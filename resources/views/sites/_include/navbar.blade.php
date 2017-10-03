@@ -17,8 +17,13 @@
         <a class="nav-link" href="{{ route('introduce') }}">GIOI THIEU</a>
       </li>
       @foreach ($categories as $category)
-        <li class="nav-item text-center">
-          <a class="nav-link" href="{{ route('posts.index', ['category' => str_replace(' ','-',$category->name), 'category_id' => $category->id]) }}">{{ strtoupper($category->name) }}</a>
+        <li class="nav-item text-center dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ strtoupper($category->name) }}</a>
+          <div class="dropdown-menu">
+            @foreach ($category->subCategories as $subCategory)
+              <a class="dropdown-item" href="{{ route('posts.index', ['category' => str_replace(' ', '-', $subCategory->name) ]) }}">{{ strtoupper($subCategory->name) }}</a>
+            @endforeach
+          </div>
         </li>
       @endforeach
       <li class="nav-item text-center">
@@ -30,7 +35,7 @@
       </li>
       @else
       <li class="nav-item dropdown text-center">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" data-target="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{ strtoupper(Auth::user()->name) }}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
