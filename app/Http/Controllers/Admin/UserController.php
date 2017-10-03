@@ -46,6 +46,10 @@ class UserController extends Controller
         return view('admin.users.index');
     }
 
+    public function home ()
+    {
+        return view('admin._section.home');
+    }
     /**
      * Show the form for creating a new resource.
      *
