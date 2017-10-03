@@ -23,7 +23,7 @@ new Vue({
             'sex': '',
             'phone': '',
             'address': '',
-            'specialist_id': 0,
+            'specialist_id': '0',
             'permission': '',
             'confirm_pass': ''},
         fillItem: {
@@ -33,7 +33,7 @@ new Vue({
             'sex': '',
             'phone': '',
             'address': '',
-            'specialist_id': 0,
+            'specialist_id': '0',
             'permission': '',
         },
         deleteItem: {'name':'','id':''}, 
@@ -92,7 +92,7 @@ new Vue({
                 $('#sepilisc').show('1000');
             } else {
                 $('#sepilisc').hide('1000');
-                this.fillItem.specialist_id = ""; 
+                this.fillItem.specialist_id = 0; 
             }
             $('#editUser').modal('show');
         },
@@ -139,7 +139,7 @@ new Vue({
                 $('#sepilisc').show('1000');
             } else {
                 $('#sepilisc').hide('1000');
-                this.fillItem.specialist_id = ""; 
+                this.fillItem.specialist_id = 0; 
             }
         },
         
@@ -179,6 +179,38 @@ new Vue({
                         );
                     }
             }); 
+        },
+        addUser: function() {
+            $('#adduser').modal('show');
+        },
+
+        createItem: function(){
+            if (!confirm('Do you want to create this user!')) return;
+            var input = this.newItem;
+            axios.post('/admin/user', input).then((response) => {
+                if (response.data.status == 'error') {
+                    toastr.error(response.data.message, response.data.action, {timeOut: 5000});
+                } else {
+                    toastr.success(response.data.message, response.data.action, {timeOut: 5000});
+                    this.newItem = {
+                        'name': '',
+                        'email': '',
+                        'password': '',
+                        'age': '',
+                        'sex': '',
+                        'phone': '',
+                        'address': '',
+                        'specialist_id': 0,
+                        'permission': '',
+                        'confirm_pass': ''
+                    };
+                    this.formErrors = '';
+                    this.showInfor(this.pagination.current_page);
+                }
+            }).catch((error) => {
+                this.formErrors = error.response.data;
+                console.log(this.formErrors);
+            });
         },
 
         showList: function() {

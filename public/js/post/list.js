@@ -50,6 +50,12 @@ new Vue({
                 this.$set(this, 'pagination', response.data.pagination);
             })
         },
+
+        showDetail: function(post)
+        {   
+            console.log(post);
+            $('#detailPost').modal('show');
+        },
         // editUser: function(item) {
         //     this.fillItem.id = item.id;
         //     this.fillItem.name = item.name;

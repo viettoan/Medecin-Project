@@ -38,7 +38,6 @@ var followView = new Vue({
         getListCategory: function(){
             axios.get('/admin/list-category').then((response) => {
                 this.listCategories = response.data.data;
-               console.log(this.listCategories);
             }).catch((e) => {
                 this.formPostErrors = e.response.data;
             })

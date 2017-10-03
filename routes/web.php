@@ -17,6 +17,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
     Route::get('/', function () {
         return view('admin.master');
     });
+    Route::get('home-admin', 'UserController@home')->name('home-admin');
     Route::resource('user', 'UserController');
     Route::resource('patient', 'PatientController');
     Route::resource('contact', 'ContactController');
