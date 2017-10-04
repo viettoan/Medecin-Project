@@ -12,6 +12,6 @@ interface PatientRepository extends AbstractRepository
     
     public function findByPhone($phone);
 
-    public function getAllPatient($paginate);
+    public function getAllPatient($with = [], $select = ['*']);
 
 }

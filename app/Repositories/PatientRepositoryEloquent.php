@@ -30,9 +30,9 @@ class PatientRepositoryEloquent extends AbstractRepositoryEloquent implements Pa
         return $this->model()->where('phone', $phone)->first();
     }
 
-    public function getAllPatient($paginate)
+    public function getAllPatient($with = [], $select = ['*'])
     {
-        return $this->model()->where('permission', config('custom.patient'))->paginate($paginate);
+        return $this->model()->select($select)->where('permission', config('custom.patient'))->with($with)->get();
     }
 
 }

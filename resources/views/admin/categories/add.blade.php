@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('content-admin')
-<div class="content-admin">
+<div class="content-admin content-wrapper">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h2>{{ trans('message.new_category') }}</h2>

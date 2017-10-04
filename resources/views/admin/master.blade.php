@@ -34,6 +34,7 @@
     </div>
     {{ Html::script('bower/jquery/dist/jquery.min.js') }}
     {{ Html::script('bower/vue/dist/vue.min.js') }}
+    {{ Html::script('bower/vue-paginate/dist/vue-paginate.min.js') }}
     {{ Html::script('bower/toastr/toastr.min.js') }}
     {{ Html::script('bower/axios/dist/axios.min.js') }}
     {{ Html::script('bower/sweetalert2/dist/sweetalert2.js') }}

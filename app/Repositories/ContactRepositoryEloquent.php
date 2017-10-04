@@ -26,9 +26,9 @@ class ContactRepositoryEloquent extends AbstractRepositoryEloquent implements Co
         return $this->model()->select($select)->with($with)->find($id);
     }
 
-    public function getAll($with = [], $paginate, $select = ['*'])
+    public function getAll($with = [], $select = ['*'])
     {
-        return $this->model()->select($select)->with($with)->paginate($paginate);
+        return $this->model()->select($select)->with($with)->orderBy('created_at', 'desc')->get();
     }
 
 }

@@ -31,9 +31,22 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = $this->contact->getAll([], 10);
 
-        return view('admin.contacts.index', compact('contacts'));
+        return view('admin.contacts.index');
+    }
+
+    /**
+     * Pham Viet Toan
+     * 10/03/2017
+     * Display a listing of the resource with ajax.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function list()
+    {
+        $contacts = $this->contact->getAll([]);
+        
+        return Response::json($contacts, 200);
     }
 
     /**

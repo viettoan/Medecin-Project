@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('content-admin')
-<div class="content-admin" id="index-contacts">
+<div class="content-admin content-wrapper" id="index-contacts">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h2>{{ trans('message.contacts') }}</h2>
@@ -27,29 +27,29 @@
                     </tr>   
                 </thead>
                 <tbody>
-                @foreach ($contacts as $contact)
-                    <tr >
-                        <th class="col-md-1">{{ $contact->id }}</th>
-                        <th class="col-md-2">{{ $contact->name }}</th>
-                        <th class="col-md-1">{{ $contact->phone }}</th>
-                        <th class="col-md-1">{{ $contact->email }}</th>
-                        <th class="col-md-5">{{ $contact->content }}</th>
-                        <th class="text-center col-md-1" id="contact-status-{{ $contact->id }}" >
-                        @if ($contact->status == config('custom.contact.pending'))
-                            <span class="label label-default">{{ trans('message.pending') }}</span></th>
-                        @else 
-                            <span class="label label-success">{{ trans('message.accept') }}</span></th>
-                        @endif    
-                        <th class="col-md-1">
-                            <a data-toggle="modal" v-on:click="getDetailContact({{ $contact->id }})"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    <paginate
+                        name="contacts"
+                        :list="contacts"
+                        :per="10"
+                    >
+                    <tr v-for=" item in paginated('contacts') ">
+                        <th class="col-md-1">@{{ item.id }}</th>
+                        <th class="col-md-2">@{{ item.name }}</th>
+                        <th class="col-md-1">@{{ item.phone }}</th>
+                        <th class="col-md-1">@{{ item.email }}</th>
+                        <th class="col-md-5">@{{ item.content }}</th>
+                        <th class="text-center col-md-1" >
+                            <span class="label label-default" v-if="item.status == {{ config('custom.contact.pending') }}">{{ trans('message.pending') }}</span>
+                            <span class="label label-success" v-if="item.status == {{ config('custom.contact.accept') }}">{{ trans('message.accept') }}</span>
                         </th>
-                    </tr>
-                @endforeach    
+                        <th class="col-md-1">
+                            <a data-toggle="modal" v-on:click="getDetailContact(item.id)"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                        </th>
+                    </tr>   
+                    </paginate> 
                 </tbody>
             </table>
-            @if (isset($users)) 
-                {{ $users->links() }}
-            @endif
+            <paginate-links for="contacts" :limit="2" :show-step-links="true" :classes="{'ul': 'pagination'}"></paginate-links>
         </div>
     </div>
     <!-- Detail contact -->

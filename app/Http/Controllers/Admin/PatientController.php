@@ -26,14 +26,27 @@ class PatientController extends Controller
     /**
      * Pham Viet Toan
      * 09/20/2017
-     * Display a listing of the resource.
+     * Display a listing of the resource 
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $patients = $this->patient->getAllPatient(10);
-        return view('admin.patients.index', compact('patients'));
+        return view('admin.patients.index');
+    }
+
+    /**
+     * Pham Viet Toan
+     * 10/03/2017
+     * Display a listing of the resource with ajax.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function list()
+    {
+        $patients = $this->patient->getAllPatient([]);
+        
+        return Response::json($patients, 200);
     }
 
     /**
@@ -62,9 +75,9 @@ class PatientController extends Controller
         $data['permission'] = config('custom.patient');
         $data['password'] = $data['phone'];
         if ($this->patient->create($data)) {
-            return redirect()->route('patient.create')->with('success', trans('message.create_success'));
+            return Response::json(trans('message.create_success'), 200);
         } else {
-            return redirect()->route('patient.create')->with('failed', trans('message.create_failed'));
+            return Response::json(trans('message.create_failed'), 403);
         }
     }
 
@@ -92,7 +105,7 @@ class PatientController extends Controller
     public function edit($id)
     {
         $patient = $this->patient->find($id, []);
-        return view('admin.patients.edit', compact('patient'));
+        return Response::json($patient, 200);
     }
 
     /**
@@ -111,9 +124,9 @@ class PatientController extends Controller
         $data['password'] =$data['phone'];
         $patient = $this->patient->find($id, []);
         if ($patient->update($data)) {
-            return redirect()->route('patient.edit', $id)->with('success', trans('message.update_success'));
+            return Response::json(trans('message.update_success'), 200);
         } else {
-            return redirect()->route('patient.edit', $id)->with('failed', trans('message.update_failed'));
+            return Response::json(trans('message.update_failed'), 403);
         }
     }
 

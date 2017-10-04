@@ -31,8 +31,21 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $manageCategories = $this->category->getAllPaginate(['parentCategories'], 10);
-        return view('admin.categories.index', compact('manageCategories'));
+        return view('admin.categories.index');
+    }
+
+    /**
+     * Pham Viet Toan
+     * 10/03/2017
+     * Display a listing of the resource with ajax.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function list()
+    {
+        $categories = $this->category->getAll(['parentCategories']);
+        
+        return Response::json($categories, 200);
     }
 
     /**
@@ -59,9 +72,9 @@ class CategoryController extends Controller
         $data = $request->all();
 
         if ($this->category->create($data)) {
-            return back()->with('success', trans('message.category_success'));
+            return Response::json(trans('message.create_success'), 200);
         } else {
-            return back()->with('failed', trans('message.category_failed'));
+            return Response::json(trans('message.create_failed'), 403);
         }
     }
 
@@ -86,10 +99,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $categoryEdit = $this->category->find($id, []);
-
-        $parents = $this->category->getAll([]);
-        return view('admin.categories.edit', compact('categoryEdit', 'parents'));
+        $category = $this->category->find($id, []);
+        return Response::json($category, 200);
     }
 
     /**
@@ -107,10 +118,10 @@ class CategoryController extends Controller
         $data = $request->all();
 
         if ($category->update($data)) {
-            return back()->with('success', trans('message.update_success'));
+            return Response::json(trans('message.update_success'), 200);
         } else {
-            return back()->with('failed', trans('message.update_failed'));
-        }
+            return Response::json(trans('message.update_failed'), 403);
+        }    
     }
 
     /**
