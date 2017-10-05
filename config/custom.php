@@ -17,10 +17,14 @@ return [
         'hide' => 0,
         'rootCategory' => 0,
     ],
+    'specialist' => [
+        'show' => 1,
+        'hide' => 0,
+    ],
     'post' => [
         'show' => 1,
         'hide' => 0,
-        'defaultPath' => '/images/post/',
+        'defaultPath' => '/images/post',
     ],
     'media' => [
         'video' => 0,

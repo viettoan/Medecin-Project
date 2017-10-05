@@ -13,5 +13,8 @@ interface SpesicalRepository extends AbstractRepository
 
     public function getAllUser($paginate);
     
-    public function getAll();
+    public function getAll($status);
+
+    public function updateSpecial($id, $data = []);
+
 }
