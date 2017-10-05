@@ -19,12 +19,21 @@ class SpecialistRepositoryEloquent extends AbstractRepositoryEloquent implements
 
     public function getAllUser($paginate)
     {
-        return $this->model()->paginate($paginate);
+        return $this->model()->orderBy('id', 'DESC')->paginate($paginate);
     }
 
-    public function getAll() 
+    public function getAll($status) 
     {
-        return $this->model()->get();
+        return $this->model()->where('status', $status)->get();
+    }
+
+    public function updateSpecial($id, $data = [])
+    {
+        if ($a = $this->find($id, [], ['id'])) {
+            return $a->update($data);
+        }
+
+        return false;
     }
 
 }

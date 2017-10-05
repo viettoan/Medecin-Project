@@ -60,6 +60,7 @@
                                         <a v-on:click="deleteUser(list.id)"><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a>
                                     </td>
                                 </tr>
+                            </tbody>
                             </table> 
                             <ul class="pagination">
                                 <li v-if="pagination.current_page > 1">
@@ -102,7 +103,7 @@
                         <div class="info-user col-md-8">
                             <ul class="list-group list-group-unbordered">
                                 <li class="list-group-item">
-                                    <b><i class="fa fa-phone" aria-hidden="true"></i>{{ trans('message.phone') }} :</b>
+                                    <b><i class="fa fa-phone" aria-hidden="true"></i> {{ trans('message.phone') }} :</b>
                                     <a>@{{ fillItem.phone }}</a>
                                 </li>
                                 <li class="list-group-item">
@@ -112,12 +113,22 @@
                                         @{{ fillItem.email }}
                                     </a>
                                 </li>
-                                <li class="list-group-item">
-                                    <b v-if="fillItem.sex == 0"><i class="fa fa-transgender" aria-hidden="true"></i>{{ trans('message.gender') }} : {{ trans('message.male')}}</b>
-                                    <b v-if="fillItem.sex == 1"><i class="fa fa-transgender" aria-hidden="true"></i>{{ trans('message.gender') }} : {{ trans('message.Female')}}</b>
+                                <li class="list-group-item" v-if="fillItem.sex == 1">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <b>{{ trans('message.gender') }}:</b>
+                                    <a>
+                                        {{ trans('message.male') }}
+                                    </a>
+                                </li>
+                                 <li class="list-group-item" v-if="fillItem.sex == 0">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <b>{{ trans('message.gender') }}:</b>
+                                    <a>
+                                        {{ trans('message.Famele') }}
+                                    </a>
                                 </li>
                                 <li class="list-group-item">
-                                    <b><i class="fa fa-id-card" aria-hidden="true"></i>{{ trans('message.permission') }} :</b>
+                                    <b><i class="fa fa-id-card" aria-hidden="true"></i> {{ trans('message.permission') }} :</b>
                                     <a>
                                         <span  v-if="fillItem.permission == 1" class="label label-success">
                                             {{ trans('message.Admin') }}

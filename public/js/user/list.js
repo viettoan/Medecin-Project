@@ -124,6 +124,7 @@ new Vue({
             this.fillItem.age = item.age;
             this.fillItem.permission = item.permission;
             this.fillItem.specialist_id = item.specialist_id;
+            console.log(this.fillItem.sex);
             $('#infoUser').modal('show');
         },
 

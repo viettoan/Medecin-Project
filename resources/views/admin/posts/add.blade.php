@@ -117,12 +117,12 @@
                 <div class="form-group">
                     <label>{{ trans('message.description') }}</label>
                     <span v-if="formPostErrors['description']" class="error text-danger">@{{ formPostErrors['description'][0] }}</span><br>
-                    <textarea class="textarea form-control" name="description" rows="3" v-model="postItem.description"></textarea>
+                    <textarea class="form-control" name="description" rows="3" v-model="postItem.description"></textarea>
                 </div>
                 <div class="form-group">
                     <label>{{ trans('message.content') }}</label>
                     <span v-if="formPostErrors['content']" class="error text-danger">@{{ formPostErrors['content'][0] }}</span><br>
-                    <textarea class="form-control textarea" rows="7" id="content" v-model="postItem.content"></textarea>
+                    <textarea class="form-control" rows="7" id="content" v-model="postItem.content"></textarea>
                 </div>
                 <a class="btn btn-warning" href="{{ route('post.index') }}"> <i class="fa fa-arrow-left" aria-hidden="true"></i> {{ trans('message.exit') }}</a>
                 <button type="submit" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> {{ trans('message.add') }}</button>

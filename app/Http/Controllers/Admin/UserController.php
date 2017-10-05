@@ -116,8 +116,7 @@ class UserController extends Controller
      */
     public function update(UpdateRequest $request, $id)
     {
-        // $data = $request->except('password');
-        // $data['password'] = bcrypt($request->password);
+
         $user = $this->user->update($id, $request->all());
         if ($user) {
             $response['status'] = 'success';
