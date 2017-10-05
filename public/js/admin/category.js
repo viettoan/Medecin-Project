@@ -4,10 +4,35 @@ new Vue({
 	el: '#index-categories',
 
 	data: {
-		listPatient: []
+	    category: {
+            'id': '',
+            'name': '',
+            'parent_id': 0,
+            'status': '',
+        },
+        categories: [],
 	},
-
+    mounted: function(){
+        this.listCategories();
+    },
 	methods: {
+        /**
+         * Pham Viet Toan
+         * 09/21/2017
+         * 
+         * List patients
+         */
+        listCategories: function() {
+            var authOptions = {
+                method: 'get',
+                url: '/admin/listCategories',
+                json: true
+            }
+            axios(authOptions).then(response => {
+                this.categories = response.data;
+                console.log(this.categories);
+            });   
+        },
         /**
          * Pham Viet Toan
          * 09/21/2017
@@ -41,7 +66,7 @@ new Vue({
                         'Your file has been deleted.',
                         'success'
                         );
-                        $("#category-" + id).remove();
+                        this.listCategories();
                     });   
                 }, function (dismiss) {
                     if (dismiss === 'cancel') {
@@ -51,8 +76,58 @@ new Vue({
                         'error'
                         )
                     }
-            });
-			
-        }
+            });	
+        },
+        createCategory: function() {
+            console.log(this.categories);
+            $('#newCategory').modal('show');
+        },
+        storeCategory: function() {
+            var authOptions = {
+                method: 'post',
+                params: this.category,
+                url: '/admin/category',
+                json: true
+            }
+            axios(authOptions).then(response => {
+                if (response.status == 200) {
+                    toastr.success(response.data, '', {timeOut: 5000});
+
+                } else {
+                    toastr.error(response.data, '', {timeOut: 5000});
+                }
+                $('#newCategory').modal('hide');
+                this.listCategories();
+            });   
+        },
+        editCategory: function(id) {
+            var authOptions = {
+                method: 'get',
+                url: '/admin/category/' + id + '/edit',
+                json: true
+            }
+            axios(authOptions).then(response => {
+                this.category = response.data;
+                $('#updateCategory').modal('show');
+            });  
+        },
+        updateCategory: function(id) {
+            var authOptions = {
+                method: 'put',
+                params: this.category,
+                url: '/admin/category/' + id,
+                json: true
+            }
+            axios(authOptions).then(response => {
+                if (response.status == 200) {
+                    toastr.success(response.data, '', {timeOut: 5000});
+
+                } else {
+                    toastr.error(response.data, '', {timeOut: 5000});
+                }
+                $('#updateCategory').modal('hide');
+                this.listCategories();
+            }); 
+        }      
 	}
 });

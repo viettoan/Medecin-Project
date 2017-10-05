@@ -7,10 +7,10 @@
     <title>@yield('siteTitle')</title>
     <base href='{{ asset('') }}'>
     <link rel="shortcut icon" href="favicon.ico">
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
     {{ Html::style('bower/font-awesome/css/font-awesome.min.css') }}
     {{ Html::style('bower/hover/css/hover-min.css') }}
     <link href="//fonts.googleapis.com/css?family=Montserrat:300,400,500,700&amp;subset=vietnamese" rel="stylesheet">
-    {{ Html::style('bower/components-font-awesome/css/font-awesome.min.css') }}
     {{ Html::style('bower/bootstrap4/dist/css/bootstrap.min.css') }}
     {{ Html::style('bower/owl.carousel/dist/assets/owl.carousel.min.css') }}
     {{ Html::style('bower/owl.carousel/dist/assets/owl.theme.default.min.css') }}

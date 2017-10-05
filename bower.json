@@ -50,7 +50,10 @@
     "jquery-sparkline": "^2.1.3",
     "Ionicons": "ionicons#^2.0.1",
     "jquery-ui": "1.11.4",
-    "axios": "^0.16.2"
+    "axios": "^0.16.2",
+    "owl.carousel": "^2.2.1",
+    "tether": "^1.4.0",
+    "vue-paginate": "^3.5.0"
   },
   "resolutions": {
     "bootstrap": "v4.0.0-alpha.6"

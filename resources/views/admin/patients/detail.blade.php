@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('content-admin')
-<div class="content-admin detail-patient">
+<div class="content-admin detail-patient content-wrapper">
     <div class="panel panel-default">
         <div class="panel-body">
             <ul class="nav nav-tabs" role="tablist">
@@ -15,7 +15,7 @@
                     <div class=" image-user col-md-4">
                         <div class="box-body box-profile">
                             <div class="col-md-10">
-                                <img class="img-responsive img-circle" src="{{ asset('huonggiang.jpg')}}" alt="User profile picture">    
+                                <img class="img-responsive img-circle" src="{{ asset('images/avatar.jpg')}}" alt="User profile picture">    
                                 <h3 class="profile-username text-center">
                                 <i class="fa fa-leaf" aria-hidden="true"></i>
                                 {{ $patient->name }}

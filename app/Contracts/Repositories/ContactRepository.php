@@ -11,6 +11,6 @@ interface ContactRepository extends AbstractRepository
 
     public function find($id, $select = ['*'], $with = []);
 
-    public function getAll($with = [], $paginate, $select = ['*']);
+    public function getAll($with = [], $select = ['*']);
 
 }

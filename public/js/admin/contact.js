@@ -4,10 +4,32 @@ new Vue({
     el: '#index-contacts',
 
     data: {
-        contact:[],
+        contacts:[],
+        contact: {
+            'id': '',
+            'name': '',
+            'phone': '',
+            'email': '',
+            'content': '',
+            'status': '',
+        },
+        paginate: ['contacts'],
     },
-
+    mounted: function() {
+        this.listContacts();
+    },
     methods: {
+        listContacts: function() {
+            var authOptions = {
+                method: 'get',
+                url: '/admin/listContacts',
+                json: true
+            }
+            axios(authOptions).then(response => {
+                this.contacts = response.data;
+                console.log(this.contacts);
+            });   
+        },
         getDetailContact: function(id) {
             var options = {
                 method: 'GET',
@@ -30,7 +52,7 @@ new Vue({
 
             axios(options).then(response => {
                 if (response.status == 200) {
-                    $("#contact-status-" + id).html('<span class="label label-success">Accept</span></th>');
+                    this.listContacts();
                     $('#detailContact').modal('hide');
                     toastr.success(response.data, '', {timeOut: 5000});
                 } else {
