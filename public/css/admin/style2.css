@@ -1,0 +1,26 @@
+.detail-patient .panel {
+    margin-top: 15px;
+}
+.detail-patient .panel video {
+    width:100%;
+    padding: 10px;
+    /*border: 2px solid #3498db;*/
+}
+.editing {
+  background-color: rgba(189, 195, 199,0.4);
+  /*background-color: rgba(44, 62, 80,0.5);*/
+}
+
+.editing video {
+  max-width: 100%!important;
+}
+.editing button {
+  padding: 10px;
+  margin-bottom: 50px;
+  width: 100%;
+  font-size: 15px;
+  text-align: center;
+}
+#history .panel-heading a {
+  display: block;
+}

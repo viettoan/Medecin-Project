@@ -44,7 +44,7 @@
                             <th class="col-md-3">@{{ item.phone }}</th>
                             <th class="col-md-3">@{{ item.email }}</th>
                             <th class="col-md-2">
-                                <a data-toggle="modal" data-target="#addVideo" data-user-id="@{{ item.id }}"><i class="fa fa-file-video-o" aria-hidden="true"></i></a>
+                                <a  @click='addIdModal(item.id)' data-toggle="modal" data-target="#addVideo" ><i class="fa fa-file-video-o" aria-hidden="true"></i></a>
                                 <a :href="'patient/' + item.id "><i class="fa fa-eye" aria-hidden="true"></i></a>
                                 <a href="javascript:void(0)" v-on:click="editPatient(item.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                 <a v-on:click="deletePatient(item.id)"><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a>
@@ -55,6 +55,11 @@
                 </table>
                 <paginate-links for="patients" :limit="2" :show-step-links="true" :classes="{'ul': 'pagination'}"></paginate-links>
             </div>
+          @if(session('danger'))
+            <div class="alert alert-danger">
+              <p>{{session('danger')}}</p>
+            </div>
+          @endif
         </div>
         <!-- Add Video modal -->
         <div class="modal fade" id="addVideo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -67,13 +72,13 @@
 
                     <div class="modal-body ">
                         <form action="{{route('media-medical.store')}}" id="modal-form" method = "post" enctype="multipart/form-data">
-                          <input name='userId' type="hidden" id="usr-id">
+                          <input name='userId' type="hidden" v-bind:value='modal.id' >
                           {{ csrf_field() }}
                           {{-- video  --}}
                             <div class="form-group">
                                 <label>{{ trans('message.video') }}</label>
                                 <div>
-                                    <input id="file" type="file" name="video" class="form-control">
+                                    <input  type="file" name="video" class="form-control">
                                     {{-- @if ($errors->has('video')) --}}
                                         {{-- <span class="help-block">
                                              <strong>{{ $errors->first('video') }}</strong>
@@ -113,7 +118,7 @@
                             <div class="form-group">
                                 <label>{{ trans('message.name') }}</label>
                                 <div>
-                                    <input type="text" name="name" placeholder="User Name" class="form-control" v-model="patient.name" required=""> 
+                                    <input type="text" name="name" placeholder="User Name" class="form-control" v-model="patient.name" required="">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -172,7 +177,7 @@
                             <div class="form-group">
                                 <label>{{ trans('message.name') }}</label>
                                 <div>
-                                    <input type="text" name="name" placeholder="User Name" class="form-control" v-model="patient.name" required=""> 
+                                    <input type="text" name="name" placeholder="User Name" class="form-control" v-model="patient.name" required="">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -213,11 +218,26 @@
                             <button type="button" v-on:click="updatePatient(patient.id)" class="btn btn-default">{{ trans('message.edit') }}</button>
                         </form>
                     </div>
+                                <input id="file" type="file" name="video" class="form-control">
+                            </div>
+                        </div>
+                      {{-- content --}}
+                        <div class="form-group">
+                          <label for=""> {{__('message.content')}} </label>
+                          <textarea name="content" class="form-control" rows="5" type="text" ></textarea>
+                        </div>
+                      {{-- date --}}
+                        <div class="form-group">
+                          <label for=""> {{__('message.date')}} </label>
+                          <input name="date_examination" class="form-control" rows="5" type="date">
+                        </div>
+                        <button type="submit" class="btn btn-primary">{{ trans('message.add') }}</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
- </div>    
+ </div>
 @endsection
 @section('script')
     <script>

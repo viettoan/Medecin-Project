@@ -1,3 +1,190 @@
+body {
+    background: #e9ebee;
+}
+a:hover {
+    text-decoration: none;
+}
+i {
+    padding: 0px 3px;
+}
+/*********************************************/
+/*               NAVIGATION                  */
+/*********************************************/
+nav {
+    background: #3c834d !important;
+}
+nav ul {
+    margin:0px;
+}
+nav li:hover {
+    background: #3c834d;
+}
+nav a {
+    color: #fff !important;
+}
+nav a i {
+    color: #333 !important;
+}
+nav .navbar-right  span{
+    display: block;
+    margin: 5px 10px;
+    padding:10px;
+}
+nav .navbar-right  span i {
+    color: #333;
+}
+#search-form {
+    margin: 8px 0px 5px 40px !important;
+    padding: 0px !important;
+}
+#search-form .form-group {
+    margin: 0px !important;
+}
+#search-form input {
+    border-radius: 1px;
+}
+#search-form #search-button {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 50px;
+    background: #f6f7f9;
+    border: none;
+    border-radius: 0px;
+}
+.preview {
+    height: 400px;
+}
+#search-form #search-button:hover {
+    background: #e0e4eb;
+}
+nav .user {
+    padding:10px;
+    width: 125px !important;
+}
+nav .user img{
+    width: 30px;
+    height: 30px;
+    padding: 0px;
+}
+nav .user > div {
+    padding: 0px 5px;
+}
+.user-name {
+    padding: 5px 0px !important;
+}
+nav .user-setting .menu{
+    width: 200px;
+}
+/****************************************************************/
+/*                      SIDEBAR ADMIN                           */
+/****************************************************************/
+.sidebar-admin {
+  background: rgb(34, 45, 50);
+  color: #fff;
+  width: 250px;
+  position: fixed;
+  top: 48px;
+  left: 0px;
+  height: 100%;
+}
+.sidebar-admin header {
+    padding: 15px 10px 20px 10px;
+}
+.sidebar-admin header img{
+    width: 50px;
+    height: 50px;
+}
+.sidebar-admin ul > p {
+    color: #ffffff;
+    padding: 10px 0px;
+    background: #3c834d;
+    font-weight: bold;
+    margin: 0px;
+}
+.sidebar-admin ul li a {
+    color: #fff;
+    display: block;
+}
+.sidebar-admin i {
+    margin-right: 10px;
+}
+.sidebar-admin ul li {
+    padding: 10px;
+}
+.sidebar-admin ul li:hover{
+    background: #2f3537 !important;
+}
+.sidebar-admin ul li a:hover{
+    background: #2f3537 !important;
+}
+.sidebar-admin .fa-angle-down {
+    margin: 0px;
+}
+.sidebar-admin .submenu li {
+    padding-left: 30px;
+}
+.sidebar-admin .submenu li:hover {
+    background: #2f3537 !important;
+}
+
+/***************************************************/
+/*                  CONTENT ADMIN                  */
+/***************************************************/
+.content-admin {
+    margin-top: 50px;
+    margin-left: 250px;
+    padding: 15px;
+}
+.content-admin .count {
+    color: #676a6c;
+}
+
+.content-admin .count h1 {
+    font-weight: normal !important;
+}
+.content-admin .admin-actions {
+    margin-bottom: 15px;
+    padding-left: 0px;
+}
+.content-admin .admin-actions form input{
+    margin: 0px;
+    border: 1px solid #ccc !important;
+    padding: 0px 15px;
+}
+.content-admin table tbody th img{
+    max-height: 200px;
+}
+.content-admin .image-user {
+    border-right: 1px solid #cccccc;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+.content-admin .info-user {
+    margin-top: 30px;
+    padding-right: 50px;
+}
+.detail-patient .panel {
+    margin-top: 15px;
+}
+.detail-patient .panel video {
+    width:100%;
+    padding: 10px;
+    /*border: 2px solid #3498db;*/
+}
+.editing {
+  background-color: rgba(189, 195, 199,0.4);
+  /*background-color: rgba(44, 62, 80,0.5);*/
+}
+
+.editing button {
+  padding: 10px;
+  margin-bottom: 50px;
+  width: 100%;
+  font-size: 15px;
+  text-align: center;
+}
+
 #avata_admin {
 
 }

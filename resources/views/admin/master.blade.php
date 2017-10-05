@@ -18,6 +18,7 @@
     {{ Html::style('bower/datatables.net-bs/css/dataTables.bootstrap.min.css') }}
     {{ Html::style('bower/bootstrap-daterangepicker/daterangepicker.css') }}
     {{ Html::style('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}
+    {{ Html::style('css/admin/style2.css') }}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     {{-- {!! Html::style('css/app.css') !!} --}}
     {{-- {{ Html::style('css/admin/style.css') }} --}}

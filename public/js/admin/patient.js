@@ -15,6 +15,9 @@ new Vue({
         },
         patients: [],
         paginate: ['patients'],
+				modal: {
+					id: ''
+				}
 	},
     mounted: function(){
         this.listPatients();
@@ -23,7 +26,7 @@ new Vue({
         /**
          * Pham Viet Toan
          * 09/21/2017
-         * 
+         *
          * List patients
          */
         listPatients: function() {
@@ -34,13 +37,13 @@ new Vue({
             }
             axios(authOptions).then(response => {
                 this.patients = response.data;
-            });   
+            });
         },
 
         /**
          * Pham Viet Toan
          * 09/21/2017
-         * 
+         *
          * delete patient with id
          * @param id
          * HTML DOM
@@ -72,7 +75,7 @@ new Vue({
                         'success'
                         );
                         list.listPatients();
-                    });   
+                    });
                 }, function (dismiss) {
                     if (dismiss === 'cancel') {
                         swal(
@@ -102,7 +105,7 @@ new Vue({
                 }
                 $('#newPatient').modal('hide');
                 this.listPatients();
-            });   
+            });
         },
         editPatient: function(id) {
             var authOptions = {
@@ -113,7 +116,7 @@ new Vue({
             axios(authOptions).then(response => {
                 this.patient = response.data;
                 $('#updatePatient').modal('show');
-            });   
+            });
         },
         updatePatient: function(id) {
             var authOptions = {
@@ -131,7 +134,10 @@ new Vue({
                 }
                 $('#updatePatient').modal('hide');
                 this.listPatients();
-            });   
-        }
+            });
+        },
+				addIdModal: function(id) {
+					this.modal.id = id
+				}
 	}
 });
