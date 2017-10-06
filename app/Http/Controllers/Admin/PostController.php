@@ -116,6 +116,13 @@ class PostController extends Controller
         return response()->json($response);
     }
 
+    public function search(Request $request)
+    {   
+        $reponse = $this->post->search($request->all()[0]);
+
+        dd($reponse);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -135,7 +142,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.posts.edit');
+        $post = $this->post->find($id, []);
+
+        // return response()->json($post);
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**

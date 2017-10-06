@@ -180,6 +180,7 @@ return [
         App\Providers\RepositoryServiceProvider::class,
         App\Providers\Video::class,
         App\Providers\ComposerServiceProvider::class,
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
         Anchu\Ftp\FtpServiceProvider::class,
 
     ],
@@ -233,6 +234,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Video' => App\Helpers\Video::class,
+        'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
     ],
 
 ];

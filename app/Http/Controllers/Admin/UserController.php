@@ -8,7 +8,8 @@ use App\Contracts\Repositories\UserRepository;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UpdateRequest;
 use App\Eloquent\User;
-
+use App\Eloquent\Media;
+use Charts;
 
 class UserController extends Controller
 {
@@ -48,7 +49,32 @@ class UserController extends Controller
 
     public function home ()
     {
-        return view('admin._section.home');
+        $chartUser = Charts::database(User::all(), 'bar', 'highcharts')
+            ->title(trans('Users'))
+            ->elementLabel(trans('Total'))
+            ->dimensions(800, 500)
+            ->responsive(true)
+            ->groupBy('permission', null, [
+                0 => trans('admin.patient'),
+                1 => trans('admin.admin'),
+                2 => trans('admin.doctor'),
+                3 => trans('admin.disable')
+            ]);
+
+        $chartMedia = Charts::database(Media::all(), 'bar', 'highcharts')
+            ->title(trans('Media'))
+            ->elementLabel(trans('Total'))
+            ->dimensions(800, 500)
+            ->responsive(true)
+            ->groupBy('status', null, [
+                0 => trans('admin.videos_patientss'),
+                1 => trans('admin.videos_patientss'),
+                2 => trans('admin.videos_patientss'),
+                3 => trans('admin.vides_intror_showsss'),
+                4 => trans('admin.vides_intror_hidesss'),
+            ]);
+
+        return view('admin._section.home',['chartUser' => $chartUser, 'chartMedia' => $chartMedia]);
     }
     /**
      * Show the form for creating a new resource.

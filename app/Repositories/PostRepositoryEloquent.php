@@ -25,6 +25,13 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
         return $this->model()->select($select)->with($with)->find($id);
     }
 
+    public function findPost($keyword, $select = ['*'], $with = [])
+    {
+         return $this->model()->select($select)->with($with)
+            ->Where('title', 'like', '%' . $keyword . '%')
+            ->get();
+    }
+
     public function getAllPost($paginate)
     {
         return $this->model()->orderBy('id', 'DESC')->paginate($paginate);
@@ -47,6 +54,6 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
 
     public function search($keyword, $with = [], $select = ['*'])
     {
-        return $this->model()->select($select)->where('title', 'like', "%$keyword%")->with($with)->get();
+        return $this->model()->select($select)->where('title', 'like', "%".$keyword."%")->with($with)->get();
     }
 }

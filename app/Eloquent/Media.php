@@ -12,7 +12,7 @@ class Media extends Model
 	use MedicalHistoryRelation;
 
     protected $fillable = [
-			'name',
+		'name',
     	'path',
     	'medical_history_id',
     	'type',

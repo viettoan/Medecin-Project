@@ -70,7 +70,7 @@
                     <div class="box-header">
                         <i class="fa fa-envelope"></i>
 
-                        <h3 class="box-title">Quick Email</h3>
+                        <h3 class="box-title">Rerport User</h3>
                         <!-- tools box -->
                         <div class="pull-right box-tools">
                             <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip"
@@ -80,18 +80,7 @@
                         <!-- /. tools -->
                     </div>
                     <div class="box-body">
-                        <form action="#" method="post">
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="emailto" placeholder="Email to:">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="subject" placeholder="Subject">
-                            </div>
-                            <div>
-                                <textarea class="textarea" placeholder="Message"
-                                style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                            </div>
-                        </form>
+                            {!! $chartUser->html() !!}
                     </div>
                 </div>
             </section>
@@ -100,7 +89,7 @@
                     <div class="box-header">
                         <i class="fa fa-envelope"></i>
 
-                        <h3 class="box-title">Quick Email</h3>
+                        <h3 class="box-title">Repost Media</h3>
                         <!-- tools box -->
                         <div class="pull-right box-tools">
                             <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip"
@@ -110,21 +99,11 @@
                         <!-- /. tools -->
                     </div>
                     <div class="box-body">
-                        <form action="#" method="post">
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="emailto" placeholder="Email to:">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="subject" placeholder="Subject">
-                            </div>
-                            <div>
-                                <textarea class="textarea" placeholder="Message"
-                                style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                            </div>
-                        </form>
+                     {!! $chartMedia->html() !!}
                     </div>
                 </div>
             </section>
+            
             <!-- right col-->
             <section class="col-lg-5 connectedSortable">
                 <!-- Map box -->
@@ -142,4 +121,7 @@
 @endsection
 @section('script')
 {{ Html::script('js/post/list.js') }}
+ {!! Charts::scripts() !!}
+{!! $chartUser->script() !!}
+{!! $chartMedia->script() !!}
 @endsection

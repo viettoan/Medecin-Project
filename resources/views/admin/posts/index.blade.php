@@ -17,6 +17,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-body">
+                    <input type="text" name="myInput" v-on:keyup="searchPost" placeholder="Search for names..">
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
@@ -42,7 +43,7 @@
                                     <th class="col-md-1 ellipis" v-if="post.status == 1"> <span class="label label-success">{{ trans('message.success') }}</span></th>
                                     <th class="col-md-2">   
                                         <a data-toggle="modal" v-on:click="showDetail(post)"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                        <a href="{{ route('post.edit', ['id' => 1]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                        <a v-bind:href="'/admin/post/'+ post.id +'/edit'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                         <a v-on:click="deletePost(post.id)"><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a>
                                     </th>
                                 </tr>
@@ -72,29 +73,37 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">{{ trans('message.close') }}</span></button>
-                        <h4 class="modal-title" id="myModalLabel">{{ trans('message.detail_post') }}</h4>
+                        <h4 class="modal-title" id="myModalLabel">{{ trans('message.detail_post') }} <span class="label label-success" v-if="fillItem.status == 1"> {{ trans('message.success') }}</span> <span class="label label-danger" v-if="fillItem.status == 0">{{ trans('message.pending')}}</span></h4>
                     </div>
                     <div class="modal-body row">
                         <div class="col-md-12">
                             <ul class="list-group list-group-unbordered">
                                 <li class="list-group-item">
                                     <b>{{ trans('message.title') }} :</b>
-                                    <p>Lorem Ipsum</p>
+                                    <p>@{{ fillItem.title }}</p>
                                 </li>
                                 <li class="list-group-item">
                                     <b>{{ trans('message.description') }}:</b>
                                     <p>
-                                        "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+                                        @{{ fillItem.description }}
                                     </p>
                                 </li>
                                 <li class="list-group-item">
+                                <b>{{ trans('message.image') }}:</b>
+                                    <p class="text-center"> 
+                                        <a v-bind:href="fillItem.image" target="_blank">
+                                        <img v-bind:src="fillItem.image" style="height: 200px;">
+                                        </a>
+                                    </p>
+                                </li>
+                                <li class="list-group-item content_post">
                                     <b>{{ trans('message.content') }}:</b>
                                     <p>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                                        @{{ fillItem.content }}
                                     </p>
                                 </li>
                             </ul>
-                            <a  class="btn btn-primary" href="{{ route('post.edit', ['id' => 1]) }}">{{ trans('message.edit') }}</a>
+                            {{-- <a  class="btn btn-primary" href="{{ route('post.edit', ['id' => 1]) }}">{{ trans('message.edit') }}</a> --}}
                         </div>
                     </div>
                 </div>
