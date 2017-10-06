@@ -12,7 +12,9 @@ new Vue({
             to: 0,
             current_page: 1
         },
-        offset: 4
+        offset: 4, 
+        fillItem: {'id': '', 'title': '', 'image': '', 'content': '', 'description': '', 'status': ''},
+        search: {}
     },
 
     computed: {
@@ -53,8 +55,28 @@ new Vue({
 
         showDetail: function(post)
         {   
-            console.log(post);
+            // console.log(post);
+            this.fillItem.id = post.id;
+            this.fillItem.content = post.content;
+            this.fillItem.description = post.description;
+            this.fillItem.image = post.image;
+            this.fillItem.status = post.status;
+            this.fillItem.title = post.title;
+            console.log(this.fillItem);
             $('#detailPost').modal('show');
+        },
+
+        searchPost: function(event) {
+            this.search = event.target.value;
+            var authOptions = {
+                    method: 'post',
+                    url: '/admin/searchPost',
+                    params: this.search,
+            }
+            axios(authOptions).then(response => {
+                // this.$set(this, 'listPosts', response.data.data.data);
+                // this.$set(this, 'pagination', response.data.pagination);
+            })
         },
         // editUser: function(item) {
         //     this.fillItem.id = item.id;

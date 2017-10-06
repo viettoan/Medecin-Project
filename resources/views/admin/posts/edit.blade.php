@@ -1,3 +1,4 @@
+{{ dd($post) }}
 @extends('admin.master')
 
 @section('content-admin')

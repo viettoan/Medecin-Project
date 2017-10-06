@@ -20,8 +20,8 @@
     {{ Html::style('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}
     {{ Html::style('css/admin/style2.css') }}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    {{-- {!! Html::style('css/app.css') !!} --}}
     {{-- {{ Html::style('css/admin/style.css') }} --}}
+    {!! Charts::styles() !!}
     {{-- {{ Html::script('bower/ckeditor_stand/ckeditor.js') }} --}}
     {{-- {{ Html::script('bower/ckfinder/ckfinder.js') }} --}}
     @yield('style')
@@ -35,9 +35,9 @@
     </div>
     {{ Html::script('bower/jquery/dist/jquery.min.js') }}
     {{ Html::script('bower/vue/dist/vue.min.js') }}
-    {{ Html::script('bower/vue-paginate/dist/vue-paginate.min.js') }}
     {{ Html::script('bower/toastr/toastr.min.js') }}
     {{ Html::script('bower/axios/dist/axios.min.js') }}
+    {{ Html::script('bower/vue-paginate/dist/vue-paginate.min.js') }}
     {{ Html::script('bower/sweetalert2/dist/sweetalert2.js') }}
     {{ Html::script('bower/jquery/dist/jquery.min.js') }}
     {{ Html::script('bower/jquery-ui/jquery-ui.min.js') }}
@@ -56,9 +56,8 @@
     {{ Html::script('bower/datatables.net/js/jquery.dataTables.min.js') }}
     {{ Html::script('bower/datatables.net-bs/js/dataTables.bootstrap.min.js') }}
     {{ Html::script('bower/fastclick/lib/fastclick.js') }}
-    {{ Html::script('dist/js/adminlte.min.js') }}
-    {{ Html::script('dist/js/pages/dashboard.js') }}
-    {{ Html::script('dist/js/demo.js') }}
+    {{ Html::script('dist/js/adminlte.min.js') }}}
+    {{-- {!! Charts::scripts() !!} --}}
     @yield('script')
 </body>
 </html>

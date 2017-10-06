@@ -1,3 +1,7 @@
+#content_post {
+	overflow: scroll;
+    height: 150px;
+}
 body {
     background: #e9ebee;
 }
@@ -188,3 +192,4 @@ nav .user-setting .menu{
 #avata_admin {
 
 }
+>>>>>>> 779d55a11a65129767a2df7cd4f69690e1468533
