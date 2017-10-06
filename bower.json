@@ -56,6 +56,7 @@
     "vue-paginate": "^3.5.0"
   },
   "resolutions": {
-    "bootstrap": "v4.0.0-alpha.6"
+    "bootstrap": "v4.0.0-alpha.6",
+    "jquery": "^2.0"
   }
 }
