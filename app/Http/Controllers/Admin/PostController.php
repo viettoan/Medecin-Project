@@ -58,7 +58,8 @@ class PostController extends Controller
      */
     public function getListCategory()
     {
-        $categories = $this->category->getAllPaginate(['parentCategories'], 10);
+        $categories = $this->category->getAllPaginate( 1,['parentCategories'], 10);
+
         return response()->json($categories);
     }
     /**
@@ -120,7 +121,7 @@ class PostController extends Controller
     {   
         $reponse = $this->post->search($request->all()[0]);
 
-        dd($reponse);
+        return response()->json($reponse);
     }
 
     /**
@@ -136,28 +137,64 @@ class PostController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
+     **TRAN VAN MY
+     *7-10-2017
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $post = $this->post->find($id, []);
-
-        // return response()->json($post);
-        return view('admin.posts.edit', compact('post'));
+        $categories = $this->category->getAllPaginate( 1,['parentCategories'], 10);
+        
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
-     *
+     *TRAN VAN MY
+     *7-10-2017
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        if($request->hasFile('image')) {
+            $file = $request->file('image');
+            if( ($file->getClientOriginalExtension('image') == "jpg") ||  ($file->getClientOriginalExtension('image') == "png")) {
+                $fileName = $file->getClientOriginalName('image');
+                $file->move('images/post', $fileName);
+                 $data['image'] = '/images/post/'.$fileName;
+                 $data['title'] = $request->title;
+                 $data['description'] = $request->description;
+                 $data['content'] = $request->content;
+                 $data['category_id'] = $request->category_id;
+                 $data['status'] = $request->status;
+
+                if ($this->post->update($id ,$data)) {
+                    session()->flash('message', trans('message.update_success'));
+                    return back();
+                } else {
+                    session()->flash('message', trans('message.update_error'));
+                    return back();
+                }
+            } else {
+                session()->flash('message', trans('message.not_image'));
+                return back();
+            }
+        } else {
+                $data['title'] = $request->title;
+                $data['description'] = $request->description;
+                $data['content'] = $request->content;
+                $data['category_id'] = $request->category_id;
+                $data['status'] = $request->status;
+
+                if ($this->post->update($id ,$data)) {
+                    session()->flash('message', trans('message.update_success'));
+                return back();
+            }
+        }
     }
 
     /**

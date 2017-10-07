@@ -24,3 +24,7 @@
 #history .panel-heading a {
   display: block;
 }
+
+.image_new {
+  height: 200px;
+}
