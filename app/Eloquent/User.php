@@ -48,7 +48,10 @@ class User extends Authenticatable
      */
     public function checkPermission()
     {
-        return $this -> permistion == config('custom.admin');
+        if ($this -> permission == config('custom.admin') || $this -> permission == config('custom.doctor')) {
+            return true;
+        }
+        
     }
 
     /**
