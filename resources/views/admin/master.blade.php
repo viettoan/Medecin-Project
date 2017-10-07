@@ -20,7 +20,6 @@
     {{ Html::style('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}
     {{ Html::style('css/admin/style2.css') }}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    {{-- {{ Html::style('css/admin/style.css') }} --}}
     {!! Charts::styles() !!}
     {{-- {{ Html::script('bower/ckeditor_stand/ckeditor.js') }} --}}
     {{-- {{ Html::script('bower/ckfinder/ckfinder.js') }} --}}
@@ -57,7 +56,7 @@
     {{ Html::script('bower/datatables.net-bs/js/dataTables.bootstrap.min.js') }}
     {{ Html::script('bower/fastclick/lib/fastclick.js') }}
     {{ Html::script('dist/js/adminlte.min.js') }}}
-    {{-- {!! Charts::scripts() !!} --}}
+    {{ Html::script('js/admin/head.js') }}}
     @yield('script')
 </body>
 </html>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Contracts\Repositories\UserRepository;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UpdateRequest;
+use App\Http\Requests\UpdatePassRequest;
 use App\Eloquent\User;
 use App\Eloquent\Media;
 use Charts;
@@ -67,11 +68,11 @@ class UserController extends Controller
             ->dimensions(800, 500)
             ->responsive(true)
             ->groupBy('status', null, [
-                0 => trans('admin.videos_patientss'),
-                1 => trans('admin.videos_patientss'),
-                2 => trans('admin.videos_patientss'),
-                3 => trans('admin.vides_intror_showsss'),
-                4 => trans('admin.vides_intror_hidesss'),
+                0 => trans('message.videos_patient'),
+                1 => trans('message.slide_hide'),
+                2 => trans('message.slide_show'),
+                3 => trans('message.vides_intro_show'),
+                4 => trans('message.vides_intro_hide'),
             ]);
 
         return view('admin._section.home',['chartUser' => $chartUser, 'chartMedia' => $chartMedia]);
@@ -87,6 +88,22 @@ class UserController extends Controller
         return view('admin.users.add');
     }
 
+    public function changePass(UpdatePassRequest $request, $id)
+    {
+        $data = $request->except('password');
+        $data['password'] = bcrypt($request->password);
+        if ($this->user->update($id, $data)) {
+            $response['status'] = 'success';
+            $response['message'] = trans('message.update_success');
+            $response['action'] = trans('message.success');
+        } else {
+            $response['status'] = 'error';
+            $response['message'] = trans('admin.error_happen');
+            $response['action'] = trans('admin.error');
+        }
+
+        return response()->json($response);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -118,7 +135,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $find = $this->user->find($id);
+
+        return response()->json($find);
     }
 
     /**

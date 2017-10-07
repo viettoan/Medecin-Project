@@ -11,7 +11,7 @@ interface CategoryRepository extends AbstractRepository
 
     public function find($id, $select = ['*'], $with = []);
 
-    public function getAllPaginate($with = [], $paginate, $select = ['*']);
+    public function getAllPaginate($status, $with = [], $paginate, $select = ['*']);
 
     public function getAll($with = [], $select = ['*']);
 

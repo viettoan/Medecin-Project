@@ -74,61 +74,11 @@ new Vue({
                     params: this.search,
             }
             axios(authOptions).then(response => {
-                // this.$set(this, 'listPosts', response.data.data.data);
-                // this.$set(this, 'pagination', response.data.pagination);
-            })
+                this.$set(this, 'listPosts', response.data);
+            }).catch((error) => {
+                this.showInfor(this.pagination.current_page);
+            });
         },
-        // editUser: function(item) {
-        //     this.fillItem.id = item.id;
-        //     this.fillItem.name = item.name;
-        //     this.fillItem.email = item.email;
-        //     this.fillItem.address = item.address;
-        //     this.fillItem.phone = item.phone;
-        //     this.fillItem.sex = item.sex;
-        //     this.fillItem.age = item.age;
-        //     this.fillItem.permission = item.permission;
-        //     this.fillItem.specialist_id = item.specialist_id;
-        //     this.showList();
-
-        //     if ( this.fillItem.permission == 2 ) {
-        //         $('#sepilisc').show('1000');
-        //     } else {
-        //         $('#sepilisc').hide('1000');
-        //         this.fillItem.specialist_id = ""; 
-        //     }
-        //     $('#editUser').modal('show');
-        // },
-
-        // updateItem: function(id){
-        //     if (!confirm('Do you want to update this user!')) return;
-        //     var input = this.fillItem;
-        //     axios.put('/admin/user/'+id, input).then((response) => {
-        //         this.changePage(this.pagination.current_page);
-        //         $("#editUser").modal('hide');
-        //         if (response.data.status == 'error') {
-        //             toastr.error(response.data.message, response.data.action, {timeOut: 5000});
-        //         } else {
-        //             toastr.success('', response.data.action, {timeOut: 5000});
-        //         }
-        //     }).catch((error) => {
-        //         if (error.response.status == 422) {
-        //             this.formErrorsUpdate = error.response.data;
-        //         }
-        //     });
-        // },
-        // showUser: function(item) {
-        //     this.fillItem.id = item.id;
-        //     this.fillItem.name = item.name;
-        //     this.fillItem.email = item.email;
-        //     this.fillItem.address = item.address;
-        //     this.fillItem.phone = item.phone;
-        //     this.fillItem.sex = item.sex;
-        //     this.fillItem.age = item.age;
-        //     this.fillItem.permission = item.permission;
-        //     this.fillItem.specialist_id = item.specialist_id;
-        //     $('#infoUser').modal('show');
-        // },
-
         changePage: function (page) {
             this.pagination.current_page = page;
             this.showInfor(page);

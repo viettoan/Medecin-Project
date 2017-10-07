@@ -26,9 +26,9 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
         return $this->model()->select($select)->with($with)->find($id);
     }
 
-    public function getAllPaginate($with = [], $paginate, $select = ['*'])
+    public function getAllPaginate($status, $with = [], $paginate, $select = ['*'])
     {
-        return $this->model()->select($select)->with($with)->paginate($paginate);
+        return $this->model()->select($select)->where('status', $status)->with($with)->paginate($paginate);
     }
 
     public function getAll($with = [], $select = ['*'])

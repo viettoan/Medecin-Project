@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     });
     Route::get('home-admin', 'UserController@home')->name('home-admin');
     Route::resource('user', 'UserController');
+    Route::put('changepass/{id}', 'UserController@changePass')->name('changepass');
     Route::resource('patient', 'PatientController');
     Route::get('listPatients', 'PatientController@list');
     Route::resource('contact', 'ContactController');

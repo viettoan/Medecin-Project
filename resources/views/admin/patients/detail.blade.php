@@ -27,8 +27,7 @@
                     <div class=" image-user col-md-4">
                         <div class="box-body box-profile">
                             <div class="col-md-10">
-                                <img class="img-responsive img-circle" src="{{ asset('images/avatar.jpg')}}" alt="User profile picture">
-                                <img class="img-responsive img-circle" src="{{ asset('huonggiang.jpg')}}" alt="User profile picture">
+                                <img class="img-responsive img-circle" src="{{ asset('images/avatar.jpg')}}">
                                 <h3 class="profile-username text-center">
                                 <i class="fa fa-leaf" aria-hidden="true"></i>
                                 {{ $patient->name }}
