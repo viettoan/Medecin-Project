@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admin'], function() {
     Route::get('/', function () {
         return view('admin.master');
     });
