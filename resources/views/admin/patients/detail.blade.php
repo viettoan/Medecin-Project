@@ -18,8 +18,8 @@
       @endif
         <div class="panel-body">
             <ul class="nav nav-tabs" role="tablist">
-                <li class="active"><a data-target="#detail" role="tab" data-toggle="tab">Detail</a></li>
-                <li><a data-target="#history" role="tab" data-toggle="tab">History</a></li>
+                <li class="active"><a data-target="#detail" role="tab" data-toggle="tab">Chi tiết bệnh nhân</a></li>
+                <li><a data-target="#history" role="tab" data-toggle="tab">Lịch sử khám</a></li>
             </ul>
             <div class="tab-content">
                 <!-- detail patient -->
@@ -27,7 +27,7 @@
                     <div class=" image-user col-md-4">
                         <div class="box-body box-profile">
                             <div class="col-md-10">
-                                <img class="img-responsive img-circle" src="{{ asset('images/avatar.jpg')}}">
+                                <img class="img-responsive img-circle" src="{{ asset('images/unknown.png')}}" alt="User profile picture">
                                 <h3 class="profile-username text-center">
                                 <i class="fa fa-leaf" aria-hidden="true"></i>
                                 {{ $patient->name }}

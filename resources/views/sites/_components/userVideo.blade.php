@@ -12,52 +12,50 @@
             <tbody>
               <tr>
                 <td><strong>Mã bệnh nhân</strong></td>
-                <td>IMBBM090343434</td>
+                <td>{{ $user->id }}</td>
               </tr>
               <tr>
                 <td><strong>Họ tên</strong></td>
-                <td>Jamime</td>
+                <td>{{ $user->name }}</td>
               </tr>
               <tr>
-                <td><strong>Số điện thoại:</strong></td>
-                <td>Jamime</td>
-              </tr>
-              <tr>
-                <td><strong>Số điện thoại:</strong></td>
-                <td>0993343434</td>
+                <td><strong>Ngày sinh:</strong></td>
+                <td>21-3-1996</td>
               </tr>
               <tr>
                 <td><strong>Tuổi:</strong></td>
                 <td>19</td>
               </tr>
+              <tr>
+                <td><strong>Số điện thoại:</strong></td>
+                <td>{{$user->phone}}</td>
+              </tr>
             </tbody>
             </table>
         </div>
 
-        <div class="intro">
-          <h2>VIDEO SIÊU ÂM</h2>
-          <h5><i class="fa fa-star-o"></i></h5>
-        </div>
-        <div class="row">
-          <div class="col-md-12 video text-center">
-              <p>20-6-2016</p>
-              <video  controls='controls'>
-                <source src="http://sanchoi.net/video/chat.mov">
-              </video>
-              <br>
-              <a class="btn btn-primary" href="http://sanchoi.net/video/chat.mov"><i class="fa fa-download" aria-hidden="true"></i>Tải video</a>
+          <div class="intro">
+            <h2>VIDEO SIÊU ÂM</h2>
+            <h5><i class="fa fa-star-o"></i></h5>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 video text-center">
-              <p>20-6-2016</p>
-              <video  controls='controls'>
-                <source src="http://sanchoi.net/video/chat.mov">
-              </video>
-              <br>
-              <a class="btn btn-primary" href="http://sanchoi.net/video/chat.mov"><i class="fa fa-download" aria-hidden="true"></i>Tải video</a>
+        @foreach($user->histories as $history)
+          <div class="row">
+            <div class="col-md-12 video text-center">
+
+                <p><a href="#x{{$history->id}}" data-toggle="collapse">{{$history->date_examination}}<i class="fa fa-arrow-down" aria-hidden="true"></i></a></p>
+                <div id='x{{$history->id}}' class='collapse'>
+                  <div class="history-content panel panel-default">
+                    <div class="panel-body">{{$history->content}}</div>
+                  </div>
+                  <video  controls='controls'>
+                    <source src="http://sanchoi.net/{{$history->media->path . $history->media->name . '.' . $history->media->type }}">
+                  </video>
+                  <br>
+                  <a class="btn btn-primary" href="http://sanchoi.net/{{$history->media->path . $history->media->name . '.' . $history->media->type }}"><i class="fa fa-download" aria-hidden="true"></i>Tải video</a>
+                </div>
+            </div>
           </div>
-        </div>
+        @endforeach
     </div>
 </div>
 

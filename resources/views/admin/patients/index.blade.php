@@ -47,7 +47,7 @@
                                 <a  @click='addIdModal(item.id)' data-toggle="modal" data-target="#addVideo" ><i class="fa fa-file-video-o" aria-hidden="true"></i></a>
                                 <a :href="'patient/' + item.id "><i class="fa fa-eye" aria-hidden="true"></i></a>
                                 <a href="javascript:void(0)" v-on:click="editPatient(item.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                <a v-on:click="deletePatient(item.id)"><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a>
+                                <a v-on:click="deletePatient(item.id)" ><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a>
                             </th>
                         </tr>
                     </paginate>
@@ -218,35 +218,24 @@
                             <button type="button" v-on:click="updatePatient(patient.id)" class="btn btn-default">{{ trans('message.edit') }}</button>
                         </form>
                     </div>
-                                <input id="file" type="file" name="video" class="form-control">
-                            </div>
-                        </div>
-                      {{-- content --}}
-                        <div class="form-group">
-                          <label for=""> {{__('message.content')}} </label>
-                          <textarea name="content" class="form-control" rows="5" type="text" ></textarea>
-                        </div>
-                      {{-- date --}}
-                        <div class="form-group">
-                          <label for=""> {{__('message.date')}} </label>
-                          <input name="date_examination" class="form-control" rows="5" type="date">
-                        </div>
-                        <button type="submit" class="btn btn-primary">{{ trans('message.add') }}</button>
-                    </form>
+
+                    </div>
+                    </div>
+
                 </div>
-            </div>
-        </div>
+
+        <!--End Update patient modal -->
     </div>
  </div>
 @endsection
 @section('script')
-    <script>
+    {{-- <script>
       $(document).ready(function() {
         $("a[data-toggle='modal']").click(function() {
           let userId = $(this).data('user-id');
           $('#usr-id').val(userId);
         })
       })
-    </script>
+    </script> --}}
     {{ Html::script('js/admin/patient.js') }}
 @endsection
