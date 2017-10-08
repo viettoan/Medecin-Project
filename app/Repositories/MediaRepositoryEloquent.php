@@ -26,14 +26,14 @@ class MediaRepositoryEloquent extends AbstractRepositoryEloquent implements Medi
         return $this->model()->select($select)->with($with)->find($id);
     }
 
-    public function getAll($with = [], $paginate, $select = ['*'])
+    public function getAll($with = [], $select = ['*'])
     {
-        return $this->model()->select($select)->with($with)->paginate($paginate);
+        return $this->model()->select($select)->with($with)->orderBy('created_at', 'desc')->get();
     }
 
-    public function getSLidersIndex($number = 3, $with = [], $select = ['*'])
+    public function getSLidersIndex( $with = [], $select = ['*'])
     {
-        return $this->model()->select($select)->where('status', config('custom.media.sliders.show'))->orderBy('created_at', 'desc')->with($with)->limit($number)->get();
+        return $this->model()->select($select)->where('status', config('custom.media.sliders.show'))->orderBy('created_at', 'desc')->with($with)->get();
     }
 
     public function getVideoIntro($with = [], $select = ['*'])

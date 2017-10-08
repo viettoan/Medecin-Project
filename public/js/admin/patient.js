@@ -15,9 +15,12 @@ new Vue({
         },
         patients: [],
         paginate: ['patients'],
-				modal: {
-					id: ''
-				}
+		modal: {
+			id: ''
+		},
+        search: {
+            'name': '',
+        },
 	},
     mounted: function(){
         this.listPatients();
@@ -136,8 +139,19 @@ new Vue({
                 this.listPatients();
             });
         },
-				addIdModal: function(id) {
-					this.modal.id = id
-				}
-	}
+        addIdModal: function(id) {
+            this.modal.id = id
+        },
+        searchPatient: function() {
+            var authOptions = {
+                method: 'post',
+                url: '/admin/patient/search',
+                params: { 'name': this.search.name },
+                json: true
+            }
+            axios(authOptions).then(response => {
+                this.patients = response.data;
+            });
+        },
+    }
 });

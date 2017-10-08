@@ -14,4 +14,5 @@ interface PatientRepository extends AbstractRepository
 
     public function getAllPatient($with = [], $select = ['*']);
 
+    public function searchByName($keyword, $with = [], $select = ['*']);
 }

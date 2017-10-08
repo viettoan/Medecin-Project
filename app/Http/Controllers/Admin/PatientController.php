@@ -7,6 +7,7 @@ use App\Http\Requests\PatientRequest;
 use App\Http\Controllers\Controller;
 use App\Contracts\Repositories\PatientRepository;
 use Response;
+use App\Helpers\Helper;
 
 class PatientController extends Controller
 {
@@ -149,7 +150,22 @@ class PatientController extends Controller
         } catch (Exception $e ) {
             $message = trans('delete_failed');
             return Response::json($message, 403);
-        }
-        
+        }  
     }
+
+    /**
+     * Pham Viet Toan
+     * 10/08/2017
+     * Search patient by name
+     * @return Response
+     */
+    public function search(Request $request)
+    {
+        $keyword = $request->name;
+        $keyword = Helper::handleSearchkeyword($keyword);
+
+        $patients = $this->patient->searchByName($keyword, []);
+
+        return Response::json($patients, 200);
+    } 
 }

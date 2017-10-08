@@ -1,54 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Site;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Contracts\Repositories\CategoryRepository;
-use App\Contracts\Repositories\PostRepository;
-use App\Contracts\Repositories\MediaRepository;
 
-class IndexController extends Controller
+class VideoController extends Controller
 {
-    protected $category;
-    protected $post;
-    protected $media;
-
     /**
-     * Pham Viet Toan
-     * 09/27/2017
-     *
-     * Construct function
-     * @param App\Contracts\Repositories\PostRepository $post
-     * @param App\Contracts\Repositories\CategoryRepository $category
-     */
-    public function __construct(
-        PostRepository $post,
-        CategoryRepository $category,
-        MediaRepository $media
-    )
-    {
-        $this->category = $category;
-        $this->post = $post;
-        $this->media = $media;
-    }
-
-    /**
-     * Pham Viet Toan
-     * 09/27/2017
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $posts = $this->post->getNewestPost(3, []);
-        $sliders = $this->media->getSLidersIndex([]);
-        foreach ($sliders as $value) {
-            $value->path = asset(config('custom.media.sliders.defaultPath') . $value->path);
-        }
-        $videoIntro = asset(config('custom.media.video_intro.defaultPath') . $this->media->getVideoIntro([])->path) ;
-        return view('index', compact('posts', 'sliders', 'videoIntro'));
+        return view('admin.media.videos');
     }
 
     /**
