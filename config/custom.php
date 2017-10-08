@@ -30,12 +30,12 @@ return [
         'sliders' => [
             'hide' => 1,
             'show' => 2,
-            'defaultPath' => '/images/sliders/',
+            'defaultPath' => 'images/sliders/',
         ],
         'video_intro' => [
             'show' => 3,
             'hide' => 4,
-            'defaultPath' => '/video/',
+            'defaultPath' => 'video/',
         ],
     ],
 ];

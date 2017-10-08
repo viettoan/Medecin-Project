@@ -4,7 +4,7 @@ namespace App\Helpers;
 
 class Helper
 {
-	public static function search($keyword)
+	public static function handleSearchkeyword($keyword)
     {
         $character = [
             '%',
@@ -17,6 +17,7 @@ class Helper
             '\\\\',
         ];
         $keyword = str_replace($character, $replace, $keyword);
+        
         return $keyword;
     }
 }

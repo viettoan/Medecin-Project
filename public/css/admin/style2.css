@@ -28,3 +28,26 @@
 .image_new {
   height: 200px;
 }
+/***************************************************/
+/*                  SLIDERS                        */
+/***************************************************/
+.slider-action {
+    display: none;
+    position: relative;
+    top:40%;
+    left:17%;
+}
+
+.slider-item:hover .slider-action{
+    position: absolute;
+    display: inline-block;
+}
+.slider-item:hover img{
+    opacity: 0.7;
+    border: 2px solid #3c8dbc;
+}
+.slider-item img{
+    border: 2px solid #3c8dbc;
+    height: 200px;
+    width: 200px;
+}

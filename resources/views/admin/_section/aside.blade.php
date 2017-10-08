@@ -24,8 +24,8 @@
                 <li><a href="{{ route('specialist.index') }}"><i class="fa fa-mars-double" aria-hidden="true"></i>Specialist</span></a></li>
                 <li><a href="{{ route('contact.index') }}"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span>Contact</span></a></li>
                 <li class="header">SETTING</li>
-                <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Video</span></a></li>
-                <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Slider</span></a></li>
+                <li><a href="{{ route('videos.index') }}"><i class="fa fa-circle-o text-red"></i> <span>Video</span></a></li>
+                <li><a href="{{ route('sliders.index') }}"><i class="fa fa-circle-o text-yellow"></i> <span>Slider</span></a></li>
             @endif
         </ul>
     </section>

@@ -106,4 +106,6 @@ return [
     'contact_failed' => 'Contact Failed !',
     'category_success' => 'Category Success !',
     'category_failed' => 'Category Failed !',
+    'new_slider' => 'New Slider',
+    'slider' => 'Slider',
 ];

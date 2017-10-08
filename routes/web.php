@@ -14,13 +14,11 @@
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admin'], function() {
-    Route::get('/', function () {
-        return view('admin.master');
-    });
     Route::get('home-admin', 'UserController@home')->name('home-admin');
     Route::resource('user', 'UserController');
     Route::put('changepass/{id}', 'UserController@changePass')->name('changepass');
     Route::resource('patient', 'PatientController');
+    Route::post('patient/search', 'PatientController@search')->name('patient.search');
     Route::get('listPatients', 'PatientController@list');
     Route::resource('contact', 'ContactController');
     Route::get('listContacts', 'ContactController@list');
@@ -33,6 +31,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::resource('media-medical', 'MediaMedicalHistory');
     Route::get('list-specialist', 'SpecialistController@list')->name('list-specialist');
     Route::get('list-category', 'PostController@getListCategory')->name('list-category');
+
+    // Media
+    Route::resource('sliders', 'SliderController');
+    Route::get('listSliders', 'SliderController@list');
+    Route::resource('videos', 'VideoController');
 });
 
 Route::resource('/dangnhap-admin', 'LoginAdminController');

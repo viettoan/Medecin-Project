@@ -9,7 +9,7 @@
         <div class="carousel-inner" role="listbox">
           @for ($i = 0; $i < count($sliders); $i++)
             <div class="carousel-item @if ($i == 0) active @endif ">
-              <img class="d-block img-fluid slide-header" src="{{ asset(config('custom.media.sliders.defaultPath') . $sliders[$i]->path) }}" alt="First slide"  >
+              <img class="d-block img-fluid slide-header" src="{{ $sliders[$i]->path }}" alt="First slide"  >
             </div>
           @endfor
         </div>

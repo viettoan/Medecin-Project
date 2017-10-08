@@ -18,7 +18,7 @@
                     <a href="javascript:void(0)" v-on:click="createPatient()" class="btn btn-success col-md-2">{{ trans('message.new_patient') }}</a>
                     <form role="form" class="col-md-5">
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Enter user">
+                            <input type="text" class="form-control" placeholder="Enter user" v-model="search.name" v-on:keyup="searchPatient()">
                         </div>
                     </form>
                 </div>
@@ -47,7 +47,9 @@
                                 <a  @click='addIdModal(item.id)' data-toggle="modal" data-target="#addVideo" ><i class="fa fa-file-video-o" aria-hidden="true"></i></a>
                                 <a :href="'patient/' + item.id "><i class="fa fa-eye" aria-hidden="true"></i></a>
                                 <a href="javascript:void(0)" v-on:click="editPatient(item.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                @if (Auth::user()->permission == 1)
                                 <a v-on:click="deletePatient(item.id)" ><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a>
+                                @endif
                             </th>
                         </tr>
                     </paginate>

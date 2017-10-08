@@ -43,7 +43,7 @@ class PostController extends Controller
     public function index($category)
     {
         $name = str_replace('-', ' ', $category);
-        $name = Helper::search($name);
+        $name = Helper::handleSearchkeyword($name);
         $category_id = $this->category->search($name, [])->first()->id;
         $posts = $this->post->getPostByCategory($category_id, 8, ['categories']);
 
