@@ -42,8 +42,8 @@ Route::group(['namespace' => 'Site', 'prefix' => 'profile', 'middleware' => 'aut
     Route::get('/thong-tin-ca-nhan/{id}', 'PatientController@show')->name('patient.profile.show');
     Route::get('/lich-su-kham/{id}', 'HistoryController@show')->name('patient.history.show');
     Route::get('/lich-bac-sy', 'DoctorCalenderController@index')->name('doctor.calender.show');
-    Route::get('/video-sieu-am/{id}', function () {
-	    return view('sites._components.userVideo');
+    Route::get('/video-sieu-am', function () {
+	    return view('sites._components.userVideo', ['user' => Auth::user()]);
 		});
 });
 
@@ -56,7 +56,7 @@ Route::group(['namespace' => 'Site'], function() {
 
     Route::get('/lienhe', 'ContactController@index')->name('contact');
     Route::post('/lienhe', 'ContactController@store')->name('contact.store');
-    
+
     /* Route nay de cuoi cung k dong vao */
     Route::get('/{category}', 'PostController@index')->name('posts.index');
 

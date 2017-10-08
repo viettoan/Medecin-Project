@@ -13,7 +13,7 @@
 }
 .intro h2 {
   text-align: center;
-  color: #b01a1f;
+  color: red;
   padding: 20px;
 }
 .intro h5 {
@@ -28,4 +28,14 @@
   bottom: 13px;
   left: 0px;
   border:1px solid #b01a1f
+}
+.video p a {
+  color:white;
+ display: inline-block;
+ text-decoration: none;
+ width:100%;
+}
+.video p:hover {
+  background-color: rgba(44, 62, 80,1.0);
+  transition: 0.3s;
 }

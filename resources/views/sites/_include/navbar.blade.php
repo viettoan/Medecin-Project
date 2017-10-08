@@ -14,7 +14,7 @@
         <a class="nav-link" href="{{ route('index') }}">TRANG CHỦ</a>
       </li>
       <li class="nav-item text-center">
-        <a class="nav-link" href="{{ route('introduce') }}">GIOI THIEU</a>
+        <a class="nav-link" href="{{ route('introduce') }}">GIỚI THIỆU</a>
       </li>
       @foreach ($categories as $category)
         <li class="nav-item text-center dropdown">
@@ -27,8 +27,8 @@
           </div>
         @else
           <a class="nav-link" href="{{ route('posts.index', ['category' => str_replace(' ', '-', $category->name) ]) }}">{{ strtoupper($category->name) }}</a>
-        @endif  
-        </li> 
+        @endif
+        </li>
       @endforeach
       <li class="nav-item text-center">
         <a class="nav-link" href="{{ route('contact') }}">LIÊN HỆ</a>
@@ -45,7 +45,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="{{ route('patient.profile.show', Auth::user()->id) }}">Thông tin tài khoản</a>
           <a class="dropdown-item" href="{{ route('patient.history.show', Auth::user()->id) }}">Lịch sử khám</a>
-          <a class="dropdown-item" href="#">Video siêu âm</a>
+          <a class="dropdown-item" href="/profile/video-sieu-am">Video siêu âm</a>
           <a class="dropdown-item" href="{{ route('logout') }}"
               onclick="event.preventDefault();
                        document.getElementById('logout-form').submit();">

@@ -81,13 +81,17 @@ class MediaMedicalHistory extends Controller
     public function update(Request $request, $id)
     {
         $history = MedicalHistory::findorFail($id);
+        if(!$request->video) {
+          $history->content = $request->content ? $request->content : '';
+          $history->save();
+          return back()->with(['success' => 'Cập nhật thành công']);
+        }
         $media = $history->media;
         if(Video::update($request->video, $media)) {
           $history->content = $request->content ? $request->content : '';
           $history->save();
           return back()->with(['success' => 'Cập nhật thành công']);
         }
-
         return back()->withErrors('Video không hợp lệ.');
     }
 
