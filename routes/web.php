@@ -36,6 +36,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::resource('sliders', 'SliderController');
     Route::get('listSliders', 'SliderController@list');
     Route::resource('videos', 'VideoController');
+    Route::get('listVideos', 'VideoController@list');
 });
 
 Route::resource('/dangnhap-admin', 'LoginAdminController');
