@@ -108,4 +108,6 @@ return [
     'category_failed' => 'Category Failed !',
     'new_slider' => 'New Slider',
     'slider' => 'Slider',
+    'new_video' => 'New Video',
+    'video' => 'Video',
 ];
