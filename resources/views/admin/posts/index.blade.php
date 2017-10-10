@@ -20,8 +20,9 @@
                     <div class="col-md-3">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
-                            <input id="email" type="text" class="form-control"  v-on:keyup="searchPost" name="email" placeholder="Email">
+                            <input id="email" type="text" class="form-control"  v-on:keyup="searchPost" name="email" placeholder="Title">
                         </div>
+                        <br>
                     </div>
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>

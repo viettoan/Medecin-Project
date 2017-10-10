@@ -14,6 +14,7 @@ new Vue({
             'status': '',
         },
         paginate: ['contacts'],
+        search: {'name': ''}
     },
     mounted: function() {
         this.listContacts();
@@ -27,7 +28,6 @@ new Vue({
             }
             axios(authOptions).then(response => {
                 this.contacts = response.data;
-                console.log(this.contacts);
             });   
         },
         getDetailContact: function(id) {
@@ -40,6 +40,20 @@ new Vue({
             axios(options).then(response => {
                 this.$set(this, 'contact', response.data);
                 $('#detailContact').modal('show');
+            });
+        },
+        searchContact: function(event) {
+            this.search.name= event.target.value;
+
+            var authOptions = {
+                    method: 'post',
+                    url: '/admin/searchContact',
+                    params: this.search.name,
+            }
+            axios(authOptions).then(response => {   
+                this.contacts = response.data;
+            }).catch((error) => {
+                this.listContacts();
             });
         },
 

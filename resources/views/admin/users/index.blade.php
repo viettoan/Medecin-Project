@@ -21,6 +21,13 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-body">
+                        <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                           <input id="email" type="text" class="form-control"  v-on:keyup="searchUserNew" name="Name" placeholder="Name">
+                        </div>
+                        <br>
+                    </div>
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
@@ -34,7 +41,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="list in lists" v-bind:id='"User-"+ list.id'>
+                                <tr v-for="list in lists" v-bind:id='"User-"+ list.id' v-on:click="editUser(list)">
                                     <td>@{{ list.id }}</td>
                                     <td><a data-toggle="modal" v-on:click="showUser(list)">@{{ list.name }}</a>
                                     </td>

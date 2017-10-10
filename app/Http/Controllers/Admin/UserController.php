@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Contracts\Repositories\UserRepository;
+use App\Contracts\Repositories\PostRepository;
+use App\Contracts\Repositories\ContactRepository;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UpdateRequest;
 use App\Http\Requests\UpdatePassRequest;
 use App\Eloquent\User;
+use App\Eloquent\Post;
 use App\Eloquent\Media;
 use Charts;
 
@@ -23,8 +26,10 @@ class UserController extends Controller
     
     protected $user;
 
-    public function __construct(UserRepository $user) {
+    public function __construct(UserRepository $user, PostRepository $post, ContactRepository $contact) {
         $this->user = $user;
+        $this->post = $post;
+        $this->contact = $contact;
     }
 
     public function index(Request $request)
@@ -50,16 +55,23 @@ class UserController extends Controller
 
     public function home ()
     {
+
+        $countUser = count($this->user->getAllUserNew());
+
+        $countPost = count($this->post->getAllPostNew());
+
+        $countContact = count($this->contact->getAll());
+
         $chartUser = Charts::database(User::all(), 'bar', 'highcharts')
             ->title(trans('Users'))
             ->elementLabel(trans('Total'))
             ->dimensions(800, 500)
             ->responsive(true)
             ->groupBy('permission', null, [
-                0 => trans('admin.patient'),
-                1 => trans('admin.admin'),
-                2 => trans('admin.doctor'),
-                3 => trans('admin.disable')
+                0 => trans('message.patient'),
+                1 => trans('message.admin'),
+                2 => trans('message.doctor'),
+                3 => trans('message.disable')
             ]);
 
         $chartMedia = Charts::database(Media::all(), 'bar', 'highcharts')
@@ -75,7 +87,14 @@ class UserController extends Controller
                 4 => trans('message.vides_intro_hide'),
             ]);
 
-        return view('admin._section.home',['chartUser' => $chartUser, 'chartMedia' => $chartMedia]);
+        return view('admin._section.home',['chartUser' => $chartUser, 'chartMedia' => $chartMedia, 'countUser' => $countUser, 'countPost' => $countPost, 'countContact' => $countContact]);
+    }
+
+    public function search(Request $request) 
+    {   
+        $response = $this->user->searchUser($request->all()[0]);
+
+        return response()->json($response);
     }
     /**
      * Show the form for creating a new resource.

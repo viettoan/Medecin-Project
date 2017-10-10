@@ -27,6 +27,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::get('listCategories', 'CategoryController@list');
     Route::resource('post', 'PostController');
     Route::post('searchPost', 'PostController@search')->name('search-post');
+    Route::post('searchUser', 'UserController@search')->name('search.user');
+    Route::post('searchContact', 'ContactController@search')->name('search.contact');
     Route::resource('specialist', 'SpecialistController');
     Route::resource('media-medical', 'MediaMedicalHistory');
     Route::get('list-specialist', 'SpecialistController@list')->name('list-specialist');

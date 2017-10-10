@@ -31,4 +31,9 @@ class ContactRepositoryEloquent extends AbstractRepositoryEloquent implements Co
         return $this->model()->select($select)->with($with)->orderBy('created_at', 'desc')->get();
     }
 
+    public function search($keyword, $with = [], $select = ['*'])
+    {
+        return $this->model()->select($select)->where('name', 'like', "%".$keyword."%")->get();
+    }
+
 }

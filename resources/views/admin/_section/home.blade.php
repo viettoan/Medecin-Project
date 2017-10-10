@@ -14,11 +14,11 @@
     </section>
     <section class="content">
         <div class="row">
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-4 col-xs-6">
                 <div class="small-box bg-aqua">
                     <div class="inner">
-                        <h3>150</h3>
-                        <p>USER</p>
+                        <h3>{{ $countPost }}</h3>
+                        <p>POST</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
@@ -26,23 +26,11 @@
                     <a href="{{ route('user.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            <div class="col-lg-3 col-xs-6">
-                <div class="small-box bg-green">
-                    <div class="inner">
-                        <h3>53</h3>
-                        <p>Patient</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
-                    </div>
-                    <a href="{{ route('patient.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-xs-6">
+            <div class="col-lg-4 col-xs-6">
                 <div class="small-box bg-yellow">
                     <div class="inner">
-                        <h3>44</h3>
-                        <p>Post</p>
+                        <h3>{{ $countUser }}</h3>
+                        <p>USER</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
@@ -50,10 +38,10 @@
                     <a href="{{ route('post.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-            <div class="col-lg-3 col-xs-6">
-                <div class="small-box bg-red">
+            <div class="col-lg-4 col-xs-6">
+                <div class="small-box bg-green">
                     <div class="inner">
-                        <h3>65</h3>
+                        <h3>{{ $countContact }}</h3>
                         <p>Contact</p>
                     </div>
                     <div class="icon">
