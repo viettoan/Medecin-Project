@@ -31,7 +31,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::resource('media-medical', 'MediaMedicalHistory');
     Route::get('list-specialist', 'SpecialistController@list')->name('list-specialist');
     Route::get('list-category', 'PostController@getListCategory')->name('list-category');
-
+    Route::resource('doctor-calendar', 'DoctorCalendarController');
+    Route::get('listCalendars', 'DoctorCalendarController@list');
     // Media
     Route::resource('sliders', 'SliderController');
     Route::get('listSliders', 'SliderController@list');

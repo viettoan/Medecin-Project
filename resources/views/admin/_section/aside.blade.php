@@ -17,6 +17,7 @@
             </li>
             <li class="header">MANAGER</li>
             <li><a href="{{ route('patient.index') }}"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>Patient</span></a></li>
+            <li><a href="{{ route('doctor-calendar.index') }}"><i class="fa fa-calendar" aria-hidden="true"></i><span>Schedule</span></a></li>
             @if (Auth::user()->permission == 1)
                 <li><a href="{{ route('user.index') }}""><i class="fa fa-user" aria-hidden="true"></i> <span>User</span></a></li>
                 <li><a href="{{ route('post.index') }}"><i class="fa fa-book"></i> <span>Post</span></a></li>

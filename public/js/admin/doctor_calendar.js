@@ -1,55 +1,76 @@
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 new Vue({
-	el: '#index-categories',
+	el: '#index-calendar',
 
 	data: {
-	    category: {
+	    calendar: {
             'id': '',
-            'name': '',
-            'parent_id': 0,
-            'status': 1,
+            'user_id': '',
+            'room': '',
+            'morning': 0,
+            'afternoon': 0,
+            'night': 0,
         },
-        categories: [],
+        calendars: [],
+        doctors: [],
 	},
     mounted: function(){
-        this.listCategories();
+        this.listCalendars();
+        this.getDoctors();
     },
 	methods: {
         resetData: function() {
-            this.category = {
-                'id': '',
-                'name': '',
-                'parent_id': 0,
-                'status': 1,
+            this.calendar = {
+                'user_id': '',
+                'room': '',
+                'morning': 0,
+                'afternoon': 0,
+                'night': 0,
             };
         },
         /**
          * Pham Viet Toan
          * 09/21/2017
          * 
-         * List patients
+         * List calendars
          */
-        listCategories: function() {
+        listCalendars: function() {
             var authOptions = {
                 method: 'get',
-                url: '/admin/listCategories',
+                url: '/admin/listCalendars',
                 json: true
             }
             axios(authOptions).then(response => {
-                this.categories = response.data;
-                console.log(this.categories);
+                this.calendars = response.data;
             });   
+        },
+        convert : function(){
+            if (this.calendar.morning == true) {
+                this.calendar.morning = 1;
+            } else {
+                this.calendar.morning = 0;
+            }
+            if (this.calendar.afternoon == true) {
+                this.calendar.afternoon = 1;
+            } else {
+                this.calendar.afternoon = 0;
+            }
+            if (this.calendar.night == true) {
+                this.calendar.night = 1;
+            } else {
+                this.calendar.night = 0;
+            }
         },
         /**
          * Pham Viet Toan
          * 09/21/2017
          * 
-         * delete category with id
+         * delete calendars with id
          * @param id
          * HTML DOM
          */
-		deleteCategory: function(id) {
+		deleteCalendar: function(id) {
             let list = this;
             swal({
                     title: 'Are you sure?',
@@ -66,7 +87,7 @@ new Vue({
                 }).then(function () {
                     var authOptions = {
                         method: 'DELETE',
-                        url: '/admin/category/' + id,
+                        url: '/admin/doctor-calendar/' + id,
                         json: true
                     }
                     axios(authOptions).then(response => {
@@ -75,7 +96,7 @@ new Vue({
                         'Your file has been deleted.',
                         'success'
                         );
-                        list.listCategories();
+                        list.listCalendars();
                     });   
                 }, function (dismiss) {
                     if (dismiss === 'cancel') {
@@ -87,44 +108,26 @@ new Vue({
                     }
             });	
         },
-        createCategory: function() {
-            this.resetData();
-            $('#newCategory').modal('show');
-        },
-        storeCategory: function() {
-            var authOptions = {
-                method: 'post',
-                params: this.category,
-                url: '/admin/category',
-                json: true
-            }
-            axios(authOptions).then(response => {
-                if (response.status == 200) {
-                    toastr.success(response.data, '', {timeOut: 5000});
-
-                } else {
-                    toastr.error(response.data, '', {timeOut: 5000});
-                }
-                $('#newCategory').modal('hide');
-                this.listCategories();
-            });   
-        },
-        editCategory: function(id) {
+        getDoctors: function() {
             var authOptions = {
                 method: 'get',
-                url: '/admin/category/' + id + '/edit',
+                url: '/admin/doctor-calendar/create',
                 json: true
             }
             axios(authOptions).then(response => {
-                this.category = response.data;
-                $('#updateCategory').modal('show');
-            });  
+               this.doctors = response.data;
+            });   
         },
-        updateCategory: function(id) {
+        createCalendar: function() {
+            this.resetData();
+            $('#newCalendar').modal('show');
+        },
+        storeCalendar: function() {
+            this.convert();
             var authOptions = {
-                method: 'put',
-                params: this.category,
-                url: '/admin/category/' + id,
+                method: 'post',
+                params: this.calendar,
+                url: '/admin/doctor-calendar',
                 json: true
             }
             axios(authOptions).then(response => {
@@ -134,8 +137,38 @@ new Vue({
                 } else {
                     toastr.error(response.data, '', {timeOut: 5000});
                 }
-                $('#updateCategory').modal('hide');
-                this.listCategories();
+                $('#newCalendar').modal('hide');
+                this.listCalendars();
+            });   
+        },
+        editCalendar: function(id) {
+            var authOptions = {
+                method: 'get',
+                url: '/admin/doctor-calendar/' + id + '/edit',
+                json: true
+            }
+            axios(authOptions).then(response => {
+                this.calendar = response.data;
+                $('#updateCalendar').modal('show');
+            });  
+        },
+        updateCalendar: function(id) {
+            this.convert();
+            var authOptions = {
+                method: 'put',
+                params: this.calendar,
+                url: '/admin/doctor-calendar/' + id,
+                json: true
+            }
+            axios(authOptions).then(response => {
+                if (response.status == 200) {
+                    toastr.success(response.data, '', {timeOut: 5000});
+
+                } else {
+                    toastr.error(response.data, '', {timeOut: 5000});
+                }
+                $('#updateCalendar').modal('hide');
+                this.listCalendars();
             }); 
         }      
 	}

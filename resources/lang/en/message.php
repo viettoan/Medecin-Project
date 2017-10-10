@@ -110,4 +110,11 @@ return [
     'slider' => 'Slider',
     'new_video' => 'New Video',
     'video' => 'Video',
+    'doctor_schedule' => 'Doctor Schedule',
+    'new' => 'New',
+    'morning' => 'Morning',
+    'afternoon' => 'Afternoon',
+    'night' => 'Night',
+    'room' => 'Room',
+    'doctor' => 'Doctor',
 ];
