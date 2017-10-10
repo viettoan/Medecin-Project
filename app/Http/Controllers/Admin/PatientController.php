@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Contracts\Repositories\PatientRepository;
 use Response;
 use App\Helpers\Helper;
+use Carbon;
 
 class PatientController extends Controller
 {
@@ -75,6 +76,14 @@ class PatientController extends Controller
         $data = $request->all();
         $data['permission'] = config('custom.patient');
         $data['password'] = $data['phone'];
+
+        $dateTime = Carbon\Carbon::now()->toDateTimeString();
+        $dateTimeFormated = str_replace(['-', ' ', ':'], ['', '_', ''], $dateTime);
+
+        if (!$data['email']) {
+            $data['email'] = 'customer_' .$dateTimeFormated . '@medicine.com';
+        }
+        
         if ($this->patient->create($data)) {
             return Response::json(trans('message.create_success'), 200);
         } else {

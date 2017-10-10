@@ -8,7 +8,7 @@ new Vue({
             'id': '',
             'name': '',
             'parent_id': 0,
-            'status': '',
+            'status': 1,
         },
         categories: [],
 	},
@@ -16,6 +16,14 @@ new Vue({
         this.listCategories();
     },
 	methods: {
+        resetData: function() {
+            this.category = {
+                'id': '',
+                'name': '',
+                'parent_id': 0,
+                'status': 1,
+            };
+        },
         /**
          * Pham Viet Toan
          * 09/21/2017
@@ -79,7 +87,7 @@ new Vue({
             });	
         },
         createCategory: function() {
-            console.log(this.categories);
+            this.resetData();
             $('#newCategory').modal('show');
         },
         storeCategory: function() {

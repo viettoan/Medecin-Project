@@ -18,10 +18,10 @@
                     <form class='login' class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <div class="col-md-12"><label for="email" class="control-label"><strong>Tên đăng nhập (Mã bệnh nhân)</strong></label></div>
+                            <div class="col-md-12"><label for="email" class="control-label"><strong>Tên đăng nhập (Email)</strong></label></div>
 
                             <div class="col-md-6">
-                                <input  id="email" type="text" class="form-control" name="id" value="{{ old('id') }}" required autofocus placeholder='Ví dụ: 32145353432'>                                
+                                <input  id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder='Ví dụ: customer_20171010_031023@medicine.com'>                                
                             </div>
                         </div>
 

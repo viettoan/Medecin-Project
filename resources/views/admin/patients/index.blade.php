@@ -125,7 +125,7 @@
                             </div>
                             <div class="form-group">
                                 <label>{{ trans('message.email') }}</label>
-                                <input type="email" name="email" placeholder="Enter your email" class="form-control" v-model="patient.email" >
+                                <input type="email" name="email" placeholder="example@example.com" class="form-control" v-model="patient.email" >
                             </div>
                             <div class="form-group">
                                 <label>{{ trans('message.address') }}</label>

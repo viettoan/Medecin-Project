@@ -31,33 +31,6 @@ class LoginController extends Controller
     protected $redirectTo = '/';
 
     /**
-     * Pham Viet Toan
-     * 23/09/2017
-     * Validate the user login request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return void
-     */
-    protected function validateLogin(Request $request)
-    {
-        $this->validate($request, [
-            $this->username() => 'required',
-            'password' => 'required|string',
-        ]);
-    }
-
-    /**
-     * Pham Viet Toan
-     * 09/23/2017
-     * Override function get the login username to be used by the controller.
-     *
-     * @return string
-     */
-    public function username()
-    {
-        return 'id';
-    }
-    /**
      * Create a new controller instance.
      *
      * @return void

@@ -107,7 +107,7 @@ new Vue({
                         swal(
                         'Deleted!',
                         'Your file has been deleted.',
-                        'success',
+                        'success'
                         );
                         $("#Post-" + id).remove();
                     });   
