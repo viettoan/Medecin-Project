@@ -4,42 +4,73 @@
 @include('sites._include.banner')
 <div class="page-content">
     <div class="container main">
+        <div class="intro">
+          <h2>VIDEO SIÊU ÂM</h2>
+          <h5><i class="fa fa-star-o"></i></h5>
+        </div>
         <div class="row">
-          <div class="col-md-12 video">
+          <div class="col-md-4 video">
             <p>Thông tin bệnh nhân</p>
+            <table class="table table-bordered table-hover">
+              <tbody>
+                <tr>
+                  <td><strong>Mã bệnh nhân</strong></td>
+                  <td>{{ $user->id }}</td>
+                </tr>
+                <tr>
+                  <td><strong>Họ tên</strong></td>
+                  <td>{{ $user->name }}</td>
+                </tr>
+                {{-- <tr>
+                  <td><strong>Ngày sinh:</strong></td>
+                  <td>21-3-1996</td>
+                </tr> --}}
+                <tr>
+                  <td><strong>Tuổi:</strong></td>
+                  <td>19</td>
+                </tr>
+                <tr>
+                  <td><strong>Số điện thoại:</strong></td>
+                  <td>{{$user->phone}}</td>
+                </tr>
+              </tbody>
+              </table>
           </div>
-          <table class="table table-bordered table-hover">
-            <tbody>
-              <tr>
-                <td><strong>Mã bệnh nhân</strong></td>
-                <td>{{ $user->id }}</td>
-              </tr>
-              <tr>
-                <td><strong>Họ tên</strong></td>
-                <td>{{ $user->name }}</td>
-              </tr>
-              <tr>
-                <td><strong>Ngày sinh:</strong></td>
-                <td>21-3-1996</td>
-              </tr>
-              <tr>
-                <td><strong>Tuổi:</strong></td>
-                <td>19</td>
-              </tr>
-              <tr>
-                <td><strong>Số điện thoại:</strong></td>
-                <td>{{$user->phone}}</td>
-              </tr>
-            </tbody>
-            </table>
+          <div class="col-md-8" id='parent-player'>
+            <video  controls='controls' id='player'>
+              <source src="">
+            </video>
+          </div>
         </div>
 
-          <div class="intro">
-            <h2>VIDEO SIÊU ÂM</h2>
-            <h5><i class="fa fa-star-o"></i></h5>
-          </div>
-        @foreach($user->histories as $history)
+{{-- http://sanchoi.net/video/2017/10/20171005-044140-3.mov --}}
+
           <div class="row">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Ngày khám</th>
+                  <th>Video</th>
+                  <th>Đang phát</th>
+                  <th>Tải về</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($user->histories as $key => $history)
+                <tr>
+                  <td>{{$history->date_examination}}</td>
+                  <td><a class='a-player' href="#" data-blink="{{ $key }}" data-src="http://sanchoi.net/{{$history->media->path . $history->media->name . '.' . $history->media->type }}">Video {{$key}}</a></td>
+                  <td><i id="{{ $key }}" class="{{ $key == 0 ? 'fa fa-play blink' : '' }}"></i></td>
+                  <td>
+                    <a download href="http://sanchoi.net/{{$history->media->path . $history->media->name . '.' . $history->media->type }}" class='btn btn-primary'><i class="fa fa-download" aria-hidden="true"></i>Tải về</a>
+                    {{-- <a class="btn btn-primary" href="http://sanchoi.net/{{$history->media->path . $history->media->name . '.' . $history->media->type }}"><i class="fa fa-download" aria-hidden="true"></i>Tải video</a> --}}
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+          {{-- <div class="row">
             <div class="col-md-12 video text-center">
 
                 <p><a href="#x{{$history->id}}" data-toggle="collapse">{{$history->date_examination}}<i class="fa fa-arrow-down" aria-hidden="true"></i></a></p>
@@ -54,14 +85,45 @@
                   <a class="btn btn-primary" href="http://sanchoi.net/{{$history->media->path . $history->media->name . '.' . $history->media->type }}"><i class="fa fa-download" aria-hidden="true"></i>Tải video</a>
                 </div>
             </div>
-          </div>
-        @endforeach
+          </div> --}}
+
     </div>
 </div>
 
 @include('sites._include.footer')
 @endsection
+@section('script')
+  <script>
+    $(document).ready(function() {
+      // load video onload
+      var link  = $('.a-player').eq(0).attr("data-src")
+      $('#player').remove()
+      $('#parent-player').append(`
+        <video  controls='controls' id='player'>
+          <source src='${link}'>
+        </video>
+      `)
 
+      $('.a-player').click(function(e) {
+        e.preventDefault()
+        // remove and add new class
+        $('.blink').attr('class',"")
+        var blink = $(this).data('blink')
+        $(`#${blink}`).attr('class', 'fa fa-play blink')
+        //change src
+        var src= $(this).data('src')
+        $('#player').remove()
+        $('#parent-player').append(`
+          <video  controls='controls' id='player'>
+            <source src='${src}'>
+          </video>
+        `)
+      })
+
+      // $('#player source').attr('src', 'http://sanchoi.net/video/2017/10/20171005-044140-3.mov')
+    })
+  </script>
+@endsection
 @section('style')
 {{ Html::style('css/sites/_include/video.css') }}
 {{ Html::style('css/sites/_include/navbar.css') }}

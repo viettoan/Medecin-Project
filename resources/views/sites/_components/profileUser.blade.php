@@ -33,9 +33,11 @@
                                         <p>
                                             <i class="fa fa-user-circle text-success" aria-hidden="true"></i> Giới tính: 
                                             @if ($patient->sex == 1)
-                                                {{ trans('message.male') }}
+                                                    Nam
+                                                {{--  {{ trans('message.male') }}  --}}
                                             @else
-                                                {{ trans('message.female') }}
+                                                    Nữ
+                                                {{--  {{ trans('message.female') }}  --}}
                                             @endif            
                                         </p>
                                     </li>
