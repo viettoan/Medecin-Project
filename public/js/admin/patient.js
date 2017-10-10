@@ -26,6 +26,17 @@ new Vue({
         this.listPatients();
     },
 	methods: {
+        resetData: function() {
+            this.patient = {
+                'id': '',
+                'name': '',
+                'email': '',
+                'address': '',
+                'phone': '',
+                'age': '',
+                'sex': 1,
+            };
+        },
         /**
          * Pham Viet Toan
          * 09/21/2017
@@ -90,6 +101,7 @@ new Vue({
             });
         },
         createPatient: function () {
+            this.resetData();
             $('#newPatient').modal('show');
         },
         storePatient: function() {
@@ -108,6 +120,25 @@ new Vue({
                 }
                 $('#newPatient').modal('hide');
                 this.listPatients();
+            }).catch(error => {
+                if (error.response.data.email) {
+                    toastr.error(error.response.data.email, '', {timeOut: 5000});
+                }
+                if (error.response.data.phone) {
+                    toastr.error(error.response.data.phone, '', {timeOut: 5000});
+                }
+                if (error.response.data.age) {
+                    toastr.error(error.response.data.age, '', {timeOut: 5000});
+                }
+                if (error.response.data.name) {
+                    toastr.error(error.response.data.name, '', {timeOut: 5000});
+                }
+                if (error.response.data.address) {
+                    toastr.error(error.response.data.address, '', {timeOut: 5000});
+                }
+                if (error.response.data.sex) {
+                    toastr.error(error.response.data.sex, '', {timeOut: 5000});
+                }
             });
         },
         editPatient: function(id) {
@@ -137,6 +168,25 @@ new Vue({
                 }
                 $('#updatePatient').modal('hide');
                 this.listPatients();
+            }).catch(error => {
+                if (error.response.data.email) {
+                    toastr.error(error.response.data.email, '', {timeOut: 5000});
+                }
+                if (error.response.data.phone) {
+                    toastr.error(error.response.data.phone, '', {timeOut: 5000});
+                }
+                if (error.response.data.age) {
+                    toastr.error(error.response.data.age, '', {timeOut: 5000});
+                }
+                if (error.response.data.name) {
+                    toastr.error(error.response.data.name, '', {timeOut: 5000});
+                }
+                if (error.response.data.address) {
+                    toastr.error(error.response.data.address, '', {timeOut: 5000});
+                }
+                if (error.response.data.sex) {
+                    toastr.error(error.response.data.sex, '', {timeOut: 5000});
+                }
             });
         },
         addIdModal: function(id) {

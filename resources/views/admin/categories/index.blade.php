@@ -76,7 +76,7 @@
                                     </div>
                                     <div class="radio">
                                         <label>
-                                        <input type="radio" name="status" value="{{ config('custom.category.show') }}" v-model="category.status" checked="checked">{{ trans('message.show') }}
+                                        <input type="radio" name="status" value="{{ config('custom.category.show') }}" v-model="category.status" :checked="category.status">{{ trans('message.show') }}
                                         </label>
                                     </div>
                                 </div>
