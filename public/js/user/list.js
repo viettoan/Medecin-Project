@@ -38,6 +38,7 @@ new Vue({
         },
         deleteItem: {'name':'','id':''}, 
         listSpecial: {'id': '', 'name': ''},
+        searchUser: {'name': ''}
     },
 
     computed: {
@@ -112,6 +113,19 @@ new Vue({
                 if (error.response.status == 422) {
                     this.formErrorsUpdate = error.response.data;
                 }
+            });
+        },
+        searchUserNew: function(event) {
+            this.searchUser.name= event.target.value;
+            var authOptions = {
+                    method: 'post',
+                    url: '/admin/searchUser',
+                    params: this.searchUser.name,
+            }
+            axios(authOptions).then(response => {
+                this.$set(this, 'lists', response.data);
+            }).catch((error) => {
+                this.showInfor(this.pagination.current_page);
             });
         },
         showUser: function(item) {

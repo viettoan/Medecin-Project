@@ -35,6 +35,16 @@ class UserRepositoryEloquent extends AbstractRepositoryEloquent implements UserR
         return $this->model()->where('permission', $permissionadmin)->orwhere('permission', $permissiondoctor)->orwhere('permission', $permissiondisable)->paginate($paginate);
     }
 
+    public function getAllUserNew()
+    {
+        return $this->model()->get();
+    }
+
+    public function searchUser($keyword, $with = [], $select = ['*'])
+    {
+        return $this->model()->select($select)->where('name', 'like', "%".$keyword."%")->where('permission', '!=', 0)->get();
+    }
+
     public function getByPermission($permission, $with = [], $select = ['*'])
     {
         return $this->model()->select($select)->with($with)->where('permission', $permission)->get();

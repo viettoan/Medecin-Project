@@ -49,6 +49,13 @@ class ContactController extends Controller
         return Response::json($contacts, 200);
     }
 
+    public function search(Request $request) 
+    {
+        $response = $this->contact->search($request->all()[0]);
+
+        return Response::json($response);
+
+    }
     /**
      * Show the form for creating a new resource.
      *

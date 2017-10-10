@@ -12,7 +12,6 @@
                 </div>
               @endif
             </div>
-
             <div class="panel-body">
                 <div class="col-md-12 admin-actions">
                     <a href="javascript:void(0)" v-on:click="createPatient()" class="btn btn-success col-md-2">{{ trans('message.new_patient') }}</a>

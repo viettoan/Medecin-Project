@@ -14,6 +14,10 @@ interface UserRepository extends AbstractRepository
     public function findByPhone($phone);
 
     public function getAllUser($permissionadmin, $permissiondoctor, $permissiondisable, $paginate);
+    
+    public function getAllUserNew();
+    
+    public function searchUser($keyword, $with = [], $select = ['*']);
 
      public function getByPermission($permission, $with = [], $select = ['*']);
 }

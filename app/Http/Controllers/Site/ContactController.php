@@ -30,7 +30,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('sites.lienhe.index');
+        return view('sites.lienhe.index',);
     }
 
     /**
