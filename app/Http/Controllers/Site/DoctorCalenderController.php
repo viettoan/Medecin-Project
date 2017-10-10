@@ -4,9 +4,24 @@ namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Contracts\Repositories\DoctorCalendarRepository;
 
 class DoctorCalenderController extends Controller
 {
+
+    protected $calendar;
+
+    /**
+     * Pham Viet Toan
+     * 09/20/2017
+     * Construct function.
+     *
+     */
+    public function __construct(
+        DoctorCalendarRepository $calendar
+    ) {
+        $this->calendar = $calendar;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +29,9 @@ class DoctorCalenderController extends Controller
      */
     public function index()
     {
-        //
+        $calendars = $this->calendar->getAll(['doctor']);
+
+        return view('sites.lichbacsy.index', compact('calendars'));
     }
 
     /**

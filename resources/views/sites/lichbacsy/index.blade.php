@@ -12,58 +12,40 @@
                             <h3><i class="fa fa-history text-success" aria-hidden="true"></i> Lich Bac Sy</h3></h4>
 
                             <div class="card text-center">
-                                <table class="table text-left">
-                                    <thead>
+                                <table class="table table-hover table-bordered">
+                                    <thead >
                                         <tr>
-                                            <th>Stt</th>
-                                            <th>Ten Bac Sy</th>
-                                            <th>Phong Lam Viec</th>
-                                            <th>Ca Lam Viec</th>
-                                            <th>Xem Chi Tiet</th>
-                                        </tr>
+                                            <th class="text-center">{{ trans('message.doctor') }}</th>
+                                            <th class="text-center">{{ trans('message.room') }}</th>
+                                            <th class="text-center">{{ trans('message.morning') }}</th>
+                                            <th class="text-center">{{ trans('message.afternoon') }}</th>
+                                            <th class="text-center">{{ trans('message.night') }}</th>
+                                        </tr>   
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>1</td>
-                                            <td>Sieu am</td>
-                                            <td>19/10/2017</td>
-                                            <td>
-                                                <button class="btn btn-success" v-on:click="viewdetail">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </button>
-                                            </td>
+                                    @foreach ($calendars as $item)
+                                        <tr >
+                                            <th class="text-center">{{ $item->doctor->name }}</th>
+                                            <th class="text-center">{{ $item->room }}</th>
+                                            <th class="text-center">
+                                                @if ($item->morning == config('custom.calendar.yes'))
+                                                <i class="fa fa-check" aria-hidden="true"></i>
+                                                @endif
+                                            </th>
+                                            <th class="text-center">
+                                                @if ($item->afternoon == config('custom.calendar.yes'))
+                                                <i class="fa fa-check" aria-hidden="true"></i>
+                                                @endif
+                                            </th>
+                                            <th class="text-center">
+                                                @if ($item->night == config('custom.calendar.yes'))
+                                                <i class="fa fa-check" aria-hidden="true"></i>
+                                                @endif
+                                            </th>
                                         </tr>
+                                    @endforeach       
                                     </tbody>
                                 </table>
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel"> <i class="fa fa-paper-plane text-success" aria-hidden="true"></i> Thong Tin Chi Tiet</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form>
-                                                    <div class="form-group">
-                                                        <label for="recipient-name" class="form-control-label">Recipient:</label>
-                                                        <input type="text" class="form-control" id="recipient-name">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="message-text" class="form-control-label">Message:</label>
-                                                        <textarea class="form-control" id="message-text"></textarea>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Send message</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

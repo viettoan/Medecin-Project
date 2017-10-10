@@ -38,5 +38,9 @@ return [
             'defaultPath' => 'video/',
         ],
     ],
+    'calendar' => [
+        'yes' => 1,
+        'no' => 0,
+    ],
 ];
 

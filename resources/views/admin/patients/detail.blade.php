@@ -32,7 +32,6 @@
                                 <i class="fa fa-leaf" aria-hidden="true"></i>
                                 {{ $patient->name }}
                                 </h3>
-                                <a class="btn btn-primary btn-block" href="{{ route('patient.edit', ['id' => $patient->id]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>{{ trans('message.edit') }}</a>
                             </div>
                         </div>
                     </div>

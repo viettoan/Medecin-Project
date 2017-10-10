@@ -15,4 +15,5 @@ interface UserRepository extends AbstractRepository
 
     public function getAllUser($permissionadmin, $permissiondoctor, $permissiondisable, $paginate);
 
+     public function getByPermission($permission, $with = [], $select = ['*']);
 }
