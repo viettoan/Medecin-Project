@@ -1,5 +1,7 @@
 .video {
-   margin-bottom: 50px;
+   /*margin-bottom: 50px;*/
+   padding: 10px;
+   margin-bottom: 150px;
 }
 .video p {
   padding: 10px;
@@ -7,10 +9,7 @@
   color:white;
   text-align: left;
 }
-.video video {
- max-width: 800px;
- width:100%;
-}
+
 .intro h2 {
   text-align: center;
   color: red;
@@ -38,4 +37,29 @@
 .video p:hover {
   background-color: rgba(44, 62, 80,1.0);
   transition: 0.3s;
+}
+#parent-player {
+  /*padding: 20px;*/
+}
+#player {
+  max-width: 100%;
+}
+.blink {
+  color:red;
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+a.btn-primary {
+  color:white!important;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
 }

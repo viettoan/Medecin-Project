@@ -9,30 +9,29 @@
                 <div class="col-md-12 ">
                     <div class="col-md-12">
                         <div class="card card-body text-center inforprofile">
-                            <h3><i class="fa fa-history text-success" aria-hidden="true"></i>Lịch sử khám bệnh - tran van my</h3></h4>
+                            <h3><i class="fa fa-history text-success" aria-hidden="true"></i>Lịch sử khám bệnh {{ dd($patientHistories->user) }}</h3></h4>
                             <div class="card text-center">
                                 <table class="table text-left">
                                     <thead>
                                         <tr>
                                             <th>Stt</th>
-                                            <th>Lan Kham</th>
+                                            {{--  <th>Lan Kham</th>  --}}
                                             <th>Noi Dung</th>
                                             <th>Ngay Kham</th>
-                                            <th>Xem Chi Tiet</th>
+                                            {{--  <th>Xem Chi Tiet</th>  --}}
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach ($patientHistories as $history)
+                                    @foreach ($patientHistories as $key => $history)
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>{{ $history->medical_examination }}</td>
+                                            <th scope="row">{{$key +1 }}</th>
                                             <td>{{ $history->content }}</td>
-                                            <td>{{ $history->created_at }}</td>
-                                            <td>
+                                            <td>{{ $history->date_examination }}</td>
+                                            {{--  <td>
                                                 <button class="btn btn-success" v-on:click="viewdetail">
                                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                                 </button>
-                                            </td>
+                                            </td>  --}}
                                         </tr>
                                     @endforeach    
                                     </tbody>
