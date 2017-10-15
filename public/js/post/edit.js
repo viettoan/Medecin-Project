@@ -10,7 +10,7 @@ var followView = new Vue({
         image: "",
         formPostErrors: {},
         formErrorsUpdate: {},
-        postItem: {'title': '', 'description': '', 'content': '', 'category_id': '', 'image': ''},
+        postItem: {'title': '', 'description': '', 'content': '', 'category_id': '', 'image': '', 'status': ''},
     },
 
     mounted : function(){
@@ -43,26 +43,8 @@ var followView = new Vue({
             })
         },
         editPost: function(id) {
-            // console.log(id);
             var input = this.postItem;
-            console.log(input);
         }
-        // createPost: function() {
-        //     if (!confirm('Do you want to update this user!')) return;
-        //     var input = this.postItem;
-        //     input.image = this.imageData;
-        //     // var content = CKEDITOR.instances['content'].getData();
-        //     // input.content = content;
-
-        //     axios.post('/admin/post', input).then((response) => {
-        //          this.postItem = {'title': '', 'description': '', 'content': '', 'category_id': '', 'image': ''};
-        //          this.formPostErrors = {};
-        //         toastr.success(response.data.message, response.data.action, {timeOut: 5000});
-        //     }).catch((e) => {
-        //         this.formPostErrors = e.response.data;
-        //         console.log(this.formPostErrors);
-        //     })
-        // }
     }
 });
 

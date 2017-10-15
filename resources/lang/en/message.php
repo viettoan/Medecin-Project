@@ -16,6 +16,7 @@ return [
     'action' => 'Action',
     'Famele' => 'Famele',
     'patient' => 'Patient',
+    'about' => 'About',
     'admin' => 'Admin',
     'doctor' => 'Doctor',
     'disable' => 'Disable',
