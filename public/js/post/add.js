@@ -10,7 +10,7 @@ var followView = new Vue({
         image: "",
         formPostErrors: {},
         formErrorsUpdate: {},
-        postItem: {'title': '', 'description': '', 'content': '', 'category_id': '', 'image': ''},
+        postItem: {'title': '', 'description': '', 'content': '', 'category_id': '', 'image': '', 'status': 0},
     },
 
     mounted : function(){
@@ -51,12 +51,11 @@ var followView = new Vue({
             // input.content = content;
 
             axios.post('/admin/post', input).then((response) => {
-                 this.postItem = {'title': '', 'description': '', 'content': '', 'category_id': '', 'image': ''};
-                 this.formPostErrors = {};
+                this.postItem = {'title': '', 'description': '', 'content': '', 'category_id': '', 'image': ''};
+                this.formPostErrors = {};
                 toastr.success(response.data.message, response.data.action, {timeOut: 5000});
             }).catch((e) => {
                 this.formPostErrors = e.response.data;
-                console.log(this.formPostErrors);
             })
         }
     }

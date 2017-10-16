@@ -35,9 +35,20 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="form-group" id="sepilisc">
+                    <label for="sel1">{{ trans('message.status') }}</label>
+                    <span v-if="formPostErrors['status']" class="error text-danger">@{{ formPostErrors['status'][0] }}</span><br>
+                    <select class="form-control" v-model="postItem.status" name="status">
+                        <option v-bind:value="0">{{ trans('message.pending') }}</option>
+                        <option v-bind:value="1">{{ trans('message.show') }}</option>
+                        <option v-bind:value="2">{{ trans('message.about') }}</option>
+                    </select>
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group" id="sepilisc">
                     <label for="sel1">{{ trans('message.category') }}</label>
                     <span v-if="formPostErrors['category_id']" class="error text-danger">@{{ formPostErrors['category_id'][0] }}</span><br>
                     <select class="form-control" v-model="postItem.category_id" name="category_id">
+                        <option value="0" selected="selected">*NONE</option>
                         <option v-bind:value="list.id" v-for="list in listCategories">@{{ list.name }}</option>
                     </select>
                 </div>

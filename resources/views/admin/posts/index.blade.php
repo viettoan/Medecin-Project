@@ -47,6 +47,7 @@
                                     <th class="col-md-5 ellipis">@{{ post.content }}</th>
                                     <th class="col-md-1 ellipis" v-if="post.status == 0"> <span class="label label-danger">{{ trans('message.pending') }}</span></th>
                                     <th class="col-md-1 ellipis" v-if="post.status == 1"> <span class="label label-success">{{ trans('message.show') }}</span></th>
+                                    <th class="col-md-1 ellipis" v-if="post.status == 2"> <span class="label label-warning">{{ trans('message.about') }}</span></th>
                                     <th class="col-md-2">   
                                         <a data-toggle="modal" v-on:click="showDetail(post)"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                         <a v-bind:href="'/admin/post/'+ post.id +'/edit'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
@@ -79,7 +80,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">{{ trans('message.close') }}</span></button>
-                        <h4 class="modal-title" id="myModalLabel">{{ trans('message.detail_post') }} <span class="label label-success" v-if="fillItem.status == 1"> {{ trans('message.show') }}</span> <span class="label label-danger" v-if="fillItem.status == 0">{{ trans('message.pending')}}</span></h4>
+                        <h4 class="modal-title" id="myModalLabel">{{ trans('message.detail_post') }} <span class="label label-success" v-if="fillItem.status == 1"> {{ trans('message.show') }}</span> <span class="label label-danger" v-if="fillItem.status == 0">{{ trans('message.pending')}}</span><span class="label label-danger" v-if="fillItem.status == 2">{{ trans('message.about')}}</span></h4>
                     </div>
                     <div class="modal-body row">
                         <div class="col-md-12">

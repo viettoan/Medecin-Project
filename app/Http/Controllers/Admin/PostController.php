@@ -103,6 +103,7 @@ class PostController extends Controller
         $data['description'] = $request->description;
         $data['content'] = $request->content;
         $data['category_id'] = $request->category_id;
+        $data['status'] = $request->status;
 
         if ($this->post->create($data)) {
             $response['status'] = 'success';
@@ -145,7 +146,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = $this->post->find($id, []);
-        $categories = $this->category->getAllPaginate( 1,['parentCategories'], 10);
+        $categories = $this->category->getAllPaginate( 1, ['parentCategories'], 10);
         
         return view('admin.posts.edit', compact('post', 'categories'));
     }

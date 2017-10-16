@@ -21,6 +21,7 @@ return [
         'hide' => 0,
     ],
     'post' => [
+        'about' => 2,
         'show' => 1,
         'hide' => 0,
         // 'defaultPath' => '/images/post',

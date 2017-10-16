@@ -11,6 +11,9 @@
             @if($post->status == 1)
             <span class="label label-success">show</span>
             @endif
+            @if($post->status == 2)
+            <span class="label label-warning">About</span>
+            @endif
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
@@ -39,6 +42,7 @@
                                 <select class="form-control" name="status">
                                     <option value="0" @if ($post->status  == 0) selected="selected" @endif>{{ trans('message.pending') }}</option>
                                     <option value="1" @if ($post->status  == 1) selected="selected" @endif>{{ trans('message.show') }}</option>
+                                    <option value="2" @if ($post->status  == 2) selected="selected" @endif>{{ trans('message.about') }}</option>
                                 </select>
                             </div>
                              <div class="form-group">
@@ -73,7 +77,7 @@
                             <div class="form-group" id="sepilisc">
                                 <label>{{ trans('message.category') }}</label>
                                 <select class="form-control" name="category_id">
-                                    <option value="0"></option>
+                                    <option value="0">*NONE</option>
                                     @foreach ($categories as $parent)
                                     <option value="{{ $parent->id }}" @if ($parent->id == $post->category_id) selected="selected" @endif >{{ $parent->name }}</option>
                                     @endforeach     
