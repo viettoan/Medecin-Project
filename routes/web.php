@@ -57,9 +57,7 @@ Route::group(['namespace' => 'Site', 'prefix' => 'profile', 'middleware' => 'aut
 Route::group(['namespace' => 'Site'], function() {
     Route::get('/', 'IndexController@index')->name('index');
 
-    Route::get('/gioithieu', function () {
-        return view('sites.gioithieu.index');
-    })->name('introduce');
+    Route::get('/gioithieu', 'IntroController@index')->name('introduce');
 
     Route::get('/lienhe', 'ContactController@index')->name('contact');
     Route::post('/lienhe', 'ContactController@store')->name('contact.store');
