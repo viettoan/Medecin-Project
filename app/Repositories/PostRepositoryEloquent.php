@@ -61,4 +61,9 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
     {
         return $this->model()->select($select)->where('title', 'like', "%".$keyword."%")->with($with)->get();
     }
+
+    public function getAbout($with = [], $select = ['*'])
+    {
+        return $this->model()->select($select)->where('status', config('custom.post.about'))->with($with)->get()->last();
+    }
 }

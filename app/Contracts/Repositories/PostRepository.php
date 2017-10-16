@@ -21,4 +21,6 @@ interface PostRepository extends AbstractRepository
     public function getPostByCategory($category_id, $paginate, $with = [], $select = ['*']);
 
     public function search($keyword, $with = [], $select = ['*']);
+
+    public function getAbout($with = [], $select = ['*']);
 }
