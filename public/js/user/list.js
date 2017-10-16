@@ -88,6 +88,7 @@ new Vue({
             this.fillItem.permission = item.permission;
             this.fillItem.specialist_id = item.specialist_id;
             this.showList();
+            $('#sepilisc').hide();
 
             if ( this.fillItem.permission == 2 ) {
                 $('#sepilisc').show('1000');
@@ -138,8 +139,8 @@ new Vue({
             this.fillItem.age = item.age;
             this.fillItem.permission = item.permission;
             this.fillItem.specialist_id = item.specialist_id;
-            console.log(this.fillItem.sex);
-            $('#infoUser').modal('show');
+
+            $('#infoUser1').modal('show');
         },
 
         changePage: function (page) {

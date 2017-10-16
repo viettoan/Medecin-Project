@@ -13,7 +13,9 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="{{ asset('dist/img/avatar.png') }}" class="user-image" alt="User Image">
+                        @if(Auth::check())
                         <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                        @endif
                     </a>
                     <ul class="dropdown-menu">
                         <li class="user-header">
