@@ -5,20 +5,23 @@ use App\Eloquent\User;
 use Storage;
 use Anchu\Ftp\Facades\Ftp;
 class Video {
-  public function defaultDate() {
-    return  Carbon\Carbon::now()->toDateString();
-  }
     public function formatDate($date) {
       $dateTime = Carbon\Carbon::now()->toDateTimeString();
       $time = strstr($dateTime, ' ');
-      $dateTimeFormated = str_replace(['-', ' ', ':'], ['', '-', ''], $date.$time);
+      $dateTimeFormated = str_replace(['/', ' ', ':'], ['', '-', ''], $date.$time);
       return $dateTimeFormated;
     }
 
     public function date($date) {
       if($date == '')
-          return $this->defaultDate();
-      return $date;
+         {
+          $year = Carbon\Carbon::now()->year;
+          $month = Carbon\Carbon::now()->month;
+          $day = Carbon\Carbon::now()->day;
+          $today = $day.'/'.$month.'/'.$year;
+          return $today;
+         }
+       return $date;
     }
 
     public function nameVideo($dateFomated, $userId) {
@@ -37,7 +40,7 @@ class Video {
 
     public function saveMedia($history, $request) {
 
-      if($request->hasFile('video'))  {
+      if($request->video)  {
           $video = $request->video;
           $year = Carbon\Carbon::now()->year;
           $month = Carbon\Carbon::now()->month;
@@ -64,7 +67,6 @@ class Video {
             Storage::putFileAs(
               $path, $video, $videoNameWithExtension
             );
-
             $history->media()->create([
               'name' => $videoName,
               'type' => $extension,
@@ -80,13 +82,11 @@ class Video {
     public static function update($video, $media) {
       if($video) {
         $extension = $video->getClientOriginalExtension();
-        $name = $media->name;
-        $path = $media->path;
         if(in_array($extension, ['mp4', 'mov', 'avi', '3gp'])) {
+            FTP::connection()->delete("{$media->path} . {$media->name} . '.' . {$media->type}");
             Storage::putFileAs(
-              $path, $video, $name . '.' .$extension
+              $media->path, $video, $media->name . '.' .$extension
             );
-          FTP::connection()->delete($media->path . $media->name . '.' . $media->type );
           $media->type = $extension;
           $media->save();
           return true;

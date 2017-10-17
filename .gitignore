@@ -14,3 +14,4 @@ yarn-error.log
 /public/bower
 public/bower
 dump.rdb
+.DS_Store

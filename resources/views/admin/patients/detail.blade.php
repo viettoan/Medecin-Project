@@ -63,7 +63,47 @@
 
                 <!-- history patient -->
                 <div class="tab-pane " id="history">
-                  @foreach($patient->histories as $history)
+                    <div class="container">
+                      <div class="row" id='parent-player'>
+                           <video controls='controls' id='player'>
+                              <source src="">
+                            </video>
+                      </div>
+                      {{-- http://sanchoi.net/video/2017/9/20170907-023224-11.mov --}}
+                      <div class="row">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Ngày khám</th>
+                              <th>Video</th>
+                              <th>Đang phát</th>
+                              <th>Xóa</th>
+                              <th>Chỉnh sửa</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach($patient->histories as $key => $history)
+                              <tr>
+                                <td>{{$history->date_examination}}</td>
+                                <td><a class='a-player' href="#" data-blink="{{ $key }}" data-src="http://sanchoi.net/{{$history->media->path . $history->media->name . '.' . $history->media->type }}">Video {{$key}}</a></td>
+                                <td><i id="{{ $key }}" class="{{ $key == 0 ? 'fa fa-play blink' : '' }}"></i></td>
+                                <td>
+                                  <form action="{{route('media-medical.destroy', ['id' => $history->id])}}" method="post">
+                                    {{ method_field('DELETE') }}
+                                    {{ csrf_field() }}
+                                    <button onclick="return alert()" type="submit" class="btn btn-danger" ><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp;Xóa</button>
+                                  </form>
+                                </td>
+                                <td>
+                                  <button data-content= "{{ $history->content }}" data-history-id="{{ $history->id }}" data-toggle="modal" data-target="#addVideo" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Chỉnh sửa</button>
+                                </td>
+                              </tr>
+                            @endforeach
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  {{-- @foreach($patient->histories as $history)
                     <div class="panel panel-default">
                       <div class="panel-heading">
                         <a href="#{{ $history->id }}" data-toggle="collapse" class="panel-title"><strong>{{ $history->date_examination }}</strong></a>
@@ -83,7 +123,6 @@
                           </div>
                           <div class="col-md-3 ">
                             <br>
-                            {{-- <a data-toggle="modal" data-target="#addVideo" data-user-id="{{ $patient->id }}"><i class="fa fa-file-video-o" aria-hidden="true"></i></a> --}}
                             <form action="{{route('media-medical.destroy', ['id' => $history->id])}}" method="post">
                               {{ method_field('DELETE') }}
                               {{ csrf_field() }}
@@ -98,7 +137,7 @@
 
 
                     </div>
-                  @endforeach
+                  @endforeach --}}
                 </div>
               {{-- edit modal --}}
                 <div class="modal fade" id="addVideo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -140,12 +179,38 @@
 @section('script')
     <script>
       $(document).ready(function() {
+
         $("button[data-toggle='modal']").click(function() {
           let history_id = $(this).data('history-id');
           let content = $(this).data('content');
           $('#modal-content').val(content);
         $('#modal-form').attr('action','http://localhost:8000/admin/media-medical/' + history_id);
         })
+        // load video onload
+        var link  = $('.a-player').eq(0).attr("data-src")
+        $('#player').remove()
+        $('#parent-player').append(`
+          <video  controls='controls' id='player'>
+            <source src='${link}'>
+          </video>
+        `)
+
+        $('.a-player').click(function(e) {
+        e.preventDefault()
+        // remove and add new class
+        $('.blink').attr('class',"")
+        var blink = $(this).data('blink')
+        $(`#${blink}`).attr('class', 'fa fa-play blink')
+        //change src
+        var src= $(this).data('src')
+        $('#player').remove()
+        $('#parent-player').append(`
+          <video  controls='controls' id='player'>
+            <source src='${src}'>
+          </video>
+        `)
+        })
+
       })
       function alert() {
         return confirm("Bạn có chắc chắn muốn xóa?");

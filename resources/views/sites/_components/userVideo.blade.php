@@ -21,10 +21,6 @@
                   <td><strong>Họ tên</strong></td>
                   <td>{{ $user->name }}</td>
                 </tr>
-                {{-- <tr>
-                  <td><strong>Ngày sinh:</strong></td>
-                  <td>21-3-1996</td>
-                </tr> --}}
                 <tr>
                   <td><strong>Tuổi:</strong></td>
                   <td>19</td>
@@ -42,8 +38,6 @@
             </video>
           </div>
         </div>
-
-{{-- http://sanchoi.net/video/2017/10/20171005-044140-3.mov --}}
 
           <div class="row">
             <table class="table table-hover">
@@ -63,30 +57,12 @@
                   <td><i id="{{ $key }}" class="{{ $key == 0 ? 'fa fa-play blink' : '' }}"></i></td>
                   <td>
                     <a download href="http://sanchoi.net/{{$history->media->path . $history->media->name . '.' . $history->media->type }}" class='btn btn-primary'><i class="fa fa-download" aria-hidden="true"></i>Tải về</a>
-                    {{-- <a class="btn btn-primary" href="http://sanchoi.net/{{$history->media->path . $history->media->name . '.' . $history->media->type }}"><i class="fa fa-download" aria-hidden="true"></i>Tải video</a> --}}
                   </td>
                 </tr>
                 @endforeach
               </tbody>
             </table>
           </div>
-          {{-- <div class="row">
-            <div class="col-md-12 video text-center">
-
-                <p><a href="#x{{$history->id}}" data-toggle="collapse">{{$history->date_examination}}<i class="fa fa-arrow-down" aria-hidden="true"></i></a></p>
-                <div id='x{{$history->id}}' class='collapse'>
-                  <div class="history-content panel panel-default">
-                    <div class="panel-body">{{$history->content}}</div>
-                  </div>
-                  <video  controls='controls'>
-                    <source src="http://sanchoi.net/{{$history->media->path . $history->media->name . '.' . $history->media->type }}">
-                  </video>
-                  <br>
-                  <a class="btn btn-primary" href="http://sanchoi.net/{{$history->media->path . $history->media->name . '.' . $history->media->type }}"><i class="fa fa-download" aria-hidden="true"></i>Tải video</a>
-                </div>
-            </div>
-          </div> --}}
-
     </div>
 </div>
 

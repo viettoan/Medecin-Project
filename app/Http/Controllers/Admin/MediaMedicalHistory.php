@@ -10,6 +10,7 @@ use App\Eloquent\User;
 use Video;
 use App\Eloquent\MedicalHistory;
 use Anchu\Ftp\Facades\Ftp;
+use Carbon;
 class MediaMedicalHistory extends Controller
 {
     /**
@@ -40,6 +41,10 @@ class MediaMedicalHistory extends Controller
      */
     public function store(Request $request)
     {
+
+         // phpinfo();
+         // dd($request->all());
+
         $video = new Video();
         $history = $video->saveHistory($request);
         if($video->saveMedia($history, $request)) {

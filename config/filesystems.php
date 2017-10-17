@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DRIVER', 'ftp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -69,7 +69,7 @@ return [
             'password' => 'sanchoi@123',
 
             // Optional FTP Settings...
-            // 'port'     => 21,
+            'port'     => 21,
             // 'root'     => '',
             // 'passive'  => true,
             // 'ssl'      => true,
