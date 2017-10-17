@@ -5,7 +5,7 @@
 <div class="content-wrapper" id="index-contacts">
     <section class="content-header">
         <h1>
-            <small>User</small>
+            <small>Contact</small>
 
         </h1>
         <ol class="breadcrumb">
