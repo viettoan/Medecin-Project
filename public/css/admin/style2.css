@@ -6,23 +6,25 @@
     padding: 10px;
     /*border: 2px solid #3498db;*/
 }
-.editing {
-  background-color: rgba(189, 195, 199,0.4);
-  /*background-color: rgba(44, 62, 80,0.5);*/
+
+#history video {
+  max-height: 550px;
+}
+.blink {
+  color:red;
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
 }
 
-.editing video {
-  max-width: 100%!important;
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
 }
-.editing button {
-  padding: 10px;
-  margin-bottom: 50px;
-  width: 100%;
-  font-size: 15px;
-  text-align: center;
-}
-#history .panel-heading a {
-  display: block;
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
 }
 
 .image_new {

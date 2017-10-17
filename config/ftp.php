@@ -26,7 +26,7 @@ return array(
 
         'connection1' => array(
             'host'   => 'sanchoi.net',
-            // 'port'  => 21,
+            'port'  => 21,
             'username' => 'sanchoi.net',
             'password'   => 'sanchoi@123',
             'passive'   => false,

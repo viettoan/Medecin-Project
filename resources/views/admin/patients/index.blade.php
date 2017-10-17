@@ -80,22 +80,17 @@
                                 <label>{{ trans('message.video') }}</label>
                                 <div>
                                     <input  type="file" name="video" class="form-control">
-                                    {{-- @if ($errors->has('video')) --}}
-                                        {{-- <span class="help-block">
-                                             <strong>{{ $errors->first('video') }}</strong>
-                                        </span> --}}
-                                    {{-- @endif --}}
                                 </div>
                             </div>
                           {{-- content --}}
                             <div class="form-group">
                               <label for=""> {{__('message.content')}} </label>
-                              <textarea name="content" class="form-control" rows="5" type="text" required=""></textarea>
+                              <textarea name="content" class="form-control" rows="5" type="text"></textarea>
                             </div>
                           {{-- date --}}
                             <div class="form-group">
                               <label for=""> {{__('message.date')}} </label>
-                              <input name="date_examination" class="form-control" rows="5" type="date">
+                              <input id='datepicker' name="date_examination" class="form-control" type="text">
                             </div>
                             <button type="submit" class="btn btn-primary">{{ trans('message.add') }}</button>
                         </form>
@@ -230,13 +225,17 @@
  </div>
 @endsection
 @section('script')
-    {{-- <script>
+    <script>
       $(document).ready(function() {
-        $("a[data-toggle='modal']").click(function() {
-          let userId = $(this).data('user-id');
-          $('#usr-id').val(userId);
-        })
+        $( "#datepicker" ).datepicker({format: 'dd/mm/yyyy'}).datepicker("setDate", new Date());
+
+        // $("#datepicker").val( moment().format('MMM D, YYYY') );
+        // console.log( $( "#datepicker" ).datepicker({ defaultDate: new Date() }))
+        // $("a[data-toggle='modal']").click(function() {
+        //   let userId = $(this).data('user-id');
+        //   $('#usr-id').val(userId);
+        // })
       })
-    </script> --}}
+    </script>
     {{ Html::script('js/admin/patient.js') }}
 @endsection
