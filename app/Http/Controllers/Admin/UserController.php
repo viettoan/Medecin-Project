@@ -109,8 +109,9 @@ class UserController extends Controller
 
     public function changePass(UpdatePassRequest $request, $id)
     {
-        $data = $request->except('password');
+        $data = $request->except('confirm_password');    
         $data['password'] = bcrypt($request->password);
+
         if ($this->user->update($id, $data)) {
             $response['status'] = 'success';
             $response['message'] = trans('message.update_success');
@@ -132,7 +133,9 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         $data = $request->except('password');
+
         $data['password'] = bcrypt($request->password);
+
         if ($this->user->create($data)) {
             $response['status'] = 'Thanh Cong ';
             $response['message'] = trans('Them Nguoi Dung Thanh Cong');

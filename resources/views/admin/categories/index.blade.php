@@ -9,11 +9,6 @@
         <div class="panel-body" id="index-categories">
             <div class="col-md-12 admin-actions">
                 <a href="javascript:void(0)" v-on:click="createCategory()" class="btn btn-success col-md-2">{{ trans('message.new_category') }}</a>
-                <form role="form" class="col-md-5">
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Enter user">
-                    </div>
-                </form>
             </div>
             <table class="table table-hover table-bordered">
                 <thead >

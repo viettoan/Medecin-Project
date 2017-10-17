@@ -41,7 +41,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="list in lists" v-bind:id='"User-"+ list.id' v-on:click="editUser(list)">
+                                <tr v-for="list in lists" v-bind:id='"User-"+ list.id'>
                                     <td>@{{ list.id }}</td>
                                     <td><a data-toggle="modal" v-on:click="showUser(list)">@{{ list.name }}</a>
                                     </td>
@@ -88,7 +88,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="infoUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="infoUser1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">

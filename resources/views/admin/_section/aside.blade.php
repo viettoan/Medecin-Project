@@ -1,12 +1,14 @@
 <aside class="main-sidebar">
     <section class="sidebar">
         <div class="user-panel">
+            @if(Auth::check())
             <div class="pull-left image">
                 <img src="{{ asset('dist/img/avatar.png') }}" class="user-image" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>{{ Auth::user()->name }}</p>
                 <a href="#"><i class="fa fa-circle text-success"></i>Online</a>
+
             </div>
         </div>
         <ul class="sidebar-menu" data-widget="tree">
@@ -29,5 +31,6 @@
                 <li><a href="{{ route('sliders.index') }}"><i class="fa fa-circle-o text-yellow"></i> <span>Slider</span></a></li>
             @endif
         </ul>
+            @endif
     </section>
 </aside>

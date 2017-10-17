@@ -44,7 +44,6 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="{{ route('patient.profile.show', Auth::user()->id) }}"><i class="fa fa-info" aria-hidden="true"></i>&nbsp;Thông tin tài khoản</a>
-          <a class="dropdown-item" href="{{ route('patient.history.show', Auth::user()->id) }}"><i class="fa fa-history" aria-hidden="true"></i>&nbsp;Lịch sử khám</a>
           <a class="dropdown-item" href="/profile/video-sieu-am"><i class="fa fa-video-camera" aria-hidden="true"></i>&nbsp;Video siêu âm</a>
           <a class="dropdown-item" href="{{ route('logout') }}"
               onclick="event.preventDefault();
