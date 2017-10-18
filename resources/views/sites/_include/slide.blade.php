@@ -1,9 +1,15 @@
 
+
+
+
+
+
+
     <div class="containter-fluid">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           @for ($i = 0; $i < count($sliders); $i++)
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" @if ($i == 0) class="active" @endif ></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}" @if ($i == 0) class="active" @endif ></li>
           @endfor
         </ol>
         <div class="carousel-inner" role="listbox">
