@@ -51,11 +51,11 @@
                           <div class="row" style="margin-top: 10px;">
                               <div class="col-md-5">
                                   <a href="detail.html">
-                                      <img class="img-responsive" width="100%" height='100%' src="{{ $item->image }}" alt="">
+                                      <img class="img-responsive" width="100%" height='100%' src="{{ asset($item->image) }}" alt="">
                                   </a>
                               </div>
                               <div class="col-md-7 ">
-                                  <a class='title-related-post' href="{{ route('page.post.show', ['category' => str_replace(' ', '-', $post->categories->name), 'post_name' => str_replace(' ', '-', $post->title)] ) }}">{{ $post->title }}</a>
+                                  <a class='title-related-post' href="{{ route('page.post.show', ['category' => str_replace(' ', '-', $post->categories->name), 'post_name' => str_replace(' ', '-', $post->title)] ) }}">{{ substr($item->title, 0, 20) }}...</a>
                               </div>
                               <div class="break"></div>
                           </div>
