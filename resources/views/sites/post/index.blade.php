@@ -50,8 +50,8 @@
                           <!-- item -->
                           <div class="row" style="margin-top: 10px;">
                               <div class="col-md-5">
-                                  <a href="detail.html">
-                                      <img class="img-responsive" width="100%" height='100%' src="{{ asset($item->image) }}" alt="">
+                                  <a href="#">
+                                      <img class="img-responsive" width="100%" height='100%' src="{{ $item->image }}" alt="">
                                   </a>
                               </div>
                               <div class="col-md-7 ">
