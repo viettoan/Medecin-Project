@@ -109,9 +109,9 @@ class UserController extends Controller
 
     public function changePass(UpdatePassRequest $request, $id)
     {
-        $data = $request->except('confirm_password');
+        // $data = $request->except('confirm_password');
 
-        if ($this->user->update($id, $data)) {
+        if ($this->user->update($id, $request->all())) {
             $response['status'] = 'success';
             $response['message'] = trans('message.update_success');
             $response['action'] = trans('message.success');
