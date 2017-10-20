@@ -55,7 +55,7 @@
                                   </a>
                               </div>
                               <div class="col-md-7 ">
-                                  <a class='title-related-post' href="{{ route('page.post.show', ['category' => str_replace(' ', '-', $post->categories->name), 'post_name' => str_replace(' ', '-', $post->title)] ) }}">{{ $post->title }}</a>
+                                  <a class='title-related-post' href="{{ route('page.post.show', ['category' => str_replace(' ', '-', $post->categories->name), 'post_name' => str_replace(' ', '-', $post->title)] ) }}">{{ substr($item->title, 0, 20) }}...</a>
                               </div>
                               <div class="break"></div>
                           </div>
