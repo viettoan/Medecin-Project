@@ -39,7 +39,7 @@ class PostRepositoryEloquent extends AbstractRepositoryEloquent implements PostR
 
     public function getAllPostNew()
     {
-        return $this->model()->get();
+        return $this->model()->all();
 
     }
     public function getNewestPost($number = 3, $with = [], $select = ['*'])
