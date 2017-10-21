@@ -48,7 +48,6 @@
                     <label for="sel1">{{ trans('message.category') }}</label>
                     <span v-if="formPostErrors['category_id']" class="error text-danger">@{{ formPostErrors['category_id'][0] }}</span><br>
                     <select class="form-control" v-model="postItem.category_id" name="category_id">
-                        <option value="0" selected="selected">*NONE</option>
                         <option v-bind:value="list.id" v-for="list in listCategories">@{{ list.name }}</option>
                     </select>
                 </div>
