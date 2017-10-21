@@ -43,11 +43,13 @@ class IndexController extends Controller
     public function index()
     {
         $posts = $this->post->getNewestPost(3, []);
+        
         $sliders = $this->media->getSLidersIndex([]);
+
         foreach ($sliders as $value) {
             $value->path = asset(config('custom.media.sliders.defaultPath') . $value->path);
         }
-        $videoIntro = asset(config('custom.media.video_intro.defaultPath') . $this->media->getVideoIntro([])->path) ;
+        $videoIntro = asset(config('custom.media.video_intro.defaultPath') . $this->media->getVideoIntro([])->path);
         return view('index', compact('posts', 'sliders', 'videoIntro'));
     }
 

@@ -77,7 +77,6 @@
                             <div class="form-group" id="sepilisc">
                                 <label>{{ trans('message.category') }}</label>
                                 <select class="form-control" name="category_id">
-                                    <option value="0">*NONE</option>
                                     @foreach ($categories as $parent)
                                     <option value="{{ $parent->id }}" @if ($parent->id == $post->category_id) selected="selected" @endif >{{ $parent->name }}</option>
                                     @endforeach     
