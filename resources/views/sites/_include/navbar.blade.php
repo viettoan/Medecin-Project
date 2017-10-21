@@ -6,10 +6,10 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <a class="navbar-brand" href="#"><img src="images/logo.png"  class='img-responsive' alt="" id="logo"></a>
+  <a class="navbar-brand" href="{{ route('index') }}"><img src="images/logo.png"  class='img-responsive' alt="" id="logo"></a>
 
-  <div class="collapse navbar-collapse nav-right nav-bar pull-right" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse nav-right nav-bar col-md-10 " id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto pull-left">
       <li class="nav-item text-center">
         <a class="nav-link" href="{{ route('index') }}">TRANG CHỦ</a>
       </li>

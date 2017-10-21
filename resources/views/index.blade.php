@@ -16,8 +16,8 @@
       </div>
       <div class="row">
           <div class="panel panel-default">
-              @if (isset($posts))
-                @foreach ($posts as $post)
+            @if (isset($postNewest))
+                @foreach ($postNewest as $post)
                     <div class="row-item row">
                         <div class="col-md-4 col-lg-3">
                             <a href="detail.html">
@@ -34,12 +34,11 @@
 
                     </div>
                     <hr>
-                  @endforeach
-                @endif
+                @endforeach
+              @endif
               <!-- /.row -->
           </div>
       </div>
-
     </div>
   </section>
   @include('sites._include.footer')

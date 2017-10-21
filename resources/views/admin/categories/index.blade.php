@@ -87,7 +87,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">{{ trans('message.close') }}</span></button>
-                            <h4 class="modal-title" id="myModalLabel">{{ trans('message.editegory') }}</h4>
+                            <h4 class="modal-title" id="myModalLabel">{{ trans('message.edit_category') }}</h4>
                         </div>
 
                         <div class="modal-body ">

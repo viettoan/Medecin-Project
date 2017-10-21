@@ -1,6 +1,6 @@
 <div id="header_admin">
 <header class="main-header">
-    <a href="index2.html" class="logo">
+    <a href="{{ route('home-admin') }}" class="logo">
         <span class="logo-mini"><b>M</b>DC</span>
         <span class="logo-lg"><b>Medicin</b></span>
     </a>
