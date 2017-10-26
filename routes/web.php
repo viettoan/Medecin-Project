@@ -43,7 +43,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
 });
 
 Route::resource('/dangnhap-admin', 'LoginAdminController');
-Route::post('/dangnhap', 'Auth\LoginController@postLogin')->name('loginadmin');
+Route::post('/dangnhap', 'LoginAdminController@postLogin')->name('loginadmin');
 
 Route::group(['namespace' => 'Site', 'prefix' => 'profile', 'middleware' => 'auth'], function () {
     Route::get('/thong-tin-ca-nhan/{id}', 'PatientController@show')->name('patient.profile.show');
