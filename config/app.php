@@ -162,6 +162,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -182,6 +184,7 @@ return [
         App\Providers\ComposerServiceProvider::class,
         ConsoleTVs\Charts\ChartsServiceProvider::class,
         Anchu\Ftp\FtpServiceProvider::class,
+
 
     ],
 
@@ -235,6 +238,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Video' => App\Helpers\Video::class,
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

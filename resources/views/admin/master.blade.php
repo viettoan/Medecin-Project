@@ -45,6 +45,9 @@
     {{ Html::script('bower/jvectormap/jquery-jvectormap.js') }}
     {{ Html::script('bower/jquery-knob/dist/jquery.knob.min.js') }}
     {{ Html::script('bower/moment/min/moment.min.js') }}
+    <script src="{{asset('/vendor/laravel-filemanager/js/lfm.js')}}"></script>
+    {{ Html::script('bower/ckeditor/ckeditor.js') }}
+    {{ Html::script('js/config.lfm.ckeditor.js') }}
     {{ Html::script('bower/bootstrap-daterangepicker/daterangepicker.js') }}
     {{ Html::script('bower/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}
     {{ Html::script('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}
