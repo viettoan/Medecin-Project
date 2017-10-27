@@ -31,7 +31,20 @@
       </div>
     </div>
     <div class="row">
+      <!-- Form -->
+      <div class="nb-form">
+        <p class="title">Để lại tin nhắn cho phòng khám</p>
+        <img src="images/messages-icon.png" alt="" class="user-icon">
+        <p class="message">Số điện thoại liên hệ: <strong>093858503</strong></p>
 
+        <form method="POST" action="{{ route('contact.store') }}">
+          <input type="text" name="name" placeholder="Vui lòng nhập họ tên" required>
+          <input type="email" name="email" placeholder="Địa chỉ email" required>
+          <input type="tel" name="phone" placeholder="Số điện thoại" required>
+          <textarea name="content" placeholder="Lời nhắn của bạn" required></textarea>
+          <input type="submit" value="Gửi">
+        </form>
+      </div>
     </div>
   </div>
 </footer>
