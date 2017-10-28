@@ -18,3 +18,26 @@
 .title-related-post {
 	color: #333;
 }
+
+.element {
+/*position: absolute!important;*/
+top:170px;
+position:fixed;
+z-index: 99999;
+right:-170px;
+}
+.element:hover {
+  right: 0px;
+ -webkit-transition:  0.5s; /* Safari */
+    transition:  0.5s;
+}
+.element:not(:hover) {
+ right: -170px;
+ -webkit-transition:  0.5s; /* Safari */
+    transition:  0.5s;
+}
+@media screen and (max-width: 676px) {
+    .element {
+      display: none;
+    }
+}

@@ -15,7 +15,7 @@
     {{ Html::style('bower/owl.carousel/dist/assets/owl.carousel.min.css') }}
     {{ Html::style('bower/owl.carousel/dist/assets/owl.theme.default.min.css') }}
     {{ Html::style('css/site.css') }}
-    
+
     @yield('style')
     <style type="text/css">
         .pagination .page-item a{
@@ -37,6 +37,10 @@
     </style>
 </head>
 <body>
+  <div class="element">
+    <img src="images/call.png" class='img-responsive' width="250px">
+  </div>
+
     @yield('content')
     {{ Html::script('bower/jquery/dist/jquery.min.js') }}
     {{ Html::script('bower/bootstrap4/dist/js/bootstrap.min.js') }}
