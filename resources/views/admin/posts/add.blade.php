@@ -29,7 +29,7 @@
                             <input type="file" @change="previewImage" accept="image/*" name="image">
                         </div>
                         <div class="image-preview" v-if="imageData.length > 0">
-                            <img class="preview" :src="imageData">
+                            <img class="preview"   style="height: 400px;" :src="imageData">
                         </div>
                     </div>
                 </div>
@@ -63,17 +63,30 @@
                     <textarea class="form-control" rows="7" id="content" v-model="postItem.content"></textarea>
                 </div>
                 <script>
-                    CKEDITOR.replace('content', options);
                 </script>
                 <div class="clearfix"></div>
                 <a class="btn btn-warning" href="{{ route('post.index') }}"> <i class="fa fa-arrow-left" aria-hidden="true"></i> {{ trans('message.exit') }}</a>
                 <button type="submit" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> {{ trans('message.add') }}</button>
             </form>
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
     @endsection
     @section('script')
     {{ Html::script('js/post/add.js') }}
+    <script>
+        CKEDITOR.replace('content', {
+        filebrowserBrowseUrl: '{{ asset('bower/ckfinder/ckfinder.html') }}',
+        filebrowserImageBrowseUrl: '{{ asset('bower/ckfinder/ckfinder.html?type=Images') }}',
+        filebrowserFlashBrowseUrl: '{{ asset('bower/ckfinder/ckfinder.html?type=Flash') }}',
+        filebrowserUploadUrl: '{{ asset('bower/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
+        filebrowserImageUploadUrl: '{{ asset('bower/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
+        filebrowserFlashUploadUrl: '{{ asset('bower/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
+    } );
+    </script>
+    <script>
+        CKEDITOR.replace( 'content');
+    </script>
+    
     @endsection
