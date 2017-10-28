@@ -40,6 +40,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::get('listSliders', 'SliderController@list');
     Route::resource('videos', 'VideoController');
     Route::get('listVideos', 'VideoController@list');
+
+    Route::post('/languge-chooser', 'LanguageController@changeLanguage');
+
+    Route::post('/language', array(
+        'before' => 'csrf', 
+        'as' => 'language-chooser',
+        'uses' => 'LanguageController@changeLanguage',
+        )
+    );
 });
 
 Route::resource('/dangnhap-admin', 'LoginAdminController');
@@ -53,6 +62,8 @@ Route::group(['namespace' => 'Site', 'prefix' => 'profile', 'middleware' => 'aut
 	    return view('sites._components.userVideo', ['user' => Auth::user()]);
 		});
 });
+
+
 
 Route::group(['namespace' => 'Site'], function() {
     Route::get('/', 'IndexController@index')->name('index');

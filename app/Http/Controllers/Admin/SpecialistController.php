@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Contracts\Repositories\SpesicalRepository;
 use App\Eloquent\Specialist;
 use App\Http\Requests\SpecialistRequest;
-use App\Http\Requests\PostRequest;
 use DB;
 
 class SpecialistController extends Controller
@@ -69,9 +68,31 @@ class SpecialistController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SpecialistRequest $request)
     {
-        if ($this->specialist->create($request->all())) {
+        $exploded = explode(',', $request->image);
+
+        $decoded = base64_decode($exploded[1]);
+
+        if (str_contains($exploded[0], 'jpeg')) {
+            $extention = 'jpg';
+        } else {
+            $extention = 'png';
+        }
+
+        $fileName = str_random().'.'.$extention;
+
+        $path = public_path().'/images/spacialist/'.$fileName;
+
+        file_put_contents($path, $decoded);
+        
+        $data['image'] = '/images/spacialist/'.$fileName;
+        $data['name'] = $request->name;
+        $data['status'] =  $request->status;
+        $data['description'] = $request->description;
+
+
+        if ($this->specialist->create($data)) {
             $response['status'] = 'Thanh Cong ';
             $response['message'] = trans('Them Chuyen Khoa Thanh Cong');
             $response['action'] = trans('Thanh Cong');
@@ -115,14 +136,33 @@ class SpecialistController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        DB::table('specialists')->where('id', $id)->update($request->all());
-        // $user = $this->specialist->update($id, $request->all());
-        // dd($user);
-        // if ($user) {
-        //     $response['status'] = 'success';
-        //     $response['message'] = trans('message.edit_success');
-        //     $response['action'] = trans('message.success');
+    {  
+        $exploded = explode(',', $request->image);
+
+        $decoded = base64_decode($exploded[1]);
+
+        if (str_contains($exploded[0], 'jpeg')) {
+            $extention = 'jpg';
+        } else {
+            $extention = 'png';
+        }
+
+        $fileName = str_random().'.'.$extention;
+
+        $path = public_path().'/images/spacialist/'.$fileName;
+
+        file_put_contents($path, $decoded);
+        
+        $data['image'] = '/images/spacialist/'.$fileName;
+        $data['name'] = $request->name;
+        $data['status'] =  $request->status;
+        $data['description'] = $request->description;
+
+        DB::table('specialists')->where('id', $id)->update($data);
+        // if ($this->specialist->update($id, $data)) {
+        //     $response['status'] = 'Thanh Cong ';
+        //     $response['message'] = trans('Cap Nhat Thanh Cong');
+        //     $response['action'] = trans('Thanh Cong');
         // } else {
         //     $response['status'] = 'error';
         //     $response['message'] = trans('admin.error_happen');

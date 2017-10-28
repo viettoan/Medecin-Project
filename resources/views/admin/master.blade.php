@@ -30,6 +30,8 @@
         @yield('content-admin')
         <div class="control-sidebar-bg"></div>
     </div>
+        {{-- @include('admin._section.footer') --}}
+    
     {{ Html::script('bower/jquery/dist/jquery.min.js') }}
     {{ Html::script('bower/vue/dist/vue.min.js') }}
     {{ Html::script('bower/toastr/toastr.min.js') }}

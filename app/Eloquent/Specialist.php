@@ -13,5 +13,7 @@ class Specialist extends Model
 		'id',
 		'name',
 		'status',
+		'image',
+		'description'
 	];
 }

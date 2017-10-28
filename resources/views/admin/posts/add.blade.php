@@ -72,6 +72,8 @@
                 </div> 
             </div>
         </div>
+    </section>
+    </div>
     @endsection
     @section('script')
     {{ Html::script('js/post/add.js') }}

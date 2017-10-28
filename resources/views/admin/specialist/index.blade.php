@@ -20,7 +20,7 @@
                         <div class="form-group col-md-6">
                             <label>{{ trans('message.name') }}</label>
                             <div>
-                                <input type="text" name="name" placeholder="User Name" class="form-control"  v-model="newItem.name" required=""> 
+                                <input type="text" name="name" placeholder="User Name" class="form-control"  v-model="newItem.name" > 
                                 <span v-if="formErrors['name']" class="error text-danger">@{{ formErrors['name'][0] }}</span><br>
                             </div>
                         </div>
@@ -30,6 +30,28 @@
                                 <option value="0">{{ __('Pending') }}</option>
                                 <option value="1">{{ __('Show') }}</option>
                             </select>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-md-6">
+                            <label>{{ trans('message.image') }}</label>
+                            <div>
+                             <span v-if="formErrors['image']" class="error text-danger">@{{ formErrors['image'][0] }}</span><br>
+                            <div class="file-upload-form">
+                                <input type="file" @change="previewImage"  accept="image/*" name="image">
+                            </div>
+                             <div class="image-preview" v-if="imageData.length > 0">
+                                {{-- <img class="preview"   style="height: 400px;" :src="imageData"> --}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-md-12">
+                            <label>{{ trans('message.description') }}</label>
+                            <div>
+                                <span v-if="formErrors['description']" class="error text-danger">@{{ formErrors['description'][0] }}</span><br>
+                                <textarea class="form-control" rows="7" id="description" v-model="newItem.description"></textarea>
+                               
+                            </div>
                         </div>
                         <div class="clearfix"></div>
                         <br>
@@ -67,6 +89,30 @@
                                 <option value="1">{{ __('Show') }}</option>
                             </select>
                         </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-md-12">
+                            <label>{{ trans('message.image') }}</label>
+                            <div class="file-upload-form">
+                                <input type="file" @change="previewImage" accept="image/*" name="image">
+                            </div>
+                            <div class="col-md-4">
+                                <label>{{ trans('message.image_old') }}</label>
+                                <br>
+                                <img v-bind:src="fillItem.image" class="image_new">
+                            </div>
+                            <div class="col-md-4 col-md-offset-4 image-preview" v-if="imageData.length > 0">
+                                <label>{{ trans('message.image_new') }}</label>
+                                <br>
+                                <img class="preview image_new" :src="imageData">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group col-md-12">
+                            <label>{{ trans('message.description') }}</label>
+                            <textarea class="form-control" rows="7" id="description" v-model="fillItem.description"></textarea>
+                        </div>
+                        <div class="clearfix"></div>
+
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-success">
                                 <i class="fa fa-plus" aria-hidden="true"></i> 

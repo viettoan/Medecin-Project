@@ -217,9 +217,9 @@
 
                     </div>
                     </div>
-
                 </div>
-
+            </div>
+        </div>
         <!--End Update patient modal -->
     </div>
  </div>
@@ -228,13 +228,6 @@
     <script>
       $(document).ready(function() {
         $( "#datepicker" ).datepicker({format: 'dd/mm/yyyy'}).datepicker("setDate", new Date());
-
-        // $("#datepicker").val( moment().format('MMM D, YYYY') );
-        // console.log( $( "#datepicker" ).datepicker({ defaultDate: new Date() }))
-        // $("a[data-toggle='modal']").click(function() {
-        //   let userId = $(this).data('user-id');
-        //   $('#usr-id').val(userId);
-        // })
       })
     </script>
     {{ Html::script('js/admin/patient.js') }}
