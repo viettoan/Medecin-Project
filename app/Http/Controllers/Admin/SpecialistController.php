@@ -137,23 +137,26 @@ class SpecialistController extends Controller
      */
     public function update(Request $request, $id)
     {  
-        $exploded = explode(',', $request->image);
+        if($request->image) {
+            $exploded = explode(',', $request->image);
 
-        $decoded = base64_decode($exploded[1]);
+            $decoded = base64_decode($exploded[1]);
 
-        if (str_contains($exploded[0], 'jpeg')) {
-            $extention = 'jpg';
-        } else {
-            $extention = 'png';
+            if (str_contains($exploded[0], 'jpeg')) {
+                $extention = 'jpg';
+            } else {
+                $extention = 'png';
+            }
+
+            $fileName = str_random().'.'.$extention;
+
+            $path = public_path().'/images/spacialist/'.$fileName;
+
+            file_put_contents($path, $decoded);
+            
+            $data['image'] = '/images/spacialist/'.$fileName;
         }
-
-        $fileName = str_random().'.'.$extention;
-
-        $path = public_path().'/images/spacialist/'.$fileName;
-
-        file_put_contents($path, $decoded);
         
-        $data['image'] = '/images/spacialist/'.$fileName;
         $data['name'] = $request->name;
         $data['status'] =  $request->status;
         $data['description'] = $request->description;

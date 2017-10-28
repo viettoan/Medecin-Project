@@ -70,7 +70,8 @@ new Vue({
                 } else {
                     toastr.success('Chinh Sua Chuyen Khoa Thanh Cong!', response.data.action, {timeOut: 5000});
                     this.fillItem = {'image': ''},
-                     this.imageData = "";
+                    this.imageData = "";
+                    $('#infoSpecialist').modal('hide');
                     this.showInfor(this.pagination.current_page);
                 }
             }).catch((error) => {
@@ -113,7 +114,7 @@ new Vue({
         },
 
         createSpecial: function(){
-            // if (!confirm('Do you want to create this user!')) return;
+            if (!confirm('Do you want to create this user!')) return;
             var input = this.newItem;
             input.image = this.imageData;
             console.log(input);
@@ -123,6 +124,7 @@ new Vue({
                 } else {
                     toastr.success(response.data.message, response.data.action, {timeOut: 5000});
                     this.newItem = { 'name': '', 'image': '', 'description': '', 'status': 0};
+                    this.imageData = "";
                     this.showInfor(this.pagination.current_page);
                 }
             }).catch((error) => {
