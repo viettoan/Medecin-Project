@@ -47,9 +47,8 @@ var followView = new Vue({
             if (!confirm('Do you want to update this user!')) return;
             var input = this.postItem;
             input.image = this.imageData;
-            // var content = CKEDITOR.instances['content'].getData();
-            // input.content = content;
-
+            var content = CKEDITOR.instances['content'].getData();
+            input.content = content;
             axios.post('/admin/post', input).then((response) => {
                 this.postItem = {'title': '', 'description': '', 'content': '', 'category_id': '', 'image': ''};
                 this.formPostErrors = {};

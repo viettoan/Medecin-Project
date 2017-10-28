@@ -49,15 +49,14 @@ new Vue({
         showInfor: function(page) {
             axios.get('/admin/post?page='+ page).then(response => {
                 this.$set(this, 'listPosts', response.data.data.data);
+                console.log(this.listPosts);
                 this.$set(this, 'pagination', response.data.pagination);
             })
         },
 
         showDetail: function(post)
         {   
-            // console.log(post);
             this.fillItem.id = post.id;
-            this.fillItem.content = post.content;
             this.fillItem.description = post.description;
             this.fillItem.image = post.image;
             this.fillItem.status = post.status;

@@ -46,18 +46,19 @@
     {{ Html::script('bower/jquery-knob/dist/jquery.knob.min.js') }}
     {{ Html::script('bower/moment/min/moment.min.js') }}
     <script src="{{asset('/vendor/laravel-filemanager/js/lfm.js')}}"></script>
-    {{ Html::script('bower/ckeditor/ckeditor.js') }}
-    {{ Html::script('js/config.lfm.ckeditor.js') }}
     {{ Html::script('bower/bootstrap-daterangepicker/daterangepicker.js') }}
     {{ Html::script('bower/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}
     {{ Html::script('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}
     {{ Html::script('bower/jquery-slimscroll/jquery.slimscroll.min.js') }}
     {{ Html::script('bower/fastclick/lib/fastclick.js') }}
+    {{ Html::script('bower/ckfinder/ckfinder.js') }}
     {{ Html::script('bower/datatables.net/js/jquery.dataTables.min.js') }}
     {{ Html::script('bower/datatables.net-bs/js/dataTables.bootstrap.min.js') }}
     {{ Html::script('bower/fastclick/lib/fastclick.js') }}
     {{ Html::script('dist/js/adminlte.min.js') }}
     {{ Html::script('js/admin/head.js') }}
+    {{ Html::script('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}
+    
     @yield('script')
 </body>
 </html>

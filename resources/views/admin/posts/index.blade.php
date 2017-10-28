@@ -30,26 +30,24 @@
                                     <th class="text-center">{{ trans('message.id') }}</th>
                                     <th class="text-center">{{ trans('message.title') }}</th>
                                     <th class="text-center">{{ trans('message.description') }}</th>
-                                    <th class="text-center">{{ trans('message.content') }}</th>
                                     <th class="text-center">{{ trans('message.status') }}</th>
                                     <th class="text-center">{{ trans('message.action') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="post in listPosts"  v-bind:id='"Post-"+ post.id'>
-                                    <th class="col-md-1">@{{ post.id }}</th>
-                                    <th class="col-md-2">@{{ post.title }}</th>
-                                    <th class="col-md-2">
+                                    <th class="col-md-1 text-center">@{{ post.id }}</th>
+                                    <th class="col-md-2 text-center">@{{ post.title }}</th>
+                                    <th class="col-md-2 text-center">
                                         <h5 class="ellipis">
                                             @{{ post.description }}    
                                         </h5>
                                     </th>
-                                    <th class="col-md-5 ellipis">@{{ post.content }}</th>
-                                    <th class="col-md-1 ellipis" v-if="post.status == 0"> <span class="label label-danger">{{ trans('message.pending') }}</span></th>
-                                    <th class="col-md-1 ellipis" v-if="post.status == 1"> <span class="label label-success">{{ trans('message.show') }}</span></th>
-                                    <th class="col-md-1 ellipis" v-if="post.status == 2"> <span class="label label-warning">{{ trans('message.about') }}</span></th>
-                                    <th class="col-md-2">   
-                                        <a data-toggle="modal" v-on:click="showDetail(post)"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <th class="col-md-1 ellipis text-center" v-if="post.status == 0"> <span class="label label-danger">{{ trans('message.pending') }}</span></th>
+                                    <th class="col-md-1 ellipis text-center" v-if="post.status == 1"> <span class="label label-success">{{ trans('message.show') }}</span></th>
+                                    <th class="col-md-1 ellipis text-center" v-if="post.status == 2"> <span class="label label-warning">{{ trans('message.about') }}</span></th>
+                                    <th class="col-md-2 text-center">   
+                                        {{-- <a data-toggle="modal" v-on:click="showDetail(post)"><i class="fa fa-eye" aria-hidden="true"></i></a> --}}
                                         <a v-bind:href="'/admin/post/'+ post.id +'/edit'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                         <a v-on:click="deletePost(post.id)"><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a>
                                     </th>

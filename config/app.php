@@ -184,6 +184,7 @@ return [
         App\Providers\ComposerServiceProvider::class,
         ConsoleTVs\Charts\ChartsServiceProvider::class,
         Anchu\Ftp\FtpServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
 
 
     ],

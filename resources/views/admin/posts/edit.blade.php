@@ -84,7 +84,7 @@
                             </div>
                             <div class="form-group">
                                 <label>{{ trans('message.content') }}</label>
-                                <textarea class="form-control" name="content" rows="7"> {{ $post->description }} </textarea>
+                                <textarea class="form-control" name="content" rows="7"> {{ $post->content }} </textarea>
                             </div>
                             <a class="btn btn-warning" href="{{ route('post.index') }}"> <i class="fa fa-pencil" aria-hidden="true"></i> {{ trans('message.exit') }}</a>
                             <button type="submit" class="btn btn-success"> <i class="fa fa-pencil" aria-hidden="true"></i> {{ trans('message.edit') }}</button>
@@ -98,4 +98,17 @@
 @endsection
 @section('script')
 {{ Html::script('js/post/edit.js') }}
+ <script>
+        CKEDITOR.replace('content', {
+        filebrowserBrowseUrl: '{{ asset('bower/ckfinder/ckfinder.html') }}',
+        filebrowserImageBrowseUrl: '{{ asset('bower/ckfinder/ckfinder.html?type=Images') }}',
+        filebrowserFlashBrowseUrl: '{{ asset('bower/ckfinder/ckfinder.html?type=Flash') }}',
+        filebrowserUploadUrl: '{{ asset('bower/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
+        filebrowserImageUploadUrl: '{{ asset('bower/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
+        filebrowserFlashUploadUrl: '{{ asset('bower/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
+    } );
+    </script>
+    <script>
+        CKEDITOR.replace( 'content');
+    </script>
 @endsection
