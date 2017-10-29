@@ -7,12 +7,14 @@ use App\Http\Controllers\Controller;
 use App\Contracts\Repositories\CategoryRepository;
 use App\Contracts\Repositories\PostRepository;
 use App\Contracts\Repositories\MediaRepository;
+use App\Contracts\Repositories\SpesicalRepository;
 
 class IndexController extends Controller
 {
     protected $category;
     protected $post;
     protected $media;
+    protected $specical;
 
     /**
      * Pham Viet Toan
@@ -25,12 +27,14 @@ class IndexController extends Controller
     public function __construct(
         PostRepository $post,
         CategoryRepository $category,
-        MediaRepository $media
+        MediaRepository $media,
+        SpesicalRepository $specical
     )
     {
         $this->category = $category;
         $this->post = $post;
         $this->media = $media;
+        $this->specical = $specical;
     }
 
     /**
@@ -58,7 +62,9 @@ class IndexController extends Controller
         }
         $videoIntro = asset(config('custom.media.video_intro.defaultPath') . $this->media->getVideoIntro([])->path);
 
-        return view('index', compact('postNewest', 'sliders', 'videoIntro'));
+        $specicals = $this->specical->getAll(1);
+
+        return view('index', compact('postNewest', 'sliders', 'videoIntro', 'specicals'));
     }
 
     /**

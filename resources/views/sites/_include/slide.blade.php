@@ -1,11 +1,4 @@
-
-
-
-
-
-
-
-    <div class="containter-fluid">
+        <div class="containter-fluid">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           @for ($i = 0; $i < count($sliders); $i++)

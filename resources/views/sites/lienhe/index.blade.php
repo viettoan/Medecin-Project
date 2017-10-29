@@ -34,7 +34,7 @@
                   <label for="formGroupExampleInput">Họ và Tên</label>
                   <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="Vui lòng nhập họ và tên" required value="{{ old('name') }}">
                   @if ($errors->has('name'))
-                      <span class="help-block">
+                      <span class="help-block"> 
                            <strong>{{ $errors->first('name') }}</strong>
                       </span>
                   @endif

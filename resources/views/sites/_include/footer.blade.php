@@ -38,6 +38,7 @@
         <p class="message">Số điện thoại liên hệ: <strong>093858503</strong></p>
 
         <form method="POST" action="{{ route('contact.store') }}">
+        {{ csrf_field() }}
           <input type="text" name="name" placeholder="Vui lòng nhập họ tên" required>
           <input type="email" name="email" placeholder="Địa chỉ email" required>
           <input type="tel" name="phone" placeholder="Số điện thoại" required>
