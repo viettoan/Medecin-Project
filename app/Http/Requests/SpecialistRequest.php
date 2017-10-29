@@ -27,7 +27,7 @@ class SpecialistRequest extends FormRequest
             'name' => 'required|string',
             'status' => 'required',
             'image' => 'required',
-            'description' => 'required|max:200',
+            'description' => 'required|max:500',
         ];
     }
 }
