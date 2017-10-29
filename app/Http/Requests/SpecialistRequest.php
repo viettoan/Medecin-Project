@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Request;
 
 class SpecialistRequest extends FormRequest
 {
@@ -25,9 +24,10 @@ class SpecialistRequest extends FormRequest
     public function rules()
     {
         return [
-            return [
             'name' => 'required|string',
             'status' => 'required',
+            'image' => 'required',
+            'description' => 'required|max:200',
         ];
     }
 }
