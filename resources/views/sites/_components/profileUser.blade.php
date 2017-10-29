@@ -48,8 +48,7 @@
                                     </li>
                                     <li class="list-group-item">
                                         <p>
-                                            <a href="{{ route('patient.history.show', $patient->id) }}" >
-                                                <i class="fa fa-eye" aria-hidden="true"></i> <strong>XEM LỊCH SỬ KHÁM</strong>
+                                            <a class="dropdown-item" href="/profile/video-sieu-am"<i class="fa fa-eye" aria-hidden="true"></i> <strong>Video siêu âm</strong></a>  
                                             </a>
                                         </p>
                                     </li>
