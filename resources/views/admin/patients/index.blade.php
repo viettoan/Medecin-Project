@@ -14,7 +14,8 @@
             </div>
             <div class="panel-body">
                 <div class="col-md-12 admin-actions">
-                    <a href="javascript:void(0)" v-on:click="createPatient()" class="btn btn-success col-md-2">{{ trans('message.new_patient') }}</a>
+                    <a href="javascript:void(0)" v-on:click="createPatient()" class="btn btn-success col-md-2"> <i class="fa fa-plus" aria-hidden="true"></i>
+ {{ trans('message.new_patient') }}</a>
                     <form role="form" class="col-md-5">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Enter user" v-model="search.name" v-on:keyup="searchPatient()">
@@ -111,48 +112,51 @@
                     <div class="modal-body ">
                         <form method = "POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
-                            <div class="form-group">
-                                <label>{{ trans('message.name') }}</label>
+                            <div class="form-group col-md-6">
+                                <label> <i class="fa fa-user" aria-hidden="true"></i> {{ trans('message.name') }}</label>
                                 <div>
                                     <input type="text" name="name" placeholder="User Name" class="form-control" v-model="patient.name" required="">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label>{{ trans('message.email') }}</label>
+                            <div class="form-group col-md-6">
+                                <label><i class="fa fa-envelope" aria-hidden="true"></i> {{ trans('message.email') }}</label>
                                 <input type="email" name="email" placeholder="example@example.com" class="form-control" v-model="patient.email" >
                             </div>
-                            <div class="form-group">
-                                <label>{{ trans('message.address') }}</label>
+                            <div class="form-group col-md-6">
+                                <label><i class="fa fa-map-marker" aria-hidden="true"></i> {{ trans('message.address') }}</label>
                                 <div>
                                     <input type="text" name="address" placeholder="Address" class="form-control" v-model="patient.address" required>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label>{{ trans('message.phone') }}</label>
+                            <div class="form-group col-md-6">
+                                <label><i class="fa fa-phone" aria-hidden="true"></i> {{ trans('message.phone') }}</label>
                                 <div>
                                     <input type="text" name="phone" placeholder="Phone" class="form-control" v-model="patient.phone" required>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label>{{ trans('message.age') }}</label>
+                            <div class="form-group col-md-6">
+                                <label><i class="fa fa-angellist" aria-hidden="true"></i> {{ trans('message.age') }}</label>
+                                <div class="clearfix"></div>
                                 <div>
                                     <input type="number" name="age" placeholder="Age" v-model="patient.age" class="form-control" required>
                                 </div>
                             </div>
-                            <div>
-                                <label>{{ trans('message.gender') }}</label>
+                            <div class="col-md-6">
+                                <label><i class="fa fa-transgender-alt" aria-hidden="true"></i> {{ trans('message.gender') }}</label>
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="sex" value="1" v-model="patient.sex" checked="checked">{{ trans('message.male') }}
                                     </label>
-                                </div>
-                                <div class="radio">
                                     <label>
                                     <input type="radio" name="sex" value="0" v-model="patient.sex">{{ trans('message.female') }}
                                     </label>
                                 </div>
+                              
                             </div>
-                            <button type="button" v-on:click="storePatient()" class="btn btn-default">{{ trans('message.add') }}</button>
+                            <div class="clearfix"></div>
+                            <div style="margin-left: 800px;">
+                            <button type="button" v-on:click="storePatient()" class="btn btn-success"> <i class="fa fa-plus" aria-hidden="true"></i> {{ trans('message.add') }}</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -170,48 +174,49 @@
                     <div class="modal-body ">
                         <form method = "POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
-                            <div class="form-group">
-                                <label>{{ trans('message.name') }}</label>
+                            <div class="form-group col-md-6">
+                                <label><i class="fa fa-user" aria-hidden="true"></i> {{ trans('message.name') }}</label>
                                 <div>
                                     <input type="text" name="name" placeholder="User Name" class="form-control" v-model="patient.name" required="">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label>{{ trans('message.email') }}</label>
+                            <div class="form-group col-md-6">
+                                <label><i class="fa fa-envelope" aria-hidden="true"></i> {{ trans('message.email') }}</label>
                                 <input type="email" name="email" placeholder="Enter your email" class="form-control" v-model="patient.email" >
                             </div>
-                            <div class="form-group">
-                                <label>{{ trans('message.address') }}</label>
+                            <div class="form-group col-md-6">
+                                <label><i class="fa fa-map-marker" aria-hidden="true"></i> {{ trans('message.address') }}</label>
                                 <div>
                                     <input type="text" name="address" placeholder="Address" class="form-control" v-model="patient.address" required>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label>{{ trans('message.phone') }}</label>
+                            <div class="form-group col-md-6">
+                                <label><i class="fa fa-phone" aria-hidden="true"></i> {{ trans('message.phone') }}</label>
                                 <div>
                                     <input type="text" name="phone" placeholder="Phone" class="form-control" v-model="patient.phone" required>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label>{{ trans('message.age') }}</label>
+                            <div class="form-group col-md-6">
+                                <label><i class="fa fa-angellist" aria-hidden="true"></i>  {{ trans('message.age') }}</label>
                                 <div>
                                     <input type="number" name="age" placeholder="Age" v-model="patient.age" class="form-control" required>
                                 </div>
                             </div>
-                            <div>
-                                <label>{{ trans('message.gender') }}</label>
+                            <div class="col-md-6">
+                                <label><i class="fa fa-transgender-alt" aria-hidden="true"></i> {{ trans('message.gender') }}</label>
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="sex" value="1" v-model="patient.sex" :checked="patient.sex == {{ config('custom.male') }}">{{ trans('message.male') }}
                                     </label>
-                                </div>
-                                <div class="radio">
                                     <label>
                                     <input type="radio" name="sex" value="0" v-model="patient.sex" :checked="patient.sex == {{ config('custom.female') }}">{{ trans('message.female') }}
                                     </label>
                                 </div>
                             </div>
-                            <button type="button" v-on:click="updatePatient(patient.id)" class="btn btn-default">{{ trans('message.edit') }}</button>
+                            <div class="clearfix"></div>
+                            <div style="margin-left: 800px;">
+                            <button type="button" v-on:click="updatePatient(patient.id)" class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i> {{ trans('message.edit') }}</button>
+                            </div>
                         </form>
                     </div>
 
