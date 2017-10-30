@@ -9,6 +9,7 @@ new Vue({
             'name': '',
             'parent_id': 0,
             'status': 1,
+            'link': '',
         },
         categories: [],
 	},
@@ -22,6 +23,7 @@ new Vue({
                 'name': '',
                 'parent_id': 0,
                 'status': 1,
+                'link': '',
             };
         },
         /**
@@ -38,7 +40,6 @@ new Vue({
             }
             axios(authOptions).then(response => {
                 this.categories = response.data;
-                console.log(this.categories);
             });   
         },
         /**
@@ -137,6 +138,6 @@ new Vue({
                 $('#updateCategory').modal('hide');
                 this.listCategories();
             }); 
-        }      
+        },   
 	}
 });
