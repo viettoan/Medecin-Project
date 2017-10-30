@@ -122,4 +122,5 @@ return [
     'night' => 'Night',
     'room' => 'Room',
     'doctor' => 'Doctor',
+    'link' => 'Link',
 ];

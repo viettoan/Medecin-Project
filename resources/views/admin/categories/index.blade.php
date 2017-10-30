@@ -56,6 +56,16 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label>{{ trans('message.link') }}</label>
+                                    
+                                    <div>
+                                        <div class="col-md-3">{{ config('custom.host') }}</div>
+                                        <div class="col-md-9">
+                                            <input type="text" name="link" v-model="category.link" placeholder="Link Name" class="form-control" required=""> 
+                                        </div>  
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label>{{ trans('message.parent') }}</label>
                                     <select class="form-control" name="parent_id" v-model="category.parent_id">
                                         <option value="0"></option>
@@ -97,6 +107,16 @@
                                     <label>{{ trans('message.name') }}</label>
                                     <div>
                                         <input type="text" name="name" v-model="category.name" placeholder="Category Name" class="form-control" required=""> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>{{ trans('message.link') }}</label>
+                                    
+                                    <div>
+                                        <div class="col-md-3">{{ config('custom.host') }}</div>
+                                        <div class="col-md-9">
+                                            <input type="text" name="link" v-model="category.link" placeholder="Link Name" class="form-control" required=""> 
+                                        </div>  
                                     </div>
                                 </div>
                                 <div class="form-group">

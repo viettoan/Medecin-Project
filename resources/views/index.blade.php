@@ -29,7 +29,7 @@
                             <small><i class='fa fa-calendar-o'></i><i>{{ $post->created_at }}</i></small>
                             {{-- <p>{!! substr($post->content, 0, 400) !!}...</p> --}}
                             <br>
-                            <a  style="margin-top: 60px;" class="btn btn-outline-success btn-sm" href="{{ route('page.post.show', ['category' => str_replace(' ', '-', $post->categories->name), 'post_name' => str_replace(' ', '-', $post->title)] ) }}">Xem thêm <span class="glyphicon glyphicon-chevron-right"></span></a>
+                            <a  style="margin-top: 60px;" class="btn btn-outline-success btn-sm" href="{{ route('page.post.show', $post->categories->link, 'post_name' => str_replace(' ', '-', $post->title)] ) }}">Xem thêm <span class="glyphicon glyphicon-chevron-right"></span></a>
                         </div>
                         <div class="break"></div>
 

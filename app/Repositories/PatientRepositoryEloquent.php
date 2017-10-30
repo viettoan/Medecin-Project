@@ -37,6 +37,6 @@ class PatientRepositoryEloquent extends AbstractRepositoryEloquent implements Pa
 
     public function searchByName($keyword, $with = [], $select = ['*'])
     {
-        return $this->model()->select($select)->where('permission', config('custom.patient'))->where('name', 'like', "%".$keyword."%")->with($with)->get();
+        return $this->model()->select($select)->where('permission', config('custom.patient'))->where('name', 'like', "%".$keyword."%")->orWhere('phone', 'like', "%".$keyword."%")->with($with)->get();
     }
 }

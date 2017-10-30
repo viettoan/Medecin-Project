@@ -45,6 +45,6 @@ class CategoryRepositoryEloquent extends AbstractRepositoryEloquent implements C
 
     public function search($keyword, $with = [], $select = ['*'])
     {
-        return $this->model()->select($select)->where('name', 'like', "%$keyword%")->with($with)->get();
+        return $this->model()->select($select)->where('link', $keyword)->with($with)->get();
     }
 }

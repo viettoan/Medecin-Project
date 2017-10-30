@@ -15,7 +15,8 @@ class Category extends Model
         'id',
         'name',
         'parent_id',
-        'status'
+        'status',
+        'link',
     ];
 
     public function scopeStatus($query, $status)

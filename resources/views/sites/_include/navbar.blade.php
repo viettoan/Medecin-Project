@@ -22,11 +22,11 @@
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ strtoupper($category->name) }}</a>
           <div class="dropdown-menu">
             @foreach ($category->subCategories as $subCategory)
-              <a class="dropdown-item" href="{{ route('posts.index', ['category' => str_replace(' ', '-', $subCategory->name) ]) }}">{{ strtoupper($subCategory->name) }}</a>
+              <a class="dropdown-item" href="{{ route('posts.index', ['category' => $subCategory->link ]) }}">{{ strtoupper($subCategory->name) }}</a>
             @endforeach
           </div>
         @else
-          <a class="nav-link" href="{{ route('posts.index', ['category' => str_replace(' ', '-', $category->name) ]) }}">{{ strtoupper($category->name) }}</a>
+          <a class="nav-link" href="{{ route('posts.index', ['category' => $category->link ]) }}">{{ strtoupper($category->name) }}</a>
         @endif
         </li>
       @endforeach

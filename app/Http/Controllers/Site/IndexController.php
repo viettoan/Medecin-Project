@@ -46,20 +46,28 @@ class IndexController extends Controller
      */
     public function index()
     {
-       $posts = $this->post->getAllPostNew(['categories']);
-       $i = 0;
-       $postNewest = [];
-        foreach ($posts as $post) {
-            if ($post->categories->status == config('custom.category.show')) {
-                     $postNewest[] = $post;
+        $posts = $this->post->getAllPostNew(['categories']);
+        $i = 0;
+        $postNewest = [];
+        if (!empty($posts)) {
+            foreach ($posts as $post) {
+                if($post->categories != null) {
+                    if ($post->categories->status == config('custom.category.show')) {
+                        $postNewest[] = $post;
+                    }
+                }
+                
+            }
+            $postNewest = array_slice($postNewest, 0, 3);
+        }
+
+        $sliders = $this->media->getSLidersIndex([]);
+        if (!empty($sliders)) {
+            foreach ($sliders as $value) {
+                $value->path = asset(config('custom.media.sliders.defaultPath') . $value->path);
             }
         }
-        $postNewest = array_slice($postNewest, 0, 3);
         
-        $sliders = $this->media->getSLidersIndex([]);
-        foreach ($sliders as $value) {
-            $value->path = asset(config('custom.media.sliders.defaultPath') . $value->path);
-        }
         $videoIntro = asset(config('custom.media.video_intro.defaultPath') . $this->media->getVideoIntro([])->path);
 
         $specicals = $this->specical->getAll(1);
