@@ -3,7 +3,7 @@
 @section('content-admin')
 <div class="content-wrapper">
     <div class="content-admin" id="index-patients">
-        <div class="panel panel-default">
+        <div class="panel">
             <div class="panel-heading">
                 <h2>{{ trans('message.patients') }}</h2>
               @if(session('message'))
@@ -44,11 +44,11 @@
                             <th class="col-md-3">@{{ item.phone }}</th>
                             <th class="col-md-3">@{{ item.email }}</th>
                             <th class="col-md-2">
-                                <a  @click='addIdModal(item.id)' data-toggle="modal" data-target="#addVideo" ><i class="fa fa-file-video-o" aria-hidden="true"></i></a>
-                                <a :href="'patient/' + item.id "><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                <a href="javascript:void(0)" v-on:click="editPatient(item.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                <a  @click='addIdModal(item.id)'  class="btn btn-success" data-toggle="modal" data-target="#addVideo" ><i class="fa fa-file-video-o" aria-hidden="true"></i></a>
+                                <a :href="'patient/' + item.id " class="btn btn-warning"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                <a href="javascript:void(0)"  class="btn btn-primary" v-on:click="editPatient(item.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                 @if (Auth::user()->permission == 1)
-                                <a v-on:click="deletePatient(item.id)" ><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a>
+                              {{--   <a v-on:click="deletePatient(item.id)" ><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a> --}}
                                 @endif
                             </th>
                         </tr>

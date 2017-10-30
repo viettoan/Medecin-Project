@@ -86,7 +86,7 @@
                                 <label>{{ trans('message.content') }}</label>
                                 <textarea class="form-control" name="content" rows="7"> {{ $post->content }} </textarea>
                             </div>
-                            <a class="btn btn-warning" href="{{ route('post.index') }}"> <i class="fa fa-pencil" aria-hidden="true"></i> {{ trans('message.exit') }}</a>
+                            <a class="btn btn-warning" href="{{ route('post.index') }}"> <i class="fa fa-arrow-left" aria-hidden="true"></i> {{ trans('message.exit') }}</a>
                             <button type="submit" class="btn btn-success"> <i class="fa fa-pencil" aria-hidden="true"></i> {{ trans('message.edit') }}</button>
                         </form>
                     </div>
