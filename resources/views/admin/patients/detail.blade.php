@@ -1,8 +1,8 @@
 @extends('admin.master')
 
 @section('content-admin')
-<div class="content-admin detail-patient content-wrapper">
-    <div class="panel panel-default">
+<div class="content-admin content-wrapper">
+    <div class="panel ">
       @if(session('success'))
         <div class="alert alert-success">
           <p>{{session('success')}}</p>
@@ -13,9 +13,14 @@
           @foreach($errors->all() as $error)
             <p>{{ $error }}</p>
           @endforeach
-
         </div>
       @endif
+      <br>
+      <div class="" style="margin-left: 15px;">
+        
+      <a href="{{ route('patient.index') }}" class="btn btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i> Thoat</a>
+      </div>
+
         <div class="panel-body">
             <ul class="nav nav-tabs" role="tablist">
                 <li class="active"><a data-target="#detail" role="tab" data-toggle="tab">Chi tiết bệnh nhân</a></li>

@@ -8,7 +8,7 @@
         </div>
         <div class="panel-body" id="index-categories">
             <div class="col-md-12 admin-actions">
-                <a href="javascript:void(0)" v-on:click="createCategory()" class="btn btn-success col-md-2">{{ trans('message.new_category') }}</a>
+                <a href="javascript:void(0)" v-on:click="createCategory()" class="btn btn-success col-md-2"><i class="fa fa-plus" aria-hidden="true"></i> {{ trans('message.new_category') }}</a>
             </div>
             <table class="table table-hover table-bordered">
                 <thead >
@@ -30,9 +30,9 @@
                             <span class="label label-default" v-if="item.status == {{ config('custom.category.hide') }}">{{ trans('message.hide') }}</span>
                             <span class="label label-success" v-if="item.status == {{ config('custom.category.show') }}">{{ trans('message.show') }}</span>
                         </th>
-                        <th class="col-md-1">
-                            <a href="javascript:void(0)" v-on:click="editCategory(item.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            <a v-on:click="deleteCategory(item.id)"><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a>
+                        <th class="col-md-1 text-center">
+                            <a href="javascript:void(0)"  class="btn btn-success" v-on:click="editCategory(item.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                           {{--  <a v-on:click="deleteCategory(item.id)"><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a> --}}
                         </th>
                     </tr>    
                 </tbody>
