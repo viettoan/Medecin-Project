@@ -112,13 +112,18 @@ new Vue({
                 json: true
             }
             axios(authOptions).then(response => {
-                if (response.status == 200) {
-                    toastr.success(response.data, '', {timeOut: 5000});
-
-                } else {
-                    toastr.error(response.data, '', {timeOut: 5000});
+                if (response.data.status == 'success') {
+                    toastr.error(response.data.message, response.data.action, {timeOut: 10000});
+                    $('#newPatient').modal('hide');
                 }
-                $('#newPatient').modal('hide');
+
+                if (response.data.status == 'error') {
+                    toastr.error(response.data.message, response.data.action, {timeOut: 10000});
+                }
+
+                if (response.data.status == 'unique') {
+                    toastr.warning(response.data.message, response.data.name, {timeOut: 10000});
+                }
                 this.listPatients();
             }).catch(error => {
                 if (error.response.data.email) {

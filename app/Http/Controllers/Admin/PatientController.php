@@ -83,12 +83,28 @@ class PatientController extends Controller
         if (!$data['email']) {
             $data['email'] = 'customer_' .$dateTimeFormated . '@medicine.com';
         }
-        
-        if ($this->patient->create($data)) {
-            return Response::json(trans('message.create_success'), 200);
+
+        $findPhone = $this->patient->findByPhone($data['phone']);
+        if($findPhone == NULL) {
+            if ($this->patient->create($data)) {
+                $response['status'] = 'success';
+                $response['message'] = trans('message.update_success');
+                $response['action'] = trans('message.success');
+            } else {
+                $response['status'] = 'error';
+                $response['message'] = trans('admin.error_happen');
+                $response['action'] = trans('admin.error');
+            }
         } else {
-            return Response::json(trans('message.create_failed'), 403);
-        }
+            
+                $response['name'] = $findPhone['name'];
+                $response['email'] = $findPhone['email'];
+                $response['status'] = 'unique';
+                $response['message'] = 'Da dang ky so dien thoai nay!';
+                $response['action'] = trans('admin.error');
+            }
+
+            return response()->json($response);
     }
 
     /**
