@@ -44,7 +44,7 @@ var followView = new Vue({
         },
 
         createPost: function() {
-            if (!confirm('Do you want to update this user!')) return;
+            if (!confirm('Do you want to update this post!')) return;
             var input = this.postItem;
             input.image = this.imageData;
             var content = CKEDITOR.instances['content'].getData();
