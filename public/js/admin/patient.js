@@ -113,7 +113,7 @@ new Vue({
             }
             axios(authOptions).then(response => {
                 if (response.data.status == 'success') {
-                    toastr.error(response.data.message, response.data.action, {timeOut: 10000});
+                    toastr.success(response.data.message, response.data.action, {timeOut: 10000});
                     $('#newPatient').modal('hide');
                 }
 
