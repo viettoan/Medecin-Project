@@ -61,7 +61,8 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-3 col-lg-3 " align="center">
-                            <img class="img-responsive img-circle" src="{{ asset('images/avatar.jpg')}}">
+                            {{-- <img class="img-responsive img-circle" src="{{ asset('images/avatar.jpg')}}"> --}}
+                            <img src="{{ asset('dist/img/avatar.png') }}" class="user-image img-responsive img-circle" alt="User Image">
                             <br>
                             @if ( Auth::check())
                             @if (Auth::user()->permission == 1)
