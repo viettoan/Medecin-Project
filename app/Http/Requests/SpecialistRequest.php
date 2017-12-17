@@ -28,6 +28,7 @@ class SpecialistRequest extends FormRequest
             'status' => 'required',
             'image' => 'required',
             'description' => 'required|max:500',
+            'content' => 'required'
         ];
     }
 }

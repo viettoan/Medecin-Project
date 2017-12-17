@@ -4,7 +4,7 @@
 <div class="content-wrapper" id="add_Post">
     <section class="content-header">
         <h1>
-            <small>Creat Post</small>
+            <small>Tạo bài viết</small>
             <a class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Exit</a>
         </h1>
     </section>

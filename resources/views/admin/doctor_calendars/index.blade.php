@@ -4,23 +4,23 @@
 <div class="content-admin content-wrapper">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h2>{{ trans('message.doctor_schedule') }}</h2>
+            <h2>Lịch Bác Sỹ</h2>
         </div>
         <div class="panel-body" id="index-calendar">
             @if (Auth::user()->permission == config('custom.admin'))
             <div class="col-md-12 admin-actions">
-                <a href="javascript:void(0)" v-on:click="createCalendar()" class="btn btn-success col-md-2">{{ trans('message.new') }}</a>
+                <a href="javascript:void(0)" v-on:click="createCalendar()" class="btn btn-success col-md-2">Tạo Lịch Mới</a>
             </div>
             <br><br>
             @endif
             <table class="table table-hover table-bordered">
                 <thead >
                     <tr>
-                        <th class="text-center">{{ trans('message.doctor') }}</th>
-                        <th class="text-center">{{ trans('message.room') }}</th>
-                        <th class="text-center">{{ trans('message.morning') }}</th>
-                        <th class="text-center">{{ trans('message.afternoon') }}</th>
-                        <th class="text-center">{{ trans('message.night') }}</th>
+                        <th class="text-center">Bác SỸ</th>
+                        <th class="text-center">Phòng Ban</th>
+                        <th class="text-center">Sáng</th>
+                        <th class="text-center">Chiều</th>
+                        <th class="text-center">Tối</th>
                         @if (Auth::user()->permission == config('custom.admin'))
                         <th class="text-center">{{ trans('message.action') }}</th>
                         @endif
@@ -101,20 +101,20 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">{{ trans('message.close') }}</span></button>
-                            <h4 class="modal-title" id="myModalLabel">{{ trans('message.editegory') }}</h4>
+                            <h4 class="modal-title" id="myModalLabel">Sửa Lịch </h4>
                         </div>
 
                         <div class="modal-body ">
                             <form method = "post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                                  <div class="form-group">
-                                    <label>{{ trans('message.doctor') }}</label>
+                                    <label>Bác Sỹ</label>
                                     <select class="form-control" name="user_id" v-model="calendar.user_id">
                                         <option v-for="item in doctors" v-bind:value="item.id">@{{ item.name }}</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>{{ trans('message.room') }}</label>
+                                    <label>Phòng</label>
                                     <div>
                                         <input type="text" name="room" v-model="calendar.room" placeholder="Room" class="form-control" required=""> 
                                     </div>
