@@ -2,7 +2,7 @@
 
 @section('content-admin')
 <div class="content-wrapper" id="OK">
-    <section class="content-header">
+    <section class="content-header"> 
         <h1>
             <small>SPECIALIST</small>
         </h1>
@@ -49,9 +49,14 @@
                             <label>{{ trans('message.description') }}</label>
                             <div>
                                 <span v-if="formErrors['description']" class="error text-danger">@{{ formErrors['description'][0] }}</span><br>
-                                <textarea class="form-control" rows="7" id="description" v-model="newItem.description"></textarea>
+                                <textarea class="form-control" rows="2" id="description" v-model="newItem.description"></textarea>
                                
                             </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label>{{ trans('message.content') }}</label>
+                            <span v-if="formErrors['content']" class="error text-danger">@{{ formErrors['content'][0] }}</span><br>
+                           <textarea class="form-control" rows="3" id="content" v-model="newItem.content"></textarea>
                         </div>
                         <div class="clearfix"></div>
                         <br>
@@ -109,10 +114,13 @@
                         <div class="clearfix"></div>
                         <div class="form-group col-md-12">
                             <label>{{ trans('message.description') }}</label>
-                            <textarea class="form-control" rows="7" id="description" v-model="fillItem.description"></textarea>
+                            <textarea class="form-control" rows="2" id="description" v-model="fillItem.description"></textarea>
                         </div>
                         <div class="clearfix"></div>
-
+                         <div class="form-group col-md-12">
+                            <label>{{ trans('message.content') }}</label>
+                           <textarea class="form-control" rows="3" id="content1" v-model="fillItem.content"></textarea>
+                        </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-success">
                                 <i class="fa fa-plus" aria-hidden="true"></i> 
@@ -171,4 +179,32 @@
     @endsection
     @section('script')
     {{ Html::script('js/admin/specialist.js') }}
+    <script>
+        CKEDITOR.replace('content1', {
+        filebrowserBrowseUrl: '{{ asset('bower/ckfinder/ckfinder.html') }}',
+        filebrowserImageBrowseUrl: '{{ asset('bower/ckfinder/ckfinder.html?type=Images') }}',
+        filebrowserFlashBrowseUrl: '{{ asset('bower/ckfinder/ckfinder.html?type=Flash') }}',
+        filebrowserUploadUrl: '{{ asset('bower/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
+        filebrowserImageUploadUrl: '{{ asset('bower/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
+        filebrowserFlashUploadUrl: '{{ asset('bower/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
+    } );
+    </script>
+    <script>
+        // CKEDITOR.replace('content');
+        CKEDITOR.replace('content1');
+    </script>
+    <script>
+        CKEDITOR.replace('content', {
+        filebrowserBrowseUrl: '{{ asset('bower/ckfinder/ckfinder.html') }}',
+        filebrowserImageBrowseUrl: '{{ asset('bower/ckfinder/ckfinder.html?type=Images') }}',
+        filebrowserFlashBrowseUrl: '{{ asset('bower/ckfinder/ckfinder.html?type=Flash') }}',
+        filebrowserUploadUrl: '{{ asset('bower/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
+        filebrowserImageUploadUrl: '{{ asset('bower/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
+        filebrowserFlashUploadUrl: '{{ asset('bower/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
+    } );
+    </script>
+    <script>
+        // CKEDITOR.replace('content');
+        CKEDITOR.replace('content');
+    </script>
     @endsection

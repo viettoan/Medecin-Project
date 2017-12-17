@@ -8,12 +8,12 @@
 <div class="content-wrapper" id="listUser">
     <section class="content-header">
         <h1>
-            <small>User</small>
-            <a class="btn btn-success" v-on:click="addUser"><i class="fa fa-plus" aria-hidden="true"></i> ADD</a>
+            <small>Quản Lý</small>
+            <a class="btn btn-success" v-on:click="addUser"><i class="fa fa-plus" aria-hidden="true"></i>Thêm Quản Lý</a>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-            <li class="active">Dashboard</li>
+            <li class="active">Thống Kê</li>
         </ol>
     </section>
     <section class="content">
@@ -35,7 +35,7 @@
                                     <th>{{ trans('message.name') }}</th>
                                     <th>{{ trans('message.phone') }}</th>
                                     <th>{{ trans('message.mail') }}</th>
-                                    <th>{{ trans('message.sex') }}</th>
+                                    <th>Giới Tính</th>
                                     <th>{{ trans('message.permisstion') }}</th>
                                     <th>{{ trans('message.action') }}</th>
                                 </tr>
@@ -173,7 +173,7 @@
                         <form method = "POST" enctype="multipart/form-data" v-on:submit.prevent="createItem">
                             {!! csrf_field() !!}
                             <div class="form-group col-md-3">
-                                <label>{{ trans('message.name') }}</label>
+                                <label>Họ Và Tên</label>
                                 <div>
                                     <input type="text" name="name" placeholder="User Name" class="form-control"  v-model="newItem.name"> 
                                     <span v-if="formErrors['name']" class="error text-danger">@{{ formErrors['name'][0] }}</span><br>
@@ -185,38 +185,38 @@
                                 <span v-if="formErrors['email']" class="error text-danger">@{{ formErrors['email'][0] }}</span><br>
                             </div>
                             <div class="form-group col-md-3 ">
-                                <label>{{ trans('message.password') }}</label>
+                                <label>Mật Khẩu</label>
                                 <input type="password" name="password" class="form-control"  v-model="newItem.password">
                                 <span v-if="formErrors['password']" class="error text-danger">@{{ formErrors['password'][0] }}</span><br>
                             </div>
                             <div class="form-group col-md-3">
-                                <label>{{ trans('message.confirmpassword') }}</label>
+                                <label>Mẩt khẩu xác nhận</label>
                                 <input type="password" name="confirm_pass" class="form-control"  v-model="newItem.confirm_pass">
                                 <span v-if="formErrors['confirm_pass']" class="error text-danger">@{{ formErrors['confirm_pass'][0] }}</span><br>
                             </div>
                             <div class="form-group col-md-3">
-                                <label>{{ trans('message.address') }}</label>
+                                <label>Địa Chỉ</label>
                                 <div>
                                     <input type="text" name="address" placeholder="Address" class="form-control"  v-model="newItem.address">
                                     <span v-if="formErrors['address']" class="error text-danger">@{{ formErrors['address'][0] }}</span><br>
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
-                                <label>{{ trans('message.phone') }}</label>
+                                <label>Số Điện Thoại</label>
                                 <div>
                                     <input type="text" name="phone" placeholder="Phone" class="form-control"  v-model="newItem.phone">
                                     <span v-if="formErrors['phone']" class="error text-danger">@{{ formErrors['phone'][0] }}</span><br>
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
-                                <label>{{ trans('message.age') }}</label>
+                                <label>TUổi</label>
                                 <div>
                                     <input type="number" name="age" placeholder="Age" class="form-control"  v-model="newItem.age">
                                     <span v-if="formErrors['age']" class="error text-danger">@{{ formErrors['age'][0] }}</span><br> 
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <label for="sel1">{{ trans('message.sex') }}</label>
+                                <label for="sel1">Giới Tính</label>
                                 <i><label for="name"></label></i>
                                 <span v-if="formErrors['sex']" class="error text-danger">@{{ formErrors['sex'][0] }}</span><br>
                                 <select  class="form-control create_customer" name="sex" v-model="newItem.sex">
@@ -225,7 +225,7 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="sel1">{{ trans('message.permission') }}</label>
+                                <label for="sel1">Quyền Hạn</label>
                                 <span v-if="formErrors['permission']" class="error text-danger">@{{ formErrors['permission'][0] }}</span><br>
                                 <select class="form-control" name="permission" v-model="newItem.permission" v-on:change="specialist">
                                     <option value=""></option>
@@ -234,7 +234,7 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6" id="sepilisc">
-                                <label for="sel1">{{ trans('message.special') }}</label>
+                                <label for="sel1">Chuyên Khoa</label>
                                 <select class="form-control" id="sel1" v-model="newItem.specialist_id">
                                     <option v-bind:value="list.id" v-for="list in listSpecial">@{{ list.name }}</option>
                                 </select>
@@ -243,7 +243,7 @@
                             <br>
                             <div class="col-md-4">
                                 <button type="submit" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> 
-                                    {{ trans('message.add') }}</button>
+                                    Thêm mới</button>
                                 </div>
                             </form>
                         </div>

@@ -13,6 +13,10 @@ npm-debug.log
 yarn-error.log
 .env
 /public/bower
+/public/vendor
+public/vendor
 public/bower
+/resources/views/vendor/
+resources/views/vendor/
 dump.rdb
 .DS_Store

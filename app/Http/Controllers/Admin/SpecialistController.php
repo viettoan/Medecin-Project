@@ -90,7 +90,7 @@ class SpecialistController extends Controller
         $data['name'] = $request->name;
         $data['status'] =  $request->status;
         $data['description'] = $request->description;
-
+        $data['content'] = $request->content;
 
         if ($this->specialist->create($data)) {
             $response['status'] = 'Thanh Cong ';

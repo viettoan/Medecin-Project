@@ -16,8 +16,8 @@ new Vue({
         formErrors: {},
         formErrorsUpdate: {},
         imageData: "",
-        newItem: {'name': '', 'image': '', 'description': '', 'status': 0},
-        fillItem: {'id': '', 'name': '', 'image': '', 'description': '',  'status': 0},
+        newItem: {'name': '', 'image': '', 'description': '', 'content': '', 'status': 0},
+        fillItem: {'id': '', 'name': '', 'image': '', 'description': '', 'content': '', 'status': 0},
         deleteItem: {'name':'','id':''},
     },
 
@@ -86,7 +86,7 @@ new Vue({
             this.fillItem.status = item.status;
             this.fillItem.image = item.image;
             this.fillItem.description = item.description;
-            console.log(this.fillItem);
+            this.fillItem.content = item.content;
             $('#infoSpecialist').modal('show');
         },
 
@@ -114,22 +114,22 @@ new Vue({
         },
 
         createSpecial: function(){
-            if (!confirm('Do you want to create this user!')) return;
+            if (!confirm('Do you want to create this speciallist!')) return;
             var input = this.newItem;
             input.image = this.imageData;
-            console.log(input);
+            var content = CKEDITOR.instances['content'].getData();
+            input.content = content;
             axios.post('/admin/specialist', input).then((response) => {
                 if (response.data.status == 'error') {
                     toastr.error(response.data.message, response.data.action, {timeOut: 5000});
                 } else {
                     toastr.success(response.data.message, response.data.action, {timeOut: 5000});
-                    this.newItem = { 'name': '', 'image': '', 'description': '', 'status': 0};
+                    this.newItem = { 'name': '', 'image': '', 'description': '', 'content': '', 'status': 0};
                     this.imageData = "";
                     this.showInfor(this.pagination.current_page);
                 }
             }).catch((error) => {
                 this.formErrors = error.response.data;
-                console.log(this.formErrors);
             });
         },
 
