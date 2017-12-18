@@ -15,4 +15,6 @@ interface SpesicalRepository extends AbstractRepository
 
     public function updateSpecial($id, $data = []);
 
+     public function getAllOrderBy($id, $status);
+
 }
