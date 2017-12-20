@@ -75,6 +75,22 @@ class IndexController extends Controller
         return view('index', compact('postNewest', 'sliders', 'videoIntro', 'specicals'));
     }
 
+    public function detailSpecial($id){
+
+        $special = $this->specical->find($id);
+
+        $allspecal = $this->specical->getAllOrderBy($id, config('custom.specialist.show'));
+
+        return view('sites.chitietchuyenkhoa.index', compact('special', 'allspecal'));
+    }
+
+    public function listSpecial() {
+
+        $specicals = $this->specical->getAll(1);
+
+        return view('sites.danhsachchuyenkhoa.index',compact('specicals'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

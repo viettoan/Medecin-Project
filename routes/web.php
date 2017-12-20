@@ -40,15 +40,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::get('listSliders', 'SliderController@list');
     Route::resource('videos', 'VideoController');
     Route::get('listVideos', 'VideoController@list');
-
-    Route::post('/languge-chooser', 'LanguageController@changeLanguage');
-
-    Route::post('/language', array(
-        'before' => 'csrf', 
-        'as' => 'language-chooser',
-        'uses' => 'LanguageController@changeLanguage',
-        )
-    );
 });
 
 Route::resource('/dangnhap-admin', 'LoginAdminController');
@@ -63,9 +54,9 @@ Route::group(['namespace' => 'Site', 'prefix' => 'profile', 'middleware' => 'aut
 		});
 });
 
-
-
 Route::group(['namespace' => 'Site'], function() {
+    Route::get('/chitiet/chuyenkhoa/{id}', 'IndexController@detailSpecial')->name('chitiet');
+    Route::get('/danhchuyenkhoa', 'IndexController@listSpecial')->name('danhsach');
     Route::get('/', 'IndexController@index')->name('index');
 
     Route::get('/gioithieu', 'IntroController@index')->name('introduce');

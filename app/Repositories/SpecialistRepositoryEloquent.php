@@ -24,7 +24,12 @@ class SpecialistRepositoryEloquent extends AbstractRepositoryEloquent implements
 
     public function getAll($status) 
     {
-        return $this->model()->where('status', $status)->get();
+        return $this->model()->where('status', $status)->paginate(15);
+    }
+
+    public function getAllOrderBy($id, $status) 
+    {
+        return $this->model()->where('status', $status)->where('id', '!=', $id)->orderBy('id', 'DESC')->limit(5)->get();
     }
 
     public function updateSpecial($id, $data = [])
