@@ -24,7 +24,7 @@
             <div class="col-md-4">
                <!-- Side Widget -->
                <div class="card my-4">
-                  <h6 class="card-header related-post"> <a href="{{ route('danhsach') }}">Các bài chuyên khoa khác</a></h6>
+                  <h6 class="card-header related-post">Chuyên Khoa</h6>
                   <div class="card-body">
                      <div class="panel panel-default">
                         <div class="panel-body">

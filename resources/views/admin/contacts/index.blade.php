@@ -54,7 +54,7 @@
                                         <span class="label label-success" v-if="item.status == {{ config('custom.contact.accept') }}">{{ trans('message.accept') }}</span>
                                     </th>
                                     <th class="col-md-1">
-                                        <a data-toggle="modal" v-on:click="getDetailContact(item.id)"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                        <a data-toggle="modal"  class="btn btn-success" v-on:click="getDetailContact(item.id)"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                     </th>
                                 </tr>   
                             </paginate> 
