@@ -61,7 +61,6 @@ new Vue({
             if (!confirm('Do you want to update this specialist!')) return;
             var input = this.fillItem;
             input.image = this.imageData;
-            console.log(input);
             axios.put('/admin/specialist/'+id, input).then((response) => {
                 this.changePage(this.pagination.current_page);
                 $('#infoSpecialist').modal('hide');
@@ -117,8 +116,8 @@ new Vue({
             if (!confirm('Do you want to create this speciallist!')) return;
             var input = this.newItem;
             input.image = this.imageData;
-            var content = CKEDITOR.instances['content'].getData();
-            input.content = content;
+            // var content = CKEDITOR.instances['content'].getData();
+            // input.content = content;
             axios.post('/admin/specialist', input).then((response) => {
                 if (response.data.status == 'error') {
                     toastr.error(response.data.message, response.data.action, {timeOut: 5000});

@@ -160,6 +160,7 @@ class SpecialistController extends Controller
         $data['name'] = $request->name;
         $data['status'] =  $request->status;
         $data['description'] = $request->description;
+        $data['content'] = $request->content;
 
         DB::table('specialists')->where('id', $id)->update($data);
         // if ($this->specialist->update($id, $data)) {

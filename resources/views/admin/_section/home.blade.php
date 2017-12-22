@@ -18,36 +18,36 @@
                 <div class="small-box bg-aqua">
                     <div class="inner">
                         <h3>{{ $countPost }}</h3>
-                        <p>POST</p>
+                        <p>BÀI VIÊTS</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="{{ route('post.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('post.index') }}" class="small-box-footer">Xem Thêm <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <div class="col-lg-4 col-xs-6">
                 <div class="small-box bg-yellow">
                     <div class="inner">
                         <h3>{{ $countUser }}</h3>
-                        <p>USER</p>
+                        <p>Người Dùng</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
                     </div>
-                    <a href="{{ route('user.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('user.index') }}" class="small-box-footer">Xem Thêm <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <div class="col-lg-4 col-xs-6">
                 <div class="small-box bg-green">
                     <div class="inner">
                         <h3>{{ $countContact }}</h3>
-                        <p>Contact</p>
+                        <p>Liên Lạc</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-pie-graph"></i>
                     </div>
-                    <a href="{{ route('contact.index') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('contact.index') }}" class="small-box-footer">Xem Thêm <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
                     <div class="box-header">
                         <i class="fa fa-envelope"></i>
 
-                        <h3 class="box-title">Rerport User</h3>
+                        <h3 class="box-title">Thống Kê Người Dùng</h3>
                         <!-- tools box -->
                         <div class="pull-right box-tools">
                             <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip"
@@ -77,7 +77,7 @@
                     <div class="box-header">
                         <i class="fa fa-envelope"></i>
 
-                        <h3 class="box-title">Repost Media</h3>
+                        <h3 class="box-title">Thống Kê Video</h3>
                         <!-- tools box -->
                         <div class="pull-right box-tools">
                             <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip"

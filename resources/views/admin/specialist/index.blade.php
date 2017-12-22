@@ -40,7 +40,6 @@
                                 <input type="file" @change="previewImage"  accept="image/*" name="image">
                             </div>
                              <div class="image-preview" v-if="imageData.length > 0">
-                                {{-- <img class="preview"   style="height: 400px;" :src="imageData"> --}}
                                 </div>
                             </div>
                         </div>
@@ -49,14 +48,14 @@
                             <label>{{ trans('message.description') }}</label>
                             <div>
                                 <span v-if="formErrors['description']" class="error text-danger">@{{ formErrors['description'][0] }}</span><br>
-                                <textarea class="form-control" rows="2" id="description" v-model="newItem.description"></textarea>
+                                <textarea class="form-control" rows="3" id="description" v-model="newItem.description"></textarea>
                                
                             </div>
                         </div>
                         <div class="form-group col-md-12">
                             <label>{{ trans('message.content') }}</label>
                             <span v-if="formErrors['content']" class="error text-danger">@{{ formErrors['content'][0] }}</span><br>
-                           <textarea class="form-control" rows="3" id="content" v-model="newItem.content"></textarea>
+                           <textarea class="form-control" rows="10" id="content" v-model="newItem.content"></textarea>
                         </div>
                         <div class="clearfix"></div>
                         <br>
@@ -119,7 +118,7 @@
                         <div class="clearfix"></div>
                          <div class="form-group col-md-12">
                             <label>{{ trans('message.content') }}</label>
-                           <textarea class="form-control" rows="3" id="content1" v-model="fillItem.content"></textarea>
+                           <textarea class="form-control" rows="5" v-model="fillItem.content"></textarea>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-success">
@@ -179,7 +178,7 @@
     @endsection
     @section('script')
     {{ Html::script('js/admin/specialist.js') }}
-    <script>
+    {{-- <script>
         CKEDITOR.replace('content1', {
         filebrowserBrowseUrl: '{{ asset('bower/ckfinder/ckfinder.html') }}',
         filebrowserImageBrowseUrl: '{{ asset('bower/ckfinder/ckfinder.html?type=Images') }}',
@@ -190,7 +189,6 @@
     } );
     </script>
     <script>
-        // CKEDITOR.replace('content');
         CKEDITOR.replace('content1');
     </script>
     <script>
@@ -204,7 +202,6 @@
     } );
     </script>
     <script>
-        // CKEDITOR.replace('content');
         CKEDITOR.replace('content');
-    </script>
+    </script> --}}
     @endsection

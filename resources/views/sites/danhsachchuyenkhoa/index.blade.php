@@ -10,27 +10,6 @@
             <div class="col-lg-8">
             <div class="col-md-4"></div>
             <div class='container-fluid' >
-                <div class="">
-                     <div class="owl-carousel owl-theme">
-                        @foreach($specicals as $specical)
-                            <div class="item">
-                                <div class="img__wrap">
-                                <a href="{{ route('chitiet', ['id' => $specical->id]) }}">
-                                     <img class="img__img" src="{{ $specical->image }}" />
-                                    <p class='img_heading'>{{ $specical->name }}</p>
-                                    <div class="blur-image">
-                                        <p class="img__description">
-                                            {{ $specical->description }}
-                                        </p>
-                                    </div>
-                                </a>
-                                </div> 
-                            </div>
-                        @endforeach
-                     </div>
-                </div>
-            </div>
-            {{ $specicals->links() }}
                <!-- Categories Widget -->
                @include('sites._include.mucluc')
             </div>
