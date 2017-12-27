@@ -19,9 +19,6 @@
   text-align: center;
 }
 
-.nav-bar ul li a {
-  border-radius: 25px;
-}
 
 .nav-bar ul li {
   font-size: 14px;
@@ -35,7 +32,13 @@
 
 .nav-bar ul li a:hover {
   background: #007455;
-  border-radius: 25px;
   transition: 0.2s;
   color: white!important;
+}
+#navbarSupportedContent {
+  padding-left: 20px;
+}
+#navbarSupportedContent .dropdown-menu {
+  margin-top: 20px;
+  border-radius: 0px;
 }

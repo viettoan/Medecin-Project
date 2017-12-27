@@ -7,13 +7,16 @@
     <div class="container main">
         <div class="row">
             <div class="col-md-9 post">
-                <h2 class='intro-title'>{!! $intro->title !!}</h2>
-                <div class="body-text">
-                    {!! $intro->content !!}
-                </div>
-            </div>
-            @include('sites._include.mucluc')
+            @if ($intro)
+              <h2 class='intro-title'>{{ $intro->title }}</h2>
+              <div class="body-text">
+                  {{ $intro->content }}
+              </div>
+            @endif        
         </div>
+        
+       @include('sites._include.mucluc')
+       </div>
     </div>
 </div>
 @include('sites._include.footer')

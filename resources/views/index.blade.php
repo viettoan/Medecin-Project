@@ -19,16 +19,17 @@
             @if (isset($postNewest))
                 @foreach ($postNewest as $post)
                     <div class="row-item row">
-                        <div class="col-md-4 col-lg-3">
+                        <div class="col-md-2 col-lg-2">
                             <a href="detail.html">
-                                <img  class="img-responsive img-post img-thumbnail" src="{{ $post->image }}" alt="">
+                                <img    style="width: 200px;height: 200px;" class="img-responsive img-post img-thumbnail" src="{{ $post->image }}" alt="">
                             </a>
                         </div>
                         <div class="col-md-8 col-lg-9">
                             <h5>{{ $post->title }}</h5>
                             <small><i class='fa fa-calendar-o'></i><i>{{ $post->created_at }}</i></small>
                             <br>
-                            <a  style="margin-top: 60px;" class="btn btn-outline-success btn-sm" href="{{ route('page.post.show', ['category' => $post->categories->link, 'post_name' => str_replace(' ', '-', $post->title)] ) }}">Xem thêm <span class="glyphicon glyphicon-chevron-right"></span></a>
+                            <p>{!! substr($post->content, 0, 400) !!}...</p>
+                            <a class="btn btn-outline-success btn-sm" href="{{ route('page.post.show', ['category' => $post->categories->link, 'post_name' => str_replace(' ', '-', $post->title)] ) }}">Xem thêm <span class="glyphicon glyphicon-chevron-right"></span></a>
                         </div>
                         <div class="break"></div>
 

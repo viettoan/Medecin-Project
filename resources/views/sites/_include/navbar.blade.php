@@ -22,7 +22,7 @@
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ strtoupper($category->name) }}</a>
           <div class="dropdown-menu">
             @foreach ($category->subCategories as $subCategory)
-              <a class="dropdown-item" href="{{ route('posts.index', ['category' => $subCategory->link ]) }}">{{ strtoupper($subCategory->name) }}</a>
+              <a class="dropdown-item" href="{{ route('posts.index', ['category' => $subCategory->link ]) }}">{{ $subCategory->name }}</a>
             @endforeach
           </div>
         @else
