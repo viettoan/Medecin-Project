@@ -31,7 +31,7 @@ class PatientRequest extends FormRequest
                 'email' => 'max:255|unique:users,email,'.$request->id ,
                 'address' => 'required|string|max:255',
                 'age' => 'required|numeric',
-                'phone' => 'required|string|max:20|min:9',
+                'phone' => 'string|max:20|min:9',
                 'sex' => 'required|numeric',
             ];
             
@@ -42,7 +42,7 @@ class PatientRequest extends FormRequest
             'email' => 'max:255|unique:users' ,
             'address' => 'required|string|max:255',
             'age' => 'required|numeric',
-            'phone' => 'required|string|max:20|min:9',
+            'phone' => 'string|max:20|min:9',
             'sex' => 'required|numeric',
         ];
     }

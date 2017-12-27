@@ -81,7 +81,7 @@ class PatientController extends Controller
         $dateTimeFormated = str_replace(['-', ' ', ':'], ['', '_', ''], $dateTime);
 
         if (!$data['email']) {
-            $data['email'] = 'customer_' .$dateTimeFormated . '@medicine.com';
+            $data['email'] = $dateTimeFormated;
         }
 
         $findPhone = $this->patient->findByPhone($data['phone']);
