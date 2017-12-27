@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
-                <h5 class='title'><i class="fa fa-home">&nbsp;&nbsp;</i>PHÒNG KHÁM CHÚC SƠN</h5>
+                <h5 class='title'><i class="fa fa-home">&nbsp;&nbsp;</i>PHÒNG KHÁM MIKA</h5>
                 <ul>
                     <li><i class="fa fa-map-marker">&nbsp;&nbsp;</i>Địa chỉ: Chúc Sơn - Chương Mỹ - Hà Nội</li>
                     <li><i class="fa fa-clock-o">&nbsp;&nbsp;</i>Giờ làm việc: Từ 8:30 - 20:00</li>

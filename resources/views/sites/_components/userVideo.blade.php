@@ -56,7 +56,7 @@
                   <td><a class='a-player' href="#" data-blink="{{ $key }}" data-src="http://sanchoi.net/{{$history->media->path . $history->media->name . '.' . $history->media->type }}">Video {{$key}}</a></td>
                   <td><i id="{{ $key }}" class="{{ $key == 0 ? 'fa fa-play blink' : '' }}"></i></td>
                   <td>
-                    <a download href="http://sanchoi.net/{{$history->media->path . $history->media->name . '.' . $history->media->type }}" class='btn btn-primary'><i class="fa fa-download" aria-hidden="true"></i>Tải về</a>
+                    <a  data-link="{{$history->media->path . $history->media->name . '.' . $history->media->type }}" class='downloadvideo btn btn-primary'><i class="fa fa-download" aria-hidden="true"></i>Tải về</a>
                   </td>
                 </tr>
                 @endforeach
@@ -70,6 +70,22 @@
 @endsection
 @section('script')
   <script>
+    function downloadDataUrlFromJavascript(filename, dataUrl) {
+
+      // Construct the a element
+      var link = document.createElement("a");
+      link.download = filename;
+      link.target = "_blank";
+
+      // Construct the uri
+      link.href = dataUrl;
+      document.body.appendChild(link);
+      link.click();
+
+      // Cleanup the DOM
+      document.body.removeChild(link);
+      delete link;
+  }
     $(document).ready(function() {
       // load video onload
       var link  = $('.a-player').eq(0).attr("data-src")
@@ -96,6 +112,9 @@
         `)
       })
 
+      $('.downloadvideo').click(function() {
+        downloadDataUrlFromJavascript("sieuam", "http://sanchoi.net/" + $(this).data('link'));
+      })
       // $('#player source').attr('src', 'http://sanchoi.net/video/2017/10/20171005-044140-3.mov')
     })
   </script>
