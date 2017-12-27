@@ -8,9 +8,9 @@
         <div class="row">
             <div class="col-md-9 post">
             @if ($intro)
-              <h2 class='intro-title'>{{ $intro->title }}</h2>
+              <h2 class='intro-title'>{!! $intro->title !!}</h2>
               <div class="body-text">
-                  {{ $intro->content }}
+                  {!! $intro->content !!}
               </div>
             @endif        
         </div>

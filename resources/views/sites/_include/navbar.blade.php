@@ -16,6 +16,9 @@
       <li class="nav-item text-center">
         <a class="nav-link" href="{{ route('introduce') }}">GIỚI THIỆU</a>
       </li>
+       <li class="nav-item text-center">
+        <a class="nav-link" href="{{ route('danhsach') }}">D/S CHUYÊN KHOA</a>
+      </li>
       @foreach ($categories as $category)
         <li class="nav-item text-center dropdown">
         @if (count($category->subCategories) != 0)
