@@ -5,7 +5,7 @@
     <div class="content-admin" id="index-patients">
         <div class="panel">
             <div class="panel-heading">
-                <h2>{{ trans('message.patients') }}</h2>
+                <h2>Bệnh Nhân</h2>
               @if(session('message'))
                 <div class="alert alert-success">
                   <p>{{session('message')}}</p>
@@ -14,11 +14,11 @@
             </div>
             <div class="panel-body">
                 <div class="col-md-12 admin-actions">
-                    <a href="javascript:void(0)" v-on:click="createPatient()" class="btn btn-success col-md-2"> <i class="fa fa-plus" aria-hidden="true"></i>
- {{ trans('message.new_patient') }}</a>
+                        <a href="javascript:void(0)" v-on:click="createPatient()" class="btn btn-success col-md-2"> <i class="fa fa-plus" aria-hidden="true"></i>
+                        Thêm Mới</a>
                     <form role="form" class="col-md-5">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter user" v-model="search.name" v-on:keyup="searchPatient()">
+                            <input type="text" class="form-control" placeholder="Tìm Kiếm Bệnh Nhân" v-model="search.name" v-on:keyup="searchPatient()">
                         </div>
                     </form>
                 </div>
