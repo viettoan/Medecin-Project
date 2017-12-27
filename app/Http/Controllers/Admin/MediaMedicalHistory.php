@@ -44,7 +44,10 @@ class MediaMedicalHistory extends Controller
 
          // phpinfo();
          // dd($request->all());
-
+        $pattern = '/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/';
+        if (!preg_match($pattern, $request->date_examination, $matches)){
+           return redirect()->route('patient.index')->with('danger',"Định dạng ngày không đúng");
+        }
         $video = new Video();
         $history = $video->saveHistory($request);
         if($video->saveMedia($history, $request)) {
