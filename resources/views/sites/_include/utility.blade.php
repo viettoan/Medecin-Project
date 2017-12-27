@@ -48,7 +48,7 @@
                               </a>
                                   <h4 class="h-bold">Lien He</h4>
                                   <p>
-                                     Tra loi nhung cau hoi nhanh nhat ...
+                                     Trả lời những câu hỏi nhanh nhất...
                                   </p>
                               </div>
                           </div>
