@@ -33,7 +33,7 @@ class IntroController extends Controller
     public function index()
     {
         $intro = $this->post->getAbout([]);
-
+        
         return view('sites.gioithieu.index', compact('intro'));
     }
 
