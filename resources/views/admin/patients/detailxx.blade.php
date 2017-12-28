@@ -17,7 +17,7 @@
       @endif
       <br>
       <div class="" style="margin-left: 15px;">
-        
+
       <a href="{{ route('patient.index') }}" class="btn btn-success"><i class="fa fa-arrow-left" aria-hidden="true"></i> Thoat</a>
       </div>
 
@@ -169,7 +169,7 @@
                                       <label for=""> Nội dung </label>
                                       <textarea id="modal-content" name="content" class="form-control" rows="5" type="text" ></textarea>
                                     </div>
-                                    <button type="submit" class="btn btn-primary"> Lưu</button>
+                                    <button id='editvideo' data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i>Vui lòng đợi" type="submit" class="btn btn-primary"> Lưu</button>
                                 </form>
                             </div>
                         </div>
@@ -183,7 +183,16 @@
 @endsection
 @section('script')
     <script>
+
       $(document).ready(function() {
+
+
+
+        $('#editvideo').click(function(e) {
+          // e.preventDefault();
+          // console.log('?');
+          $(this).button('loading');
+        })
 
         $("button[data-toggle='modal']").click(function() {
           let history_id = $(this).data('history-id');
@@ -221,5 +230,4 @@
         return confirm("Bạn có chắc chắn muốn xóa?");
       }
     </script>
-    {{-- {{ Html::script('js/admin/patient.js') }} --}}
 @endsection
