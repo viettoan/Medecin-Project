@@ -92,7 +92,7 @@
                               <label for=""> {{__('message.date')}} </label>
                               <input id='datepicker' name="date_examination" class="form-control" type="text">
                             </div>
-                            <button type="submit" class="btn btn-primary">{{ trans('message.add') }}</button>
+                            <button id='btnaddnewvideo' data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i>Vui lòng đợi" type="submit" class="btn btn-primary">{{ trans('message.add') }}</button>
                         </form>
                     </div>
                 </div>
@@ -153,7 +153,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <div style="margin-left: 800px;">
-                            <button type="button" v-on:click="storePatient()" class="btn btn-success"> <i class="fa fa-plus" aria-hidden="true"></i> {{ trans('message.add') }}</button>
+                            <button id='addnewpatients' type="button" v-on:click="storePatient()" class="btn btn-success"> <i class="fa fa-plus" aria-hidden="true"></i> {{ trans('message.add') }}</button>
                             </div>
                         </form>
                     </div>
@@ -231,6 +231,9 @@
     <script>
       $(document).ready(function() {
         $( "#datepicker" ).datepicker({format: 'dd/mm/yyyy'}).datepicker("setDate", new Date());
+        $('#btnaddnewvideo').click(function() {
+          $(this).button('loading');
+        })
       })
     </script>
     {{ Html::script('js/admin/patient.js') }}

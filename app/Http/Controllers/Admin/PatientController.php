@@ -28,7 +28,7 @@ class PatientController extends Controller
     /**
      * Pham Viet Toan
      * 09/20/2017
-     * Display a listing of the resource 
+     * Display a listing of the resource
      *
      * @return \Illuminate\Http\Response
      */
@@ -47,7 +47,7 @@ class PatientController extends Controller
     public function list()
     {
         $patients = $this->patient->getAllPatient([]);
-        
+
         return Response::json($patients, 200);
     }
 
@@ -85,7 +85,7 @@ class PatientController extends Controller
         }
 
         $findPhone = $this->patient->findByPhone($data['phone']);
-        if($findPhone == NULL) {
+        if($findPhone == NULL || $data['phone'] == "123456789") {
             if ($this->patient->create($data)) {
                 $response['status'] = 'success';
                 $response['message'] = trans('message.update_success');
@@ -96,7 +96,7 @@ class PatientController extends Controller
                 $response['action'] = trans('admin.error');
             }
         } else {
-            
+
                 $response['name'] = $findPhone['name'];
                 $response['email'] = $findPhone['email'];
                 $response['status'] = 'unique';
@@ -175,7 +175,7 @@ class PatientController extends Controller
         } catch (Exception $e ) {
             $message = trans('delete_failed');
             return Response::json($message, 403);
-        }  
+        }
     }
 
     /**
@@ -192,5 +192,5 @@ class PatientController extends Controller
         $patients = $this->patient->searchByName($keyword, []);
 
         return Response::json($patients, 200);
-    } 
+    }
 }
