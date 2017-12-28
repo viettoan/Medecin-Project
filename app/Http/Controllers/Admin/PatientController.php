@@ -119,7 +119,7 @@ class PatientController extends Controller
     {
         $patient = $this->patient->find($id, []);
 
-        return view('admin.patients.detail', compact('patient'));
+        return view('admin.patients.detailxx', compact('patient'));
     }
 
     /**

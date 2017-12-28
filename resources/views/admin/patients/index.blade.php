@@ -92,6 +92,9 @@
                               <label for=""> {{__('message.date')}} </label>
                               <input id='datepicker' name="date_examination" class="form-control" type="text">
                             </div>
+                            <div id="validate-date" class="hide alert alert-danger">
+                              Thời gian không hợp lệ.
+                            </div>
                             <button id='btnaddnewvideo' data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i>Vui lòng đợi" type="submit" class="btn btn-primary">{{ trans('message.add') }}</button>
                         </form>
                     </div>
@@ -228,10 +231,20 @@
  </div>
 @endsection
 @section('script')
+{{ Html::script('js/admin/moment.js') }}
     <script>
       $(document).ready(function() {
         $( "#datepicker" ).datepicker({format: 'dd/mm/yyyy'}).datepicker("setDate", new Date());
-        $('#btnaddnewvideo').click(function() {
+        $('#btnaddnewvideo').click(function(e) {
+          let date = $('#datepicker').val();
+          console.log(date)
+          if(!moment(date, 'DD/MM/YYYY',true).isValid()) {
+            e.preventDefault();
+            console.log('fail');
+            $('#validate-date').removeClass("hide alert alert-danger").addClass("alert alert-danger");
+            return;
+          }
+          $('#validate-date').removeClass("alert alert-danger").addClass("hide alert alert-danger");
           $(this).button('loading');
         })
       })
