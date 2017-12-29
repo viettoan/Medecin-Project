@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Admin</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="icon" type='image/png' href="favicon.png">
     {{ Html::style('bower/bootstrap/dist/css/bootstrap.min.css') }}
     {{ Html::style('bower/font-awesome/css/font-awesome.min.css') }}
     {{ Html::style('bower/toastr/toastr.min.css') }}
@@ -31,7 +32,7 @@
         <div class="control-sidebar-bg"></div>
     </div>
         {{-- @include('admin._section.footer') --}}
-    
+
     {{ Html::script('bower/jquery/dist/jquery.min.js') }}
     {{ Html::script('bower/vue/dist/vue.min.js') }}
     {{ Html::script('bower/toastr/toastr.min.js') }}
@@ -60,7 +61,7 @@
     {{ Html::script('dist/js/adminlte.min.js') }}
     {{ Html::script('js/admin/head.js') }}
     {{ Html::script('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}
-    
+
     @yield('script')
 </body>
 </html>
