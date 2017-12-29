@@ -1,8 +1,9 @@
 <div id="header_admin">
 <header class="main-header">
-    <a href="{{ route('home-admin') }}" class="logo">
-        <span class="logo-mini"><b>M</b>DC</span>
-        <span class="logo-lg"><b>Medicin</b></span>
+    <!-- <a href="{{ route('home-admin') }}" class="logo"> -->
+    <a href="{{ route('index') }}" class="logo">
+        <span class="logo-mini"><b>MIKA</b></span>
+        <span class="logo-lg"><b>MIKA</b></span>
     </a>
     <nav class="navbar navbar-static-top">
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -29,14 +30,14 @@
                         <li class="user-footer">
                             @if(Auth::check())
                             <div class="pull-left text-center">
-                                <a v-on:click="showProfile({{ Auth::user()->id }})" class="btn btn-default btn-flat">Profile</a>
+                                <a v-on:click="showProfile({{ Auth::user()->id }})" class="btn btn-default btn-flat">Thông tin tài khoản</a>
                             </div>
                             @endif
                             <div class="pull-right">
                                 <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
                                     onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                    Logout
+                                    Đăng xuất
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
@@ -44,7 +45,7 @@
                             </div>
                         </li>
                     </ul>
-                </li> 
+                </li>
             </ul>
         </div>
     </nav>
@@ -77,14 +78,14 @@
                             <div class="panel-group">
                             @if(Auth::check())
                                 <div class="panel panel-default">
-                                    <div class="panel-heading">General Information</div>
+                                    <div class="panel-heading">Thông tin chung</div>
                                     <div class="panel-body">
                                         <table class="table table-hover" id="infor_user_admin">
                                             <tbody>
                                                 <tr>
                                                     <td class="col-md-3">
                                                         <strong>
-                                                            <i class="fa fa-user-o"></i> Name
+                                                            <i class="fa fa-user-o"></i> Tên
                                                         </strong>
                                                     </td>
                                                     <td>@{{ profile.name }}</td>
@@ -100,28 +101,28 @@
                                                 <tr>
                                                     <td class="col-md-3">
                                                         <strong>
-                                                            <i class="fa fa-font-awesome"></i> Phone
+                                                            <i class="fa fa-font-awesome"></i> Số điện thoại
                                                         </strong>
                                                     </td>
-                                                    <td> 
+                                                    <td>
                                                     @{{ profile.phone }}
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="col-md-3">
                                                         <strong>
-                                                            <i class="fa fa-transgender"></i> Gender
+                                                            <i class="fa fa-transgender"></i> Giới tính
                                                         </strong>
                                                     </td>
-                                                    
-                                                    <td v-if="profile.sex == 1">Male</td>
-                                                  
-                                                    <td v-if="profile.sex == 0">Famele</td>
+
+                                                    <td v-if="profile.sex == 1">Nam</td>
+
+                                                    <td v-if="profile.sex == 0">Nữ</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="col-md-3">
                                                         <strong>
-                                                            <i class="fa fa-address-card" aria-hidden="true"></i> Address
+                                                            <i class="fa fa-address-card" aria-hidden="true"></i> Địa chỉ
                                                         </strong>
                                                     </td>
                                                     <td>
@@ -131,7 +132,7 @@
                                                 <tr>
                                                     <td class="col-md-3">
                                                         <strong>
-                                                            <i class="fa fa-check-circle-o" aria-hidden="true"></i> Age
+                                                            <i class="fa fa-check-circle-o" aria-hidden="true"></i> Tuổi
                                                         </strong>
                                                     </td>
                                                     <td>
@@ -151,9 +152,9 @@
                                         </div>
                                         <br>
                                             <div class="pull-right">
-                                                <button class="btn btn-success"> <i class="fa fa-plus" aria-hidden="true"></i> Update</button> 
+                                                <button class="btn btn-success"> <i class="fa fa-plus" aria-hidden="true"></i> Cập nhật</button>
                                             </div>
-                                        </form> 
+                                        </form>
                                     </div>
                                     <div id="edit_profile">
                                         <form v-on:submit.prevent="updateProfile({{ Auth::user()->id }})">
@@ -178,11 +179,11 @@
                                         <br>
                                         <div class="input-group col-md-12">
                                             <div class="col-md-6">
-                                            <span>Age</span>
+                                            <span>Tuổi</span>
                                             <input type="text" class="form-control" name="address" v-model="profile.age">
                                             </div>
                                             <div class="col-md-6">
-                                            <span> Sex</span>
+                                            <span> Giới tính</span>
                                             <select  class="form-control" name="sex" v-model="profile.sex">
                                                 <option value="1">{{ __('Male') }}</option>
                                                 <option value="0">{{ __('Famele') }}</option>
@@ -191,23 +192,23 @@
                                         </div>
                                         <br>
                                             <div class="pull-right">
-                                                <button class="btn btn-success"> <i class="fa fa-plus" aria-hidden="true"></i> Update</button> 
+                                                <button class="btn btn-success"> <i class="fa fa-plus" aria-hidden="true"></i> Cập nhật</button>
                                             </div>
-                                        </form> 
+                                        </form>
                                     </div>
                                     </div>
                                 </div>
                             </div>
-                            <a class="btn btn-primary" v-on:click="tranfomer_profile"> <i class="fa fa-eye" aria-hidden="true"></i> View Profile</a>
-                            <a class="btn btn-primary" v-on:click="change_password({{ Auth::user()->id }})"> <i class="fa fa-pencil" aria-hidden="true"></i> Change password</a>
-                            <a class="btn btn-primary" v-on:click="show_form_edit({{ Auth::user()->id }})"> <i class="fa fa-indent" aria-hidden="true"></i> Edit profile</a>
+                            <a class="btn btn-primary" v-on:click="tranfomer_profile"> <i class="fa fa-eye" aria-hidden="true"></i> Xem thông tin cá nhân</a>
+                            <a class="btn btn-primary" v-on:click="change_password({{ Auth::user()->id }})"> <i class="fa fa-pencil" aria-hidden="true"></i>Đổi mật khẩu</a>
+                            <a class="btn btn-primary" v-on:click="show_form_edit({{ Auth::user()->id }})"> <i class="fa fa-indent" aria-hidden="true"></i>Thay đổi thông tin</a>
                             @endif
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
             </div>
         </div>
 
