@@ -43,7 +43,7 @@
             <div class="panel-body">
                 <div class="col-md-3 video-item" v-for="item in videos" v-if="item.status == 4">
                     <video controls="controls" width="100%" >
-                        <source :src="item.path" type="video/mp4" />
+                        <source :src="item.path"  />
                     </video>
                     <div>
                         <ul class="list-unstyled list-inline">
@@ -73,12 +73,12 @@
                     </div>
 
                     <div class="modal-body ">
-                        <form method = "POST" id="storeSlider" enctype="multipart/form-data" action="{{ route('sliders.store') }}">
+                        <form method = "POST" id="storeVideo" enctype="multipart/form-data" action="{{ route('videos.store') }}">
                         {{ csrf_field() }}
                             <div class="form-group">
                                 <label>{{ trans('message.video') }}</label>
                                 <div>
-                                    <input  type="file" name="video[]" id="video" v-on:change="onFileChange" multiple accept="video/*">
+                                    <input  type="file" name="video" id="video" v-on:change="onFileChange" multiple accept="video/*">
                                 </div>
                                 <div class="col-md-12" v-if="videoData.length > 0">
                                     <video controls="controls" width="100%" >
@@ -86,7 +86,8 @@
                                     </video>
                                 </div>
                             </div>
-                            <button type="button" v-on:click="storeVideo()" class="btn btn-default">{{ trans('message.add') }}</button>
+
+                            <button type="button" v-on:click="storeVideos()" class="btn btn-default">{{ trans('message.add') }}</button>
                         </form>
                     </div>
                 </div>
