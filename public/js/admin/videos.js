@@ -44,15 +44,15 @@ new Vue({
             };
             reader.readAsDataURL(file);
         },
-        storeVideo: function() {
+        storeVideos: function() {
             var form = new FormData();
             form.append('video', this.video.video);
             form.append('status', this.video.status);
             axios.post('/admin/videos', form).then(response => {
                 if (response.status == 200) {
-                    toastr.success(response.data, '', {timeOut: 5000});
+                    toastr.success(response.data, '', {timeOut: 50000});
                 } else {
-                    toastr.error(response.data, '', {timeOut: 5000});
+                    toastr.error(response.data, '', {timeOut: 50000});
                 }
                 this.listVideos();
                 $('#newVideo').modal('hide');

@@ -53,6 +53,7 @@ new Vue({
             var form = new FormData();
             form.append('image', this.slider.image);
             form.append('status', this.slider.status);
+            console.log(form);
             axios.post('/admin/sliders', form).then(response => {
                 if (response.status == 200) {
                     toastr.success(response.data, '', {timeOut: 5000});

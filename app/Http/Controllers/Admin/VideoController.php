@@ -56,22 +56,8 @@ class VideoController extends Controller
     public function store(Request $request)
     {
         $response = [];
-        $rule = [
-            'video'  => 'mimes:mp4,mov,ogg,avi | max:200000'
-        ];
-
-        $validator = \Validator::make($request->all(), $rule);
-        if ($validator->fails()) {
-            foreach ($rule as $key => $value) {
-                if ($validator->messages()->first($key)) {
-                    $response[] = $validator->messages()->first($key);
-                }
-            }
-
-            return \Response::json($response, 403);
-        }
         $video = $request->file('video');
-        $filename = $video->hashName();
+        $filename = $video->getClientOriginalName();
         $video->move(config('custom.media.video_intro.defaultPath'), $filename);
 
         $data = [
