@@ -3,6 +3,7 @@
 @include('sites._include.navbar')
 @include('sites._include.banner')
 <div class="page-content">
+  <input type="hidden" name="baseurl" value="{{ url('/') }}">
     <div class="container main">
         <div class="intro">
           <h2>VIDEO SIÊU ÂM</h2>
@@ -23,7 +24,7 @@
                 </tr>
                 <tr>
                   <td><strong>Tuổi:</strong></td>
-                  <td>19</td>
+                  <td>{{ $user->age }}</td>
                 </tr>
                 <tr>
                   <td><strong>Số điện thoại:</strong></td>
@@ -53,10 +54,10 @@
                 @foreach($user->histories as $key => $history)
                 <tr>
                   <td>{{$history->date_examination}}</td>
-                  <td><a class='a-player' href="#" data-blink="{{ $key }}" data-src="http://sanchoi.net/{{$history->media->path . $history->media->name . '.' . $history->media->type }}">Video {{$key}}</a></td>
+                  <td><a class='a-player' href="#" data-blink="{{ $key }}" data-src="{{ url('/') }}/<?php echo str_replace("public/","",$history->media->path); ?>{{$history->media->name . '.' . $history->media->type }}">Video {{$key}}</a></td>
                   <td><i id="{{ $key }}" class="{{ $key == 0 ? 'fa fa-play blink' : '' }}"></i></td>
                   <td>
-                    <a  data-link="{{$history->media->path . $history->media->name . '.' . $history->media->type }}" class='downloadvideo btn btn-primary'><i class="fa fa-download" aria-hidden="true"></i>Tải về</a>
+                    <a  data-link="<?php echo str_replace("public/","",$history->media->path) ?>{{$history->media->name . '.' . $history->media->type }}" class='downloadvideo btn btn-primary'><i class="fa fa-download" aria-hidden="true"></i>Tải về</a>
                   </td>
                 </tr>
                 @endforeach
@@ -113,7 +114,8 @@
       })
 
       $('.downloadvideo').click(function() {
-        downloadDataUrlFromJavascript("sieuam", "http://sanchoi.net/" + $(this).data('link'));
+        let baseurl = $('#baseurl').val();
+        downloadDataUrlFromJavascript("sieuam", baseurl + '/' + $(this).data('link'));
       })
       // $('#player source').attr('src', 'http://sanchoi.net/video/2017/10/20171005-044140-3.mov')
     })

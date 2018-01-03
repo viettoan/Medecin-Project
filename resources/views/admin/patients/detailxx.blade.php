@@ -1,6 +1,7 @@
 @extends('admin.master')
 
 @section('content-admin')
+  <input type="hidden" name="baseurl" value="{{ url('/') }}">
 <div class="content-admin content-wrapper">
     <div class="panel ">
       @if(session('success'))
@@ -92,7 +93,8 @@
                             @foreach($patient->histories as $key => $history)
                               <tr>
                                 <td>{{$history->date_examination}}</td>
-                                <td><a class='a-player' href="#" data-blink="{{ $key }}" data-src="http://sanchoi.net/{{$history->media->path . $history->media->name . '.' . $history->media->type }}">Video {{$key}}</a></td>
+
+                                <td><a class='a-player' href="#" data-blink="{{ $key }}" data-src="{{url('/')}}/<?php echo str_replace("public/","",$history->media->path); ?>{{$history->media->name . '.' . $history->media->type }}">Video {{$key}}</a></td>
                                 <td><i id="{{ $key }}" class="{{ $key == 0 ? 'fa fa-play blink' : '' }}"></i></td>
                                 @if(Auth::user()->permission == 1)
                                 <td>
@@ -170,7 +172,7 @@
                                             <input id="file" type="file" name="video" class="form-control">
                                         </div>
                                     </div>
-                                  @endif  
+                                  @endif
                                   {{-- content --}}
                                     <div class="form-group">
                                       <label for=""> Nội dung </label>
@@ -204,8 +206,9 @@
         $("button[data-toggle='modal']").click(function() {
           let history_id = $(this).data('history-id');
           let content = $(this).data('content');
+          let baseurl = $('#baseurl').val();
           $('#modal-content').val(content);
-        $('#modal-form').attr('action','http://localhost:8000/admin/media-medical/' + history_id);
+        $('#modal-form').attr('action', baseurl + '/admin/media-medical/' + history_id);
         })
         // load video onload
         var link  = $('.a-player').eq(0).attr("data-src")

@@ -118,7 +118,12 @@ class PatientController extends Controller
     public function show($id)
     {
         $patient = $this->patient->find($id, []);
-
+        foreach ($patient->histories as $key => $history) {
+          if($history->media == null) {
+            $history->delete();
+          }
+        }
+        $patient = $this->patient->find($id, []);
         return view('admin.patients.detailxx', compact('patient'));
     }
 

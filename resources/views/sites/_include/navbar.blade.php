@@ -6,7 +6,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <a class="navbar-brand" href="{{ route('index') }}"><img src="images/logo2.png"  class='img-responsive' alt="" id="logo"></a>
+  <a class="navbar-brand" href="{{ route('index') }}"><img src="images/logo3.png"  class='img-responsive' alt="" id="logo"></a>
 
   <div class="collapse navbar-collapse nav-right nav-bar col-md-10 " id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto pull-left">
