@@ -22,14 +22,14 @@
       @foreach ($categories as $category)
         <li class="nav-item text-center dropdown">
         @if (count($category->subCategories) != 0)
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ strtoupper($category->name) }}</a>
+          <a class="nav-link dropdown-toggle format_font" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ strtoupper($category->name) }}</a>
           <div class="dropdown-menu">
             @foreach ($category->subCategories as $subCategory)
-              <a class="dropdown-item" href="{{ route('posts.index', ['category' => $subCategory->link ]) }}">{{ $subCategory->name }}</a>
+              <a class="dropdown-item format_font" href="{{ route('posts.index', ['category' => $subCategory->link ]) }}">{{ $subCategory->name }}</a>
             @endforeach
           </div>
         @else
-          <a class="nav-link" href="{{ route('posts.index', ['category' => $category->link ]) }}">{{ strtoupper($category->name) }}</a>
+          <a class="nav-link format_font" href="{{ route('posts.index', ['category' => $category->link ]) }}">{{ strtoupper($category->name) }}</a>
         @endif
         </li>
       @endforeach
