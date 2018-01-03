@@ -9,7 +9,7 @@
      height="500px"
      frameborder="0" style="border:0"
      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAO63kLiZuw39FmCvpLmuTVD-RvtuRtFmU
-       &q=Space+Needle,Seattle+WA" allowfullscreen>
+     &q=Phòng khám Mika, ĐT419,Chúc Lý, tt. Chúc Sơn,Chương Mỹ,Hà Nội,Việt Nam, TT. Chúc Sơn, Chương Mỹ, Hà Nội , Vietnam" allowfullscreen>
    </iframe>
     <div class="container main">
       <div class="row">
@@ -34,7 +34,7 @@
                   <label for="formGroupExampleInput">Họ và Tên</label>
                   <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="Vui lòng nhập họ và tên" required value="{{ old('name') }}">
                   @if ($errors->has('name'))
-                      <span class="help-block"> 
+                      <span class="help-block">
                            <strong>{{ $errors->first('name') }}</strong>
                       </span>
                   @endif
@@ -82,9 +82,8 @@
          </div>
 
          <ul>
-           <li><strong>Điện thoại: </strong>11113232</li>
-           <li><strong>Email: </strong>anything@gmail.com</li>
-           <li><strong>Website: </strong>This.website</li>
+           <li><strong>Điện thoại: </strong>02433 868 309 - 09133 803 309</li>
+           <li><strong>Email: </strong>phongkhammika@gmail.com</li>
            <li><strong>Địa chỉ: </strong>Chúc Sơn - Chương Mỹ - Hà Nội </li>
          </ul>
 
