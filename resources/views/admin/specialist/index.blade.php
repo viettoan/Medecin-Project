@@ -113,7 +113,7 @@
                         <div class="clearfix"></div>
                         <div class="form-group col-md-12">
                             <label>{{ trans('message.description') }}</label>
-                            <textarea class="form-control" rows="2" id="description" v-model="fillItem.description"></textarea>
+                            <textarea class="form-control" rows="4" id="description" v-model="fillItem.description"></textarea>
                         </div>
                         <div class="clearfix"></div>
                          <div class="form-group col-md-12">

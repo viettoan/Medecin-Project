@@ -64,6 +64,7 @@ new Vue({
             axios.put('/admin/specialist/'+id, input).then((response) => {
                 this.changePage(this.pagination.current_page);
                 $('#infoSpecialist').modal('hide');
+                this.showInfor(this.pagination.current_page);
                 if (response.data.status == 'error') {
                     toastr.error(response.data.message, response.data.action, {timeOut: 5000});
                 } else {
