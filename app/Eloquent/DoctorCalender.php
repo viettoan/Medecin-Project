@@ -12,8 +12,12 @@ class DoctorCalender extends Model
     protected $fillable = [
     	'user_id',
     	'room',
-    	'morning',
-    	'afternoon',
-    	'night',
+    	'mon',
+    	'tue',
+    	'wed',
+    	'thu',
+    	'fri',
+    	'sat',
+    	'sun'
     ];
 }

@@ -5,7 +5,7 @@
 <div class="page-content">
     <div class="container main">
         <div class="row">
-            <div class="col-md-9 post" id="ok">
+            <div class="col-md-10 post" id="ok">
                 <div class="col-md-12 ">
                     <div class="col-md-12">
                         <div class="card card-body text-center inforprofile">
@@ -15,31 +15,53 @@
                                 <table class="table table-hover table-bordered">
                                     <thead >
                                         <tr>
-                                            <th class="text-center">{{ trans('message.doctor') }}</th>
                                             <th class="text-center">{{ trans('message.room') }}</th>
-                                            <th class="text-center">{{ trans('message.morning') }}</th>
-                                            <th class="text-center">{{ trans('message.afternoon') }}</th>
-                                            <th class="text-center">{{ trans('message.night') }}</th>
+                                            <th class="text-center">Thu 2</th>
+                                            <th class="text-center">Thu 3</th>
+                                            <th class="text-center">Thu 4</th>
+                                            <th class="text-center">Thu 5</th>
+                                            <th class="text-center">Thu 6</th>
+                                            <th class="text-center">Thu 7</th>
+                                            <th class="text-center">Chu nhat</th>
                                         </tr>   
                                     </thead>
                                     <tbody>
                                     @foreach ($calendars as $item)
                                         <tr >
-                                            <th class="text-center">{{ $item->doctor->name }}</th>
                                             <th class="text-center">{{ $item->room }}</th>
                                             <th class="text-center">
-                                                @if ($item->morning == config('custom.calendar.yes'))
-                                                <i class="fa fa-check" aria-hidden="true"></i>
+                                                @if ($item->mon == config('custom.calendar.yes'))
+                                                {{ $item->doctor->name }}
+                                                @endif
+                                            </th>
+                                           <th class="text-center">
+                                                @if ($item->tue == config('custom.calendar.yes'))
+                                                {{ $item->doctor->name }}
                                                 @endif
                                             </th>
                                             <th class="text-center">
-                                                @if ($item->afternoon == config('custom.calendar.yes'))
-                                                <i class="fa fa-check" aria-hidden="true"></i>
+                                                @if ($item->wed == config('custom.calendar.yes'))
+                                                {{ $item->doctor->name }}
                                                 @endif
                                             </th>
                                             <th class="text-center">
-                                                @if ($item->night == config('custom.calendar.yes'))
-                                                <i class="fa fa-check" aria-hidden="true"></i>
+                                                @if ($item->thu == config('custom.calendar.yes'))
+                                                {{ $item->doctor->name }}
+                                                @endif
+                                            </th>
+                                            <th class="text-center">
+                                                @if ($item->fri == config('custom.calendar.yes'))
+                                                {{ $item->doctor->name }}
+                                                @endif
+                                            </th>
+                                            <th class="text-center">
+                                                @if ($item->sat == config('custom.calendar.yes'))
+                                                {{ $item->doctor->name }}
+                                                @endif
+                                            </th>
+                                            <th class="text-center">
+                                                @if ($item->sun == config('custom.calendar.yes'))
+                                                {{ $item->doctor->name }}
                                                 @endif
                                             </th>
                                         </tr>

@@ -16,11 +16,14 @@
             <table class="table table-hover table-bordered">
                 <thead >
                     <tr>
-                        <th class="text-center">Bác SỸ</th>
-                        <th class="text-center">Phòng Ban</th>
-                        <th class="text-center">Sáng</th>
-                        <th class="text-center">Chiều</th>
-                        <th class="text-center">Tối</th>
+                        <th class="text-center">Phòng</th>
+                        <th class="text-center">Thu 2</th>
+                        <th class="text-center">Thu 3</th>
+                        <th class="text-center">Thu 4</th>
+                        <th class="text-center">Thu 5</th>
+                        <th class="text-center">Thu 6</th>
+                        <th class="text-center">Thu 7</th>
+                        <th class="text-center">Chu nhat</th>
                         @if (Auth::user()->permission == config('custom.admin'))
                         <th class="text-center">{{ trans('message.action') }}</th>
                         @endif
@@ -28,16 +31,27 @@
                 </thead>
                 <tbody>
                     <tr v-for="item in calendars">
-                        <th>@{{ item.doctor.name }}</th>
                         <th>@{{ item.room }}</th>
                         <th>
-                            <i class="fa fa-check" aria-hidden="true" v-if="item.morning == 1"></i>
+                            <span v-if="item.mon == 1">@{{ item.doctor.name }}</span>
                         </th>
                         <th>
-                            <i class="fa fa-check" aria-hidden="true" v-if="item.afternoon == 1"></i>
+                            <span v-if="item.tue == 1">@{{ item.doctor.name }}</span>
                         </th>
                         <th>
-                            <i class="fa fa-check" aria-hidden="true" v-if="item.night == 1"></i>
+                            <span v-if="item.wed == 1">@{{ item.doctor.name }}</span>
+                        </th>
+                        <th>
+                            <span v-if="item.thu == 1">@{{ item.doctor.name }}</span>
+                        </th>
+                        <th>
+                            <span v-if="item.fri == 1">@{{ item.doctor.name }}</span>
+                        </th>
+                        <th>
+                            <span v-if="item.sat == 1">@{{ item.doctor.name }}</span>
+                        </th>
+                        <th>
+                            <span v-if="item.sun == 1">@{{ item.doctor.name }}</span>
                         </th>
                         @if (Auth::user()->permission == config('custom.admin'))
                         <th class="col-md-1">
@@ -75,17 +89,37 @@
                                 <div>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="morning" value="{{ config('custom.calendar.yes') }}" v-model="calendar.morning">{{ trans('message.morning') }}
+                                            <input type="checkbox" name="mon" value="{{ config('custom.calendar.yes') }}" v-model="calendar.mon">Thu 2
                                         </label>
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="afternoon" value="{{ config('custom.calendar.yes') }}" v-model="calendar.afternoon">{{ trans('message.afternoon') }}
+                                            <input type="checkbox" name="tue" value="{{ config('custom.calendar.yes') }}" v-model="calendar.tue">Thu 3
                                         </label>
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="night" value="{{ config('custom.calendar.yes') }}" v-model="calendar.night">{{ trans('message.night') }}
+                                            <input type="checkbox" name="wed" value="{{ config('custom.calendar.yes') }}" v-model="calendar.wed">Thu 4
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="thu" value="{{ config('custom.calendar.yes') }}" v-model="calendar.thu">Thu 5
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="fri" value="{{ config('custom.calendar.yes') }}" v-model="calendar.fri">Thu 6
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="sat" value="{{ config('custom.calendar.yes') }}" v-model="calendar.sat">Thu 7
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="sun" value="{{ config('custom.calendar.yes') }}" v-model="calendar.sun">Chu nhat
                                         </label>
                                     </div>
                                 </div>
@@ -122,17 +156,37 @@
                                 <div>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="status" value="{{ config('custom.calendar.yes') }}" v-model="calendar.morning" :checked="calendar.morning == {{ config('custom.calendar.yes') }}">{{ trans('message.morning') }}
+                                            <input type="checkbox" name="mon" value="{{ config('custom.calendar.yes') }}" v-model="calendar.mon">Thu 2
                                         </label>
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="status" value="{{ config('custom.calendar.yes') }}" v-model="calendar.afternoon" :checked="calendar.afternoon == {{ config('custom.calendar.yes') }}" >{{ trans('message.afternoon') }}
+                                            <input type="checkbox" name="tue" value="{{ config('custom.calendar.yes') }}" v-model="calendar.tue">Thu 3
                                         </label>
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" name="status" value="{{ config('custom.calendar.yes') }}" v-model="calendar.night" :checked="calendar.night == {{ config('custom.calendar.yes') }}">{{ trans('message.night') }}
+                                            <input type="checkbox" name="wed" value="{{ config('custom.calendar.yes') }}" v-model="calendar.wed">Thu 4
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="thu" value="{{ config('custom.calendar.yes') }}" v-model="calendar.thu">Thu 5
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="fri" value="{{ config('custom.calendar.yes') }}" v-model="calendar.fri">Thu 6
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="sat" value="{{ config('custom.calendar.yes') }}" v-model="calendar.sat">Thu 7
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="sun" value="{{ config('custom.calendar.yes') }}" v-model="calendar.sun">Chu nhat
                                         </label>
                                     </div>
                                 </div>
