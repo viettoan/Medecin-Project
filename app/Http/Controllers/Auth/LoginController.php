@@ -76,7 +76,7 @@ class LoginController extends Controller
             return "admin/home-admin";
           }
         }
-        return "/";
+        return "profile/video-sieu-am";
     }
 
 }
