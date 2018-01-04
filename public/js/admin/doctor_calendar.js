@@ -8,9 +8,13 @@ new Vue({
             'id': '',
             'user_id': '',
             'room': '',
-            'morning': 0,
-            'afternoon': 0,
-            'night': 0,
+            'mon': 0,
+            'tue': 0,
+            'wed': 0,
+            'thu': 0,
+            'fri': 0,
+            'sat': 0,
+            'sun': 0
         },
         calendars: [],
         doctors: [],
@@ -24,9 +28,13 @@ new Vue({
             this.calendar = {
                 'user_id': '',
                 'room': '',
-                'morning': 0,
-                'afternoon': 0,
-                'night': 0,
+                'mon': 0,
+                'tue': 0,
+                'wed': 0,
+                'thu': 0,
+                'fri': 0,
+                'sat': 0,
+                'sun': 0
             };
         },
         /**
@@ -46,20 +54,40 @@ new Vue({
             });   
         },
         convert : function(){
-            if (this.calendar.morning == true) {
-                this.calendar.morning = 1;
+            if (this.calendar.mon == true) {
+                this.calendar.mon = 1;
             } else {
-                this.calendar.morning = 0;
+                this.calendar.mon = 0;
             }
-            if (this.calendar.afternoon == true) {
-                this.calendar.afternoon = 1;
+            if (this.calendar.tue == true) {
+                this.calendar.tue = 1;
             } else {
-                this.calendar.afternoon = 0;
+                this.calendar.tue = 0;
             }
-            if (this.calendar.night == true) {
-                this.calendar.night = 1;
+            if (this.calendar.wed == true) {
+                this.calendar.wed = 1;
             } else {
-                this.calendar.night = 0;
+                this.calendar.wed = 0;
+            }
+            if (this.calendar.thu == true) {
+                this.calendar.thu = 1;
+            } else {
+                this.calendar.thu = 0;
+            }
+            if (this.calendar.fri == true) {
+                this.calendar.fri = 1;
+            } else {
+                this.calendar.fri = 0;
+            }
+            if (this.calendar.sat == true) {
+                this.calendar.sat = 1;
+            } else {
+                this.calendar.sat = 0;
+            }
+            if (this.calendar.sun == true) {
+                this.calendar.sun = 1;
+            } else {
+                this.calendar.sun = 0;
             }
         },
         /**
@@ -130,6 +158,7 @@ new Vue({
                 url: '/admin/doctor-calendar',
                 json: true
             }
+            console.log(this.calendar);
             axios(authOptions).then(response => {
                 if (response.status == 200) {
                     toastr.success(response.data, '', {timeOut: 5000});
