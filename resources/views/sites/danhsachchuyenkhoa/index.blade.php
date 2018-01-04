@@ -43,7 +43,7 @@
                                     <h5>{{ $specical->name }}</h5>
                                     <small><i class='fa fa-calendar-o'></i> <i>{{ $specical->created_at->format('d/m/Y') }}</i></small>
                                     <p>{!! substr($specical->description, 0, 400) !!}...</p>
-                                    <a class="btn btn-outline-success btn-sm" href="">Xem thêm <span class="glyphicon glyphicon-chevron-right"></span></a>
+                                    <a href="{{ route('chitiet', ['id' => $specical->id]) }}" class="btn btn-outline-success btn-sm" href="">Xem thêm <span class="glyphicon glyphicon-chevron-right"></span></a>
                                 </div>
                                 <div class="break"></div>
 

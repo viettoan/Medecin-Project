@@ -9,10 +9,16 @@
   margin: 0 auto;
 }
 
+.format_font{
+  text-transform: uppercase !important;  
+}
 @media only screen and (min-width: 1024px) {
   .nav-bar {
     padding-left: 200px;
   }
+}
+.format_font{
+  text-transform: uppercase !important;  
 }
 
 .nav-bar {
