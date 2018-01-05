@@ -131,8 +131,15 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $data = $request->except('password');
-
+        $data['name'] =$request->name;
+        $data['email'] =$request->email;
+        $data['password'] =$request->password;
+        $data['age'] =$request->age;
+        $data['sex'] =$request->sex;
+        $data['phone'] =$request->phone;
+        $data['address'] =$request->address;
+        $data['permission'] =$request->permission;
+        $data['specialist_id'] =$request->specialist_id;
         if ($this->user->create($data)) {
             $response['status'] = 'Thanh Cong ';
             $response['message'] = trans('Them Nguoi Dung Thanh Cong');

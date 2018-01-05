@@ -78,6 +78,7 @@ new Vue({
             })
         },
         editUser: function(item) {
+            console.log(item);
             this.fillItem.id = item.id;
             this.fillItem.name = item.name;
             this.fillItem.email = item.email;
@@ -102,6 +103,7 @@ new Vue({
         updateItem: function(id){
             if (!confirm('Do you want to update this user!')) return;
             var input = this.fillItem;
+            console.log(id);
             axios.put('/admin/user/'+id, input).then((response) => {
                 this.changePage(this.pagination.current_page);
                 $("#editUser").modal('hide');
@@ -130,6 +132,7 @@ new Vue({
             });
         },
         showUser: function(item) {
+            console.log(item);
             this.fillItem.id = item.id;
             this.fillItem.name = item.name;
             this.fillItem.email = item.email;
@@ -204,6 +207,7 @@ new Vue({
             if (!confirm('Do you want to create this user!')) return;
             var input = this.newItem;
             axios.post('/admin/user', input).then((response) => {
+                console.log(response);
                 if (response.data.status == 'error') {
                     toastr.error(response.data.message, response.data.action, {timeOut: 5000});
                 } else {
@@ -225,7 +229,6 @@ new Vue({
                 }
             }).catch((error) => {
                 this.formErrors = error.response.data;
-                console.log(this.formErrors);
             });
         },
 
@@ -237,7 +240,7 @@ new Vue({
                     json: true
                 }
             axios(authOptions).then((response) => {
-                this.$set(this, 'listSpecial', response.data);
+                this.$set(this, 'listSpecial', response.data.data);
             }).catch((error) => {
             });
         },

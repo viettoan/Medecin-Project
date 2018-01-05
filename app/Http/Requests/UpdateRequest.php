@@ -31,7 +31,7 @@ class UpdateRequest extends FormRequest
                 'email' => 'required|max:255|email|unique:users,email,'.$request->id ,
                 'address' => 'required|string|max:255',
                 'age' => 'required|numeric',
-                'phone' => 'required|string|max:20|min:9|unique:users,phone,'.$request->id,
+                'phone' => 'required|string|max:20|min:9', 
                 'sex' => 'required|numeric',
             ];
             
@@ -42,7 +42,7 @@ class UpdateRequest extends FormRequest
             'email' => 'required|max:255|email|unique:users' ,
             'address' => 'required|string|max:255',
             'age' => 'required|numeric',
-            'phone' => 'required|string|max:20|min:9|unique:users',
+            'phone' => 'required|string|max:20|min:9',
             'sex' => 'required|numeric',
         ];
     }

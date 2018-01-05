@@ -64,7 +64,6 @@
                                     </span></td>
                                     <td>
                                         <a class="btn btn-success" v-on:click="editUser(list)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                        {{-- <a v-on:click="deleteUser(list.id)"><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a> --}}
                                     </td>
                                 </tr>
                             </tbody>
