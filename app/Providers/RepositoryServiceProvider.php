@@ -44,6 +44,10 @@ class RepositoryServiceProvider extends ServiceProvider
             \App\Contracts\Repositories\DoctorCalendarRepository::class,
             \App\Repositories\DoctorCalendarRepositoryEloquent::class,
         ],
+        'room' => [
+            \App\Contracts\Repositories\RoomRepository::class,
+            \App\Repositories\RoomRepositoryEloquent::class,
+        ],
     ];
 
     /**
