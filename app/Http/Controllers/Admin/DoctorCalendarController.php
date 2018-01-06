@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Contracts\Repositories\DoctorCalendarRepository;
 use App\Contracts\Repositories\UserRepository;
+use App\Contracts\Repositories\RoomRepository;
 use Response;
 use App\Helpers\Helper;
 
 class DoctorCalendarController extends Controller
 {
-    protected $calendar, $doctor;
+    protected $calendar, $doctor, $room;
 
     /**
      * Pham Viet Toan
@@ -21,10 +22,12 @@ class DoctorCalendarController extends Controller
      */
     public function __construct(
         DoctorCalendarRepository $calendar,
-        UserRepository $doctor
+        UserRepository $doctor,
+        RoomRepository $room
     ) {
         $this->calendar = $calendar;
         $this->doctor = $doctor;
+        $this->room = $room;
     }
 
     /**
@@ -48,7 +51,8 @@ class DoctorCalendarController extends Controller
      */
     public function list()
     {
-        $calendars = $this->calendar->getAll(['doctor']);
+        $calendars = $this->room->getRooms(['doctorCalender']);
+        dd($calendars);
 
         return Response::json($calendars, 200);
     }
