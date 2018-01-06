@@ -26,46 +26,62 @@
                                         </tr>   
                                     </thead>
                                     <tbody>
+                                    @if (isset($calendars))
                                     @foreach ($calendars as $item)
                                         <tr >
-                                            <th class="text-center">{{ $item->room }}</th>
+                                            <th class="text-center">{{ $item->name }}</th>
                                             <th class="text-center">
-                                                @if ($item->mon == config('custom.calendar.yes'))
-                                                {{ $item->doctor->name }}
-                                                @endif
+                                                @foreach ($item->doctorCalender as $doctor)
+                                                    @if ($doctor->mon == config('custom.calendar.yes'))
+                                                    {{ $doctor->doctor->name }}
+                                                    @endif
+                                                @endforeach
                                             </th>
                                            <th class="text-center">
-                                                @if ($item->tue == config('custom.calendar.yes'))
-                                                {{ $item->doctor->name }}
-                                                @endif
+                                                @foreach ($item->doctorCalender as $doctor)
+                                                    @if ($doctor->tue == config('custom.calendar.yes'))
+                                                    {{ $doctor->doctor->name }}
+                                                    @endif
+                                                @endforeach
                                             </th>
                                             <th class="text-center">
-                                                @if ($item->wed == config('custom.calendar.yes'))
-                                                {{ $item->doctor->name }}
-                                                @endif
+                                                @foreach ($item->doctorCalender as $doctor)
+                                                    @if ($doctor->wed == config('custom.calendar.yes'))
+                                                        {{ $doctor->doctor->name }}
+                                                    @endif
+                                                @endforeach
                                             </th>
                                             <th class="text-center">
-                                                @if ($item->thu == config('custom.calendar.yes'))
-                                                {{ $item->doctor->name }}
-                                                @endif
+                                                @foreach ($item->doctorCalender as $doctor)
+                                                    @if ($doctor->thu == config('custom.calendar.yes'))
+                                                    {{ $doctor->doctor->name }}
+                                                    @endif
+                                                @endforeach
                                             </th>
                                             <th class="text-center">
-                                                @if ($item->fri == config('custom.calendar.yes'))
-                                                {{ $item->doctor->name }}
-                                                @endif
+                                                @foreach ($item->doctorCalender as $doctor)
+                                                    @if ($doctor->fri == config('custom.calendar.yes'))
+                                                    {{ $doctor->doctor->name }}
+                                                    @endif
+                                                @endforeach
                                             </th>
                                             <th class="text-center">
-                                                @if ($item->sat == config('custom.calendar.yes'))
-                                                {{ $item->doctor->name }}
-                                                @endif
+                                                @foreach ($item->doctorCalender as $doctor)
+                                                    @if ($doctor->sat == config('custom.calendar.yes'))
+                                                    {{ $doctor->doctor->name }}
+                                                    @endif
+                                                @endforeach
                                             </th>
                                             <th class="text-center">
-                                                @if ($item->sun == config('custom.calendar.yes'))
-                                                {{ $item->doctor->name }}
-                                                @endif
+                                                @foreach ($item->doctorCalender as $doctor)
+                                                    @if ($doctor->sun == config('custom.calendar.yes'))
+                                                    {{ $doctor->doctor->name }}
+                                                    @endif
+                                                @endforeach
                                             </th>
                                         </tr>
-                                    @endforeach       
+                                    @endforeach
+                                    @endif    
                                     </tbody>
                                 </table>
                             </div>

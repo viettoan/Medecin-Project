@@ -68,7 +68,12 @@ class IndexController extends Controller
             }
         }
 
-        $videoIntro = asset(config('custom.media.video_intro.defaultPath') . $this->media->getVideoIntro([])->path);
+        $videoIntro = '';
+        
+        if (isset($this->media->getVideoIntro([])->path)) {
+            $videoIntro = asset(config('custom.media.video_intro.defaultPath') . $this->media->getVideoIntro([])->path);
+        }
+        
 
         $specicals = $this->specical->getAll(1);
 

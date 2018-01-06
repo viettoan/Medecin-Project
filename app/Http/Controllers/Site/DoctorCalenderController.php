@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Site;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Contracts\Repositories\DoctorCalendarRepository;
+use App\Contracts\Repositories\RoomRepository;
 
 class DoctorCalenderController extends Controller
 {
 
-    protected $calendar;
+    protected $calendar, $room;
 
     /**
      * Pham Viet Toan
@@ -18,9 +19,11 @@ class DoctorCalenderController extends Controller
      *
      */
     public function __construct(
-        DoctorCalendarRepository $calendar
+        DoctorCalendarRepository $calendar,
+        RoomRepository $room
     ) {
         $this->calendar = $calendar;
+        $this->room = $room;
     }
     /**
      * Display a listing of the resource.
@@ -29,7 +32,7 @@ class DoctorCalenderController extends Controller
      */
     public function index()
     {
-        $calendars = $this->calendar->getAll(['doctor']);
+        $calendars = $this->room->getRooms(['doctorCalender.doctor']);
 
         return view('sites.lichbacsy.index', compact('calendars'));
     }
