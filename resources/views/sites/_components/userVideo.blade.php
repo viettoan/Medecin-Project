@@ -3,7 +3,7 @@
 @include('sites._include.navbar')
 @include('sites._include.banner')
 <div class="page-content">
-  <input type="hidden" name="baseurl" value="{{ url('/') }}">
+  <input type="hidden" id="baseurl" value="{{ url('/') }}">
     <div class="container main">
         <div class="intro">
           <h2>VIDEO SIÊU ÂM</h2>
@@ -14,10 +14,10 @@
             <p>Thông tin bệnh nhân</p>
             <table class="table table-bordered table-hover">
               <tbody>
-                <tr>
+                {{-- <tr>
                   <td><strong>Mã bệnh nhân</strong></td>
                   <td>{{ $user->id }}</td>
-                </tr>
+                </tr> --}}
                 <tr>
                   <td><strong>Họ tên</strong></td>
                   <td>{{ $user->name }}</td>
@@ -115,7 +115,8 @@
 
       $('.downloadvideo').click(function() {
         let baseurl = $('#baseurl').val();
-        downloadDataUrlFromJavascript("sieuam", baseurl + '/' + $(this).data('link'));
+        baseurl = baseurl + '/' + $(this).data('link');
+        downloadDataUrlFromJavascript("sieuam", baseurl);
       })
       // $('#player source').attr('src', 'http://sanchoi.net/video/2017/10/20171005-044140-3.mov')
     })

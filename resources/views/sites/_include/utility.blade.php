@@ -14,12 +14,12 @@
                           <div class="wow fadeInUp" data-wow-delay="0.2s">
                               <div class="box text-center">
                                 @if(Auth::check())
-                                 <a class="dropdown-item" href="/profile/video-sieu-am"><i class="fa fa-user-md fa-3x circled bg-skin"></i></a>
+                                 <a class="dropdown-item" href="/profile/video-sieu-am"><i class="fa fa-file-video-o fa-3x circled red"></i></a>
                                     <h4 class="h-bold">Video siêu âm</h4>
                                     <p>
                                         Thuận lợi trong việc xe kết quả siêu âm, giảm thời gian....
                                     </p>
-                                @else 
+                                @else
                                     <a href="{{ route('login') }}"><i class="fa fa-user-md fa-3x circled bg-skin"></i></a>
                                     <h4 class="h-bold">Video siêu âm</h4>
                                     <p>
@@ -46,7 +46,7 @@
                               <a href="{{ route('contact.store') }}">
                                   <i class="fa fa-hospital-o fa-3x circled bg-skin"></i>
                               </a>
-                                  <h4 class="h-bold">Lien He</h4>
+                                  <h4 class="h-bold">Hỏi & đáp</h4>
                                   <p>
                                      Trả lời những câu hỏi nhanh nhất...
                                   </p>

@@ -31,14 +31,14 @@
                                     </li>
                                     <li class="list-group-item">
                                         <p>
-                                            <i class="fa fa-user-circle text-success" aria-hidden="true"></i> Giới tính: 
+                                            <i class="fa fa-user-circle text-success" aria-hidden="true"></i> Giới tính:
                                             @if ($patient->sex == 1)
-                                                    Nam
+                                                    Nữ
                                                 {{--  {{ trans('message.male') }}  --}}
                                             @else
-                                                    Nữ
+                                                    Nam
                                                 {{--  {{ trans('message.female') }}  --}}
-                                            @endif            
+                                            @endif
                                         </p>
                                     </li>
                                     <li class="list-group-item">
@@ -48,7 +48,7 @@
                                     </li>
                                     <li class="list-group-item">
                                         <p>
-                                            <a class="dropdown-item" href="/profile/video-sieu-am"<i class="fa fa-eye" aria-hidden="true"></i> <strong>Video siêu âm</strong></a>  
+                                            <a class="dropdown-item" href="/profile/video-sieu-am"<i class="fa fa-eye" aria-hidden="true"></i> <strong>Video siêu âm</strong></a>
                                             </a>
                                         </p>
                                     </li>
