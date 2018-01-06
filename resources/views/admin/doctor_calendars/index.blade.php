@@ -30,32 +30,31 @@
                     </tr>   
                 </thead>
                 <tbody>
-                    <tr v-for="item in calendars">
-                        <th>@{{ item.room }}</th>
+                    <tr v-for="item in rooms">
+                        <th>@{{ item.name }}</th>
                         <th>
-                            <span v-if="item.mon == 1">@{{ item.doctor.name }}</span>
+                            <span v-for= "doctor in item.doctor_calender" v-if="doctor.mon == 1">@{{ doctor.doctor.name }}<br></span>
                         </th>
                         <th>
-                            <span v-if="item.tue == 1">@{{ item.doctor.name }}</span>
+                            <span v-for= "doctor in item.doctor_calender" v-if="doctor.tue == 1">@{{ doctor.doctor.name }}<br></span>
                         </th>
                         <th>
-                            <span v-if="item.wed == 1">@{{ item.doctor.name }}</span>
+                            <span v-for= "doctor in item.doctor_calender" v-if="doctor.wed == 1">@{{ doctor.doctor.name }}<br></span>
                         </th>
                         <th>
-                            <span v-if="item.thu == 1">@{{ item.doctor.name }}</span>
+                            <span v-for= "doctor in item.doctor_calender" v-if="doctor.thu == 1">@{{ doctor.doctor.name }}<br></span>
                         </th>
                         <th>
-                            <span v-if="item.fri == 1">@{{ item.doctor.name }}</span>
+                            <span v-for= "doctor in item.doctor_calender" v-if="doctor.fri == 1">@{{ doctor.doctor.name }}<br></span>
                         </th>
                         <th>
-                            <span v-if="item.sat == 1">@{{ item.doctor.name }}</span>
+                            <span v-for= "doctor in item.doctor_calender" v-if="doctor.sat == 1">@{{ doctor.doctor.name }}<br></span>
                         </th>
                         <th>
-                            <span v-if="item.sun == 1">@{{ item.doctor.name }}</span>
+                            <span v-for= "doctor in item.doctor_calender" v-if="doctor.sun == 1">@{{ doctor.doctor.name }}<br></span>
                         </th>
                         @if (Auth::user()->permission == config('custom.admin'))
                         <th class="col-md-1">
-                            <a href="javascript:void(0)" v-on:click="editCalendar(item.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                             <a v-on:click="deleteCalendar(item.id)"><i class="fa fa-fw  fa-close get-color-icon-delete" ></i></a>
                         </th>
                         @endif
@@ -82,9 +81,9 @@
                                 </div>
                                 <div class="form-group">
                                     <label>{{ trans('message.room') }}</label>
-                                    <div>
-                                        <input type="text" name="room" v-model="calendar.room" placeholder="Room" class="form-control" required=""> 
-                                    </div>
+                                    <select class="form-control" name="room_id" v-model="calendar.room_id">
+                                        <option v-for="item in rooms" v-bind:value="item.id">@{{ item.name }}</option>
+                                    </select>
                                 </div>
                                 <div>
                                     <div class="checkbox">

@@ -109,7 +109,7 @@ new Vue({
                         'Your file has been deleted.',
                         'success'
                         )
-                        $("#User-" + id).remove();
+                        $("#rooms-" + id).remove();
                     });   
                 }, function (dismiss) {
                     if (dismiss === 'cancel') {
@@ -122,7 +122,7 @@ new Vue({
             }); 
         },
         createRoom: function(){
-            // if (!confirm('Do you want to create this user!')) return;
+            if (!confirm('Bạn có muốn tạo phòng ban này không!')) return;
             var input = this.newItem;
             axios.post('/admin/addroom', input).then((response) => {
                 console.log(response);

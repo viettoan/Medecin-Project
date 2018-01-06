@@ -11,7 +11,7 @@ class DoctorCalender extends Model
 	
     protected $fillable = [
     	'user_id',
-    	'room',
+    	'room_id',
     	'mon',
     	'tue',
     	'wed',

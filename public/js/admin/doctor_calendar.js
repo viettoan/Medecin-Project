@@ -7,7 +7,7 @@ new Vue({
 	    calendar: {
             'id': '',
             'user_id': '',
-            'room': '',
+            'room_id': '',
             'mon': 0,
             'tue': 0,
             'wed': 0,
@@ -18,6 +18,7 @@ new Vue({
         },
         calendars: [],
         doctors: [],
+        rooms: [],
 	},
     mounted: function(){
         this.listCalendars();
@@ -27,7 +28,7 @@ new Vue({
         resetData: function() {
             this.calendar = {
                 'user_id': '',
-                'room': '',
+                'room_id': '',
                 'mon': 0,
                 'tue': 0,
                 'wed': 0,
@@ -50,6 +51,8 @@ new Vue({
                 json: true
             }
             axios(authOptions).then(response => {
+                console.log(response.data);
+                this.rooms = response.data;
                 this.calendars = response.data;
             });   
         },
