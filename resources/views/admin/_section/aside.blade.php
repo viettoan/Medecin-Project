@@ -25,6 +25,7 @@
                 <li><a href="{{ route('post.index') }}"><i class="fa fa-book"></i> <span>Bài Viết</span></a></li>
                 <li><a href="{{ route('category.index') }}"><i class="fa fa-list-alt" aria-hidden="true"></i> <span>Thể Loại</span></a></li>
                 <li><a href="{{ route('specialist.index') }}"><i class="fa fa-mars-double" aria-hidden="true"></i>Chuyên Khoa</span></a></li>
+                <li><a href="{{ route('rooms') }}"><i class="fa fa-bed" aria-hidden="true"></i>Phòng Ban</span></a></li>
                 <li><a href="{{ route('contact.index') }}"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span>Liên Hệ</span></a></li>
                 <li class="header">Cài Đặt</li>
                 <li><a href="{{ route('videos.index') }}"><i class="fa fa-circle-o text-red"></i> <span>Video</span></a></li>

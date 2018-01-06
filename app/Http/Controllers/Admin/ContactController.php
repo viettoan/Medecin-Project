@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Contracts\Repositories\ContactRepository;
+use App\Contracts\Repositories\RoomRepository;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RoomNewRequests;
 use Response;
 
 class ContactController extends Controller
 {
     protected $contact;
+    protected $room;
 
     /**
      * Pham Viet Toan
@@ -17,9 +20,10 @@ class ContactController extends Controller
      *
      * Construct function
      */
-    public function __construct(ContactRepository $contact)
+    public function __construct(ContactRepository $contact, RoomRepository $room)
     {
         $this->contact = $contact;
+        $this->room = $room;
     }
 
     /**
@@ -136,5 +140,68 @@ class ContactController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showRoom(Request $request) {
+        if ($request->ajax()) {
+            $roomList = $this->room->getRoomsPagination();
+            $response = [
+                'pagination' => [
+                    'total'        => $roomList->total(),
+                    'per_page'     => $roomList->perPage(),
+                    'current_page' => $roomList->currentPage(),
+                    'last_page'    => $roomList->lastPage(),
+                    'from'         => $roomList->firstItem(),
+                    'to'           => $roomList->lastItem()
+                ],
+                'data' => $roomList
+            ];
+
+            return response()->json($response);
+        }
+        return view('admin.phongban.index');
+    }
+
+    public function addRoom(RoomNewRequests $request) {
+        $data['name'] =$request->name;
+        if ($this->room->create($data)) {
+            $response['status'] = 'Thành Công';
+            $response['message'] = trans('Thêm Phòng Ban Thành Công');
+            $response['action'] = trans('Thành Công');
+        } else {
+            $response['status'] = 'error';
+            $response['message'] = trans('admin.error_happen');
+            $response['action'] = trans('admin.error');
+        }
+
+        return response()->json($response);
+    }
+
+    public function deleteRoom($id) {
+        try {
+            $rooms = $this->room->find($id, []);
+
+            $rooms->delete();
+            $message = 'Xóa Phòng Ban Thành Công!';
+            return Response::json($message, 200);
+        } catch (Exception $e ) {
+            $message = trans('delete_failed');
+            return Response::json($message, 403);
+        }
+    }
+
+    public function upRoom(Request $request, $id) {
+        $room = $this->room->update($id, $request->all());
+        if ($room) {
+            $response['status'] = 'Sửa Phòng Ban Thành Công!';
+            $response['message'] = trans('message.edit_success');
+            $response['action'] = trans('message.success');
+        } else {
+            $response['status'] = 'error';
+            $response['message'] = trans('admin.error_happen');
+            $response['action'] = trans('admin.error');
+        }
+
+        return response()->json($response);
     }
 }

@@ -7,7 +7,6 @@ use App\Eloquent\Relations\RoomRelation;
 
 class Room extends Model
 {
-	use PostRelation;
 	
     protected $fillable = [
     	'id',

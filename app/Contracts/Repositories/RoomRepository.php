@@ -11,4 +11,6 @@ interface RoomRepository extends AbstractRepository
     public function find($id, $select = ['*'], $with = []);
 
    	public function getRooms($with = [], $select = ['*']);
+   	
+   	public function getRoomsPagination($with = [], $select = ['*']);
 }

@@ -29,4 +29,11 @@ class RoomRepositoryEloquent extends AbstractRepositoryEloquent implements RoomR
     {
         return $this->model()->select($select)->with($with)->get();
     }
+
+    public function getRoomsPagination($with = [], $select = ['*'])
+    {
+        return $this->model()->select($select)->with($with)->orderBy('id', 'DESC')->paginate(10);
+
+    }
+
 }
