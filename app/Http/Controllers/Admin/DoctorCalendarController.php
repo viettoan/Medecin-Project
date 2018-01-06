@@ -51,7 +51,7 @@ class DoctorCalendarController extends Controller
      */
     public function list()
     {
-        $calendars = $this->calendar->getAll(['doctor']);
+        $calendars = $this->room->getRooms(['doctorCalender.doctor']);
 
         return Response::json($calendars, 200);
     }
@@ -145,9 +145,17 @@ class DoctorCalendarController extends Controller
     public function destroy($id)
     {
         try {
-            $calendar = $this->calendar->find($id, []);
-
-            $calendar->delete();
+            $room = $this->room->find($id, []);
+            $calendars = $this->calendar->getByRoomId($room->id);
+            $room->delete();
+            if (sizeof($calendars) > 1) {
+                foreach ($calendars as $value) {
+                    $this->calendar->model()->delete($value->id);
+                }
+            } else {
+                $calendars->delete();
+            }
+            
             $message = trans('Delete_success');
 
             return Response::json($message, 200);

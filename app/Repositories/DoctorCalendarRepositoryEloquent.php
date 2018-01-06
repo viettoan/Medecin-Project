@@ -16,7 +16,12 @@ class DoctorCalendarRepositoryEloquent extends AbstractRepositoryEloquent implem
     {
         return $this->model()->select($select)->with($with)->find($id);
     }
-    
+
+    public function getByRoomId($id, $with = [], $select = ['*'])
+    {
+        return $this->model()->select($select)->with($with)->where('room_id', $id);
+    }
+
     public function create($data = [])
     {
         $calendar = $this->model()->fill($data);
