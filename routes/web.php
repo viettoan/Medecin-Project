@@ -21,6 +21,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::post('patient/search', 'PatientController@search')->name('patient.search');
     Route::get('listPatients', 'PatientController@list');
     Route::resource('contact', 'ContactController');
+    Route::get('showroom', 'ContactController@showRoom')->name('rooms');
+    Route::post('/addroom', 'ContactController@addRoom')->name('addrooms');
+    Route::delete('/deleteroom/{id}', 'ContactController@deleteRoom')->name('delrooms');
+    Route::put('/uproom/{id}', 'ContactController@upRoom')->name('updaterooms');
+
+
+
     Route::get('listContacts', 'ContactController@list');
     Route::get('change-status-contact/{id}', 'ContactController@changeStatus');
     Route::resource('category', 'CategoryController');
