@@ -31,12 +31,14 @@ class EditDoctorCalendersTable extends Migration
      */
     public function down()
     {
-        $table->renameColumn('mon', 'morning');
-        $table->renameColumn('tue', 'afternoon');
-        $table->renameColumn('wed', 'night');
-        $table->dropColumn('thu');
-        $table->dropColumn('fri');
-        $table->dropColumn('sat');
-        $table->dropColumn('sun');
+        Schema::table('doctor_calenders', function (Blueprint $table) {
+            $table->renameColumn('mon', 'morning');
+            $table->renameColumn('tue', 'afternoon');
+            $table->renameColumn('wed', 'night');
+            $table->dropColumn('thu');
+            $table->dropColumn('fri');
+            $table->dropColumn('sat');
+            $table->dropColumn('sun');
+        });
     }
 }
